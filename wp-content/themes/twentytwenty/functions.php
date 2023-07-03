@@ -192,14 +192,14 @@ function twentytwenty_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'twentytwenty-style', get_stylesheet_uri(), array(), $theme_version );
-	wp_style_add_data( 'twentytwenty-style', 'rtl', 'replace' );
+	// wp_enqueue_style( 'twentytwenty-style', get_stylesheet_uri(), array(), $theme_version );
+	// wp_style_add_data( 'twentytwenty-style', 'rtl', 'replace' );
 
-	// Add output of Customizer settings as inline style.
-	wp_add_inline_style( 'twentytwenty-style', twentytwenty_get_customizer_css( 'front-end' ) );
+	// // Add output of Customizer settings as inline style.
+	// wp_add_inline_style( 'twentytwenty-style', twentytwenty_get_customizer_css( 'front-end' ) );
 
-	// Add print CSS.
-	wp_enqueue_style( 'twentytwenty-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
+	// // Add print CSS.
+	// wp_enqueue_style( 'twentytwenty-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
 
 }
 
@@ -212,14 +212,14 @@ add_action( 'wp_enqueue_scripts', 'twentytwenty_register_styles' );
  */
 function twentytwenty_register_scripts() {
 
-	$theme_version = wp_get_theme()->get( 'Version' );
+	// $theme_version = wp_get_theme()->get( 'Version' );
 
-	if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	// if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	// 	wp_enqueue_script( 'comment-reply' );
+	// }
 
-	wp_enqueue_script( 'twentytwenty-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
-	wp_script_add_data( 'twentytwenty-js', 'async', true );
+	// wp_enqueue_script( 'twentytwenty-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
+	// wp_script_add_data( 'twentytwenty-js', 'async', true );
 
 }
 
@@ -786,3 +786,216 @@ function twentytwenty_get_elements_array() {
 	 */
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+
+// Call Ajax
+add_action( 'wp_ajax_getSdtjList_action', 'getSdtjList' );
+add_action( 'wp_ajax_nopriv_getSdtjList_action', 'getSdtjList' );
+
+function getSdtjList(){
+   global $wpdb;
+   $data = array();
+   $data['total'] = 0;
+   $data['sdTile'] = "";
+   $data['rows'] = array();
+   $data['status'] = "1";
+   echo json_encode($data); 
+   exit;
+}
+
+add_action( 'wp_ajax_getWdtjList_action', 'getWdtjList' );
+add_action( 'wp_ajax_nopriv_getWdtjList_action', 'getWdtjList' );
+
+function getWdtjList(){
+    global $wpdb;
+    $data = array();
+    $matchList = array();
+
+    $match[0] = [
+	   "matchId" => "502401056", 
+	   "rowNo" => "周日 016", 
+	   "week" => null, 
+	   "typeName" => "美金杯", 
+	   "matchDate" => null, 
+	   "matchTime" => "09:30", 
+	   "matchResult" => "胜", 
+	   "recPercent" => "66%", 
+	   "betRate" => "0.00", 
+	   "homeTeam" => "墨西哥", 
+	   "visitTeam" => "卡塔尔", 
+	   "homeTeamNo" => null, 
+	   "visitTeamNo" => null, 
+	   "homeLogo" => null, 
+	   "visitLogo" => null, 
+	   "result1" => "0:1 (0:1)", 
+	   "result2" => null, 
+	   "isOk" => "-1", 
+	   "matchLong" => "完", 
+	   "isCode" => null, 
+	   "matchDesc" => null, 
+	   "fixedNam" => null 
+	];
+	$match[1] = $match[0];
+	$match[2] = $match[0];
+	$match[3] = $match[0];
+	$match[4] = $match[0];
+	$match[5] = $match[0];
+
+	$matchList[0]['matchList'] = $match;
+
+    $data['total'] = 1;
+    $data['sdTile'] = "";
+    $data['rows'] = $matchList;
+    $data['status'] = "1";
+    echo json_encode($data); 
+    exit;
+}
+
+add_action( 'wp_ajax_getBgcList_action', 'getBgcList' );
+add_action( 'wp_ajax_nopriv_getBgcList_action', 'getBgcList' );
+
+function getBgcList(){
+    global $wpdb;
+    $data = array();
+    $matchList = array();
+
+    $match[0] = [
+	   "matchId" => "502401056", 
+	   "rowNo" => "周日 016", 
+	   "week" => null, 
+	   "typeName" => "美金杯", 
+	   "matchDate" => null, 
+	   "matchTime" => "09:30", 
+	   "matchResult" => "胜", 
+	   "recPercent" => "66%", 
+	   "betRate" => "0.00", 
+	   "homeTeam" => "墨西哥", 
+	   "visitTeam" => "卡塔尔", 
+	   "homeTeamNo" => null, 
+	   "visitTeamNo" => null, 
+	   "homeLogo" => null, 
+	   "visitLogo" => null, 
+	   "result1" => "0:1 (0:1)", 
+	   "result2" => null, 
+	   "isOk" => "-1", 
+	   "matchLong" => "完", 
+	   "isCode" => null, 
+	   "matchDesc" => null, 
+	   "fixedNam" => null 
+	];
+
+	$matchList[0]['matchList'] = $match;
+
+    $data['total'] = 1;
+    $data['sdTile'] = "";
+    $data['rows'] = $matchList;
+    $data['status'] = "1";
+    echo json_encode($data); 
+    exit;
+}
+
+add_action( 'wp_ajax_getQbList_action', 'getQbList' );
+add_action( 'wp_ajax_nopriv_getQbList_action', 'getQbList' );
+
+function getQbList(){
+    global $wpdb;
+    $data = array();
+    $matchList = array();
+
+    $matchList[0] = [
+	   "matchId" => "502401056", 
+	   "rowNo" => "周日 016", 
+	   "week" => null, 
+	   "typeName" => "美金杯", 
+	   "matchDate" => null, 
+	   "matchTime" => "09:30", 
+	   "matchResult" => "胜", 
+	   "recPercent" => "66%", 
+	   "betRate" => "0.00", 
+	   "homeTeam" => "墨西哥", 
+	   "visitTeam" => "卡塔尔", 
+	   "homeTeamNo" => null, 
+	   "visitTeamNo" => null, 
+	   "homeLogo" => null, 
+	   "visitLogo" => null, 
+	   "result1" => "0:1 (0:1)", 
+	   "result2" => null, 
+	   "isOk" => "-1", 
+	   "matchLong" => "未", 
+	   "isCode" => null, 
+	   "matchDesc" => null, 
+	   "fixedNam" => null 
+	];
+	$matchList[1] = $matchList[0];
+	$matchList[2] = $matchList[0];
+	$matchList[3] = $matchList[0];
+	$matchList[4] = $matchList[0];
+	$matchList[5] = $matchList[0];
+
+    $data['total'] = 1;
+    $data['sdTile'] = "";
+    $data['rows'] = $matchList;
+    $data['status'] = "1";
+    echo json_encode($data); 
+    exit;
+}
+
+add_action( 'wp_ajax_getBifenList_action', 'getBifenList' );
+add_action( 'wp_ajax_nopriv_getBifenList_action', 'getBifenList' );
+
+function getBifenList(){
+    global $wpdb;
+    $data = array();
+    $matchList = array();
+    $data['total'] = 1;
+    $data['sdTile'] = "";
+    $data['rows'] = $matchList;
+    $data['status'] = "1";
+    echo json_encode($data); 
+    exit;
+}
+
+add_action( 'wp_ajax_getQcList_action', 'getQcList' );
+add_action( 'wp_ajax_nopriv_getQcList_action', 'getQcList' );
+
+function getQcList(){
+    global $wpdb;
+    $data = array();
+    $matchList = array();
+    $data['total'] = 1;
+    $data['sdTile'] = "";
+    $data['rows'] = $matchList;
+    $data['status'] = "1";
+    echo json_encode($data); 
+    exit;
+}
+
+add_action( 'wp_ajax_getSaikuangList_action', 'getSaikuangList' );
+add_action( 'wp_ajax_nopriv_getSaikuangList_action', 'getSaikuangList' );
+
+function getSaikuangList(){
+    global $wpdb;
+    $data = array();
+    $matchList = array();
+    $data['total'] = 1;
+    $data['sdTile'] = "";
+    $data['rows'] = $matchList;
+    $data['status'] = "1";
+    echo json_encode($data); 
+    exit;
+}
+
+add_action( 'wp_ajax_getWdList_action', 'getWdList' );
+add_action( 'wp_ajax_nopriv_getWdList_action', 'getWdList' );
+
+function getWdList(){
+    global $wpdb;
+    $data = array();
+    $matchList = array();
+    $data['total'] = 1;
+    $data['sdTile'] = "";
+    $data['rows'] = $matchList;
+    $data['status'] = "1";
+    echo json_encode($data); 
+    exit;
+}
+
