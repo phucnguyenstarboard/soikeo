@@ -62,12 +62,12 @@
                     <p> 
                         <span id="lbExit"></span>
                         <span id="lbLogin">
-                        <a data-toggle="modal" href="#">登录 </a>
-                        &nbsp;&nbsp;|&nbsp;&nbsp;<a data-toggle="modal" href="#">注册</a>
-                        &nbsp;&nbsp;|&nbsp;&nbsp;<a data-toggle="modal" href="#">VIP注册</a>
+                        <a data-toggle="modal" href="#">Đăng nhập</a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;<a data-toggle="modal" href="#">Đăng ký</a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;<a data-toggle="modal" href="#">Đăng ký VIP</a>
                         </span>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a data-toggle="modal" href="#">收藏</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a data-toggle="modal" href="#">设为主页</a>			    
+                        <a data-toggle="modal" href="#">Yêu thích</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a data-toggle="modal" href="#">Đặt làm trang chủ</a>			    
                     </p>
                 </div>
                 <div class="clearfix"></div>

@@ -59,7 +59,7 @@ get_header();
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;">
                         <div class="panel-heading" >
-                            <span>较稳推荐</span>
+                            <span>Kèo tốt nhất</span>
                         </div>
                         <div class="panel-body" style="background-color:#292d34;padding:0px;font-size:8pt;">
                             <div class="subList" id="wdtjList"></div>
@@ -67,7 +67,7 @@ get_header();
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;" >
                         <div class="panel-heading" >
-                            <span id="sdTile">实单推荐</span>
+                            <span id="sdTile">Khuyến nghị tốt nhất</span>
                         </div>
                         <div class="panel-body" style="background-color:#292d34;padding:0px;min-height:250px;">
                             <div class="subList" id="sdtjList"></div>
@@ -80,19 +80,19 @@ get_header();
                             <div class="row">
                                 <div class="col-md-6 column" style="padding-left:20px;text-align:center;">
                                     <img src="<?php bloginfo('template_directory');?>/images/wx_down_logo.png"/>
-                                    <br/><br/><span>扫描二维码</br>关注足彩加公众微信号</span>
+                                    <br/><br/><span>Quét mã QR</br>Theo dõi chúng tôi và thêm các tín hiệu vi mô công cộng</span>
                                 </div>
                                 <div class="col-md-6 column" style="padding-top:20px;text-align:center;">
                                     <div class="row" style="padding:5px;"><a onclick="jumpdown()" target="_blank" style="cursor: pointer;" ><img src="<?php bloginfo('template_directory');?>/images/phone_down.png"/></a></div>
                                     <div class="row" style="padding:5px;"><a href="http://woxiangwan.com/app/zucaijia.apk" target="_blank"><img src="<?php bloginfo('template_directory');?>/images/android_down.png"/></a></div>
-                                    <br/><br/><span>更多精彩推荐</br>请下载足彩加App</span>
+                                    <br/><br/><span>Trải nghiệm thú vị hơn</br>Vui lòng tải xuống ứng dụng Football Plus</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#292d34;padding:20px;">
-                            <div style="text-align: center;">下载滚球预测神器“球来了”</div>
+                            <div style="text-align: center;">Tải xuống hiện vật dự đoán bóng lăn "Bóng đang đến"</div>
                             <div style="margin-top: 20px">
                                 <div class="centers">
                                     <img  src="<?php bloginfo('template_directory');?>/images/android_down.png" style="cursor: pointer;margin-left: auto;margin-right: auto" onclick="godown()">
@@ -105,7 +105,7 @@ get_header();
                     </div>
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#292d34;padding:20px;">
-                            <div style="text-align: center;">下载亚盘预测神器“快乐足球”</div>
+                            <div style="text-align: center;">Tải xuống tạo tác dự đoán kèo châu Á "Bóng đá vui vẻ"</div>
                             <div style="margin-top: 20px">
                                 <div class="centers">
                                     <img  src="<?php bloginfo('template_directory');?>/images/android_down.png" style="cursor: pointer;margin-left: auto;margin-right: auto" onclick="godownKlzq()">
@@ -123,85 +123,83 @@ get_header();
                                 <ul id="myTab" class="nav nav-tabs" style="background-color:#292d34;padding:0px;">
                                     <li  class="active" onclick="getQbList();">
                                         <a href="#allTab" data-toggle="tab">
-                                            <p>全部</p>
+                                            <p>Tất cả</p>
                                         </a>
                                     </li>
                                     <li  onclick="getWendanList();">
                                         <a href="#wendanTab" data-toggle="tab">
-                                            <p>较稳</p>
+                                            <p>Kèo ổn định</p>
                                         </a>
                                     </li>
                                     <li  onclick="getbifenList();">
                                         <a href="#bifenTab" data-toggle="tab">
-                                            <p>比分</p>
+                                            <p>Tỷ số</p>
                                         </a>
                                     </li>
                                     <li onclick="getbgcList();" >
                                         <a href="#banquanchangTab" data-toggle="tab">
-                                            <p>半全场</p>
+                                            <p>Hiệp 1</p>
                                         </a>
                                     </li>
                                     <li  onclick="getSaikuangList();">
                                         <a href="#saikuangTab" data-toggle="tab">
-                                            <p>赛况</p>
+                                            <p>Trực tiếp</p>
                                         </a>
                                     </li>
                                     <li  onclick="getShidanList();">
                                         <a href="#shidanTab" data-toggle="tab">
-                                            <p>实单</p>
+                                            <p>Thời gian</p>
                                         </a>
                                     </li>
-                                    <!--  <li  onclick="getGaopeiList();">
-                                        <a href="#gaopeiTab" data-toggle="tab"><p>高赔</p></a>
-                                        </li>-->
+                                  
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
                                     <div class="tab-pane fade in active" id="allTab" >
                                         <div class="listTitle">
-                                            <div class="col-xs-2"><span>场次</span></div>
-                                            <div class="col-xs-1"><span>时间</span></div>
-                                            <div class="col-xs-3"><span>对阵球队</span></div>
-                                            <div class="col-xs-2"><span>预测</span></div>
-                                            <div class="col-xs-1"><span>赛果</span></div>
-                                            <div class="col-xs-2"><span>概率</span></div>
-                                            <div class="col-xs-1"><span>分析</span></div>
+                                            <div class="col-xs-2"><span>Thứ tự</span></div>
+                                            <div class="col-xs-1"><span>Thời gian</span></div>
+                                            <div class="col-xs-3"><span>Đội vs Đội</span></div>
+                                            <div class="col-xs-2"><span>Dự đoán</span></div>
+                                            <div class="col-xs-1"><span>Kết quả</span></div>
+                                            <div class="col-xs-2"><span>Xác xuất</span></div>
+                                            <div class="col-xs-1"><span>Phân tích</span></div>
                                         </div>
                                         <div class="tabList" id="allList"></div>
                                     </div>
                                     <div class="tab-pane fade" id="banquanchangTab">
                                         <div class="listTitle">
-                                            <div class="col-xs-2"><span>场次</span></div>
-                                            <div class="col-xs-3"><span>对阵球队</span></div>
-                                            <div class="col-xs-2"><span>预测</span></div>
-                                            <div class="col-xs-1"><span>赛果</span></div>
-                                            <div class="col-xs-2"><span>概率</span></div>
+                                            <div class="col-xs-2"><span>Thứ tự</span></div>
+                                            <div class="col-xs-3"><span>Đội vs Đội</span></div>
+                                            <div class="col-xs-2"><span>Dự đoán</span></div>
+                                            <div class="col-xs-1"><span>Kết quả</span></div>
+                                            <div class="col-xs-2"><span>Xác xuất</span></div>
                                             <div class="col-xs-1"><span>SP</span></div>
-                                            <div class="col-xs-1"><span>分析</span></div>
+                                            <div class="col-xs-1"><span>Phân tích</span></div>
                                         </div>
                                         <div class="tabList" id="bqcList"></div>
                                     </div>
                                     <div class="tab-pane fade" id="bifenTab" >
                                         <div class="listTitle">
-                                            <div class="col-xs-2"><span>场次</span></div>
-                                            <div class="col-xs-3"><span>对阵球队</span></div>
-                                            <div class="col-xs-2"><span>预测</span></div>
-                                            <div class="col-xs-1"><span>赛果</span></div>
-                                            <div class="col-xs-2"><span>概率</span></div>
+                                            <div class="col-xs-2"><span>Thứ tự</span></div>
+                                            <div class="col-xs-3"><span>Đội vs Đội</span></div>
+                                            <div class="col-xs-2"><span>Dự đoán</span></div>
+                                            <div class="col-xs-1"><span>Kết quả</span></div>
+                                            <div class="col-xs-2"><span>Xác xuất</span></div>
                                             <div class="col-xs-1"><span>SP</span></div>
-                                            <div class="col-xs-1"><span>分析</span></div>
+                                            <div class="col-xs-1"><span>Phân tích</span></div>
                                         </div>
                                         <div class="tabList" id="bifenList"></div>
                                     </div>
                                     <div class="tab-pane fade" id="saikuangTab" >
                                         <div class="listTitle">
-                                            <div class="col-xs-1"><span>场次</span></div>
-                                            <div class="col-xs-2"><span>对阵球队</span></div>
-                                            <div class="col-xs-2"><span>比赛时间</span></div>
-                                            <div class="col-xs-2"><span>及时比分</span></div>
-                                            <div class="col-xs-1"><span>预测</span></div>
-                                            <div class="col-xs-1"><span>概率</span></div>
+                                            <div class="col-xs-1"><span>Thứ tự</span></div>
+                                            <div class="col-xs-2"><span>Đội vs Đội</span></div>
+                                            <div class="col-xs-2"><span>Thời gian thi đấu</span></div>
+                                            <div class="col-xs-2"><span>Tỷ số trực tiếp</span></div>
+                                            <div class="col-xs-1"><span>Dự đoán</span></div>
+                                            <div class="col-xs-1"><span>Xác xuất</span></div>
                                             <div class="col-xs-2"><span>SP</span></div>
-                                            <div class="col-xs-1"><span>分析</span></div>
+                                            <div class="col-xs-1"><span>Phần tích</span></div>
                                         </div>
                                         <div class="tabList" id="saikuangList"></div>
                                     </div>
@@ -210,24 +208,24 @@ get_header();
                                     </div>
                                     <div class="tab-pane fade" id="wendanTab">
                                         <div class="listTitle">
-                                            <div class="col-xs-2"><span>场次</span></div>
-                                            <div class="col-xs-3"><span>对阵球队</span></div>
-                                            <div class="col-xs-2"><span>预测</span></div>
-                                            <div class="col-xs-1"><span>赛果</span></div>
-                                            <div class="col-xs-2"><span>概率</span></div>
+                                            <div class="col-xs-2"><span>Thứ tự</span></div>
+                                            <div class="col-xs-3"><span>Đội vs Đội</span></div>
+                                            <div class="col-xs-2"><span>Dự đoán</span></div>
+                                            <div class="col-xs-1"><span>Kết quả</span></div>
+                                            <div class="col-xs-2"><span>Xác xuất</span></div>
                                             <div class="col-xs-1"><span>SP</span></div>
-                                            <div class="col-xs-1"><span>分析</span></div>
+                                            <div class="col-xs-1"><span>Phân tích</span></div>
                                         </div>
                                         <div class="tabList" id="wendanList"></div>
                                     </div>
                                     <div class="tab-pane fade" id="gaopeiTab">
                                         <div class="listTitle">
-                                            <div class="col-xs-2"><span>场次</span></div>
-                                            <div class="col-xs-3"><span>对阵球队</span></div>
-                                            <div class="col-xs-2"><span>预测</span></div>
-                                            <div class="col-xs-2"><span>概率</span></div>
+                                            <div class="col-xs-2"><span>Thứ tự</span></div>
+                                            <div class="col-xs-3"><span>>Đội vs Đội</span></div>
+                                            <div class="col-xs-2"><span>Dự đoán</span></div>
+                                            <div class="col-xs-2"><span>Xác xuất</span></div>
                                             <div class="col-xs-2"><span>SP</span></div>
-                                            <div class="col-xs-1"><span>分析</span></div>
+                                            <div class="col-xs-1"><span>Phân tích</span></div>
                                         </div>
                                         <div class="tabList" id="gaopeiList"></div>
                                     </div>
@@ -376,7 +374,7 @@ get_header();
             
                  						oneItem +='</div>';
                  						oneItem +='<div class="goto pull-right" >';
-                 						oneItem +='<a class="item" href="/detail?id='+rs.rows[m].matchList[i].matchId +'"><span>详细</span></a>';
+                 						oneItem +='<a class="item" href="/detail?id='+rs.rows[m].matchList[i].matchId +'"><span>Chi tiết</span></a>';
                  						oneItem +='</div>';
                  						oneItem +='</div>';
                  						matchList = matchList + oneItem;
@@ -389,7 +387,7 @@ get_header();
                        			}
                        			allOrder = allOrder + oneOrder;
                        		}else{
-                       			allOrder='<div class="errorPanel" style="height:250px;padding-top:80px;"><div style="height:80px;line-height:30px;">Đơn hàng thực sự hôm nay chưa được phát,<br/> các bạn kiên nhẫn chờ đợi,<br/>Cập nhật vào khoảng 20:00 hàng đêm, <br/>cảm ơn các bạn đã quan tâm...</div></div>';
+                       			allOrder='<div class="errorPanel" style="height:250px;padding-top:80px;"><div style="height:80px;line-height:30px;">Tỷ lệ thực tế hôm nay chưa được phát,<br/> các bạn kiên nhẫn chờ đợi,<br/>Cập nhật vào khoảng 20:00 hàng đêm, <br/>cảm ơn các bạn đã quan tâm...</div></div>';
                        		}
                        		$("#sdtjList").html(allOrder);
                        		
@@ -454,7 +452,7 @@ get_header();
             
                  						oneItem +='</div>';
                  						oneItem +='<div class="goto pull-right" >';
-                 						oneItem +='<a class="item" href="/detail?id='+rs.rows[m].matchList[i].matchId +'"><span>详细</span></a>&nbsp;&nbsp;';
+                 						oneItem +='<a class="item" href="/detail?id='+rs.rows[m].matchList[i].matchId +'"><span>Chi tiết</span></a>&nbsp;&nbsp;';
                  						oneItem +='</div>';
                  						oneItem +='</div>';
             		     			allList = allList + oneItem;
@@ -511,7 +509,7 @@ get_header();
                      						
                      						oneItem +='<div class="col-xs-2"><span>'+rs.rows[m].matchList[i].recPercent +'</span></div>';
                      						oneItem +='<div class="col-xs-1"><span>'+rs.rows[m].matchList[i].betRate +'</span></div>';
-                     						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[m].matchList[i].matchId +'"><span>详细</span></a></div>';
+                     						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[m].matchList[i].matchId +'"><span>Chi tiết</span></a></div>';
                      						oneItem +='</div>';
             			     			allList = allList + oneItem;
                          			}
@@ -566,7 +564,7 @@ get_header();
                     						}
                     						oneItem +='<div class="col-xs-2"><span>'+rs.rows[i].recPercent +'</span></div>';
                     						oneItem +='<div class="col-xs-1"><span>'+rs.rows[i].betRate +'</span></div>';
-                    						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[i].matchId +'"><span>详细</span></a></div>';
+                    						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[i].matchId +'"><span>Chi tiết</span></a></div>';
                     						oneItem +='</div>';
             		     			allList = allList + oneItem;
                         			}
@@ -636,7 +634,7 @@ get_header();
                      						oneItem +='<div class="col-xs-1"><span>'+rs.rows[i].result1 +'</span></div>';
                      						oneItem +='<div class="col-xs-2"><span>'+rs.rows[i].recPercent +'%</span></div>';
                      					
-                     						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[i].matchId +'"><span>详细</span></a></div>';
+                     						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[i].matchId +'"><span>Chi tiết</span></a></div>';
                      						oneItem +='</div>';
             			     		
                         					
@@ -653,7 +651,7 @@ get_header();
                      						}
                      						oneItem +='<div class="col-xs-1"><div style="margin-top:12px;line-height:10px;color:#69AF00;">'+rs.rows[i].matchLong +'</div><div style="margin-top:5px;line-height:10px;">'+rs.rows[i].result1 +'</div></div>';
                      						oneItem +='<div class="col-xs-2"><span>'+rs.rows[i].recPercent +'%</span></div>';
-                     						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[i].matchId +'"><span>详细</span></a></div>';
+                     						oneItem +='<div class="col-xs-1"><a class="item" href="/detail?id='+rs.rows[i].matchId +'"><span>Chi tiết</span></a></div>';
                      						oneItem +='</div>';
                         				}
                         				
@@ -792,7 +790,7 @@ get_header();
                             action: "getSdtjList_action",
                         },                        
                        error : function(request) {
-                       	var errMsg ='<div class="no-data-msg"><p>数据加载失败...</p></div>';
+                       	var errMsg ='<div class="no-data-msg"><p>Tải dữ liệu không thành công...</p></div>';
                        	$("#shidanList").html(errMsg);
                           },
                           beforeSend:function() {  
@@ -876,7 +874,7 @@ get_header();
                        			}
                        			allOrder = allOrder + oneOrder;
                        		}else{
-                       			allOrder='<div class="errorPanel" style="height:980px;line-height:30px;padding-top:150px;"><span>今天实单还未给出，请您耐心等待,<br/>每天晚上22：00左右更新，感谢您的关注...<span></div>';
+                       			allOrder='<div class="errorPanel" style="height:980px;line-height:30px;padding-top:150px;"><span>Tỷ lệ thực tế hôm nay chưa được phát, các bạn kiên nhẫn chờ đợi,<br/>Cập nhật vào khoảng 22h hàng đêm, cảm ơn các bạn đã quan tâm...<span></div>';
                        		}
                        		$("#shidanList").html(allOrder);
                        	}

@@ -809,36 +809,55 @@ function getWdtjList(){
     global $wpdb;
     $data = array();
     $matchList = array();
+    $match = array();
 
-    $match[0] = [
-	   "matchId" => "502401056", 
-	   "rowNo" => "周日 016", 
-	   "week" => null, 
-	   "typeName" => "美金杯", 
-	   "matchDate" => null, 
-	   "matchTime" => "09:30", 
-	   "matchResult" => "胜", 
-	   "recPercent" => "66%", 
-	   "betRate" => "0.00", 
-	   "homeTeam" => "墨西哥", 
-	   "visitTeam" => "卡塔尔", 
-	   "homeTeamNo" => null, 
-	   "visitTeamNo" => null, 
-	   "homeLogo" => null, 
-	   "visitLogo" => null, 
-	   "result1" => "0:1 (0:1)", 
-	   "result2" => null, 
-	   "isOk" => "-1", 
-	   "matchLong" => "完", 
-	   "isCode" => null, 
-	   "matchDesc" => null, 
-	   "fixedNam" => null 
-	];
-	$match[1] = $match[0];
-	$match[2] = $match[0];
-	$match[3] = $match[0];
-	$match[4] = $match[0];
-	$match[5] = $match[0];
+    $post_new = new WP_Query(array(
+        'post_type' =>  'match',
+        'posts_per_page'    =>  '5'
+    ));
+    
+    $date = array();
+    $date[0] = 'Hôm nay';
+    $date[1] = 'Thứ Hai';
+    $date[2] = 'Thứ Ba';
+    $date[3] = 'Thứ Tư';
+    $date[4] = 'Thứ Năm';
+    $date[5] = 'Thứ Sáu';
+    $date[6] = 'Thứ Bảy';
+    $date[7] = 'Chủ Nhật';
+
+    if($post_new->have_posts()):
+        while($post_new->have_posts()):$post_new->the_post();
+        	$post_id = get_the_ID();
+        	$match_time = get_post_meta( $post_id, "match_time", true );
+        	$day = date('N' , strtotime($match_time));
+
+			$match[] = [
+			   "matchId" => $post_id, 
+			   "rowNo" =>  $date[$day] ." 001", 
+			   "week" => null, 
+			   "typeName" => "Giải quốc tế", 
+			   "matchDate" => date('d/m/Y' , strtotime($match_time)),
+			   "matchTime" => date('H:i', strtotime($match_time)),
+			   "matchResult" => "胜", 
+			   "recPercent" => get_post_meta( $post_id, "rate_win", true ), 
+			   "betRate" => "0.00", 
+			   "homeTeam" => get_post_meta( $post_id, "home_team", true ),
+			   "visitTeam" => get_post_meta( $post_id, "away_team", true ),
+			   "homeTeamNo" => null, 
+			   "visitTeamNo" => null, 
+			   "homeLogo" => null, 
+			   "visitLogo" => null, 
+			   "result1" => get_field("fulltime_score", $post_id ) . " (". get_field("half_score", $post_id ) .")", 
+			   "result2" => null, 
+			   "isOk" => "-1", 
+			   "matchLong" => "完", 
+			   "isCode" => null, 
+			   "matchDesc" => null, 
+			   "fixedNam" => null 
+			];
+        endwhile;
+    endif; wp_reset_query();
 
 	$matchList[0]['matchList'] = $match;
 
@@ -901,35 +920,52 @@ function getQbList(){
     $data = array();
     $matchList = array();
 
-    $matchList[0] = [
-	   "matchId" => "502401056", 
-	   "rowNo" => "周日 016", 
-	   "week" => null, 
-	   "typeName" => "美金杯", 
-	   "matchDate" => null, 
-	   "matchTime" => "09:30", 
-	   "matchResult" => "胜", 
-	   "recPercent" => "66%", 
-	   "betRate" => "0.00", 
-	   "homeTeam" => "墨西哥", 
-	   "visitTeam" => "卡塔尔", 
-	   "homeTeamNo" => null, 
-	   "visitTeamNo" => null, 
-	   "homeLogo" => null, 
-	   "visitLogo" => null, 
-	   "result1" => "0:1 (0:1)", 
-	   "result2" => null, 
-	   "isOk" => "-1", 
-	   "matchLong" => "未", 
-	   "isCode" => null, 
-	   "matchDesc" => null, 
-	   "fixedNam" => null 
-	];
-	$matchList[1] = $matchList[0];
-	$matchList[2] = $matchList[0];
-	$matchList[3] = $matchList[0];
-	$matchList[4] = $matchList[0];
-	$matchList[5] = $matchList[0];
+    $post_new = new WP_Query(array(
+        'post_type' =>  'match',
+        'posts_per_page'    =>  '1000'
+    ));
+    $date = array();
+    $date[0] = 'Hôm nay';
+    $date[1] = 'Thứ Hai';
+    $date[2] = 'Thứ Ba';
+    $date[3] = 'Thứ Tư';
+    $date[4] = 'Thứ Năm';
+    $date[5] = 'Thứ Sáu';
+    $date[6] = 'Thứ Bảy';
+    $date[7] = 'Chủ Nhật';
+
+    if($post_new->have_posts()):
+        while($post_new->have_posts()):$post_new->the_post();
+        	$post_id = get_the_ID();
+        	$match_time = get_post_meta( $post_id, "match_time", true );
+        	$day = date('N' , strtotime($match_time));
+
+			$matchList[] = [
+			   "matchId" => $post_id, 
+			   "rowNo" =>  $date[$day] ." 001", 
+			   "week" => null, 
+			   "typeName" => "Giải quốc tế", 
+			   "matchDate" => date('d/m/Y' , strtotime($match_time)),
+			   "matchTime" => date('H:i', strtotime($match_time)),
+			   "matchResult" => "胜", 
+			   "recPercent" => get_post_meta( $post_id, "rate_win", true ), 
+			   "betRate" => "0.00", 
+			   "homeTeam" => get_post_meta( $post_id, "home_team", true ),
+			   "visitTeam" => get_post_meta( $post_id, "away_team", true ),
+			   "homeTeamNo" => null, 
+			   "visitTeamNo" => null, 
+			   "homeLogo" => null, 
+			   "visitLogo" => null, 
+			   "result1" => get_field("fulltime_score", $post_id ) . " (". get_field("half_score", $post_id ) .")", 
+			   "result2" => null, 
+			   "isOk" => "-1", 
+			   "matchLong" => "完", 
+			   "isCode" => null, 
+			   "matchDesc" => null, 
+			   "fixedNam" => null 
+			];
+        endwhile;
+    endif; wp_reset_query();
 
     $data['total'] = 1;
     $data['sdTile'] = "";

@@ -210,7 +210,7 @@ tr.select th,tr.select td
 }
 
 .subList .subItem .detail{
-	width:90%;
+	width:89%;
 }
 
 .subList .subItem .detail div{
@@ -218,7 +218,7 @@ tr.select th,tr.select td
 }
 
 .subList .subItem .goto{
-	width:10%;
+	width:11%;
 }
 
 .subList .subItem .item{

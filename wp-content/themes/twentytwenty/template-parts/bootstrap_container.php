@@ -20,10 +20,10 @@
                         </div>
                         <div id="defaultmenu" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="/">首页</a></li>
+                                <li><a href="/">Trang chủ</a></li>
                                 <!-- Mega Menu -->
                                 <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" >竞彩</a>
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" >Vé số</a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="/zcj/jincai/index?flag=qb">全部</a></li>
                                         <li><a href="/zcj/jincai/index?flag=wd">较稳</a></li>
@@ -35,34 +35,34 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" >北单</a>
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" >Xem kèo</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/zcj/beidan/index?flag=qb">全部</a></li>
-                                        <li><a href="/zcj/beidan/index?flag=wd">较稳</a></li>
-                                        <li><a href="/zcj/beidan/index?flag=bf">比分</a></li>
-                                        <li><a href="/zcj/beidan/index?flag=bqc">半全场</a></li>
+                                        <li><a href="/zcj/beidan/index?flag=qb">Tất cả</a></li>
+                                        <li><a href="/zcj/beidan/index?flag=wd">Kèo ổn định</a></li>
+                                        <li><a href="/zcj/beidan/index?flag=bf">Tỷ số</a></li>
+                                        <li><a href="/zcj/beidan/index?flag=bqc">Hiệp 1</a></li>
                                         <li style="border:solid 1px #292b2e;"></li>
-                                        <li><a href="/zcj/beidan/index?flag=sk">赛况</a></li>
-                                        <li><a href="/zcj/beidan/index?flag=sd">实单</a></li>
+                                        <li><a href="/zcj/beidan/index?flag=sk">Trực tiếp</a></li>
+                                        <li><a href="/zcj/beidan/index?flag=sd">Thời gian</a></li>
                                         <li style="border:solid 1px #292b2e;"></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" >胜负彩</a>
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" >Xổ số</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/zcj/shengfucai/index?flag=bq">本期</a></li>
-                                        <li><a href="/zcj/shengfucai/index?flag=sq">上期</a></li>
-                                        <li><a href="/zcj/shengfucai/index?flag=fl">防冷</a></li>
-                                        <li><a href="/zcj/shengfucai/index?flag=fa">方案推荐 </a></li>
+                                        <li><a href="">本期</a></li>
+                                        <li><a href="q">上期</a></li>
+                                        <li><a href="">防冷</a></li>
+                                        <li><a href="">方案推荐 </a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#">VIP专区</a>
+                                    <a href="#">Khu VIP</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">帮助</a>
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Giúp đỡ</a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/zcj/helper/about">关于我们</a></li>
+                                        <li><a href="/about">Về chúng tôi</a></li>
                                     </ul>
                                     <!-- end dropdown-menu -->
                                 </li>
