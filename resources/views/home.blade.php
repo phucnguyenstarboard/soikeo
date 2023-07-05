@@ -49,7 +49,7 @@
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;">
                         <div class="panel-heading" >
-                            <span>Kèo tốt nhất</span>
+                            <span>{{ ucfirst(GoogleTranslate::trans('较稳推荐', 'vi')) }}</span>
                         </div>
                         <div class="panel-body" style="background-color:#292d34;padding:0px;font-size:8pt;">
                             <div class="subList" id="wdtjList"></div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;" >
                         <div class="panel-heading" >
-                            <span id="sdTile">Khuyến nghị tốt nhất</span>
+                            <span id="sdTile">{{ ucfirst(GoogleTranslate::trans('实单推荐', 'vi')) }}</span>
                         </div>
                         <div class="panel-body" style="background-color:#292d34;padding:0px;min-height:250px;">
                             <div class="subList" id="sdtjList"></div>
