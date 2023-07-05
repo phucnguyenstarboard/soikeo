@@ -41,7 +41,7 @@
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;">
                         <div class="panel-heading" >
-                            <span>{{ ucfirst(GoogleTranslate::trans('较稳推荐', 'vi')) }}</span>
+                            <span>Đề xuất kèo ổn định</span>
                         </div>
                         <div class="panel-body" style="background-color:#292d34;padding:0px;font-size:8pt;">
                             <div class="subList" id="wdtjList"></div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;" >
                         <div class="panel-heading" >
-                            <span id="sdTile">{{ ucfirst(GoogleTranslate::trans('实单推荐', 'vi')) }}</span>
+                            <span id="sdTile">Trận kèo nên theo</span>
                         </div>
                         <div class="panel-body" style="background-color:#292d34;padding:0px;min-height:250px;">
                             <div class="subList" id="sdtjList"></div>
@@ -58,7 +58,7 @@
                                 
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#292d34;padding:20px;">
-                            <div style="text-align: center;">Nhà cái uy tín được tổng bộ chỉ định : <a href="http://onbet.com" target="_blank">onbet.com</a></div>
+                            <div style="text-align: center;font-size: 20px;">Nhà cái uy tín được tổng bộ chỉ định : <a href="http://onbet.com" target="_blank">onbet.com</a></div>
                         
                         </div>
                     </div>
@@ -345,7 +345,7 @@
                        			}
                        			allOrder = allOrder + oneOrder;
                        		}else{
-                       			allOrder='<div class="errorPanel" style="height:250px;padding-top:80px;"><div style="height:80px;line-height:30px;">Tỷ lệ thực tế hôm nay chưa được phát,<br/> các bạn kiên nhẫn chờ đợi,<br/>Cập nhật vào khoảng 20:00 hàng đêm, <br/>cảm ơn các bạn đã quan tâm...</div></div>';
+                       			allOrder='<div class="errorPanel" style="height:250px;padding-top:80px;"><div style="height:80px;line-height:30px;font-size: 15px">Kèo chỉ mang tính chất tham khảo <br/>Để tư vấn chuyên sâu vui lòng liên hệ chuyên gia qua  telegram : @khuyenmai24h7 <br/><a href="https://t.me/khuyenmai24h7" target="_blank">(https://t.me/khuyenmai24h7)</a></div></div>';
                        		}
                        		$("#sdtjList").html(allOrder);
                        		

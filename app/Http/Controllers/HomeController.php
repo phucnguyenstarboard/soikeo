@@ -470,7 +470,8 @@ class HomeController extends Controller
 
     public function detail (Request $request) {        
         $id = $request->input('id');
-        $item = DB::table('matchs')->where('match_id', $id)->first();      
+        $item = DB::table('matchs')->where('match_id', $id)->first();
+        // $html = file_get_contents('http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=50232261');
         return view('detail' , compact('id', 'item'));
     }
 
