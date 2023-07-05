@@ -25,7 +25,7 @@
                                     <div class="cont">
                                         <div class="row" style="margin-top:60px;">
                                             <div class="col-xs-4 teamDetailImg">
-                                                <span><img class="teamIcon" src="http://www.woxiangwan.com/club/18382"/></span>
+                                                <span><img class="teamIcon" src="{{ $logo_team_home }}"/></span>
                                             </div>
                                             <div class="col-xs-4 teamDetailImg">
                                                <span> {{ $item->row_no }}</span><br/><span> {{ $item->is_ok != '0' ? 'Đã kết thúc' : 'Chưa diễn ra' }} </span><br/><br/>
@@ -33,7 +33,7 @@
                                                <span>{{ $item->result1 }}</span>
                                             </div>
                                             <div class="col-xs-4 teamDetailImg">
-                                                <span><img class="teamIcon" src="http://www.woxiangwan.com/club/251"/></span>
+                                                <span><img class="teamIcon" src="{{ $logo_team_visit }}"/></span>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top:40px;">

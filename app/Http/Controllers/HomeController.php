@@ -468,11 +468,35 @@ class HomeController extends Controller
         return $data;
     }    
 
-    public function detail (Request $request) {        
+    public function detail (Request $request) {
         $id = $request->input('id');
         $item = DB::table('matchs')->where('match_id', $id)->first();
-        // $html = file_get_contents('http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=50232261');
-        return view('detail' , compact('id', 'item'));
+        $logo_team_home = $item->logo_team_home;
+        $logo_team_visit = $item->logo_team_visit;
+        if(empty($item->logo_team_home) || empty($item->logo_team_visit)){
+            $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$id;
+            $html = file_get_contents($url);
+
+            $doc = new \DOMDocument();
+            @$doc->loadHTML($html);
+            $tags = $doc->getElementsByTagName('img');
+            $logo_team_home = '';
+            $logo_team_visit = '';
+            foreach ($tags as $tag) {
+                $imgSrc = $tag->getAttribute('src');
+                if (str_contains($imgSrc, 'woxiangwan.com')) {
+                    if(empty($logo_team_home)){
+                        $logo_team_home = $imgSrc;
+                    }else{
+                        $logo_team_visit = $imgSrc;
+                    }
+                }
+            }
+            DB::table('matchs')->where('match_id', $id)->update(['logo_team_home' => $logo_team_home, 'logo_team_visit' => $logo_team_visit]);
+
+        }
+
+        return view('detail' , compact('id', 'item', 'logo_team_home', 'logo_team_visit'));
     }
 
     private function __translateText ($text, $lang) {
