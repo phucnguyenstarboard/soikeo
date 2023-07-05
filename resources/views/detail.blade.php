@@ -15,6 +15,7 @@
                 <div class="row">                    
                     <div class="col-sm-8 col-md-8 column" style="margin-top:5px; background-color:#2A2E35;">
                         <!-- 队名等 -->
+                        <div id="loading_1"></div>
                         <div class="row">
                             <div class="col-md-6 column" style="padding:0px;">
                                 <div class="panel-item"  style="color:#fff;">
@@ -108,6 +109,7 @@
                     
                     <div class="col-sm-4 col-md-4 column" style="padding:0px;" id="leftIfnoDiv">
                         <!-- 赛况 -->
+                        <div id="loading_2"></div>
                         <div class="panel-item" id="skDiv">
                             <div class="title">
                                 <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;Thống kê trận đấu</span>                                
@@ -223,6 +225,9 @@
                 error : function(request) {
                     $("#resultCharts").html("Tải dữ liệu không thành công...");
                 },
+                beforeSend:function() {  
+                  $("#loading_1").html(loadingMsg);
+                },                
                 success : function(rs) {
                     
                 
@@ -311,6 +316,8 @@
                         //普通
                         $("#notyText").html("<span>" + rs.analyInfo.notyContent+"</span>");
                     }
+
+                    $("#loading_1").html('');
                     
                 }
                 
@@ -449,6 +456,9 @@
                     var errMsg ='<div class="no-data-msg"><p>Tải dữ liệu không thành công...</p></div>';
                     $("#leftIfnoDiv").html(errMsg);
                 },
+                beforeSend:function() {  
+                  $("#loading_2").html(loadingMsg);
+                },
                 success : function(rs) {
 
                     //赛况列表
@@ -487,6 +497,7 @@
                     $("#homehomeZj").html(rs.zhanjiRow.victCount);
                     $("#awayZj").html(rs.zhanjiRow.tieCount);
                     $("#awayawayZj").html(rs.zhanjiRow.failCount);
+                    $("#loading_2").html('');
                 }
              });
         }
