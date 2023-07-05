@@ -1,5 +1,5 @@
 
-        <div class="copy-rights text-center" style="background-color:#070b13;">
+        <div class="copy-rights text-center" style="background-color:#134e14;">
             <div class="container">
                 <p>Copyright &copy; <a href="" target="_blank" style="color:#969799;" id="ba">Soi  kèo</a> &copy; 2023</p>
             </div>

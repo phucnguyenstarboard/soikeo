@@ -1,7 +1,7 @@
 body{
 	padding:0;
 	margin:0;
-	background:#54adeb;
+	background:#3c763d;
 	font-family: 'Segoe UI',Arial,'Microsoft Yahei',sans-serif;
 	font-size:12px;
 }
@@ -133,7 +133,7 @@ tr.select th,tr.select td
 .tabList .subItem {
 	height:50px;
 	line-height:50px;
-	border-bottom:solid 2px #40444C;
+	border-bottom:solid 2px #19621a;
 	padding-top:10px;
 	padding-bottom:10px;
 	text-align:center;
@@ -156,7 +156,7 @@ tr.select th,tr.select td
 
 /*列表页样式*/
 .list-title{
-	background-color:#292d34;
+	background-color:#134e14;
 	margin-top:-18px;
 	padding:5px;
 	line-height:20px;
@@ -166,17 +166,17 @@ tr.select th,tr.select td
 }
 
 .list-title button{
-	margin-left:5px;
-	margin-right:20px;
-	width:70px;
-	height:30px;
-	color: #82d60d;
-	border:0 none;
-	background: -webkit-gradient(linear, 0% 100%, 0% 0%,from(#1C1D1E), to(#393A3B));
+    margin-left: 5px;
+    margin-right: 20px;
+    width: 70px;
+    height: 30px;
+    color: #fff;
+    border: 0 none;
+    background: -webkit-gradient(linear, 0% 100%, 0% 0%,from(#3c763d), to(#3c763d));
 }
 
 .list-title span{
-	color:#969799;
+	color:#fff;
 }
 
 .list-content{
@@ -189,7 +189,7 @@ tr.select th,tr.select td
 
 .subList .subItem {
 	height:60px;
-	border-bottom:solid 1px #40444C;
+	border-bottom:solid 1px #228f24;
 	padding-top:10px;
 	padding-bottom:10px;
 	text-align:center;
@@ -256,7 +256,7 @@ tr.select th,tr.select td
 
 /*详细页*/
 .panel-item {
-	background-color:#2A2E35;
+	background-color:#134e14;
 	padding:10px;
 	margin:5px 0 5px 5px;
 }
@@ -282,7 +282,7 @@ tr.select th,tr.select td
 .panel-item .cont1{
 	min-height:220px;
 	padding-top:10px;
-	border-top:solid 1px #292B2E;
+	border-top:solid 1px #134e14;
 }
 
 .panel-item .cont1 .listTitle {
@@ -290,7 +290,7 @@ tr.select th,tr.select td
 	font-size:14px;
 	line-height:30px;
 	height:30px;
-	color:#969799;
+	color:#fff;
 	border-bottom:solid 0px #292B2E;
 	padding-left:2px;
 }
@@ -301,7 +301,7 @@ tr.select th,tr.select td
 
 .panel-item .cont1 .subList div{
 	height:30px;
-	border-bottom:solid 1px #2A2E35;
+	border-bottom:solid 1px #134e14;
 	text-align:center;
 	padding-top:10px;
 	padding-bottom:10px;
@@ -312,12 +312,13 @@ tr.select th,tr.select td
 .panel-item .cont2{
 	min-height:120px;
 	padding:0px;
-	border-top:solid 1px #292B2E;
+	border-top:solid 1px #134e14;
+	font-size: 13px;
 }
 
 .panel-item .cont2 .subList div{
 	height:40px;
-	border-bottom:solid 1px #2A2E35;
+	border-bottom:solid 1px #134e14;
 	text-align:left;
 	padding-top:10px;
 	padding-bottom:10px;
@@ -333,21 +334,21 @@ tr.select th,tr.select td
 .panel-item .cont3 {
 	min-height:70px;
 	padding:10px;
-	border-top:solid 1px #292B2E;
+	border-top:solid 1px #134e14;
 }
 .panel-item .cont3 .listTitle {
 	background-color:#2A2E35;
 	font-size:14px;
 	line-height:30px;
 	height:30px;
-	color:#969799;
-	border-bottom:solid 0px #292B2E; 
+    color: #fff;
+    border-bottom: solid 0px #134e14;
 	padding-left:5px;
 }
 
 .panel-item .cont3 .subList div{
 	height:40px;
-	border-bottom:solid 1px #2A2E35;
+	border-bottom:solid 1px #134e14;
 	text-align:center;
 	padding-top:10px;
 	padding-bottom:10px;
@@ -358,12 +359,12 @@ tr.select th,tr.select td
 .panel-item .cont4{
 	min-height:200px;
 	padding-top:10px;
-	border-top:solid 1px #292B2E;
+	border-top:solid 1px #134e14;
 }
 
 .panel-item .cont4 .subList div{
 	height:40px;
-	border-bottom:solid 1px #2A2E35;
+	border-bottom:solid 1px #134e14;
 	text-align:left;
 	padding-top:10px;
 	padding-bottom:10px;
@@ -425,13 +426,15 @@ tr.select th,tr.select td
 	color:#fff;
 	margin-left:10px;
 	border:solid 1 red;
+	font-size: 13px;
 }
 
 .showText2{
 	line-height:30px;
-	color:#ABACAE;
+	color:#fff;
 	margin-left:10px;
 	border:solid 1 red;
+	font-size: 13px;
 }
 
 
@@ -554,7 +557,7 @@ tr.select th,tr.select td
 	 padding:1em;
 }
 .header-top-strip {
-	background:#a94442;
+	background:#219750;
 	height:60px;
 	color: #fff;
 }
@@ -6130,13 +6133,13 @@ p.fourth {
 	color: #82d60d;
 	border:solid 0px red;
 	text-align:center;
-	background:-webkit-gradient(linear, 0% 100%, 0% 0%,from(#1C1D1E), to(#393A3B));
+	background:-webkit-gradient(linear, 0% 100%, 0% 0%,from(#3c763d), to(#3c763d))
 }
 
 .tab .nav-tabs li.active a p, .tab .nav-tabs li.active a i {
 	border: 0 none;
 	color: #82d60d;
-	background:#000;
+	background:#083809;
 }
 
 .tab .tab-content {
@@ -6153,7 +6156,7 @@ p.fourth {
 }
 
 .no-data-msg{
-	background-image: url(../images/no_data_bg.png);
+	/*background-image: url(../images/no_data_bg.png);*/
 	height:600px; 
 	line-height:700px;
 	width:100%;
@@ -6165,7 +6168,7 @@ p.fourth {
 }
 
 .data-loading{
-	background-image: url(../images/no_data_bg.png);
+	/*background-image: url(../images/no_data_bg.png);*/
 	height:100vh; 
 	line-height:250px;
 	width:100%;
@@ -6174,6 +6177,8 @@ p.fourth {
 	border:solid red 0px;
 	text-align:center;
 	font-size:14px;
+	background-color: #182418;
+	opacity: 0.7;
 }
 
 
@@ -6222,14 +6227,14 @@ p.fourth {
 
 
 .panel-default{
-	color:#fff;
-	background-color: #3D4147;
-    border-bottom: solid 0px #3D4147;
+    color: #fff;
+    background-color: #3c763d;
+    border-bottom: solid 0px #3c763d;
 }
 
 .panel-default > .panel-heading {
     color:#82d60d; 
-    background-color: #070813;
+    background-color: #10371a;
     border-bottom: solid 0px #070813;
     font-size:16px;
     line-height: 18px;
@@ -6267,6 +6272,22 @@ p.fourth {
 	left: 0;
 	width: 100%;
 	padding: 5px;
+}
+
+.subItem{
+	background-color: #146a16;
+	color: #fff !important;
+}
+
+.tab .subItem{
+	background-color: #134e14 !important;
+	color: #fff !important;
+}
+
+.listTitle{
+	background: #1f8422 !important;
+    color: #fff;
+    font-weight: 700;
 }
 
 	

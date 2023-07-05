@@ -13,7 +13,7 @@
                     </span>
                 </div>
                 <div class="row">                    
-                    <div class="col-sm-8 col-md-8 column" style="margin-top:5px; background-color:#2A2E35;">
+                    <div class="col-sm-8 col-md-8 column" style="margin-top:5px; background-color:#134e14;">
                         <!-- 队名等 -->
                         <div id="loading_1"></div>
                         <div class="row">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 column">
-                                <div class="panel-body" style="margin-top:50px; background-color:#2A2E35;">
+                                <div class="panel-body" style="margin-top:50px; background-color:#1f8422;">
                                     <div id="resultCharts" style="height:200px;"></div>
                                 </div>
                             </div>  

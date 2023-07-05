@@ -4,7 +4,7 @@
         <div class="main-content">
             <!-- 主题内容数据-->	
             <div class="container">
-                <div class="col-md-4 col-xl-4 column" style="padding:0px; background-color:#292d34;">
+                <div class="col-md-4 col-xl-4 column" style="padding:0px; background-color:#146a16;">
                     <div class="panel panel-default">
                         <div class="panel-body" style="background-color:#292d34;padding:0px;">
                             <section class="slider">
@@ -41,23 +41,23 @@
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;">
                         <div class="panel-heading" >
-                            <span>Đề xuất kèo ổn định</span>
+                            <span>ĐỀ XUẤT KÈO ỔN ĐỊNH</span>
                         </div>
-                        <div class="panel-body" style="background-color:#292d34;padding:0px;font-size:8pt;">
+                        <div class="panel-body" style="background-color:#146a16;padding:0px;font-size:8pt;">
                             <div class="subList" id="wdtjList"></div>
                         </div>
                     </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;" >
                         <div class="panel-heading" >
-                            <span id="sdTile">Trận kèo nên theo</span>
+                            <span id="sdTile">TRẬN KÈO NÊN THEO</span>
                         </div>
-                        <div class="panel-body" style="background-color:#292d34;padding:0px;min-height:250px;">
+                        <div class="panel-body" style="background-color:#146a16;padding:0px;min-height:250px;">
                             <div class="subList" id="sdtjList"></div>
                         </div>
                     </div>
                                 
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
-                        <div class="panel-body" style="background-color:#292d34;padding:20px;">
+                        <div class="panel-body" style="background-color:#146a16;padding:20px;">
                             <div style="text-align: center;font-size: 20px;">Nhà cái uy tín được tổng bộ chỉ định : <a href="http://onbet.com" target="_blank">onbet.com</a></div>
                         
                         </div>
@@ -69,7 +69,7 @@
                         <div class="panel-body" style="padding:0px;" >
                             <!-- 底下内容页 -->
                             <div class="tab">
-                                <ul id="myTab" class="nav nav-tabs" style="background-color:#292d34;padding:0px;">
+                                <ul id="myTab" class="nav nav-tabs" style="background-color:#146a16;padding:0px;">
                                     <li  class="active" onclick="getQbList();">
                                         <a href="#allTab" data-toggle="tab">
                                             <p>Tất cả</p>
@@ -822,7 +822,7 @@
                        			}
                        			allOrder = allOrder + oneOrder;
                        		}else{
-                       			allOrder='<div class="errorPanel" style="height:980px;line-height:30px;padding-top:150px;"><span>Tỷ lệ thực tế hôm nay chưa được phát, các bạn kiên nhẫn chờ đợi,<br/>Cập nhật vào khoảng 22h hàng đêm, cảm ơn các bạn đã quan tâm...<span></div>';
+                       			allOrder='<div class="errorPanel" style="height:980px;line-height:30px;padding-top:150px;font-size: 16px"><span>Tỷ lệ thực tế hôm nay chưa được phát, các bạn kiên nhẫn chờ đợi,<br/>Cập nhật vào khoảng 22h hàng đêm, cảm ơn các bạn đã quan tâm...<span></div>';
                        		}
                        		$("#shidanList").html(allOrder);
                        	}
