@@ -196,6 +196,9 @@
         $(document).ready(function() {
         
             $(".megamenu").megamenu();
+
+            $("#loading_1").html(loadingMsg);
+            $("#loading_2").html(loadingMsg);
             
             //设置比赛场次基本信息
             setBaseInfo();
