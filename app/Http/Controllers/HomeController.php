@@ -47,11 +47,17 @@ class HomeController extends Controller
         return $response->json();
     }
 
-    public function getRowNo (Request $request) {
+    public function getDetailYcChartsInfo (Request $request) {
     	$matchNo = $request->input('rowNo');
-        $response = Http::get('http://www.zucaijia.cn/?rowNo='.$matchNo);
+        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$matchNo);
         return $response->json();
     }
+
+    public function getDetailLeftLists (Request $request) {
+        $matchNo = $request->input('rowNo');
+        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$matchNo);
+        return $response->json();
+    }    
 
     public function detail (Request $request) {
         $id = $request->input('id');

@@ -63,44 +63,11 @@
                             <div class="subList" id="sdtjList"></div>
                         </div>
                     </div>
-                    <div class="panel panel-default" style="padding-top:1px;">
-                        <div class="panel-body" style="background-color:#292d34;padding:20px;">
-                            <div class="s-center" style="width: 100%;margin:25px 15px;">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 column" style="padding-left:20px;text-align:center;">
-                                    <img src="{{ asset('assets/images/wx_down_logo.png') }}"/>
-                                    <br/><br/><span>Quét mã QR</br>Theo dõi chúng tôi và thêm các tín hiệu vi mô công cộng</span>
-                                </div>
-                                <div class="col-md-6 column" style="padding-top:20px;text-align:center;">
-                                    <div class="row" style="padding:5px;"><a onclick="jumpdown()" target="_blank" style="cursor: pointer;" ><img src="{{ asset('assets/images/phone_down.png') }}"/></a></div>
-                                    <div class="row" style="padding:5px;"><a href="http://woxiangwan.com/app/zucaijia.apk" target="_blank"><img src="{{ asset('assets/images/android_down.png') }}"/></a></div>
-                                    <br/><br/><span>Trải nghiệm thú vị hơn</br>Vui lòng tải xuống ứng dụng Football Plus</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#292d34;padding:20px;">
-                            <div style="text-align: center;">Tải xuống hiện vật dự đoán bóng lăn "Bóng đang đến"</div>
-                            <div style="margin-top: 20px">
-                                <div class="centers">
-                                    <img  src="{{ asset('assets/images/android_down.png') }}" style="cursor: pointer;margin-left: auto;margin-right: auto" onclick="godown()">
-                                </div>
-                                <div class="centers">
-                                    <img  src="{{ asset('assets/images/phone_down.png') }}"  style="cursor: pointer;margin-left: auto;margin-right: auto;margin-top: 10px;" onclick="godownap()">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
-                        <div class="panel-body" style="background-color:#292d34;padding:20px;">
-                            <div style="text-align: center;">Tải xuống tạo tác dự đoán kèo châu Á "Bóng đá vui vẻ"</div>
-                            <div style="margin-top: 20px">
-                                <div class="centers">
-                                    <img  src="{{ asset('assets/images/android_down.png') }}" style="cursor: pointer;margin-left: auto;margin-right: auto" onclick="godownKlzq()">
-                                </div>
-                            </div>
+                            <div style="text-align: center;">Nhà cái uy tín được tổng bộ chỉ định : <a href="http://onbet.com" target="_blank">onbet.com</a></div>
+                        
                         </div>
                     </div>
                 </div>
@@ -490,9 +457,9 @@
                      						oneItem +='<div class="col-xs-3"><span>'+rs.rows[m].matchList[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[m].matchList[i].visitTeam +'</span></div>';
                      						//是否预测中
                      						if(parseInt(rs.rows[m].matchList[i].isOk) == 1){
-                     							oneItem +='<div class="col-xs-2" style="color:red;">'+ rsData[rs.rows[m].matchList[i].matchResult]+'&nbsp;&nbsp;<span>√</span></div>';
+                     							oneItem +='<div class="col-xs-2" style="color:red;">'+ rs.rows[m].matchList[i].matchResult+'&nbsp;&nbsp;<span>√</span></div>';
                      						}else{
-                     							oneItem +='<div class="col-xs-2">'+rsData[rs.rows[m].matchList[i].matchResult]+'</div>';
+                     							oneItem +='<div class="col-xs-2">'+rs.rows[m].matchList[i].matchResult+'</div>';
                      						}
                      						if("未" == rs.rows[m].matchList[i].matchLong){
                      							oneItem +='<div class="col-xs-1"><span>Chưa có</span></div>';
