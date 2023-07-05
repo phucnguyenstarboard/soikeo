@@ -2,16 +2,8 @@
 
 @section('content')
         <div class="main-content">
-            @include('layout.menu')
-            <style>
-                .centers{
-                display: flex;
-                display: -webkit-flex; /* Safari */
-                justify-content:center;
-                }
-            </style>
             <!-- 主题内容数据-->	
-            <div class="container" style="margin-top:-20px;">
+            <div class="container">
                 <div class="col-md-4 col-xl-4 column" style="padding:0px; background-color:#292d34;">
                     <div class="panel panel-default">
                         <div class="panel-body" style="background-color:#292d34;padding:0px;">
@@ -605,7 +597,7 @@
                         					
                         				}else{
                          				oneItem +='<div class="subItem">';
-                        					oneItem +='<div class="col-xs-2"></span>&nbsp;&nbsp;<span>'+rs.rows[i].rowNo +'</span></div>';
+                        					oneItem +='<div class="col-xs-2"></span>&nbsp;&nbsp;<span>'+replaceText(rs.rows[i].rowNo) +'</span></div>';
                         					oneItem +='<div class="col-xs-1"><span>'+rs.rows[i].matchTime +'</span></div>';
                         					oneItem +='<div class="col-xs-3"><span>'+rs.rows[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[i].visitTeam +'</span></div>';
                      						//是否预测中

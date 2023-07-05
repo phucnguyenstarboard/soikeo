@@ -8,9 +8,8 @@
                     <p> 
                         <span id="lbExit"></span>
                         <span id="lbLogin">
-                        <a href="#">Đăng nhập</a>
-                        &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Đăng ký</a>
-                        &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Đăng ký VIP</a>
+                        <a target="_blank" href="#">Đăng ký VIP</a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;<a  target="_blank"  href="#">Về chúng tôi</a>
                         </span>
                     </p>
                 </div>

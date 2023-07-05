@@ -1,5 +1,5 @@
             <div class="bootstrap_container">
-                <nav class="navbar navbar-default w3_megamenu" role="navigation" style="background-color:#070b13;">
+                <nav class="navbar navbar-default w3_megamenu" role="navigation" style="background-color:#3c763d;">
                     <div class="container">
                         <div class="navbar-header">
                             <button type="button" data-toggle="collapse" data-target="#defaultmenu" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>

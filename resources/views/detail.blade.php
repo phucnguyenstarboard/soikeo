@@ -1,9 +1,7 @@
 @extends('layout.layout')
 
 @section('content')
-        <div class="main-content">
-            @include('layout.menu')
-
+        <div class="main-content" style="padding-top: 2em;">
             <div class="container">
                 <input type="hidden" id="flag" value="0"/>
                 <input type="hidden" id="rowNo" value="{{ $id }}" />
@@ -11,17 +9,17 @@
                     <button onclick="goBack();">Quay lại</button>
                     <span id="acesPath">
                         <span>Thể thao</span>&nbsp;&nbsp;>&nbsp;&nbsp;<span>Chi tiết</span>&nbsp;&nbsp;>&nbsp;&nbsp;
-                        <span>米亚尔比</span>&nbsp;VS &nbsp;<span>卡尔马</span>
+                        <span>{{ $item->team_home }}</span>&nbsp;VS &nbsp;<span>{{ $item->team_visit }}</span>
                     </span>
                 </div>
-                <div class="row">
+                <div class="row">                    
                     <div class="col-sm-8 col-md-8 column" style="margin-top:5px; background-color:#2A2E35;">
                         <!-- 队名等 -->
                         <div class="row">
                             <div class="col-md-6 column" style="padding:0px;">
                                 <div class="panel-item"  style="color:#fff;">
                                     <div class="title" style="color:#fff;">
-                                        <span class="pull-left">比赛时间: 2023-07-03 01:00</span>
+                                        <span class="pull-left">Thời gian thi đấu: {{ date('H:i', strtotime( $item->match_date )) }}</span>
                                     </div>
                                     <div class="cont">
                                         <div class="row" style="margin-top:60px;">
@@ -29,9 +27,9 @@
                                                 <span><img class="teamIcon" src="http://www.woxiangwan.com/club/18382"/></span>
                                             </div>
                                             <div class="col-xs-4 teamDetailImg">
-                                               <span>周一 001</span><br/><span>未赛</span><br/><br/>
-                                               <span style="color:#91ED10;"><strong>瑞典超</strong></span><br/><br/>
-                                               <span>0:0</span>
+                                               <span> {{ $item->row_no }}</span><br/><span> {{ $item->is_ok != '0' ? 'Đã kết thúc' : 'Chưa diễn ra' }} </span><br/><br/>
+                                               <span style="color:#91ED10;"><strong>{{ $item->type_name }}</strong></span><br/><br/>
+                                               <span>{{ $item->result1 }}</span>
                                             </div>
                                             <div class="col-xs-4 teamDetailImg">
                                                 <span><img class="teamIcon" src="http://www.woxiangwan.com/club/251"/></span>
@@ -39,13 +37,13 @@
                                         </div>
                                         <div class="row" style="margin-top:40px;">
                                             <div class="col-xs-4 teamDetailText">
-                                                <span><strong>米亚尔比</strong></span>
+                                                <span><strong>{{ $item->team_home }}</strong></span>
                                             </div>
                                             <div class="col-xs-4 teamDetailText">
                                                <span>&nbsp;&nbsp;</span>
                                             </div>
                                             <div class="col-xs-4 teamDetailText">
-                                                <span><strong>卡尔马</strong></span>
+                                                <span><strong>{{ $item->team_visit }}</strong></span>
                                             </div>
                                         </div>
                                     </div>
@@ -68,19 +66,19 @@
                                 <div class="row">
                                     <div class="panel-item">
                                         <div class="title">
-                                            <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}">&nbsp;&nbsp;本场预测</span>
+                                            <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}">&nbsp;&nbsp;Dự đoán trận đấu</span>
                                         </div>
                                         <div class="cont">
                                             <div class="subList">
-                                                <div class="col-xs-4  col-md-3 subtitle"><span>全场预测：</span></div>
+                                                <div class="col-xs-4  col-md-3 subtitle"><span>Cả trận:</span></div>
                                                 <div class="col-xs-8 subtext" style="padding:0px;"><span id="qcYuceText"></span></div>
                                             </div>
                                             <div class="subList">
-                                                <div class="col-xs-4 col-md-3 subtitle"><span>半全场预测：</span></div>
+                                                <div class="col-xs-4 col-md-3 subtitle"><span>Hiệp 1：</span></div>
                                                 <div class="col-xs-8 subtext" style="padding:0px;"><span id="bqcYuceText"></span></div>
                                             </div>
                                             <div class="subList" >
-                                                <div class="col-xs-4 col-md-3 subtitle"><span>比分预测：</span></div>
+                                                <div class="col-xs-4 col-md-3 subtitle"><span>Tỷ số：</span></div>
                                                 <div class="col-xs-8 subtext" style="padding:0px;"><span id="bfYuceText"></span></div>
                                             </div>
                                         </div>
@@ -91,7 +89,7 @@
                                 <div class="row">
                                     <div class="panel-item">
                                         <div class="title">
-                                            <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}">&nbsp;&nbsp;本场重要提示</span>
+                                            <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}">&nbsp;&nbsp;Ghi chú quan trọng</span>
                                         </div>
                                         <div class="cont">
                                             <div class="cont-detail showText" id="zcjNotice"></div>
@@ -112,14 +110,13 @@
                         <!-- 赛况 -->
                         <div class="panel-item" id="skDiv">
                             <div class="title">
-                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;赛况</span>
-                                <a class="pull-right" href="/zcj/jincai/saikuang?flag=0&rowNo=502325205">更多</a>
+                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;Thống kê trận đấu</span>                                
                             </div>
                             <div class="cont1">
                                 <div class="listTitle">
-                                    <div class="col-xs-3"><span>主队</span></div>
-                                    <div class="col-xs-6"><span>项目</span></div>
-                                    <div class="col-xs-3"><span>客队</span></div>
+                                    <div class="col-xs-4"><span>Đội nhà</span></div>
+                                    <div class="col-xs-4"><span>Thông số</span></div>
+                                    <div class="col-xs-4"><span>Đội khách</span></div>
                                 </div>
                                 <div class="subList" id="skList"></div>
                             </div>
@@ -128,29 +125,28 @@
                         <!-- 近期战绩 -->
                         <div class="panel-item" id="zjDiv">
                             <div class="title">
-                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;双方近期战绩</span>
-                                <a class="pull-right" href="/zcj/jincai/zhanji?flag=0&rowNo=502325205">更多</a>
+                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;Thành tích gần đây</span>
                             </div>
                             <div class="cont2">
                                     <div class="subList">
                                         <div class="col-xs-12">
-                                            <span>历史对战：</span><span id="hisZj" style="color:#ADFB3c"></span>
+                                            <span>Lịch sử đối đầu：</span><span id="hisZj" style="color:#ADFB3c"></span>
                                          </div>
                                      </div>
                                     <div class="subList">
                                         <div class="col-xs-6">
-                                            <span>主队：</span><span id="homeZj"></span>
+                                            <span>Đội nhà：</span><span id="homeZj"></span>
                                          </div>
                                          <div class="col-xs-6">
-                                            <span>主场：</span><span id="homehomeZj"></span>
+                                            <span>Sân nhà：</span><span id="homehomeZj"></span>
                                          </div>
                                      </div>
                                     <div class="subList">
                                         <div class="col-xs-6">
-                                            <span>客队：</span><span id="awayZj"></span>
+                                            <span>Đội khách：</span><span id="awayZj"></span>
                                          </div>
                                          <div class="col-xs-6">
-                                            <span>客场：</span><span id="awayawayZj"></span>
+                                            <span>Sân khách：</span><span id="awayawayZj"></span>
                                          </div>
                                      </div>
                             </div>
@@ -159,14 +155,13 @@
                         <!-- 即时赔率-->
                         <div class="panel-item" id="pvDiv">
                             <div class="title">
-                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;本场即时赔率 </span>
-                                <a class="pull-right" href="/zcj/jincai/peilv?flag=0&rowNo=502325205">更多</a>
+                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;Tỷ lệ cược trực tiếp </span>                                
                             </div>
                             <div class="cont3">
                                 <div class="listTitle">
-                                    <div class="col-xs-4"><span>主胜</span></div>
-                                    <div class="col-xs-4"><span>平局</span></div>
-                                    <div class="col-xs-4"><span>客胜</span></div>
+                                    <div class="col-xs-4"><span>Chủ nhà</span></div>
+                                    <div class="col-xs-4"><span>Hoà</span></div>
+                                    <div class="col-xs-4"><span>Đội Khách</span></div>
                                 </div>
                                 <div class="subList">
                                     <div class="col-xs-4">&nbsp;<span id="vctPlv"></span></div>
@@ -179,8 +174,7 @@
                         <!-- 独家数据 -->
                         <div class="panel-item"  id="djDiv">
                             <div class="title">
-                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;独家数据</span>
-                                <a class="pull-right" href="/zcj/jincai/dujia?flag=0&rowNo=502325205">更多</a>
+                                <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;Dữ liệu độc quyền</span>                                
                             </div>
                             <div class="cont4" id="dujiaList" ></div>
                         </div>
@@ -227,7 +221,7 @@
                 type  : "GET",
                 url :"/getDetailYcChartsInfo?rowNo="+matchNo,
                 error : function(request) {
-                    $("#resultCharts").html("数据加载失败...");
+                    $("#resultCharts").html("Tải dữ liệu không thành công...");
                 },
                 success : function(rs) {
                     
@@ -294,9 +288,9 @@
                     $("#bfYuceText").html(newscorestr);
                     
                     
-                    $("#reasonText").html("主胜概率:<font color='#91ED10'>" + rs.analyInfo.winPossibility +"%</font>,理由:<br/>"+ rs.analyInfo.winReason + "<br/><br/>" 
-                            + "打平概率:<font color='#91ED10'>" + rs.analyInfo.drawPossibility + "%</font>,理由:<br/>" + rs.analyInfo.drawReason + "<br/><br/>"
-                            + "主负概率:<font color='#91ED10'>" + rs.analyInfo.losePossibility + "%</font>,理由:<br/>" + rs.analyInfo.loseReason );
+                    $("#reasonText").html("Xác xuất thắng:<font color='#91ED10'>" + rs.analyInfo.winPossibility +"%</font>,Lý do:<br/>"+ rs.analyInfo.winReason + "<br/><br/>" 
+                            + "Xác xuất hoà:<font color='#91ED10'>" + rs.analyInfo.drawPossibility + "%</font>,Lý do:<br/>" + rs.analyInfo.drawReason + "<br/><br/>"
+                            + "Xác xuất thua:<font color='#91ED10'>" + rs.analyInfo.losePossibility + "%</font>,Lý do:<br/>" + rs.analyInfo.loseReason );
                     
                     $("#zcjNotice").html(rs.analyInfo.keyNote);
                            
