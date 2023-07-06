@@ -26,7 +26,7 @@ class HomeController extends Controller
                 if (isset($textList[$v['typeName']]) || in_array($v['typeName'], $keyListExist)){
                     $data['rows'][0]['matchList'][$k]['typeName'] = $textList[$v['typeName']];
                 }else{
-                    $t = $this->__translateText($v['typeName'], 'en');
+                    $t = $this->__translateText($v['typeName'], 'vi');
                     $data['rows'][0]['matchList'][$k]['typeName'] = $t;
                     $textList[$v['typeName']] = $t;
 
@@ -36,6 +36,15 @@ class HomeController extends Controller
                     $textInsert['text_original'] = $v['typeName'];
                     $textInsert['text_translate'] = $t;
                     $dataInsert[] = $textInsert;
+                }
+
+                $tour = DB::table('tournaments')->where('tour_name', '=', $data['rows'][0]['matchList'][$k]['typeName'])->first();
+                if (!empty($tour)) {
+                    if (!empty($tour->tour_name_edit)) {
+                        $data['rows'][0]['matchList'][$k]['typeName'] = $tour->tour_name_edit;
+                    }
+                } else {
+                    DB::table('tournaments')->insertOrIgnore( ['tour_name' => $data['rows'][0]['matchList'][$k]['typeName']] ); 
                 }
             }
 
@@ -146,7 +155,7 @@ class HomeController extends Controller
                         if (isset($textList[$v['typeName']]) || in_array($v['typeName'], $keyListExist)) {
                             $data[$key][$k]['typeName'] = $textList[$v['typeName']];
                         }else{
-                            $t = $this->__translateText($v['typeName'], 'en');
+                            $t = $this->__translateText($v['typeName'], 'vi');
                             $data[$key][$k]['typeName'] = $t;
                             $textList[$v['typeName']] = $t;
 
@@ -160,9 +169,9 @@ class HomeController extends Controller
                     }
 
                     $tour = DB::table('tournaments')->where('tour_name', '=', $data[$key][$k]['typeName'])->first();
-                    if(!empty($tour)){
+                    if (!empty($tour)) {
                         $tour_id = $tour->id;
-                    }else{
+                    } else {
                         $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $data[$key][$k]['typeName']] ); 
                     }
                     $dataMatch = array();
@@ -216,7 +225,7 @@ class HomeController extends Controller
                 if (isset($textList[$v['typeName']]) || in_array($v['typeName'], $keyListExist)){
                     $data['rows'][0]['matchList'][$k]['typeName'] = $textList[$v['typeName']];
                 }else{
-                    $t = $this->__translateText($v['typeName'], 'en');
+                    $t = $this->__translateText($v['typeName'], 'vi');
                     $data['rows'][0]['matchList'][$k]['typeName'] = $t;
                     $textList[$v['typeName']] = $t;
 
@@ -226,6 +235,15 @@ class HomeController extends Controller
                     $textInsert['text_original'] = $v['typeName'];
                     $textInsert['text_translate'] = $t;
                     $dataInsert[] = $textInsert;
+                }
+
+                $tour = DB::table('tournaments')->where('tour_name', '=', $data['rows'][0]['matchList'][$k]['typeName'])->first();
+                if (!empty($tour)) {
+                    if (!empty($tour->tour_name_edit)) {
+                        $data['rows'][0]['matchList'][$k]['typeName'] = $tour->tour_name_edit;
+                    }
+                } else {
+                    DB::table('tournaments')->insertOrIgnore( ['tour_name' => $data['rows'][0]['matchList'][$k]['typeName']] ); 
                 }
             }
 
