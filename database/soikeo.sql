@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2023 at 08:03 PM
+-- Generation Time: Jul 06, 2023 at 08:03 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -48,7 +48,7 @@ CREATE TABLE `matchs` (
   `match_id` varchar(255) NOT NULL,
   `match_date` datetime DEFAULT NULL,
   `row_no` varchar(255) NOT NULL,
-  `type_name` varchar(255) NOT NULL,
+  `tournament_id` int(10) DEFAULT NULL,
   `team_home` varchar(255) NOT NULL,
   `team_visit` varchar(255) NOT NULL,
   `logo_team_home` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -63,60 +63,115 @@ CREATE TABLE `matchs` (
 -- Dumping data for table `matchs`
 --
 
-INSERT INTO `matchs` (`id`, `match_id`, `match_date`, `row_no`, `type_name`, `team_home`, `team_visit`, `logo_team_home`, `logo_team_visit`, `is_ok`, `result1`, `created_at`, `updated_at`) VALUES
-(531, '502337278', '2023-07-05 18:00:00', 'Thứ tư 001', 'Công việc ban ngày B', 'Tokyo Greenery', 'Nagasaki Sailing', NULL, NULL, 0, '0:0', NULL, NULL),
-(532, '502400820', '2023-07-05 06:30:00', 'Thứ tư 002', 'Cúp Brazil', 'Sao paulo', 'Pamelas', NULL, NULL, 0, '0:0', NULL, NULL),
-(533, '502322611', '2023-07-05 07:30:00', 'Thứ tư 003', 'Nghề làm đẹp', 'New york city', 'Charlotte FC', NULL, NULL, 0, '0:0', NULL, NULL),
-(534, '502400819', '2023-07-05 08:30:00', 'Thứ tư 004', 'Cúp Brazil', 'M americas', 'Corinthians', NULL, NULL, 0, '0:0', NULL, NULL),
-(535, '502400821', '2023-07-05 08:30:00', 'Thứ tư 005', 'Cúp Brazil', 'Flamenco', 'Barcelona', NULL, NULL, 0, '0:0', NULL, NULL),
-(536, '502417907', '2023-07-05 23:59:00', 'Thứ tư 006', 'Thanh Niên Châu Âu U21', 'Israel U21', 'England U21', NULL, NULL, 0, '0:0', NULL, NULL),
-(537, '502417908', '2023-07-05 03:00:00', 'Thứ tư 007', 'Thanh Niên Châu Âu U21', 'Spain U21', 'Ukraine U21', NULL, NULL, 0, '0:0', NULL, NULL),
-(538, '502401057', '2023-07-05 09:00:00', 'Thứ sáu 001', 'Cốc đô la', 'El Salvador', 'Costa rica', NULL, NULL, -1, '0:0 (0:0)', NULL, NULL),
-(539, '502336889', '2023-07-05 17:00:00', 'Thứ bảy 001', 'Chúng tôi ở đây', 'Nagoya Whale', 'Kawasaki Frontale', 'http://www.woxiangwan.com/club/349', 'http://www.woxiangwan.com/club/359', 1, '2:0 (1:0)', NULL, NULL),
-(540, '502336893', '2023-07-05 18:00:00', 'Thứ bảy 002', 'Chúng tôi ở đây', 'Kobe Victory', 'Sapporo Oka', NULL, NULL, -1, '1:1 (0:1)', NULL, NULL),
-(541, '502325199', '2023-07-05 21:00:00', 'Thứ bảy 003', 'Siêu thụy điển', 'Degfors', 'Wenamu', NULL, NULL, -1, '0:2 (0:1)', NULL, NULL),
-(542, '502325198', '2023-07-05 21:00:00', 'Thứ bảy 004', 'Siêu thụy điển', 'Bruma', 'Solna', NULL, NULL, 1, '0:2 (0:2)', NULL, NULL),
-(543, '502325200', '2023-07-05 23:30:00', 'Thứ bảy 005', 'Siêu thụy điển', 'Malmö', 'Sirius', NULL, NULL, 1, '3:0 (1:0)', NULL, NULL),
-(544, '502408465', '2023-07-05 23:59:00', 'Thứ bảy 006', 'Thanh Niên Châu Âu U21', 'Georgia U21', 'Israel U21', 'http://www.woxiangwan.com/club/5305', 'http://www.woxiangwan.com/club/5333', -1, '0:0 (0:0)', NULL, NULL),
-(545, '502325437', '2023-07-05 23:59:00', 'Thứ bảy 007', 'Bắc Âu', 'Valerenga', 'Viking', NULL, NULL, -1, '1:2 (0:1)', NULL, NULL),
-(546, '502408466', '2023-07-05 03:00:00', 'Thứ bảy 008', 'Thanh Niên Châu Âu U21', 'Spain U21', 'Switzerland U21', 'http://www.woxiangwan.com/club/5300', 'http://www.woxiangwan.com/club/5319', -1, '1:1 (0:0)', NULL, NULL),
-(547, '502322598', '2023-07-05 07:30:00', 'Thứ bảy 009', 'Nghề làm đẹp', 'Toronto FC', 'Salt Lake City', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
-(548, '502322597', '2023-07-05 07:30:00', 'Thứ bảy 010', 'Nghề làm đẹp', 'Orlando city', 'Chicago', NULL, NULL, 1, '3:1 (1:0)', NULL, NULL),
-(549, '502322600', '2023-07-05 09:00:00', 'Thứ bảy 011', 'Nghề làm đẹp', 'Montreal', 'New york city', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
-(550, '502322599', '2023-07-05 07:30:00', 'Thứ bảy 012', 'Nghề làm đẹp', 'Mai International', 'Austin FC', NULL, NULL, -1, '1:1 (0:0)', NULL, NULL),
-(551, '502322601', '2023-07-05 07:30:00', 'Thứ bảy 013', 'Nghề làm đẹp', 'Columbus', 'New york red bulls', NULL, NULL, 1, '2:1 (1:1)', NULL, NULL),
-(552, '502322602', '2023-07-05 07:30:00', 'Thứ bảy 014', 'Nghề làm đẹp', 'Cincinnati', 'New england', 'http://www.woxiangwan.com/club/16720', 'http://www.woxiangwan.com/club/553', -1, '2:2 (1:2)', NULL, NULL),
-(553, '502322596', '2023-07-05 08:30:00', 'Thứ bảy 015', 'Nghề làm đẹp', 'Nashville', 'Washington United', NULL, NULL, 1, '2:0 (2:0)', NULL, NULL),
-(554, '502322595', '2023-07-05 08:30:00', 'Thứ bảy 016', 'Nghề làm đẹp', 'Minnesota', 'Portland', NULL, NULL, 1, '4:1 (2:0)', NULL, NULL),
-(555, '502322594', '2023-07-05 08:30:00', 'Thứ bảy 017', 'Nghề làm đẹp', 'Kansas City', 'Vancouver', NULL, NULL, 1, '3:0 (2:0)', NULL, NULL),
-(556, '502322593', '2023-07-05 08:30:00', 'Thứ bảy 018', 'Nghề làm đẹp', 'Dallas FC', 'Los Angeles FC', NULL, NULL, -1, '2:0 (0:0)', NULL, NULL),
-(557, '502322592', '2023-07-05 08:30:00', 'Thứ bảy 019', 'Nghề làm đẹp', 'City ​​of st. louis', 'Colorado', NULL, NULL, 1, '2:0 (2:0)', NULL, NULL),
-(558, '502322591', '2023-07-05 10:40:00', 'Thứ bảy 020', 'Nghề làm đẹp', 'Seattle', 'Houston', NULL, NULL, 1, '1:0 (0:0)', NULL, NULL),
-(559, '502322590', '2023-07-05 10:40:00', 'Thứ bảy 021', 'Nghề làm đẹp', 'San jose', 'LA Galaxy', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
-(560, '502332107', '2023-07-05 17:00:00', 'Chủ nhật 001', 'Korea K League', 'Gwangju FC', 'Ulsan Hyundai', NULL, NULL, 1, '0:1 (0:0)', NULL, NULL),
-(561, '502336894', '2023-07-05 18:00:00', 'Chủ nhật 002', 'Chúng tôi ở đây', 'Yokohama Mariners', 'Shonan Ocean', NULL, NULL, 1, '4:1 (2:0)', NULL, NULL),
-(562, '502325201', '2023-07-05 21:00:00', 'Chủ nhật 003', 'Siêu thụy điển', 'Halmstad', 'Gothenburg', NULL, NULL, -1, '0:0 (0:0)', NULL, NULL),
-(563, '502325202', '2023-07-05 21:00:00', 'Chủ nhật 004', 'Siêu thụy điển', 'Norrkoping', 'Hegen', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
-(564, '502325433', '2023-07-05 23:00:00', 'Chủ nhật 005', 'Bắc Âu', 'Sapsburg', 'Sand figer', NULL, NULL, 1, '6:1 (3:1)', NULL, NULL),
-(565, '502325434', '2023-07-05 23:00:00', 'Chủ nhật 006', 'Bắc Âu', 'Lillester', 'Tromso', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
-(566, '502325432', '2023-07-05 23:00:00', 'Chủ nhật 007', 'Bắc Âu', 'Haugesund', 'Ord', NULL, NULL, 1, '2:1 (1:1)', NULL, NULL),
-(567, '502325435', '2023-07-05 23:00:00', 'Chủ nhật 008', 'Bắc Âu', 'Bran', 'Hankan', NULL, NULL, 1, '2:1 (1:0)', NULL, NULL),
-(568, '502325436', '2023-07-05 23:00:00', 'Chủ nhật 009', 'Bắc Âu', 'Ålesund', 'Rosenberg', NULL, NULL, -1, '1:0 (0:0)', NULL, NULL),
-(569, '502325203', '2023-07-05 23:30:00', 'Chủ nhật 010', 'Siêu thụy điển', 'Djordens', 'Varberg', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
-(570, '502408467', '2023-07-05 23:59:00', 'Chủ nhật 011', 'Thanh Niên Châu Âu U21', 'England U21', 'Portugal U21', NULL, NULL, 1, '1:0 (1:0)', NULL, NULL),
-(571, '502325431', '2023-07-05 01:15:00', 'Chủ nhật 012', 'Bắc Âu', 'Bode shines', 'Molde', NULL, NULL, -1, '2:2 (0:2)', NULL, NULL),
-(572, '502408468', '2023-07-05 03:00:00', 'Chủ nhật 013', 'Thanh Niên Châu Âu U21', 'France U21', 'Ukraine U21', NULL, NULL, -1, '1:3 (1:2)', NULL, NULL),
-(573, '502322589', '2023-07-05 04:25:00', 'Chủ nhật 014', 'Nghề làm đẹp', 'Atlanta United', 'Philadelphia union', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
-(574, '502401052', '2023-07-05 07:00:00', 'Chủ nhật 015', 'Cốc đô la', 'U.S.', 'Trinidad and Tobago', NULL, NULL, 1, '6:0 (3:0)', NULL, NULL),
-(575, '502401056', '2023-07-05 09:30:00', 'Chủ nhật 016', 'Cốc đô la', 'Mexico', 'Qatar', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
-(576, '502325205', '2023-07-05 01:00:00', 'Thứ hai 001', 'Siêu thụy điển', 'Myalby', 'Kalmar', NULL, NULL, -1, '1:1 (1:1)', NULL, NULL),
-(577, '502325204', '2023-07-05 01:00:00', 'Thứ hai 002', 'Siêu thụy điển', 'Evesborg', 'Hammarby', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
-(578, '502325430', '2023-07-05 01:00:00', 'Thứ hai 003', 'Bắc Âu', 'Stabeck', 'Strom', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
-(579, '502322616', '2023-07-05 07:30:00', 'Thứ ba 001', 'Nghề làm đẹp', 'Orlando city', 'Toronto FC', NULL, NULL, 1, '4:0 (2:0)', NULL, NULL),
-(580, '502322615', '2023-07-05 07:30:00', 'Thứ ba 002', 'Nghề làm đẹp', 'Mai International', 'Columbus', NULL, NULL, -1, '2:2 (0:1)', NULL, NULL),
-(581, '502401058', '2023-07-05 09:05:00', 'Thứ ba 003', 'Cốc đô la', 'Panama', 'El Salvador', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
-(582, '502322614', '2023-07-05 08:30:00', 'Thứ ba 004', 'Nghề làm đẹp', 'Dallas FC', 'Washington United', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
-(583, '502322613', '2023-07-05 11:25:00', 'Thứ ba 005', 'Nghề làm đẹp', 'Colorado', 'Portland', NULL, NULL, 0, '0:0 (0:0)', NULL, NULL);
+INSERT INTO `matchs` (`id`, `match_id`, `match_date`, `row_no`, `tournament_id`, `team_home`, `team_visit`, `logo_team_home`, `logo_team_visit`, `is_ok`, `result1`, `created_at`, `updated_at`) VALUES
+(0, '502336895', '2023-07-06 18:00:00', 'Thứ sáu 001', 1, 'Niigata Swan', 'Kobe Victory', NULL, NULL, 0, '0:0', NULL, NULL),
+(0, '502325445', '2023-07-06 01:00:00', 'Thứ sáu 002', 2, 'Hankan', 'Ålesund', 'http://www.woxiangwan.com/club/277', 'http://www.woxiangwan.com/club/288', 0, '0:0', NULL, NULL),
+(0, '502336889', '2023-07-06 17:00:00', 'Thứ bảy 001', 1, 'Nagoya Whale', 'Kawasaki Frontale', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
+(0, '502336893', '2023-07-06 18:00:00', 'Thứ bảy 002', 1, 'Kobe Victory', 'Sapporo Oka', 'http://www.woxiangwan.com/club/353', 'http://www.woxiangwan.com/club/365', -1, '1:1 (0:1)', NULL, NULL),
+(0, '502325199', '2023-07-06 21:00:00', 'Thứ bảy 003', 3, 'Degfors', 'Wenamu', NULL, NULL, -1, '0:2 (0:1)', NULL, NULL),
+(0, '502325198', '2023-07-06 21:00:00', 'Thứ bảy 004', 3, 'Bruma', 'Solna', NULL, NULL, 1, '0:2 (0:2)', NULL, NULL),
+(0, '502325200', '2023-07-06 23:30:00', 'Thứ bảy 005', 3, 'Malmö', 'Sirius', NULL, NULL, 1, '3:0 (1:0)', NULL, NULL),
+(0, '502408465', '2023-07-06 23:59:00', 'Thứ bảy 006', 4, 'Georgia U21', 'Israel U21', 'http://www.woxiangwan.com/club/5305', 'http://www.woxiangwan.com/club/5333', -1, '0:0 (0:0)', NULL, NULL),
+(0, '502325437', '2023-07-06 23:59:00', 'Thứ bảy 007', 2, 'Valerenga', 'Viking', NULL, NULL, -1, '1:2 (0:1)', NULL, NULL),
+(0, '502408466', '2023-07-06 03:00:00', 'Thứ bảy 008', 4, 'Spain U21', 'Switzerland U21', NULL, NULL, -1, '1:1 (0:0)', NULL, NULL),
+(0, '502322598', '2023-07-06 07:30:00', 'Thứ bảy 009', 5, 'Toronto FC', 'Salt Lake City', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
+(0, '502322597', '2023-07-06 07:30:00', 'Thứ bảy 010', 5, 'Orlando city', 'Chicago', 'http://www.woxiangwan.com/club/1448', 'http://www.woxiangwan.com/club/555', 1, '3:1 (1:0)', NULL, NULL),
+(0, '502322600', '2023-07-06 09:00:00', 'Thứ bảy 011', 5, 'Montreal', 'New york city', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
+(0, '502322599', '2023-07-06 07:30:00', 'Thứ bảy 012', 5, 'Mai International', 'Austin FC', NULL, NULL, -1, '1:1 (0:0)', NULL, NULL),
+(0, '502322601', '2023-07-06 07:30:00', 'Thứ bảy 013', 5, 'Columbus', 'New york red bulls', NULL, NULL, 1, '2:1 (1:1)', NULL, NULL),
+(0, '502322602', '2023-07-06 07:30:00', 'Thứ bảy 014', 5, 'Cincinnati', 'New england', NULL, NULL, -1, '2:2 (1:2)', NULL, NULL),
+(0, '502322596', '2023-07-06 08:30:00', 'Thứ bảy 015', 5, 'Nashville', 'Washington United', NULL, NULL, 1, '2:0 (2:0)', NULL, NULL),
+(0, '502322595', '2023-07-06 08:30:00', 'Thứ bảy 016', 5, 'Minnesota', 'Portland', NULL, NULL, 1, '4:1 (2:0)', NULL, NULL),
+(0, '502322594', '2023-07-06 08:30:00', 'Thứ bảy 017', 5, 'Kansas City', 'Vancouver', NULL, NULL, 1, '3:0 (2:0)', NULL, NULL),
+(0, '502322593', '2023-07-06 08:30:00', 'Thứ bảy 018', 5, 'Dallas FC', 'Los Angeles FC', NULL, NULL, -1, '2:0 (0:0)', NULL, NULL),
+(0, '502322592', '2023-07-06 08:30:00', 'Thứ bảy 019', 5, 'City ​​of st. louis', 'Colorado', NULL, NULL, 1, '2:0 (2:0)', NULL, NULL),
+(0, '502322591', '2023-07-06 10:40:00', 'Thứ bảy 020', 5, 'Seattle', 'Houston', NULL, NULL, 1, '1:0 (0:0)', NULL, NULL),
+(0, '502322590', '2023-07-06 10:40:00', 'Thứ bảy 021', 5, 'San jose', 'LA Galaxy', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
+(0, '502332107', '2023-07-06 17:00:00', 'Chủ nhật 001', 6, 'Gwangju FC', 'Ulsan Hyundai', NULL, NULL, 1, '0:1 (0:0)', NULL, NULL),
+(0, '502336894', '2023-07-06 18:00:00', 'Chủ nhật 002', 1, 'Yokohama Mariners', 'Shonan Ocean', NULL, NULL, 1, '4:1 (2:0)', NULL, NULL),
+(0, '502325201', '2023-07-06 21:00:00', 'Chủ nhật 003', 3, 'Halmstad', 'Gothenburg', NULL, NULL, -1, '0:0 (0:0)', NULL, NULL),
+(0, '502325202', '2023-07-06 21:00:00', 'Chủ nhật 004', 3, 'Norrkoping', 'Hegen', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
+(0, '502325433', '2023-07-06 23:00:00', 'Chủ nhật 005', 2, 'Sapsburg', 'Sand figer', NULL, NULL, 1, '6:1 (3:1)', NULL, NULL),
+(0, '502325434', '2023-07-06 23:00:00', 'Chủ nhật 006', 2, 'Lillester', 'Tromso', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
+(0, '502325432', '2023-07-06 23:00:00', 'Chủ nhật 007', 2, 'Haugesund', 'Ord', NULL, NULL, 1, '2:1 (1:1)', NULL, NULL),
+(0, '502325435', '2023-07-06 23:00:00', 'Chủ nhật 008', 2, 'Bran', 'Hankan', NULL, NULL, 1, '2:1 (1:0)', NULL, NULL),
+(0, '502325436', '2023-07-06 23:00:00', 'Chủ nhật 009', 2, 'Ålesund', 'Rosenberg', NULL, NULL, -1, '1:0 (0:0)', NULL, NULL),
+(0, '502325203', '2023-07-06 23:30:00', 'Chủ nhật 010', 3, 'Djordens', 'Varberg', 'http://www.woxiangwan.com/club/250', 'http://www.woxiangwan.com/club/847', 1, '2:0 (1:0)', NULL, NULL),
+(0, '502408467', '2023-07-06 23:59:00', 'Chủ nhật 011', 4, 'England U21', 'Portugal U21', NULL, NULL, 1, '1:0 (1:0)', NULL, NULL),
+(0, '502325431', '2023-07-06 01:15:00', 'Chủ nhật 012', 2, 'Bode shines', 'Molde', NULL, NULL, -1, '2:2 (0:2)', NULL, NULL),
+(0, '502408468', '2023-07-06 03:00:00', 'Chủ nhật 013', 4, 'France U21', 'Ukraine U21', NULL, NULL, -1, '1:3 (1:2)', NULL, NULL),
+(0, '502322589', '2023-07-06 04:25:00', 'Chủ nhật 014', 5, 'Atlanta United', 'Philadelphia union', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
+(0, '502401052', '2023-07-06 07:00:00', 'Chủ nhật 015', 7, 'U.S.', 'Trinidad and Tobago', NULL, NULL, 1, '6:0 (3:0)', NULL, NULL),
+(0, '502401056', '2023-07-06 09:30:00', 'Chủ nhật 016', 7, 'Mexico', 'Qatar', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
+(0, '502325205', '2023-07-06 01:00:00', 'Thứ hai 001', 3, 'Myalby', 'Kalmar', NULL, NULL, -1, '1:1 (1:1)', NULL, NULL),
+(0, '502325204', '2023-07-06 01:00:00', 'Thứ hai 002', 3, 'Evesborg', 'Hammarby', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
+(0, '502325430', '2023-07-06 01:00:00', 'Thứ hai 003', 2, 'Stabeck', 'Strom', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
+(0, '502322616', '2023-07-06 07:30:00', 'Thứ ba 001', 5, 'Orlando city', 'Toronto FC', NULL, NULL, 1, '4:0 (2:0)', NULL, NULL),
+(0, '502322615', '2023-07-06 07:30:00', 'Thứ ba 002', 5, 'Mai International', 'Columbus', NULL, NULL, -1, '2:2 (0:1)', NULL, NULL),
+(0, '502401058', '2023-07-06 09:05:00', 'Thứ ba 003', 7, 'Panama', 'El Salvador', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
+(0, '502322614', '2023-07-06 08:30:00', 'Thứ ba 004', 5, 'Dallas FC', 'Washington United', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
+(0, '502322613', '2023-07-06 11:25:00', 'Thứ ba 005', 5, 'Colorado', 'Portland', NULL, NULL, 0, '0:0 (0:0)', NULL, NULL),
+(0, '502337278', '2023-07-06 18:00:00', 'Thứ tư 001', 8, 'Tokyo Greenery', 'Nagasaki Sailing', NULL, NULL, -1, '1:2 (0:1)', NULL, NULL),
+(0, '502400820', '2023-07-06 06:30:00', 'Thứ tư 002', 9, 'Sao paulo', 'Pamelas', NULL, NULL, 1, '1:0 (0:0)', NULL, NULL),
+(0, '502322611', '2023-07-06 07:40:00', 'Thứ tư 003', 5, 'New york city', 'Charlotte FC', NULL, NULL, -1, '1:1 (0:1)', NULL, NULL),
+(0, '502400819', '2023-07-06 08:30:00', 'Thứ tư 004', 9, 'M americas', 'Corinthians', NULL, NULL, 1, '1:0 (1:0)', NULL, NULL),
+(0, '502400821', '2023-07-06 08:30:00', 'Thứ tư 005', 9, 'Flamenco', 'Barcelona', NULL, NULL, 1, '2:1 (0:1)', NULL, NULL),
+(0, '502417907', '2023-07-06 23:59:00', 'Thứ tư 006', 4, 'Israel U21', 'England U21', NULL, NULL, 1, '0:3 (0:1)', NULL, NULL),
+(0, '502417908', '2023-07-06 03:00:00', 'Thứ tư 007', 4, 'Spain U21', 'Ukraine U21', NULL, NULL, 1, '5:1 (2:1)', NULL, NULL),
+(0, '502336895', '2023-07-06 18:00:00', 'Thứ sáu 001', 1, 'Niigata Swan', 'Kobe Victory', NULL, NULL, 0, '0:0', NULL, NULL),
+(0, '502325445', '2023-07-06 01:00:00', 'Thứ sáu 002', 2, 'Hankan', 'Ålesund', NULL, NULL, 0, '0:0', NULL, NULL),
+(0, '502336889', '2023-07-06 17:00:00', 'Thứ bảy 001', 1, 'Nagoya Whale', 'Kawasaki Frontale', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
+(0, '502336893', '2023-07-06 18:00:00', 'Thứ bảy 002', 1, 'Kobe Victory', 'Sapporo Oka', NULL, NULL, -1, '1:1 (0:1)', NULL, NULL),
+(0, '502325199', '2023-07-06 21:00:00', 'Thứ bảy 003', 3, 'Degfors', 'Wenamu', NULL, NULL, -1, '0:2 (0:1)', NULL, NULL),
+(0, '502325198', '2023-07-06 21:00:00', 'Thứ bảy 004', 3, 'Bruma', 'Solna', NULL, NULL, 1, '0:2 (0:2)', NULL, NULL),
+(0, '502325200', '2023-07-06 23:30:00', 'Thứ bảy 005', 3, 'Malmö', 'Sirius', NULL, NULL, 1, '3:0 (1:0)', NULL, NULL),
+(0, '502408465', '2023-07-06 23:59:00', 'Thứ bảy 006', 4, 'Georgia U21', 'Israel U21', NULL, NULL, -1, '0:0 (0:0)', NULL, NULL),
+(0, '502325437', '2023-07-06 23:59:00', 'Thứ bảy 007', 2, 'Valerenga', 'Viking', NULL, NULL, -1, '1:2 (0:1)', NULL, NULL),
+(0, '502408466', '2023-07-06 03:00:00', 'Thứ bảy 008', 4, 'Spain U21', 'Switzerland U21', NULL, NULL, -1, '1:1 (0:0)', NULL, NULL),
+(0, '502322598', '2023-07-06 07:30:00', 'Thứ bảy 009', 5, 'Toronto FC', 'Salt Lake City', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
+(0, '502322597', '2023-07-06 07:30:00', 'Thứ bảy 010', 5, 'Orlando city', 'Chicago', 'http://www.woxiangwan.com/club/1448', 'http://www.woxiangwan.com/club/555', 1, '3:1 (1:0)', NULL, NULL),
+(0, '502322600', '2023-07-06 09:00:00', 'Thứ bảy 011', 5, 'Montreal', 'New york city', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
+(0, '502322599', '2023-07-06 07:30:00', 'Thứ bảy 012', 5, 'Mai International', 'Austin FC', NULL, NULL, -1, '1:1 (0:0)', NULL, NULL),
+(0, '502322601', '2023-07-06 07:30:00', 'Thứ bảy 013', 5, 'Columbus', 'New york red bulls', NULL, NULL, 1, '2:1 (1:1)', NULL, NULL),
+(0, '502322602', '2023-07-06 07:30:00', 'Thứ bảy 014', 5, 'Cincinnati', 'New england', NULL, NULL, -1, '2:2 (1:2)', NULL, NULL),
+(0, '502322596', '2023-07-06 08:30:00', 'Thứ bảy 015', 5, 'Nashville', 'Washington United', NULL, NULL, 1, '2:0 (2:0)', NULL, NULL),
+(0, '502322595', '2023-07-06 08:30:00', 'Thứ bảy 016', 5, 'Minnesota', 'Portland', NULL, NULL, 1, '4:1 (2:0)', NULL, NULL),
+(0, '502322594', '2023-07-06 08:30:00', 'Thứ bảy 017', 5, 'Kansas City', 'Vancouver', NULL, NULL, 1, '3:0 (2:0)', NULL, NULL),
+(0, '502322593', '2023-07-06 08:30:00', 'Thứ bảy 018', 5, 'Dallas FC', 'Los Angeles FC', NULL, NULL, -1, '2:0 (0:0)', NULL, NULL),
+(0, '502322592', '2023-07-06 08:30:00', 'Thứ bảy 019', 5, 'City ​​of st. louis', 'Colorado', NULL, NULL, 1, '2:0 (2:0)', NULL, NULL),
+(0, '502322591', '2023-07-06 10:40:00', 'Thứ bảy 020', 5, 'Seattle', 'Houston', NULL, NULL, 1, '1:0 (0:0)', NULL, NULL),
+(0, '502322590', '2023-07-06 10:40:00', 'Thứ bảy 021', 5, 'San jose', 'LA Galaxy', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
+(0, '502332107', '2023-07-06 17:00:00', 'Chủ nhật 001', 6, 'Gwangju FC', 'Ulsan Hyundai', NULL, NULL, 1, '0:1 (0:0)', NULL, NULL),
+(0, '502336894', '2023-07-06 18:00:00', 'Chủ nhật 002', 1, 'Yokohama Mariners', 'Shonan Ocean', NULL, NULL, 1, '4:1 (2:0)', NULL, NULL),
+(0, '502325201', '2023-07-06 21:00:00', 'Chủ nhật 003', 3, 'Halmstad', 'Gothenburg', NULL, NULL, -1, '0:0 (0:0)', NULL, NULL),
+(0, '502325202', '2023-07-06 21:00:00', 'Chủ nhật 004', 3, 'Norrkoping', 'Hegen', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
+(0, '502325433', '2023-07-06 23:00:00', 'Chủ nhật 005', 2, 'Sapsburg', 'Sand figer', NULL, NULL, 1, '6:1 (3:1)', NULL, NULL),
+(0, '502325434', '2023-07-06 23:00:00', 'Chủ nhật 006', 2, 'Lillester', 'Tromso', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
+(0, '502325432', '2023-07-06 23:00:00', 'Chủ nhật 007', 2, 'Haugesund', 'Ord', NULL, NULL, 1, '2:1 (1:1)', NULL, NULL),
+(0, '502325435', '2023-07-06 23:00:00', 'Chủ nhật 008', 2, 'Bran', 'Hankan', NULL, NULL, 1, '2:1 (1:0)', NULL, NULL),
+(0, '502325436', '2023-07-06 23:00:00', 'Chủ nhật 009', 2, 'Ålesund', 'Rosenberg', NULL, NULL, -1, '1:0 (0:0)', NULL, NULL),
+(0, '502325203', '2023-07-06 23:30:00', 'Chủ nhật 010', 3, 'Djordens', 'Varberg', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
+(0, '502408467', '2023-07-06 23:59:00', 'Chủ nhật 011', 4, 'England U21', 'Portugal U21', NULL, NULL, 1, '1:0 (1:0)', NULL, NULL),
+(0, '502325431', '2023-07-06 01:15:00', 'Chủ nhật 012', 2, 'Bode shines', 'Molde', NULL, NULL, -1, '2:2 (0:2)', NULL, NULL),
+(0, '502408468', '2023-07-06 03:00:00', 'Chủ nhật 013', 4, 'France U21', 'Ukraine U21', NULL, NULL, -1, '1:3 (1:2)', NULL, NULL),
+(0, '502322589', '2023-07-06 04:25:00', 'Chủ nhật 014', 5, 'Atlanta United', 'Philadelphia union', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
+(0, '502401052', '2023-07-06 07:00:00', 'Chủ nhật 015', 7, 'U.S.', 'Trinidad and Tobago', NULL, NULL, 1, '6:0 (3:0)', NULL, NULL),
+(0, '502401056', '2023-07-06 09:30:00', 'Chủ nhật 016', 7, 'Mexico', 'Qatar', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
+(0, '502325205', '2023-07-06 01:00:00', 'Thứ hai 001', 3, 'Myalby', 'Kalmar', NULL, NULL, -1, '1:1 (1:1)', NULL, NULL),
+(0, '502325204', '2023-07-06 01:00:00', 'Thứ hai 002', 3, 'Evesborg', 'Hammarby', NULL, NULL, 1, '2:0 (1:0)', NULL, NULL),
+(0, '502325430', '2023-07-06 01:00:00', 'Thứ hai 003', 2, 'Stabeck', 'Strom', NULL, NULL, -1, '0:1 (0:1)', NULL, NULL),
+(0, '502322616', '2023-07-06 07:30:00', 'Thứ ba 001', 5, 'Orlando city', 'Toronto FC', NULL, NULL, 1, '4:0 (2:0)', NULL, NULL),
+(0, '502322615', '2023-07-06 07:30:00', 'Thứ ba 002', 5, 'Mai International', 'Columbus', NULL, NULL, -1, '2:2 (0:1)', NULL, NULL),
+(0, '502401058', '2023-07-06 09:05:00', 'Thứ ba 003', 7, 'Panama', 'El Salvador', NULL, NULL, -1, '2:2 (1:1)', NULL, NULL),
+(0, '502322614', '2023-07-06 08:30:00', 'Thứ ba 004', 5, 'Dallas FC', 'Washington United', NULL, NULL, -1, '0:1 (0:0)', NULL, NULL),
+(0, '502322613', '2023-07-06 11:25:00', 'Thứ ba 005', 5, 'Colorado', 'Portland', NULL, NULL, 0, '0:0 (0:0)', NULL, NULL),
+(0, '502337278', '2023-07-06 18:00:00', 'Thứ tư 001', 8, 'Tokyo Greenery', 'Nagasaki Sailing', NULL, NULL, -1, '1:2 (0:1)', NULL, NULL),
+(0, '502400820', '2023-07-06 06:30:00', 'Thứ tư 002', 9, 'Sao paulo', 'Pamelas', NULL, NULL, 1, '1:0 (0:0)', NULL, NULL),
+(0, '502322611', '2023-07-06 07:40:00', 'Thứ tư 003', 5, 'New york city', 'Charlotte FC', NULL, NULL, -1, '1:1 (0:1)', NULL, NULL),
+(0, '502400819', '2023-07-06 08:30:00', 'Thứ tư 004', 9, 'M americas', 'Corinthians', NULL, NULL, 1, '1:0 (1:0)', NULL, NULL),
+(0, '502400821', '2023-07-06 08:30:00', 'Thứ tư 005', 9, 'Flamenco', 'Barcelona', NULL, NULL, 1, '2:1 (0:1)', NULL, NULL),
+(0, '502417907', '2023-07-06 23:59:00', 'Thứ tư 006', 4, 'Israel U21', 'England U21', NULL, NULL, 1, '0:3 (0:1)', NULL, NULL),
+(0, '502417908', '2023-07-06 03:00:00', 'Thứ tư 007', 4, 'Spain U21', 'Ukraine U21', NULL, NULL, 1, '5:1 (2:1)', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,7 +194,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2023_07_05_040636_create_translate_texts_table', 1),
-(5, '2023_07_05_084203_create_matchs_table', 2);
+(5, '2023_07_05_084203_create_matchs_table', 2),
+(6, '2023_07_06_052236_create_tournaments_table', 3);
 
 -- --------------------------------------------------------
 
@@ -152,6 +208,35 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tournaments`
+--
+
+CREATE TABLE `tournaments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tour_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `tour_name_edit` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tournaments`
+--
+
+INSERT INTO `tournaments` (`id`, `tour_name`, `tour_name_edit`, `created_at`, `updated_at`) VALUES
+(1, 'We are here', NULL, NULL, NULL),
+(2, 'Nordic', NULL, NULL, NULL),
+(3, 'Swedish super', '', NULL, NULL),
+(4, 'European Youth U21', NULL, NULL, NULL),
+(5, 'Beauty profession', 'USA MLS', NULL, NULL),
+(6, 'Korea K League', NULL, NULL, NULL),
+(7, 'Dollar cup', NULL, NULL, NULL),
+(8, 'Day job B', NULL, NULL, NULL),
+(9, 'Brazil Cup', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -172,130 +257,108 @@ CREATE TABLE `translate_texts` (
 --
 
 INSERT INTO `translate_texts` (`id`, `text_original`, `text_translate`, `created_at`, `updated_at`) VALUES
-(1, '科罗拉多', 'Colorado', NULL, NULL),
-(3, '东京绿茵', 'Tokyo Greenery', NULL, NULL),
-(4, '圣保罗', 'Sao paulo', NULL, NULL),
-(5, '纽约城', 'New york city', NULL, NULL),
-(6, '米美洲', 'M americas', NULL, NULL),
-(7, '弗拉门戈', 'Flamenco', NULL, NULL),
-(8, '以色列U21', 'Israel U21', NULL, NULL),
-(9, '西班牙U21', 'Spain U21', NULL, NULL),
-(10, '萨尔瓦多', 'El Salvador', NULL, NULL),
-(11, '名古屋鲸', 'Nagoya Whale', NULL, NULL),
-(12, '神户胜利', 'Kobe Victory', NULL, NULL),
-(13, '代格福什', 'Degfors', NULL, NULL),
-(14, '布鲁马', 'Bruma', NULL, NULL),
-(15, '马尔默', 'Malmö', NULL, NULL),
-(16, '格鲁吉亚U21', 'Georgia U21', NULL, NULL),
-(17, '瓦勒伦加', 'Valerenga', NULL, NULL),
-(18, '多伦多FC', 'Toronto FC', NULL, NULL),
-(19, '奥兰多城', 'Orlando city', NULL, NULL),
-(20, '蒙特利尔', 'Montreal', NULL, NULL),
-(21, '迈国际', 'Mai International', NULL, NULL),
-(22, '哥伦布', 'Columbus', NULL, NULL),
-(23, '辛辛那提', 'Cincinnati', NULL, NULL),
-(24, '纳什威尔', 'Nashville', NULL, NULL),
-(25, '明尼苏达', 'Minnesota', NULL, NULL),
-(26, '堪萨斯城', 'Kansas City', NULL, NULL),
-(27, '达拉斯FC', 'Dallas FC', NULL, NULL),
-(28, '圣路易斯城', 'City ​​of st. louis', NULL, NULL),
-(29, '西雅图', 'Seattle', NULL, NULL),
-(30, '圣何塞', 'San jose', NULL, NULL),
-(31, '光州FC', 'Gwangju FC', NULL, NULL),
-(32, '横滨水手', 'Yokohama Mariners', NULL, NULL),
-(33, '哈尔姆斯塔德', 'Halmstad', NULL, NULL),
-(34, '北雪平', 'Norrkoping', NULL, NULL),
-(35, '萨普斯堡', 'Sapsburg', NULL, NULL),
-(36, '利勒斯特', 'Lillester', NULL, NULL),
-(37, '海于格松', 'Haugesund', NULL, NULL),
-(38, '布兰', 'Bran', NULL, NULL),
-(39, '奥勒松', 'Ålesund', NULL, NULL),
-(40, '佐加顿斯', 'Djordens', NULL, NULL),
-(41, '英格兰U21', 'England U21', NULL, NULL),
-(42, '博德闪耀', 'Bode shines', NULL, NULL),
-(43, '法国U21', 'France U21', NULL, NULL),
-(44, '亚特联', 'Atlanta United', NULL, NULL),
-(45, '美国', 'U.S.', NULL, NULL),
-(46, '墨西哥', 'Mexico', NULL, NULL),
-(47, '米亚尔比', 'Myalby', NULL, NULL),
-(48, '埃夫斯堡', 'Evesborg', NULL, NULL),
-(49, '斯塔贝克', 'Stabeck', NULL, NULL),
-(50, '巴拿马', 'Panama', NULL, NULL),
-(346, '长崎航海', 'Nagasaki Sailing', NULL, NULL),
-(347, '帕梅拉斯', 'Pamelas', NULL, NULL),
-(348, '夏洛特FC', 'Charlotte FC', NULL, NULL),
-(349, '科林蒂安', 'Corinthians', NULL, NULL),
-(350, '巴竞技', 'Barcelona', NULL, NULL),
-(351, '乌克兰U21', 'Ukraine U21', NULL, NULL),
-(352, '哥斯达黎加', 'Costa rica', NULL, NULL),
-(353, '川崎前锋', 'Kawasaki Frontale', NULL, NULL),
-(354, '札幌冈萨', 'Sapporo Oka', NULL, NULL),
-(355, '韦纳穆', 'Wenamu', NULL, NULL),
-(356, '索尔纳', 'Solna', NULL, NULL),
-(357, '天狼星', 'Sirius', NULL, NULL),
-(358, '维京', 'Viking', NULL, NULL),
-(359, '瑞士U21', 'Switzerland U21', NULL, NULL),
-(360, '盐湖城', 'Salt Lake City', NULL, NULL),
-(361, '芝加哥', 'Chicago', NULL, NULL),
-(362, '奥斯汀FC', 'Austin FC', NULL, NULL),
-(363, '纽约红牛', 'New york red bulls', NULL, NULL),
-(364, '新英格兰', 'New england', NULL, NULL),
-(365, '华盛顿联', 'Washington United', NULL, NULL),
-(366, '波特兰', 'Portland', NULL, NULL),
-(367, '温哥华', 'Vancouver', NULL, NULL),
-(368, '洛杉矶FC', 'Los Angeles FC', NULL, NULL),
-(369, '休斯敦', 'Houston', NULL, NULL),
-(370, '洛城银河', 'LA Galaxy', NULL, NULL),
-(371, '蔚山现代', 'Ulsan Hyundai', NULL, NULL),
-(372, '湘南海洋', 'Shonan Ocean', NULL, NULL),
-(373, '哥德堡', 'Gothenburg', NULL, NULL),
-(374, '赫根', 'Hegen', NULL, NULL),
-(375, '桑德菲杰', 'Sand figer', NULL, NULL),
-(376, '特罗姆瑟', 'Tromso', NULL, NULL),
-(377, '奥德', 'Ord', NULL, NULL),
-(378, '汉坎', 'Hankan', NULL, NULL),
-(379, '罗森博格', 'Rosenberg', NULL, NULL),
-(380, '瓦尔贝里', 'Varberg', NULL, NULL),
-(381, '葡萄牙U21', 'Portugal U21', NULL, NULL),
-(382, '莫尔德', 'Molde', NULL, NULL),
-(383, '费城联合', 'Philadelphia union', NULL, NULL),
-(384, '特立尼达和多巴哥', 'Trinidad and Tobago', NULL, NULL),
-(385, '卡塔尔', 'Qatar', NULL, NULL),
-(386, '卡尔马', 'Kalmar', NULL, NULL),
-(387, '哈马比', 'Hammarby', NULL, NULL),
-(388, '斯特罗姆', 'Strom', NULL, NULL),
-(389, '欧青U21', 'Thanh Niên Châu Âu U21', NULL, NULL),
-(390, '巴西杯', 'Cúp Brazil', NULL, NULL),
-(391, '瑞典超', 'Siêu thụy điển', NULL, NULL),
-(392, '美金杯', 'Cốc đô la', NULL, NULL),
-(393, '挪超', 'Bắc Âu', NULL, NULL),
-(394, '日职乙', 'Công việc ban ngày B', NULL, NULL),
-(395, '美职业', 'Nghề làm đẹp', NULL, NULL),
-(396, '日职联', 'Chúng tôi ở đây', NULL, NULL),
-(397, '胜胜', 'Chiến thắng', NULL, NULL),
-(398, '胜胜、平胜', 'Chiến thắng, chiến thắng', NULL, NULL),
-(399, '平负、平胜', 'Hòa-thua, hòa-thắng', NULL, NULL),
-(400, '负负、平负', 'Tiêu cực, thậm chí tiêu cực', NULL, NULL),
-(401, '平胜、胜胜', 'Bình Sinh, Bình Sinh', NULL, NULL),
-(402, '平胜、平负', 'Hòa thắng, hòa thua', NULL, NULL),
-(403, '平胜、平平', 'Bình Sinh, Bình Bình', NULL, NULL),
-(404, '平胜', 'Thắng', NULL, NULL),
-(405, '中断', 'Làm gián đoạn', NULL, NULL),
-(406, '同赔率比赛:', 'Tỷ lệ cược giống nhau:', NULL, NULL),
-(407, '(主场):', '(sân nhà):', NULL, NULL),
-(408, '(客场):', '(Xa):', NULL, NULL),
-(409, '进攻', 'Tấn công', NULL, NULL),
-(410, '威胁进攻', 'Đe dọa tấn công', NULL, NULL),
-(411, '射门', 'Bắn', NULL, NULL),
-(412, '射正', 'Bắn vào mục tiêu', NULL, NULL),
-(413, '角球', 'Phạt góc', NULL, NULL),
-(414, '控球', 'Sở hữu bóng', NULL, NULL),
-(415, '腰斩', 'Cắt một nửa', NULL, NULL),
-(416, '韩K联', 'Korea K League', NULL, NULL),
-(417, '2\'', '2\'', NULL, NULL),
-(418, '6\'', '6\'', NULL, NULL),
-(419, '14\'', '14\'', NULL, NULL),
-(420, '49\'', '49\'', NULL, NULL);
+(462, '瑞典超', 'Swedish super', NULL, NULL),
+(463, '佐加顿斯', 'Djordens', NULL, NULL),
+(464, '瓦尔贝里', 'Varberg', NULL, NULL),
+(465, '马尔默', 'Malmö', NULL, NULL),
+(466, '天狼星', 'Sirius', NULL, NULL),
+(467, '美金杯', 'Dollar cup', NULL, NULL),
+(468, '美国', 'U.S.', NULL, NULL),
+(469, '特立尼达和多巴哥', 'Trinidad and Tobago', NULL, NULL),
+(470, '挪超', 'Nordic', NULL, NULL),
+(471, '萨普斯堡', 'Sapsburg', NULL, NULL),
+(472, '桑德菲杰', 'Sand figer', NULL, NULL),
+(473, '布兰', 'Bran', NULL, NULL),
+(474, '汉坎', 'Hankan', NULL, NULL),
+(475, '欧青U21', 'European Youth U21', NULL, NULL),
+(476, '以色列U21', 'Israel U21', NULL, NULL),
+(477, '英格兰U21', 'England U21', NULL, NULL),
+(478, '西班牙U21', 'Spain U21', NULL, NULL),
+(479, '瑞士U21', 'Switzerland U21', NULL, NULL),
+(480, '墨西哥', 'Mexico', NULL, NULL),
+(481, '卡塔尔', 'Qatar', NULL, NULL),
+(482, '新泻天鹅', 'Niigata Swan', NULL, NULL),
+(483, '神户胜利', 'Kobe Victory', NULL, NULL),
+(484, '日职联', 'We are here', NULL, NULL),
+(485, '奥勒松', 'Ålesund', NULL, NULL),
+(486, '名古屋鲸', 'Nagoya Whale', NULL, NULL),
+(487, '川崎前锋', 'Kawasaki Frontale', NULL, NULL),
+(488, '札幌冈萨', 'Sapporo Oka', NULL, NULL),
+(489, '代格福什', 'Degfors', NULL, NULL),
+(490, '韦纳穆', 'Wenamu', NULL, NULL),
+(491, '布鲁马', 'Bruma', NULL, NULL),
+(492, '索尔纳', 'Solna', NULL, NULL),
+(493, '格鲁吉亚U21', 'Georgia U21', NULL, NULL),
+(494, '瓦勒伦加', 'Valerenga', NULL, NULL),
+(495, '维京', 'Viking', NULL, NULL),
+(496, '多伦多FC', 'Toronto FC', NULL, NULL),
+(497, '盐湖城', 'Salt Lake City', NULL, NULL),
+(498, '美职业', 'Beauty profession', NULL, NULL),
+(499, '奥兰多城', 'Orlando city', NULL, NULL),
+(500, '芝加哥', 'Chicago', NULL, NULL),
+(501, '蒙特利尔', 'Montreal', NULL, NULL),
+(502, '纽约城', 'New york city', NULL, NULL),
+(503, '迈国际', 'Mai International', NULL, NULL),
+(504, '奥斯汀FC', 'Austin FC', NULL, NULL),
+(505, '哥伦布', 'Columbus', NULL, NULL),
+(506, '纽约红牛', 'New york red bulls', NULL, NULL),
+(507, '辛辛那提', 'Cincinnati', NULL, NULL),
+(508, '新英格兰', 'New england', NULL, NULL),
+(509, '纳什威尔', 'Nashville', NULL, NULL),
+(510, '华盛顿联', 'Washington United', NULL, NULL),
+(511, '明尼苏达', 'Minnesota', NULL, NULL),
+(512, '波特兰', 'Portland', NULL, NULL),
+(513, '堪萨斯城', 'Kansas City', NULL, NULL),
+(514, '温哥华', 'Vancouver', NULL, NULL),
+(515, '达拉斯FC', 'Dallas FC', NULL, NULL),
+(516, '洛杉矶FC', 'Los Angeles FC', NULL, NULL),
+(517, '圣路易斯城', 'City ​​of st. louis', NULL, NULL),
+(518, '科罗拉多', 'Colorado', NULL, NULL),
+(519, '西雅图', 'Seattle', NULL, NULL),
+(520, '休斯敦', 'Houston', NULL, NULL),
+(521, '圣何塞', 'San jose', NULL, NULL),
+(522, '洛城银河', 'LA Galaxy', NULL, NULL),
+(523, '光州FC', 'Gwangju FC', NULL, NULL),
+(524, '蔚山现代', 'Ulsan Hyundai', NULL, NULL),
+(525, '韩K联', 'Korea K League', NULL, NULL),
+(526, '横滨水手', 'Yokohama Mariners', NULL, NULL),
+(527, '湘南海洋', 'Shonan Ocean', NULL, NULL),
+(528, '哈尔姆斯塔德', 'Halmstad', NULL, NULL),
+(529, '哥德堡', 'Gothenburg', NULL, NULL),
+(530, '北雪平', 'Norrkoping', NULL, NULL),
+(531, '赫根', 'Hegen', NULL, NULL),
+(532, '利勒斯特', 'Lillester', NULL, NULL),
+(533, '特罗姆瑟', 'Tromso', NULL, NULL),
+(534, '海于格松', 'Haugesund', NULL, NULL),
+(535, '奥德', 'Ord', NULL, NULL),
+(536, '罗森博格', 'Rosenberg', NULL, NULL),
+(537, '葡萄牙U21', 'Portugal U21', NULL, NULL),
+(538, '博德闪耀', 'Bode shines', NULL, NULL),
+(539, '莫尔德', 'Molde', NULL, NULL),
+(540, '法国U21', 'France U21', NULL, NULL),
+(541, '乌克兰U21', 'Ukraine U21', NULL, NULL),
+(542, '亚特联', 'Atlanta United', NULL, NULL),
+(543, '费城联合', 'Philadelphia union', NULL, NULL),
+(544, '米亚尔比', 'Myalby', NULL, NULL),
+(545, '卡尔马', 'Kalmar', NULL, NULL),
+(546, '埃夫斯堡', 'Evesborg', NULL, NULL),
+(547, '哈马比', 'Hammarby', NULL, NULL),
+(548, '斯塔贝克', 'Stabeck', NULL, NULL),
+(549, '斯特罗姆', 'Strom', NULL, NULL),
+(550, '巴拿马', 'Panama', NULL, NULL),
+(551, '萨尔瓦多', 'El Salvador', NULL, NULL),
+(552, '腰斩', 'Cắt một nửa', NULL, NULL),
+(553, '东京绿茵', 'Tokyo Greenery', NULL, NULL),
+(554, '长崎航海', 'Nagasaki Sailing', NULL, NULL),
+(555, '日职乙', 'Day job B', NULL, NULL),
+(556, '圣保罗', 'Sao paulo', NULL, NULL),
+(557, '帕梅拉斯', 'Pamelas', NULL, NULL),
+(558, '巴西杯', 'Brazil Cup', NULL, NULL),
+(559, '夏洛特FC', 'Charlotte FC', NULL, NULL),
+(560, '米美洲', 'M americas', NULL, NULL),
+(561, '科林蒂安', 'Corinthians', NULL, NULL),
+(562, '弗拉门戈', 'Flamenco', NULL, NULL),
+(563, '巴竞技', 'Barcelona', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -326,13 +389,6 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `matchs`
---
-ALTER TABLE `matchs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `matchs_match_id_unique` (`match_id`);
-
---
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -343,6 +399,13 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `tournaments`
+--
+ALTER TABLE `tournaments`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `tour_name_idx` (`tour_name`);
 
 --
 -- Indexes for table `translate_texts`
@@ -369,22 +432,22 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `matchs`
---
-ALTER TABLE `matchs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1313;
-
---
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tournaments`
+--
+ALTER TABLE `tournaments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `translate_texts`
 --
 ALTER TABLE `translate_texts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=421;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=666;
 
 --
 -- AUTO_INCREMENT for table `users`

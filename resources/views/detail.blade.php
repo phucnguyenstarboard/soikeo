@@ -29,7 +29,7 @@
                                             </div>
                                             <div class="col-xs-4 teamDetailImg">
                                                <span> {{ $item->row_no }}</span><br/><span> {{ $item->is_ok != '0' ? 'Đã kết thúc' : 'Chưa diễn ra' }} </span><br/><br/>
-                                               <span style="color:#91ED10;"><strong>{{ $item->type_name }}</strong></span><br/><br/>
+                                               <span style="color:#91ED10;"><strong>{{ !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->tour_name }}</strong></span><br/><br/>
                                                <span>{{ $item->result1 }}</span>
                                             </div>
                                             <div class="col-xs-4 teamDetailImg">

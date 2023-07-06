@@ -26,7 +26,7 @@ class HomeController extends Controller
                 if (isset($textList[$v['typeName']]) || in_array($v['typeName'], $keyListExist)){
                     $data['rows'][0]['matchList'][$k]['typeName'] = $textList[$v['typeName']];
                 }else{
-                    $t = $this->__translateText($v['typeName'], 'vi');
+                    $t = $this->__translateText($v['typeName'], 'en');
                     $data['rows'][0]['matchList'][$k]['typeName'] = $t;
                     $textList[$v['typeName']] = $t;
 
@@ -157,14 +157,20 @@ class HomeController extends Controller
                             $textInsert['text_translate'] = $t;
                             $dataInsert[] = $textInsert;
                         }
-                    }                    
+                    }
 
+                    $tour = DB::table('tournaments')->where('tour_name', '=', $data[$key][$k]['typeName'])->first();
+                    if(!empty($tour)){
+                        $tour_id = $tour->id;
+                    }else{
+                        $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $data[$key][$k]['typeName']] ); 
+                    }
                     $dataMatch = array();
                     $d = date('Y-m-d');
                     $dataMatch['match_id'] = $data[$key][$k]['matchId'];
                     $dataMatch['match_date'] = $d." ".$data[$key][$k]['matchTime'].':00';
                     $dataMatch['row_no'] = $this->__rowNo($data[$key][$k]['rowNo']);
-                    $dataMatch['type_name'] = $data[$key][$k]['typeName'];
+                    $dataMatch['tournament_id'] = $tour_id;
                     $dataMatch['team_home'] = $data[$key][$k]['homeTeam'];
                     $dataMatch['team_visit'] = $data[$key][$k]['visitTeam'];
                     $dataMatch['is_ok'] = $data[$key][$k]['isOk'];
@@ -210,7 +216,7 @@ class HomeController extends Controller
                 if (isset($textList[$v['typeName']]) || in_array($v['typeName'], $keyListExist)){
                     $data['rows'][0]['matchList'][$k]['typeName'] = $textList[$v['typeName']];
                 }else{
-                    $t = $this->__translateText($v['typeName'], 'vi');
+                    $t = $this->__translateText($v['typeName'], 'en');
                     $data['rows'][0]['matchList'][$k]['typeName'] = $t;
                     $textList[$v['typeName']] = $t;
 
@@ -470,7 +476,7 @@ class HomeController extends Controller
 
     public function detail (Request $request) {
         $id = $request->input('id');
-        $item = DB::table('matchs')->where('match_id', $id)->first();
+        $item = DB::table('matchs')->join('tournaments', 'matchs.tournament_id', '=', 'tournaments.id')->where('match_id', $id)->first();
         $logo_team_home = $item->logo_team_home;
         $logo_team_visit = $item->logo_team_visit;
         if(empty($item->logo_team_home) || empty($item->logo_team_visit)){

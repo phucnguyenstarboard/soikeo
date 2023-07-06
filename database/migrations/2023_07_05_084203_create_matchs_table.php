@@ -18,7 +18,7 @@ class CreateMatchsTable extends Migration
             $table->string('match_id')->unique();
             $table->dateTime('match_date')->nullable();
             $table->string('row_no');
-            $table->string('type_name');
+            $table->integer('tournament_id')->nullable();
             $table->string('team_home');
             $table->string('team_visit');
             $table->tinyInteger('is_ok')->default(0);
