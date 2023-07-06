@@ -4,6 +4,10 @@
                 <p>Copyright &copy; <a href="" target="_blank" style="color:#969799;" id="ba">Soi  kèo</a> &copy; 2023</p>
             </div>
         </div>
+
+        <div class="banner_adv">
+            <img src="{{ asset('assets/images/banner_adv.gif') }}">
+        </div>
         
         <script type="text/javascript">
             $(document).ready(function() {

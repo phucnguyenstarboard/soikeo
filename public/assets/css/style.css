@@ -6290,4 +6290,26 @@ p.fourth {
     font-weight: 700;
 }
 
-	
+
+.text-animation{ 
+	font-size:26px; 
+	font-weight:bold; 
+	-webkit-animation: my 700ms infinite; 
+	-moz-animation: my 700ms infinite; 
+	-o-animation: my 700ms infinite; 
+	animation: my 700ms infinite; 
+}
+
+@keyframes my { 
+	0% { color: #F8CD0A; } 
+	50% { color: #fff; } 
+	100% { color: #F8CD0A; }
+}
+
+.banner_adv{
+	position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    width: 100%;
+    left: 40%;
+}
