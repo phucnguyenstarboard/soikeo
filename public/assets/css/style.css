@@ -5126,7 +5126,7 @@ p.fourth {
 @media(max-width:480px){
 	
 	.main-content {
-		margin-top: 4.1em;
+		margin-top: 0em;
 	}
 	
 	.footer-right {
@@ -5140,7 +5140,7 @@ p.fourth {
 	
 	.header-top-strip a {
 		font-size: 1.2em;
-		color:#000;
+		color:#fff;
 	}
 	
 	.header-top-right {
@@ -6290,11 +6290,7 @@ p.fourth {
     font-weight: 700;
 }
 
-.leftMenu{
-	position: fixed;
-	right: 0;
-	top: 40%;
-}
+
 
 .leftMenu ul{
 	list-style: none;
@@ -6328,5 +6324,35 @@ p.fourth {
     z-index: 9999;
     bottom: 0;
     width: 100%;
-    left: 40%;
+    left: 0;
+    right: 	0;
+}
+
+.inner {
+    max-width: 650px; /* just for example */
+    margin: 0 auto;
+}
+
+@media(max-width:768px){
+	.inner {
+		max-width: 100%;
+	}
+
+	.inner img{
+		width: 100%;
+	}
+
+	.logo-p{
+		display: none;
+	}
+}
+
+@media(min-width:1024px){
+	.leftMenu{
+		position: fixed;
+		right: 0;
+		z-index: 9999;
+		top: 50%;
+	    transform: translateY(-50%);
+	}
 }

@@ -2,7 +2,7 @@
         <div class="header-top-strip">
             <div class="container">
                 <div class="header-top-left">
-                    <p><a href="/"><img src="{{ asset('assets/images/logo.png') }}"></a></p>
+                    <p class="logo-p"><a href="/"><img src="{{ asset('assets/images/logo.png') }}"></a></p>
                 </div>
                 <div class="header-top-right">
                     <p>

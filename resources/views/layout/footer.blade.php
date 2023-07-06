@@ -6,7 +6,9 @@
         </div>
 
         <div class="banner_adv">
-            <img src="{{ asset('assets/images/banner_adv.gif') }}">
+            <div class="inner">
+               <img src="{{ asset('assets/images/banner_adv.gif') }}">
+            </div>
         </div>
         
         <script type="text/javascript">
