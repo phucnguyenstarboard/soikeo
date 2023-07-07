@@ -181,7 +181,7 @@ section {
     z-index: 9999;
     top: 26%;
     right: 8%;
-    /*background: #fff;*/
+    border-radius: 50%;
 }
 
 .link-telegram{
@@ -189,30 +189,31 @@ section {
     z-index: 9999;
     top: 50%;
     right: 8%;
+    border-radius: 50%;
 }
 
 @-webkit-keyframes glowing {
-  0% { background-color: #004A7F; -webkit-box-shadow: 0 0 5px #004A7F; }
-  50% { background-color: #0094FF; -webkit-box-shadow: 0 0 20px #0094FF; }
-  100% { background-color: #004A7F; -webkit-box-shadow: 0 0 5px #004A7F; }
+  0% { -webkit-box-shadow: 0 0 5px #fff; }
+  50% { -webkit-box-shadow: 0 0 20px #fff; }
+  100% { -webkit-box-shadow: 0 0 5px #fff; }
 }
  
 @-moz-keyframes glowing {
-  0% { background-color: #004A7F; -moz-box-shadow: 0 0 5px #004A7F; }
-  50% { background-color: #0094FF; -moz-box-shadow: 0 0 20px #0094FF; }
-  100% { background-color: #004A7F; -moz-box-shadow: 0 0 5px #004A7F; }
+  0% { -moz-box-shadow: 0 0 5px #fff; }
+  50% { -moz-box-shadow: 0 0 20px #fff; }
+  100% { -moz-box-shadow: 0 0 5px #fff; }
 }
  
 @-o-keyframes glowing {
-  0% { background-color: #004A7F; box-shadow: 0 0 5px #004A7F; }
-  50% { background-color: #0094FF; box-shadow: 0 0 20px #0094FF; }
-  100% { background-color: #004A7F; box-shadow: 0 0 5px #004A7F; }
+  0% {  box-shadow: 0 0 5px #fff; }
+  50% {  box-shadow: 0 0 20px #fff; }
+  100% {  box-shadow: 0 0 5px #fff; }
 }
  
 @keyframes glowing {
-  0% { background-color: #fff; box-shadow: 0 0 5px #fff; }
-  50% { background-color: #fff; box-shadow: 0 0 20px #fff; }
-  100% { background-color: #fff; box-shadow: 0 0 5px #fff; }
+  0% {  box-shadow: 0 0 5px #fff; }
+  50% {  box-shadow: 0 0 20px #fff; }
+  100% { box-shadow: 0 0 5px #fff; }
 }
  
 .link-zalo, .link-telegram {
