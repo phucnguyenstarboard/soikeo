@@ -39,6 +39,17 @@
                             </script>
                         </div>
                     </div>
+                    <div class="panel panel-default" style="padding-top:1px;margin-bottom: 20px;">
+                        <div class="panel-body" style="background-color:#146a16;">
+                            <div class="leftMenu">
+                                <ul>
+                                    <li><a class="text-animation" target="_blank" href="https://zalo.me/0378304587">Chuyên gia cho kèo</a></li>
+                                    <li><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">Đăng ký VIP</a></li>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                    </div>                    
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;">
                         <div class="panel-heading" >
                             <span>ĐỀ XUẤT KÈO ỔN ĐỊNH</span>

@@ -180,6 +180,18 @@
                             </div>
                             <div class="cont4" id="dujiaList" ></div>
                         </div>
+
+                        <div class="panel-item" style="padding-top:1px;margin-bottom: 20px;">
+                            <div class="panel-body">
+                                <div class="leftMenu">
+                                    <ul>
+                                        <li><a class="text-animation" target="_blank" href="https://zalo.me/0378304587">Chuyên gia cho kèo</a></li>
+                                        <li><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">Đăng ký VIP</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
                         
                     </div>
                 </div>

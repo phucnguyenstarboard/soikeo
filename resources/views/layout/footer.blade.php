@@ -7,6 +7,7 @@
 
         <div class="banner_adv">
             <div class="inner">
+               <a href="https://onbet3.com/?inviteCode=8oncom" target="_blank"> 
                <img src="{{ asset('assets/images/banner_adv.gif') }}">
             </div>
         </div>
