@@ -6350,9 +6350,49 @@ p.fourth {
 		display: none;
 	}
 
-	.onlyMobile{
+/*	.onlyMobile{
 		display: block;
 	}
+
+    #myTabContent .listTitle div:nth-child(1) {
+	    width: 20%;
+	}	
+
+    #myTabContent .listTitle div:nth-child(2) {
+	    display: none;
+	}
+
+    #myTabContent .listTitle div:nth-child(3) {
+	    width: 40%;
+	}
+
+    #myTabContent .listTitle div:nth-child(4) {
+	    width: 20%;
+	}	
+
+	#myTabContent .listTitle div:nth-child(5) {
+	    display: none;
+	}
+
+	#myTabContent .listTitle div:nth-child(6) {
+	   display: none;
+	}
+
+    #myTabContent .listTitle div:nth-child(7) {
+	    width: 20%;
+	}	
+
+	#myTabContent .tabList .subItem div:nth-child(2) {
+	  background: red;
+	}
+
+	#myTabContent .tabList .subItem div:nth-child(2) {
+	  background: red;
+	}
+
+	#myTabContent .tabList .subItem div:nth-child(2) {
+	  background: red;
+	}*/			
 
 }
 
