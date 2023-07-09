@@ -190,8 +190,10 @@
                                           <div class="phone-vr">
                                             <div class="phone-vr-circle-fill"></div>
                                             <div class="phone-vr-img-circle">
-                                              <a href="https://zalo.me/0378304587" target="_blank" rel="noopener"></a>
-                                              <img src="{{ asset('assets/images/zalo.png') }}"></div>
+                                              <a href="https://zalo.me/0378304587" target="_blank" rel="noopener">
+                                                  <img src="{{ asset('assets/images/zalo.png') }}">
+                                              </a>
+                                            </div>
                                           </div>
                                         </div>
                                         <div style="padding-top: 25px">

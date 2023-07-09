@@ -6356,6 +6356,32 @@ p.fourth {
     bottom: 0;
     display: block;
 }
+
+#button-contact-vr2 {
+    position: fixed;
+    bottom: 50%;
+    z-index: 99999;
+}
+
+#button-contact-vr2 .button-contact {
+    position: relative;
+}
+#button-contact-vr2 .button-contact .phone-vr {
+    position: relative;
+    visibility: visible;
+    background-color: transparent;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    z-index: 11;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transition: visibility .5s;
+    left: 0;
+    bottom: 0;
+    display: block;
+}
+
 .phone-vr-circle-fill {
     width: 65px;
     height: 65px;
