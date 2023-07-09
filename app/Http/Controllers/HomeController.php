@@ -24,6 +24,7 @@ class HomeController extends Controller
 
                 $bbb = $data['rows'][$i]['matchStatus'];
                 $bbb = str_replace('已中奖','Đã thắng',$bbb);
+                $bbb = str_replace('小时后截止购买',' cược đã kết thúc',$bbb);                
                 $data['rows'][$i]['matchStatus'] = str_replace('未中奖','Đã thua',$bbb);
 
                 foreach ($data['rows'][$i]['matchList'] as $k => $v) {
@@ -476,6 +477,17 @@ class HomeController extends Controller
                             $dataInsert[] = $textInsert;
                         }
                     }
+
+                    $t = $this->__translateText($v['betRate'], 'vi');
+                    $data[$key][$k]['betRate'] = $t;
+                    $t = $this->__translateText($v['matchDesc'], 'vi');
+                    $data[$key][$k]['matchDesc'] = $t;
+
+                    $txt = $data[$key][$k]['matchResult'];
+                    $txt = str_replace('胜', 'Thắng', $txt);
+                    $txt = str_replace('平', 'Hoà', $txt);
+                    $txt = str_replace('负', 'Thua', $txt);
+                    $data[$key][$k]['matchResult']= $txt;
                 }
             }
         }

@@ -90,6 +90,18 @@
                             <div class="subList" id="sdtjList"></div>
                         </div>
                     </div>
+
+                    <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
+                        <div class="panel-body" style="background-color:#146a16;padding:20px;">
+                            <div style="text-align: center;font-size: 20px;">
+                                Kèo chỉ mang tính chất tham khảo <br/>Để tư vấn chuyên sâu vui lòng liên hệ chuyên gia qua  telegram : @khuyenmai24h7 <br/><a href="https://t.me/khuyenmai24h7" target="_blank">(https://t.me/khuyenmai24h7)</a>
+                            </div>
+                        
+                        </div>
+                    </div>
+
+
+
                     <div class="panel panel-default onlySP" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#146a16;">
                             <div class="leftMenu">
@@ -105,7 +117,9 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>                                
+                    </div>
+
+
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#146a16;padding:20px;">
                             <div style="text-align: center;font-size: 20px;">Nhà cái uy tín được tổng bộ chỉ định : <a href="http://onbet.com" target="_blank">onbet.com</a></div>
@@ -390,7 +404,7 @@
                  						oneItem +='<div class="col-xs-5 item"><span>'+rs.rows[m].matchList[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[m].matchList[i].visitTeam +'</span></div>';
                  						if(parseInt(rs.rows[m].matchList[i].isOk) == 1){
                  							if("未" == rs.rows[m].matchList[i].matchLong){
-                 								oneItem +='<div class="col-xs-3 item"><span >'+rs.rows[m].matchList[i].matchResult +'</span></div>';
+                 								oneItem +='<div class="col-xs-2 item"><span >'+rs.rows[m].matchList[i].matchResult +'</span></div>';
                  							}else{
                  								oneItem +='<div class="col-xs-3"><span style="color:red">'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
                	      					}
@@ -403,15 +417,15 @@
             
                  						}else{
                  							if("未" == rs.rows[m].matchList[i].matchLong){
-                 								oneItem +='<div class="col-xs-3 item"><span >'+rs.rows[m].matchList[i].matchResult +'</span></div>';
+                 								oneItem +='<div class="col-xs-2 item"><span >'+rs.rows[m].matchList[i].matchResult +'</span></div>';
                  							}else{
-                 								oneItem +='<div class="col-xs-3"><span >'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
+                 								oneItem +='<div class="col-xs-2"><span >'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
                  							}
                  							//是否是胆
                   						if(rs.rows[m].matchList[i].fixedNam != ""){
                   							oneItem +='<div><span style="line-height:40px;color:#7ECF0D;margin-right:10px;">'+rs.rows[m].matchList[i].fixedNam +'</span></div>';
                   						}else{
-                  							oneItem +='<div><span style="line-height:30px;margin-right:10px;">'+rs.rows[m].matchList[i].matchLong+'&nbsp;</span></div>';
+                  							oneItem +='<div><span style="line-height:30px;margin-right:10px;">Chưa có&nbsp;</span></div>';
                   						}
                  						}
             
@@ -784,7 +798,7 @@
                        				oneItem +='<div class="subItem" style="height:60px;line-height:60px;" >';
                        				oneItem +='<div class="col-xs-12">';
                        				oneItem +='<div style="padding-top:5px;height:30px;line-height:30px;">';
-                   					oneItem +='<div class="col-xs-1" ></span>&nbsp;&nbsp;<span>'+rs.rows[i].rowNo +'</span></div>';
+                   					oneItem +='<div class="col-xs-1" ></span>&nbsp;&nbsp;<span>'+replaceText(rs.rows[i].rowNo) +'</span></div>';
                    					oneItem +='<div class="col-xs-2" ><span>'+rs.rows[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[i].visitTeam +'</span></div>';
                    					oneItem +='<div class="col-xs-2" ><span>'+rs.rows[i].matchTime +'</span></div>';
                 						oneItem +='<div class="col-xs-2" ><span>'+rs.rows[i].matchLong+'</span></div>';
@@ -884,7 +898,7 @@
                  		      			}
                 							oneItem +='<div class="col-xs-1"><span>'+rs.rows[m].matchList[i].recPercent +'%</span></div>';
                 							if("未" == rs.rows[m].matchList[i].matchLong){
-                								oneItem +='<div class="col-xs-2"><span >'+rs.rows[m].matchList[i].matchLong +'</span></div>';
+                								oneItem +='<div class="col-xs-2"><span >Chưa có</span></div>';
                 							}else{
                 								oneItem +='<div class="col-xs-2"><span >'+rs.rows[m].matchList[i].result1 +'</span></div>';
                 							}
@@ -892,7 +906,7 @@
                  						if(parseFloat(rs.rows[m].matchList[i].isOk) == 1){
                  							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;color:red">√</span></div>';
                  						}else{
-                 							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;">'+rsData[rs.rows[m].matchList[i].matchLong]+'</span></div>';
+                 							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;">Chưa có</span></div>';
                  						}
                  						
                  						oneItem +='</div>';
