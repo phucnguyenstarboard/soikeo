@@ -25,6 +25,19 @@
               </div>
             </div>
         </div>
+
+        <div id="button-contact-vr3" class="onlySP">
+            <div id="zalo-vr" class="button-contact">
+              <div class="phone-vr">
+                <div class="phone-vr-circle-fill"></div>
+                <div class="phone-vr-img-circle">
+                  <a href="https://t.me/onbet1102" target="_blank" rel="noopener">
+                      <img src="{{ asset('assets/images/telegram_icon.png') }}">
+                  </a>
+              </div>
+              </div>
+            </div>
+        </div>
         
         <script type="text/javascript">
             $(document).ready(function() {

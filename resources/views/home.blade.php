@@ -444,7 +444,7 @@
                        			}
                        			allOrder = allOrder + oneOrder;
                        		}else{
-                       			allOrder='<div class="errorPanel" style="height:250px;padding-top:80px;"><div style="height:80px;line-height:30px;font-size: 15px">Kèo chỉ mang tính chất tham khảo <br/>Để tư vấn chuyên sâu vui lòng liên hệ chuyên gia qua  telegram : @khuyenmai24h7 <br/><a href="https://t.me/khuyenmai24h7" target="_blank">(https://t.me/khuyenmai24h7)</a></div></div>';
+                       			allOrder='<div class="errorPanel" style="height:250px;padding-top:80px;"><div style="height:80px;line-height:30px;font-size: 15px">Dữ liệu chưa được cập nhật</div></div>';
                        		}
                        		$("#sdtjList").html(allOrder);
                        		
@@ -525,7 +525,7 @@
                         type  : "GET",
                         url: "/getBgcList",                     
                         error : function(request) {
-                        	var errMsg ='<div class="no-data-msg"><p>数据加载失败...</p></div>';
+                        	var errMsg ='<div class="no-data-msg"><p>Tải dữ liệu không thành công...</p></div>';
                         	$("#bqcList").html(errMsg);
                            },
                            beforeSend:function() {  
