@@ -8,9 +8,24 @@
                     <div class="panel panel-default onlyPC" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#146a16;">
                             <div class="leftMenu">
-                                <ul>
-                                    <li><a class="text-animation" target="_blank" href="https://zalo.me/0378304587">Chuyên gia cho kèo</a></li>
-                                    <li><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">Đăng ký VIP</a></li>
+                                <ul id="button-contact-vr">
+                                    <li style="display: inline-flex; margin: 0px 10px;padding: 10px;">
+                                        <div id="zalo-vr" class="button-contact">
+                                          <div class="phone-vr">
+                                            <div class="phone-vr-circle-fill"></div>
+                                            <div class="phone-vr-img-circle">
+                                              <a href="https://zalo.me/0378304587" target="_blank" rel="noopener"></a>
+                                              <img src="{{ asset('assets/images/zalo.png') }}"></div>
+                                          </div>
+                                        </div>
+                                        <div style="padding-top: 25px">
+                                            <a class="text-animation" target="_blank" href="https://zalo.me/0378304587">
+                                    Chuyên gia cho kèo</a>
+                                        </div>
+                                   </li>
+                                    <li style="margin: 0px 20px;"><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">
+                                        <img style="width: 100%" src="{{ asset('assets/images/dangky.gif') }}">
+                                    </a></li>
                                 </ul>
                                 
                             </div>
@@ -76,10 +91,25 @@
                     <div class="panel panel-default onlySP" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#146a16;">
                             <div class="leftMenu">
-                                <ul>
-                                    <li><a class="text-animation" target="_blank" href="https://zalo.me/0378304587">Chuyên gia cho kèo</a></li>
-                                    <li><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">Đăng ký VIP</a></li>
-                                </ul>                                
+                                <ul id="button-contact-vr">
+                                    <li style="display: inline-flex; margin: 0px 10px;padding: 10px;">
+                                        <div id="zalo-vr" class="button-contact">
+                                          <div class="phone-vr">
+                                            <div class="phone-vr-circle-fill"></div>
+                                            <div class="phone-vr-img-circle">
+                                              <a href="https://zalo.me/0378304587" target="_blank" rel="noopener"></a>
+                                              <img src="{{ asset('assets/images/zalo.png') }}"></div>
+                                          </div>
+                                        </div>
+                                        <div style="padding-top: 25px">
+                                            <a class="text-animation" target="_blank" href="https://zalo.me/0378304587">
+                                    Chuyên gia cho kèo</a>
+                                        </div>
+                                   </li>
+                                    <li style="margin: 0px 20px;"><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">
+                                        <img style="width: 100%" src="{{ asset('assets/images/dangky.gif') }}">
+                                    </a></li>
+                                </ul> 
                             </div>
                         </div>
                     </div>                                
