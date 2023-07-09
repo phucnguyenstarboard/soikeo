@@ -6297,8 +6297,8 @@ p.fourth {
 }
 
 .leftMenu ul li{
-    /*background: #3c763d;*/
-    /*margin: 15px 50px;*/
+    background: #3c763d;
+    margin: 15px 50px;
     padding: 10px;
 }
 
@@ -6443,7 +6443,7 @@ p.fourth {
 
 @media(max-width:1024px){
 	.leftMenu ul li {
-	    /*background: #3c763d;*/
+	    background: #3c763d;
 	    margin: 15px 18px;
 	    padding: 10px;
 	}
