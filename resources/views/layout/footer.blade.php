@@ -5,10 +5,11 @@
             </div>
         </div>
 
-        <div class="banner_adv">
+        <div class="banner_adv onlyPC">
             <div class="inner">
                <a href="https://onbet3.com/?inviteCode=8oncom" target="_blank"> 
-               <img src="{{ asset('assets/images/banner_adv.png') }}">
+                   <img src="{{ asset('assets/images/banner_adv.png') }}">
+                </a>
             </div>
         </div>
         

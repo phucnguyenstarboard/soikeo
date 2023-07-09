@@ -16,7 +16,7 @@
                             </div>
                         </div>
                     </div>                     
-                    <div class="panel panel-default">
+                    <div class="panel panel-default onlyPC">
                         <div class="panel-body" style="background-color:#292d34;padding:0px;">
                             <section class="slider">
                                 <div class="flexslider">
@@ -58,6 +58,13 @@
                             <div class="subList" id="wdtjList"></div>
                         </div>
                     </div>
+                    <div class="panel panel-default" style="margin-top:0px;padding:0px;">
+                        <div class="panel-body" style="background-color:#146a16;padding:0px;font-size:8pt;">
+                            <a href="https://onbet3.com/?inviteCode=8oncom" target="_blank"> 
+                               <img style="width: 100%" src="{{ asset('assets/images/banner_adv.png') }}">
+                            </a>
+                        </div>
+                    </div>
                     <div class="panel panel-default" style="margin-top:-18px;padding:0px;" >
                         <div class="panel-heading" >
                             <span id="sdTile">TRẬN KÈO NÊN THEO</span>
@@ -82,6 +89,41 @@
                         
                         </div>
                     </div>
+
+                    <div class="panel panel-default onlySP">
+                        <div class="panel-body" style="background-color:#292d34;padding:0px;">
+                            <section class="slider">
+                                <div class="flexslider">
+                                    <ul class="slides">
+                                        <li>
+                                            <img src="{{ asset('assets/images/pic0.jpg') }}" class="img-responsive" alt="" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <!-- FlexSlider -->
+                            <script defer src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
+                            <link rel="stylesheet" href="{{ asset('assets/css/flexslider.css') }}" type="text/css" media="screen" />
+                            <script type="text/javascript">
+                                
+                                $(window).load(function(){
+                                  $('.flexslider').flexslider({
+                                        animation: "slide",
+                                        start: function(slider){
+                                          $('body').removeClass('loading');
+                                        }
+                                  });
+                                });
+                                function jumpdown(){
+                                    if(navigator.userAgent.match(/(iPhone|iPod|ios)/i)){
+                                        // window.location.href = "http://itunes.apple.com/us/app/id1435748364";                                
+                                    }else{
+                                        // window.location.href = "/zcj/otherpage/erwmt";
+                                    }   
+                                }
+                            </script>
+                        </div>
+                    </div>                    
                 </div>
                 <div class="col-md-8  col-xl-8 column" style="padding:0px;">
                     <!--本场比赛预测-->

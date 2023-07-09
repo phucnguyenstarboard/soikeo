@@ -6347,15 +6347,6 @@ p.fourth {
 		display: block;
 	}
 
-	.banner_adv{
-		top : 0;
-		bottom: unset;
-	}
-
-	.header-top-strip{
-		margin-top: 45px;
-	}
-
 	.inner {
 		max-width: 100%;
 	}
