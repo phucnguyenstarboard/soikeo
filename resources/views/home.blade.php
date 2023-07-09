@@ -324,7 +324,7 @@
                         			oneOrder += '<div class="listTitle" style="font-size:10pt;height:48px; line-height:40px;"> ';
                         			oneOrder += '<div class="row" style="margin-top:5px;">';
                         			oneOrder +='<div class="col-xs-2" style="padding:0px;">';
-                        			oneOrder += '<font color="#FF910C">Thứ tự'+rs.rows[m].orderNo + ':</font>';
+                        			oneOrder += '<font color="#FF910C">Thứ tự '+rs.rows[m].orderNo + ':</font>';
                         			oneOrder += '</div>';
                         			oneOrder += '<div class="col-xs-10">';
                         			
@@ -344,8 +344,8 @@
                         			oneOrder += '</div>';
                         			
             					oneOrder += '<div class="row" style="height:20px; line-height:20px;">';
-            					oneOrder += '<p class="pull-left">'+rs.rows[m].money+'đồng thắng'　+　rs.rows[m].maxWinMoney　+　'đồng</p>';
-            					oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;Lần&nbsp;&nbsp;</p>';
+            					oneOrder += '<p class="pull-left">Cược '+rs.rows[m].money+' thắng '　+　rs.rows[m].maxWinMoney　+　'</p>';
+            					oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;lần&nbsp;&nbsp;</p>';
                         			oneOrder += '</div>';
                         			
                         			oneOrder += '</div>';
@@ -822,13 +822,13 @@
                        				
                        				
                         			oneOrder += '<div class="listTitle" style="background-color:#070813;">';
-                        			oneOrder += '<p class="pull-left">Thứ tự'+rs.rows[m].orderNo + '：<font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
-                        			oneOrder += '<p class="pull-left">'+rs.rows[m].money+'đồng Thắng'　+　rs.rows[m].maxWinMoney　+　'đồng</p>';
+                        			oneOrder += '<p class="pull-left">Thứ tự '+rs.rows[m].orderNo + '：<font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
+                        			oneOrder += '<p class="pull-left">Cược '+rs.rows[m].money+' thắng '　+　rs.rows[m].maxWinMoney　+　'</p>';
                         			//是否是VIP
                         			if(rs.rows[m].orderDesc != 'NM' ){
                         				oneOrder += '<p class="pull-left"><font color="#FF910C">&nbsp;&nbsp;&nbsp;'+ rs.rows[m].orderDesc+'</font></p>';
                         			}
-                        			oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;Lần&nbsp;&nbsp;</p>';
+                        			oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;lần&nbsp;&nbsp;</p>';
                         			//是否中状态
                         			if(parseFloat(rs.rows[m].statusType) == 0 ){
                         				oneOrder += '<p class="pull-right">'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</p>';

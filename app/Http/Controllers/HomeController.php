@@ -18,12 +18,13 @@ class HomeController extends Controller
 
         if(isset($data['rows'])){
             foreach ($data['rows'] as $i => $itemA) {    
-                $t = $this->__translateText($data['rows'][$i]['mode'], 'vi');
-                $data['rows'][$i]['mode'] = $t;
+                $t = $data['rows'][$i]['mode'];
+                $t = substr($t, 0, strpos( $t, '串', 0));
+                $data['rows'][$i]['mode'] = str_replace('全场','Toàn trận xiên ', $t);;
 
                 $bbb = $data['rows'][$i]['matchStatus'];
                 $bbb = str_replace('已中奖','Đã thắng',$bbb);
-                $data['rows'][$i]['matchStatus'] = str_replace('未中奖 ','Đã thua',$bbb);
+                $data['rows'][$i]['matchStatus'] = str_replace('未中奖','Đã thua',$bbb);
 
                 foreach ($data['rows'][$i]['matchList'] as $k => $v) {
                     $bbb = $data['rows'][$i]['matchList'][$k]['matchResult'];
