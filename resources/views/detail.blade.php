@@ -199,8 +199,8 @@
                                     Chuyên gia cho kèo</a>
                                         </div>
                                    </li>
-                                    <li style="margin: 0px 20px;"><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">
-                                        <img style="width: 100%" src="{{ asset('assets/images/dangky.gif') }}">
+                                    <li style="margin: 0;text-align: center;margin-left: 5px;padding-top: 0px;margin-bottom: 10px;"><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">
+                                        Đăng ký VIP
                                     </a></li>
                                 </ul> 
                                     
