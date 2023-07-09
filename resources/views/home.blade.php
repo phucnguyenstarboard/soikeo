@@ -58,7 +58,7 @@
                             <div class="subList" id="wdtjList"></div>
                         </div>
                     </div>
-                    <div class="panel panel-default" style="margin-top:0px;padding:0px;">
+                    <div class="panel panel-default onlySP" style="margin-top:0px;padding:0px;">
                         <div class="panel-body" style="background-color:#146a16;padding:0px;font-size:8pt;">
                             <a href="https://onbet3.com/?inviteCode=8oncom" target="_blank"> 
                                <img style="width: 100%" src="{{ asset('assets/images/banner_adv.png') }}">
@@ -127,7 +127,7 @@
                 </div>
                 <div class="col-md-8  col-xl-8 column" style="padding:0px;">
                     <!--本场比赛预测-->
-                    <div class="panel panel-default"  >
+                    <div class="panel panel-default" style="padding-top: 0px">
                         <div class="panel-body" style="padding:0px;" >
                             <!-- 底下内容页 -->
                             <div class="tab">
