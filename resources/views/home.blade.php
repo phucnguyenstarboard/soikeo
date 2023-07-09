@@ -69,7 +69,7 @@
                         <div class="panel-heading" >
                             <span id="sdTile">TRẬN KÈO NÊN THEO</span>
                         </div>
-                        <div class="panel-body" style="background-color:#146a16;padding:0px;min-height:250px;">
+                        <div class="panel-body" style="background-color:#146a16;padding:0px;">
                             <div class="subList" id="sdtjList"></div>
                         </div>
                     </div>
