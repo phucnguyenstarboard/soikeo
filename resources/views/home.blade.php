@@ -5,12 +5,14 @@
             <!-- 主题内容数据-->	
             <div class="container">
                 <div class="col-md-4 col-xl-4 column" style="padding:0px; background-color:#146a16;">
-                    <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
+                    <div class="panel panel-default onlyPC" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#146a16;">
                             <div class="leftMenu">
                                 <ul>
-                                    <li><a class="text-animation" target="_blank" href="https://zalo.me/0378304587">Chuyên gia cho kèo</a></li>
-                                    <li><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">Đăng ký VIP</a></li>
+                                    <li><a target="_blank" href="https://zalo.me/0378304587">
+                                        <img style="width: 100%" src="{{ asset('assets/images/chuyengia.gif') }}">
+                                    </a></li>
+                                    <li><a target="_blank"  href="https://onbet3.com/?inviteCode=8oncom"><img style="width: 100%" src="{{ asset('assets/images/vip.gif') }}"></a></li>
                                 </ul>
                                 
                             </div>
@@ -66,7 +68,19 @@
                             <div class="subList" id="sdtjList"></div>
                         </div>
                     </div>
+                    <div class="panel panel-default onlySP" style="padding-top:1px;margin-bottom: 0px;">
+                        <div class="panel-body" style="background-color:#146a16;">
+                            <div class="leftMenu">
+                                <ul>
+                                    <li><a target="_blank" href="https://zalo.me/0378304587">
+                                        <img style="width: 100%" src="{{ asset('assets/images/chuyengia.gif') }}">
+                                    </a></li>
+                                    <li><a target="_blank"  href="https://onbet3.com/?inviteCode=8oncom"><img style="width: 100%" src="{{ asset('assets/images/vip.gif') }}"></a></li>
+                                </ul>
                                 
+                            </div>
+                        </div>
+                    </div>                                
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#146a16;padding:20px;">
                             <div style="text-align: center;font-size: 20px;">Nhà cái uy tín được tổng bộ chỉ định : <a href="http://onbet.com" target="_blank">onbet.com</a></div>
@@ -293,8 +307,8 @@
                         			oneOrder += '</div>';
                         			
             					oneOrder += '<div class="row" style="height:20px; line-height:20px;">';
-            					oneOrder += '<p class="pull-left">'+rs.rows[m].money+'元博'　+　rs.rows[m].maxWinMoney　+　'元</p>';
-            					oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;倍&nbsp;&nbsp;</p>';
+            					oneOrder += '<p class="pull-left">'+rs.rows[m].money+'đồng thắng'　+　rs.rows[m].maxWinMoney　+　'đồng</p>';
+            					oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;Lần&nbsp;&nbsp;</p>';
                         			oneOrder += '</div>';
                         			
                         			oneOrder += '</div>';
@@ -312,7 +326,7 @@
                         					oneItem +='<div class="subItem" style="height:50px;">';
                         				}
                         				oneItem +='<div class="detail pull-left">';
-                    					oneItem +='<div class="col-xs-3"><span>'+rs.rows[m].matchList[i].typeName +'</span><br/><span>'+rs.rows[m].matchList[i].rowNo +'</span></div>';
+                    					oneItem +='<div class="col-xs-3"><span>'+rs.rows[m].matchList[i].typeName +'</span><br/><span>'+replaceText(rs.rows[m].matchList[i].rowNo) +'</span></div>';
                  						oneItem +='<div class="col-xs-5 item"><span>'+rs.rows[m].matchList[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[m].matchList[i].visitTeam +'</span></div>';
                  						if(parseInt(rs.rows[m].matchList[i].isOk) == 1){
                  							if("未" == rs.rows[m].matchList[i].matchLong){
@@ -771,13 +785,13 @@
                        				
                        				
                         			oneOrder += '<div class="listTitle" style="background-color:#070813;">';
-                        			oneOrder += '<p class="pull-left">实单'+rs.rows[m].orderNo + '：<font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
-                        			oneOrder += '<p class="pull-left">'+rs.rows[m].money+'元博'　+　rs.rows[m].maxWinMoney　+　'元</p>';
+                        			oneOrder += '<p class="pull-left">Thứ tự'+rs.rows[m].orderNo + '：<font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
+                        			oneOrder += '<p class="pull-left">'+rs.rows[m].money+'đồng Thắng'　+　rs.rows[m].maxWinMoney　+　'đồng</p>';
                         			//是否是VIP
                         			if(rs.rows[m].orderDesc != 'NM' ){
                         				oneOrder += '<p class="pull-left"><font color="#FF910C">&nbsp;&nbsp;&nbsp;'+ rs.rows[m].orderDesc+'</font></p>';
                         			}
-                        			oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;倍&nbsp;&nbsp;</p>';
+                        			oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;Lần&nbsp;&nbsp;</p>';
                         			//是否中状态
                         			if(parseFloat(rs.rows[m].statusType) == 0 ){
                         				oneOrder += '<p class="pull-right">'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</p>';
@@ -800,7 +814,7 @@
                         				}
                         				
                         				oneItem +='<div class="detail pull-left">';
-                    					oneItem +='<div class="col-xs-1"><span>'+rs.rows[m].matchList[i].rowNo +'</span></div>';
+                    					oneItem +='<div class="col-xs-1"><span>'+ replaceText(rs.rows[m].matchList[i].rowNo) +'</span></div>';
                     					oneItem +='<div class="col-xs-2"><span>'+rs.rows[m].matchList[i].typeName +'</span></div>';
                     					oneItem +='<div class="col-xs-3"><span>'+rs.rows[m].matchList[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[m].matchList[i].visitTeam +'</span></div>';
                 							if(parseFloat(rs.rows[m].matchList[i].isOk) == 1){
@@ -818,7 +832,7 @@
                  						if(parseFloat(rs.rows[m].matchList[i].isOk) == 1){
                  							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;color:red">√</span></div>';
                  						}else{
-                 							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;">'+rs.rows[m].matchList[i].matchLong+'</span></div>';
+                 							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;">'+rsData[rs.rows[m].matchList[i].matchLong]+'</span></div>';
                  						}
                  						
                  						oneItem +='</div>';

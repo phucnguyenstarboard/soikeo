@@ -11,7 +11,91 @@ class HomeController extends Controller
 {
     public function getSdtjList (Request $request) {
         $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getSdtjList');
-        return $response->json();
+        $data = $response->json();
+        $keyListExist = array();
+        $textList = $this->__getListTextTranslateDB();
+        $dataInsert = array();
+
+        if(isset($data['rows'])){
+            foreach ($data['rows'] as $i => $itemA) {    
+                $t = $this->__translateText($data['rows'][$i]['mode'], 'vi');
+                $data['rows'][$i]['mode'] = $t;
+
+                $bbb = $data['rows'][$i]['matchStatus'];
+                $bbb = str_replace('已中奖','Đã thắng',$bbb);
+                $data['rows'][$i]['matchStatus'] = str_replace('未中奖 ','Đã thua',$bbb);
+
+                foreach ($data['rows'][$i]['matchList'] as $k => $v) {
+                    $bbb = $data['rows'][$i]['matchList'][$k]['matchResult'];
+                    $bbb = str_replace('胜','Thắng',$bbb);
+                    $data['rows'][$i]['matchList'][$k]['matchResult'] = str_replace('负','Thua',$bbb);
+
+                    if (!empty($v['typeName'])){
+                        if (isset($textList[$v['typeName']]) || in_array($v['typeName'], $keyListExist)){
+                            $data['rows'][$i]['matchList'][$k]['typeName'] = $textList[$v['typeName']];
+                        }else{
+                            $t = $this->__translateText($v['typeName'], 'vi');
+                            $data['rows'][$i]['matchList'][$k]['typeName'] = $t;
+                            $textList[$v['typeName']] = $t;
+
+                            $keyListExist[] = $v['typeName'];
+
+                            $textInsert = array();
+                            $textInsert['text_original'] = $v['typeName'];
+                            $textInsert['text_translate'] = $t;
+                            $dataInsert[] = $textInsert;
+                        }
+
+                        $tour = DB::table('tournaments')->where('tour_name', '=', $data['rows'][$i]['matchList'][$k]['typeName'])->first();
+                        if (!empty($tour)) {
+                            if (!empty($tour->tour_name_edit)) {
+                                $data['rows'][$i]['matchList'][$k]['typeName'] = $tour->tour_name_edit;
+                            }
+                        } else {
+                            DB::table('tournaments')->insertOrIgnore( ['tour_name' => $data['rows'][$i]['matchList'][$k]['typeName']] ); 
+                        }
+                    }
+
+                    if (!empty($v['homeTeam'])){
+                        if (isset($textList[$v['homeTeam']]) || in_array($v['homeTeam'], $keyListExist)){
+                            $data['rows'][$i]['matchList'][$k]['homeTeam'] = $textList[$v['homeTeam']];
+                        }else{
+                            $t = $this->__translateText($v['homeTeam'], 'en');
+                            $data['rows'][$i]['matchList'][$k]['homeTeam'] = $t;
+                            $textList[$v['homeTeam']] = $t;
+
+                            $keyListExist[] = $v['homeTeam'];
+
+                            $textInsert = array();
+                            $textInsert['text_original'] = $v['homeTeam'];
+                            $textInsert['text_translate'] = $t;
+                            $dataInsert[] = $textInsert;
+                        }
+                    }
+
+                    if (!empty($v['visitTeam'])){
+                        if (isset($textList[$v['visitTeam']]) || in_array($v['visitTeam'], $keyListExist)){
+                            $data['rows'][$i]['matchList'][$k]['visitTeam'] = $textList[$v['visitTeam']];
+                        }else{
+                            $t = $this->__translateText($v['visitTeam'], 'en');
+                            $data['rows'][$i]['matchList'][$k]['visitTeam'] = $t;
+                            $textList[$v['visitTeam']] = $t;
+
+                            $keyListExist[] = $v['visitTeam'];
+
+                            $textInsert = array();
+                            $textInsert['text_original'] = $v['visitTeam'];
+                            $textInsert['text_translate'] = $t;
+                            $dataInsert[] = $textInsert;
+                        }
+                    }
+                }
+            }
+        }
+
+        
+
+        return $data;
     }
 
     public function getWdList (Request $request) {
