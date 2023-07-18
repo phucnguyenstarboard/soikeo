@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateMatchsTable extends Migration
 {
@@ -15,15 +16,32 @@ class CreateMatchsTable extends Migration
     {
         Schema::create('matchs', function (Blueprint $table) {
             $table->id();
-            $table->string('match_id')->unique();
-            $table->dateTime('match_date')->nullable();
-            $table->string('row_no');
-            $table->integer('tournament_id')->nullable();
-            $table->string('team_home');
-            $table->string('team_visit');
-            $table->tinyInteger('is_ok')->default(0);
-            $table->string('result1');
-            $table->timestamps();
+            $table->integer('tournamentId')->nullable();
+            $table->integer('typeMatch')->default(0);
+            $table->string('matchId')->unique();
+            $table->string('rowNo')->nullable();
+            $table->string('week')->nullable();
+            $table->string('typeName')->nullable();
+            $table->string('matchDate')->nullable();
+            $table->string('matchTime')->nullable();
+            $table->string('matchResult')->nullable();
+            $table->string('recPercent')->nullable();
+            $table->string('betRate')->nullable();
+            $table->string('homeTeam')->nullable();
+            $table->string('visitTeam')->nullable();
+            $table->string('homeTeamNo')->nullable(); 
+            $table->string('visitTeamNo')->nullable();
+            $table->string('homeLogo')->nullable();
+            $table->string('visitLogo')->nullable();
+            $table->string('result1')->nullable();
+            $table->string('result2')->nullable();
+            $table->tinyInteger('isOk')->default(0);
+            $table->string('matchLong')->nullable();
+            $table->string('isCode')->nullable();
+            $table->string('matchDesc')->nullable();
+            $table->string('fixedNam')->nullable();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
