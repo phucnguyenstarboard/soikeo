@@ -497,6 +497,7 @@ class ComposerStaticInitae1a01abc84fb3ae739733364cb26ee7
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\MatchCron' => __DIR__ . '/../..' . '/app/Console/Commands/MatchCron.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',

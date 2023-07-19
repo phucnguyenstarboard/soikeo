@@ -79,6 +79,23 @@ class MatchCron extends Command
                     $dataMatch['matchDesc'] = $v['matchDesc'];
                     $dataMatch['fixedNam'] = $v['fixedNam'];
                     DB::table('matchs')->insertOrIgnore($dataMatch);
+
+
+                    $rs = DB::table('match_details')->where('matchId', $v['matchId'])->first();
+
+                    if(empty($rs)){
+                        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$v['matchId']);
+                        $content1 = $response->json();
+
+                        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$v['matchId']);
+                        $content2 = $response->json();
+
+                        $dataMatch = array();
+                        $dataMatch['matchId'] = $v['matchId'];
+                        $dataMatch['content1'] = json_encode($content1);
+                        $dataMatch['content2'] = json_encode($content2);
+                        DB::table('match_details')->insertOrIgnore($dataMatch);
+                    }
                 }
             }
         }
@@ -119,6 +136,23 @@ class MatchCron extends Command
             $dataMatch['matchDesc'] = $v['matchDesc'];
             $dataMatch['fixedNam'] = $v['fixedNam'];
             DB::table('matchs')->insertOrIgnore($dataMatch);
+
+
+            $rs = DB::table('match_details')->where('matchId', $v['matchId'])->first();
+
+            if(empty($rs)){
+                $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$v['matchId']);
+                $content1 = $response->json();
+
+                $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$v['matchId']);
+                $content2 = $response->json();
+
+                $dataMatch = array();
+                $dataMatch['matchId'] = $v['matchId'];
+                $dataMatch['content1'] = json_encode($content1);
+                $dataMatch['content2'] = json_encode($content2);
+                DB::table('match_details')->insertOrIgnore($dataMatch);
+            }
         }
 
         // All type = 7
@@ -158,6 +192,23 @@ class MatchCron extends Command
                 $dataMatch['matchDesc'] = $v['matchDesc'];
                 $dataMatch['fixedNam'] = $v['fixedNam'];
                 DB::table('matchs')->insertOrIgnore($dataMatch);
+
+
+                $rs = DB::table('match_details')->where('matchId', $v['matchId'])->first();
+
+                if(empty($rs)){
+                    $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$v['matchId']);
+                    $content1 = $response->json();
+
+                    $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$v['matchId']);
+                    $content2 = $response->json();
+
+                    $dataMatch = array();
+                    $dataMatch['matchId'] = $v['matchId'];
+                    $dataMatch['content1'] = json_encode($content1);
+                    $dataMatch['content2'] = json_encode($content2);
+                    DB::table('match_details')->insertOrIgnore($dataMatch);
+                }
             }
         }
 
@@ -199,6 +250,22 @@ class MatchCron extends Command
                     $dataMatch['matchDesc'] = $v['matchDesc'];
                     $dataMatch['fixedNam'] = $v['fixedNam'];
                     DB::table('matchs')->insertOrIgnore($dataMatch);
+
+                    $rs = DB::table('match_details')->where('matchId', $v['matchId'])->first();
+
+                    if(empty($rs)){
+                        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$v['matchId']);
+                        $content1 = $response->json();
+
+                        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$v['matchId']);
+                        $content2 = $response->json();
+
+                        $dataMatch = array();
+                        $dataMatch['matchId'] = $v['matchId'];
+                        $dataMatch['content1'] = json_encode($content1);
+                        $dataMatch['content2'] = json_encode($content2);
+                        DB::table('match_details')->insertOrIgnore($dataMatch);
+                    }
                 }
             }
         }
@@ -241,6 +308,22 @@ class MatchCron extends Command
                 $dataMatch['matchDesc'] = $v['matchDesc'];
                 $dataMatch['fixedNam'] = $v['fixedNam'];
                 DB::table('matchs')->insertOrIgnore($dataMatch);
+
+                $rs = DB::table('match_details')->where('matchId', $v['matchId'])->first();
+
+                if(empty($rs)){
+                    $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$v['matchId']);
+                    $content1 = $response->json();
+
+                    $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$v['matchId']);
+                    $content2 = $response->json();
+
+                    $dataMatch = array();
+                    $dataMatch['matchId'] = $v['matchId'];
+                    $dataMatch['content1'] = json_encode($content1);
+                    $dataMatch['content2'] = json_encode($content2);
+                    DB::table('match_details')->insertOrIgnore($dataMatch);
+                }
             }
         }
 
@@ -283,9 +366,25 @@ class MatchCron extends Command
                     $dataMatch['matchDesc'] = $v['matchDesc'];
                     $dataMatch['fixedNam'] = $v['fixedNam'];
                     DB::table('matchs')->insertOrIgnore($dataMatch);
+
+                    $rs = DB::table('match_details')->where('matchId', $v['matchId'])->first();
+
+                    if(empty($rs)){
+                        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$v['matchId']);
+                        $content1 = $response->json();
+
+                        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$v['matchId']);
+                        $content2 = $response->json();
+
+                        $dataMatch = array();
+                        $dataMatch['matchId'] = $v['matchId'];
+                        $dataMatch['content1'] = json_encode($content1);
+                        $dataMatch['content2'] = json_encode($content2);
+                        DB::table('match_details')->insertOrIgnore($dataMatch);
+                    }
                 }
             }
-        }        
+        }
        
         return 0;
     }

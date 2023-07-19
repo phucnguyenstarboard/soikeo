@@ -10,8 +10,35 @@ use DB;
 class HomeController extends Controller
 {
     public function getSdtjList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getSdtjList');
-        $data = $response->json();
+        $rs = DB::table('matchs')->where('typeMatch', '7')->get();
+        $arrData = array();
+        foreach ($rs as $item) {
+            $v = array();
+            $v['matchId'] = $item->matchId;
+            $v['rowNo'] = $item->rowNo;
+            $v['week'] = $item->week;
+            $v['typeName'] = $item->typeName;
+            $v['matchDate'] = $item->matchDate;
+            $v['matchTime'] = $item->matchTime;
+            $v['matchResult'] = $item->matchResult;
+            $v['recPercent'] = $item->recPercent;
+            $v['betRate'] = $item->betRate;
+            $v['homeTeam'] = $item->homeTeam;
+            $v['visitTeam'] = $item->visitTeam;
+            $v['homeTeamNo'] = $item->homeTeamNo;
+            $v['visitTeamNo'] = $item->visitTeamNo;
+            $v['homeLogo'] = $item->homeLogo;
+            $v['visitLogo'] = $item->visitLogo;
+            $v['result1'] = $item->result1;
+            $v['result2'] = $item->result2;
+            $v['isOk'] = $item->isOk;
+            $v['matchLong'] = $item->matchLong;
+            $v['isCode'] = $item->isCode;
+            $v['matchDesc'] = $item->matchDesc;
+            $v['fixedNam'] = $item->fixedNam;
+            $arrData[] = $v;
+        }
+        $data['rows'] = $arrData;        
         $keyListExist = array();
         $textList = $this->__getListTextTranslateDB();
         $dataInsert = array();
@@ -615,9 +642,9 @@ class HomeController extends Controller
     }
 
     public function getDetailYcChartsInfo (Request $request) {
-    	$matchNo = $request->input('rowNo');
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailYcChartsInfo?rowNo='.$matchNo);
-        $data = $response->json();
+        $matchNo = $request->input('rowNo');
+        $rs = DB::table('match_details')->where('matchId', $matchNo)->first();        
+        $data = json_decode($rs->content1, true);
         foreach ($data as $key => $value) {
             if($key == 'bilvList' && !empty($value)){
                 $data[$key][0]['title'] = 'Thắng';
@@ -662,8 +689,8 @@ class HomeController extends Controller
 
     public function getDetailLeftLists (Request $request) {
         $matchNo = $request->input('rowNo');
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getDetailLeftLists?rowNo='.$matchNo);
-        $data = $response->json();
+        $rs = DB::table('match_details')->where('matchId', $matchNo)->first();        
+        $data = json_decode($rs->content2, true);
         foreach ($data as $key => $value) {
             if($key == 'duList' && !empty($value)){
                 $data[$key][0]['teamName'] = 'Tỷ lệ cược';
