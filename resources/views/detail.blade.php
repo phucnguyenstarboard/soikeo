@@ -9,7 +9,7 @@
                     <button onclick="goBack();">Quay lại</button>
                     <span id="acesPath">
                         <span>Thể thao</span>&nbsp;&nbsp;>&nbsp;&nbsp;<span>Chi tiết</span>&nbsp;&nbsp;>&nbsp;&nbsp;
-                        <span>{{ $item->team_home }}</span>&nbsp;VS &nbsp;<span>{{ $item->team_visit }}</span>
+                        <span>{{ $item->homeTeam }}</span>&nbsp;VS &nbsp;<span>{{ $item->visitTeam }}</span>
                     </span>
                 </div>
                 <div class="row">                    
@@ -20,7 +20,7 @@
                             <div class="col-md-6 column" style="padding:0px;">
                                 <div class="panel-item"  style="color:#fff;">
                                     <div class="title" style="color:#fff;">
-                                        <span class="pull-left">Thời gian thi đấu: {{ date('H:i', strtotime( $item->match_date )) }}</span>
+                                        <span class="pull-left">Thời gian thi đấu: {{ date('H:i', strtotime( $item->matchDate )) }}</span>
                                     </div>
                                     <div class="cont">
                                         <div class="row" style="margin-top:60px;">
@@ -28,7 +28,7 @@
                                                 <span><img class="teamIcon" src="{{ $logo_team_home }}"/></span>
                                             </div>
                                             <div class="col-xs-4 teamDetailImg">
-                                               <span> {{ $item->row_no }}</span><br/><span> {{ $item->is_ok != '0' ? 'Đã kết thúc' : 'Chưa diễn ra' }} </span><br/><br/>
+                                               <span> {{ $item->rowNo }}</span><br/><span> {{ $item->isOk != '0' ? 'Đã kết thúc' : 'Chưa diễn ra' }} </span><br/><br/>
                                                <span style="color:#91ED10;"><strong>{{ !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->tour_name }}</strong></span><br/><br/>
                                                <span>{{ $item->result1 }}</span>
                                             </div>
@@ -38,13 +38,13 @@
                                         </div>
                                         <div class="row" style="margin-top:40px;">
                                             <div class="col-xs-4 teamDetailText">
-                                                <span><strong>{{ $item->team_home }}</strong></span>
+                                                <span><strong>{{ $item->homeTeam }}</strong></span>
                                             </div>
                                             <div class="col-xs-4 teamDetailText">
                                                <span>&nbsp;&nbsp;</span>
                                             </div>
                                             <div class="col-xs-4 teamDetailText">
-                                                <span><strong>{{ $item->team_visit }}</strong></span>
+                                                <span><strong>{{ $item->visitTeam }}</strong></span>
                                             </div>
                                         </div>
                                     </div>

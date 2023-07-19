@@ -101,8 +101,36 @@ class HomeController extends Controller
     }
 
     public function getWdList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getWdList');
-        $data = $response->json();
+        $rs = DB::table('matchs')->where('typeMatch', '6')->get();
+        $arrData = array();
+        foreach ($rs as $item) {
+            $v = array();
+            $v['matchId'] = $item->matchId;
+            $v['rowNo'] = $item->rowNo;
+            $v['week'] = $item->week;
+            $v['typeName'] = $item->typeName;
+            $v['matchDate'] = $item->matchDate;
+            $v['matchTime'] = $item->matchTime;
+            $v['matchResult'] = $item->matchResult;
+            $v['recPercent'] = $item->recPercent;
+            $v['betRate'] = $item->betRate;
+            $v['homeTeam'] = $item->homeTeam;
+            $v['visitTeam'] = $item->visitTeam;
+            $v['homeTeamNo'] = $item->homeTeamNo;
+            $v['visitTeamNo'] = $item->visitTeamNo;
+            $v['homeLogo'] = $item->homeLogo;
+            $v['visitLogo'] = $item->visitLogo;
+            $v['result1'] = $item->result1;
+            $v['result2'] = $item->result2;
+            $v['isOk'] = $item->isOk;
+            $v['matchLong'] = $item->matchLong;
+            $v['isCode'] = $item->isCode;
+            $v['matchDesc'] = $item->matchDesc;
+            $v['fixedNam'] = $item->fixedNam;
+            $arrData[] = $v;
+        }
+        $data['rows'][0]['matchList'] = $arrData;
+
         $keyListExist = array();
         $textList = $this->__getListTextTranslateDB();
         $dataInsert = array();
@@ -122,15 +150,6 @@ class HomeController extends Controller
                     $textInsert['text_original'] = $v['typeName'];
                     $textInsert['text_translate'] = $t;
                     $dataInsert[] = $textInsert;
-                }
-
-                $tour = DB::table('tournaments')->where('tour_name', '=', $data['rows'][0]['matchList'][$k]['typeName'])->first();
-                if (!empty($tour)) {
-                    if (!empty($tour->tour_name_edit)) {
-                        $data['rows'][0]['matchList'][$k]['typeName'] = $tour->tour_name_edit;
-                    }
-                } else {
-                    DB::table('tournaments')->insertOrIgnore( ['tour_name' => $data['rows'][0]['matchList'][$k]['typeName']] ); 
                 }
             }
 
@@ -177,8 +196,36 @@ class HomeController extends Controller
     }
 
     public function getAllMatchList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getAllMatchList');
-        $data = $response->json();
+        $rs = DB::table('matchs')->where('typeMatch', '0')->get();
+        $arrData = array();
+        foreach ($rs as $item) {
+            $v = array();
+            $v['matchId'] = $item->matchId;
+            $v['rowNo'] = $item->rowNo;
+            $v['week'] = $item->week;
+            $v['typeName'] = $item->typeName;
+            $v['matchDate'] = $item->matchDate;
+            $v['matchTime'] = $item->matchTime;
+            $v['matchResult'] = $item->matchResult;
+            $v['recPercent'] = $item->recPercent;
+            $v['betRate'] = $item->betRate;
+            $v['homeTeam'] = $item->homeTeam;
+            $v['visitTeam'] = $item->visitTeam;
+            $v['homeTeamNo'] = $item->homeTeamNo;
+            $v['visitTeamNo'] = $item->visitTeamNo;
+            $v['homeLogo'] = $item->homeLogo;
+            $v['visitLogo'] = $item->visitLogo;
+            $v['result1'] = $item->result1;
+            $v['result2'] = $item->result2;
+            $v['isOk'] = $item->isOk;
+            $v['matchLong'] = $item->matchLong;
+            $v['isCode'] = $item->isCode;
+            $v['matchDesc'] = $item->matchDesc;
+            $v['fixedNam'] = $item->fixedNam;
+            $arrData[] = $v;
+        }
+        $data['rows'] = $arrData;
+
         $keyListExist = array();
         $textList = $this->__getListTextTranslateDB();
         $dataInsert = array();
@@ -253,24 +300,6 @@ class HomeController extends Controller
                             $dataInsert[] = $textInsert;
                         }
                     }
-
-                    $tour = DB::table('tournaments')->where('tour_name', '=', $data[$key][$k]['typeName'])->first();
-                    if (!empty($tour)) {
-                        $tour_id = $tour->id;
-                    } else {
-                        $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $data[$key][$k]['typeName']] ); 
-                    }
-                    $dataMatch = array();
-                    $d = date('Y-m-d');
-                    $dataMatch['match_id'] = $data[$key][$k]['matchId'];
-                    $dataMatch['match_date'] = $d." ".$data[$key][$k]['matchTime'].':00';
-                    $dataMatch['row_no'] = $this->__rowNo($data[$key][$k]['rowNo']);
-                    $dataMatch['tournament_id'] = $tour_id;
-                    $dataMatch['team_home'] = $data[$key][$k]['homeTeam'];
-                    $dataMatch['team_visit'] = $data[$key][$k]['visitTeam'];
-                    $dataMatch['is_ok'] = $data[$key][$k]['isOk'];
-                    $dataMatch['result1'] = $data[$key][$k]['result1'];
-                    DB::table('matchs')->insertOrIgnore($dataMatch);
                 }
             }
         }
@@ -283,8 +312,35 @@ class HomeController extends Controller
     }
 
     public function getBgcList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getBgcList');
-        $data = $response->json();
+        $rs = DB::table('matchs')->where('typeMatch', '3')->get();
+        $arrData = array();
+        foreach ($rs as $item) {
+            $v = array();
+            $v['matchId'] = $item->matchId;
+            $v['rowNo'] = $item->rowNo;
+            $v['week'] = $item->week;
+            $v['typeName'] = $item->typeName;
+            $v['matchDate'] = $item->matchDate;
+            $v['matchTime'] = $item->matchTime;
+            $v['matchResult'] = $item->matchResult;
+            $v['recPercent'] = $item->recPercent;
+            $v['betRate'] = $item->betRate;
+            $v['homeTeam'] = $item->homeTeam;
+            $v['visitTeam'] = $item->visitTeam;
+            $v['homeTeamNo'] = $item->homeTeamNo;
+            $v['visitTeamNo'] = $item->visitTeamNo;
+            $v['homeLogo'] = $item->homeLogo;
+            $v['visitLogo'] = $item->visitLogo;
+            $v['result1'] = $item->result1;
+            $v['result2'] = $item->result2;
+            $v['isOk'] = $item->isOk;
+            $v['matchLong'] = $item->matchLong;
+            $v['isCode'] = $item->isCode;
+            $v['matchDesc'] = $item->matchDesc;
+            $v['fixedNam'] = $item->fixedNam;
+            $arrData[] = $v;
+        }
+        $data['rows'][0]['matchList'] = $arrData;
         $keyListExist = array();
         $textList = $this->__getListTextTranslateDB();
         $dataInsert = array();
@@ -376,8 +432,35 @@ class HomeController extends Controller
     }
 
     public function getBifenList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getBifenList');
-        $data = $response->json();
+        $rs = DB::table('matchs')->where('typeMatch', '2')->get();
+        $arrData = array();
+        foreach ($rs as $item) {
+            $v = array();
+            $v['matchId'] = $item->matchId;
+            $v['rowNo'] = $item->rowNo;
+            $v['week'] = $item->week;
+            $v['typeName'] = $item->typeName;
+            $v['matchDate'] = $item->matchDate;
+            $v['matchTime'] = $item->matchTime;
+            $v['matchResult'] = $item->matchResult;
+            $v['recPercent'] = $item->recPercent;
+            $v['betRate'] = $item->betRate;
+            $v['homeTeam'] = $item->homeTeam;
+            $v['visitTeam'] = $item->visitTeam;
+            $v['homeTeamNo'] = $item->homeTeamNo;
+            $v['visitTeamNo'] = $item->visitTeamNo;
+            $v['homeLogo'] = $item->homeLogo;
+            $v['visitLogo'] = $item->visitLogo;
+            $v['result1'] = $item->result1;
+            $v['result2'] = $item->result2;
+            $v['isOk'] = $item->isOk;
+            $v['matchLong'] = $item->matchLong;
+            $v['isCode'] = $item->isCode;
+            $v['matchDesc'] = $item->matchDesc;
+            $v['fixedNam'] = $item->fixedNam;
+            $arrData[] = $v;
+        }
+        $data['rows'] = $arrData;
         $keyListExist = array();
         $textList = $this->__getListTextTranslateDB();
         $dataInsert = array();
@@ -435,8 +518,35 @@ class HomeController extends Controller
     }
 
     public function getSaikuangList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getSaikuangList');
-        $data = $response->json();
+        $rs = DB::table('matchs')->where('typeMatch', '4')->get();
+        $arrData = array();
+        foreach ($rs as $item) {
+            $v = array();
+            $v['matchId'] = $item->matchId;
+            $v['rowNo'] = $item->rowNo;
+            $v['week'] = $item->week;
+            $v['typeName'] = $item->typeName;
+            $v['matchDate'] = $item->matchDate;
+            $v['matchTime'] = $item->matchTime;
+            $v['matchResult'] = $item->matchResult;
+            $v['recPercent'] = $item->recPercent;
+            $v['betRate'] = $item->betRate;
+            $v['homeTeam'] = $item->homeTeam;
+            $v['visitTeam'] = $item->visitTeam;
+            $v['homeTeamNo'] = $item->homeTeamNo;
+            $v['visitTeamNo'] = $item->visitTeamNo;
+            $v['homeLogo'] = $item->homeLogo;
+            $v['visitLogo'] = $item->visitLogo;
+            $v['result1'] = $item->result1;
+            $v['result2'] = $item->result2;
+            $v['isOk'] = $item->isOk;
+            $v['matchLong'] = $item->matchLong;
+            $v['isCode'] = $item->isCode;
+            $v['matchDesc'] = $item->matchDesc;
+            $v['fixedNam'] = $item->fixedNam;
+            $arrData[] = $v;
+        }
+        $data['rows'] = $arrData;        
         $keyListExist = array();
         $textList = $this->__getListTextTranslateDB();
         $dataInsert = array();
@@ -591,10 +701,10 @@ class HomeController extends Controller
 
     public function detail (Request $request) {
         $id = $request->input('id');
-        $item = DB::table('matchs')->join('tournaments', 'matchs.tournament_id', '=', 'tournaments.id')->where('match_id', $id)->first();
-        $logo_team_home = $item->logo_team_home;
-        $logo_team_visit = $item->logo_team_visit;
-        if(empty($item->logo_team_home) || empty($item->logo_team_visit)){
+        $item = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('matchId', $id)->first();
+        $logo_team_home = $item->homeLogo;
+        $logo_team_visit = $item->visitLogo;
+        if(empty($item->homeLogo) || empty($item->visitLogo)){
             $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$id;
             $html = file_get_contents($url);
 
@@ -613,7 +723,7 @@ class HomeController extends Controller
                     }
                 }
             }
-            DB::table('matchs')->where('match_id', $id)->update(['logo_team_home' => $logo_team_home, 'logo_team_visit' => $logo_team_visit]);
+            DB::table('matchs')->where('matchId', $id)->update(['homeLogo' => $logo_team_home, 'visitLogo' => $logo_team_visit]);
 
         }
 

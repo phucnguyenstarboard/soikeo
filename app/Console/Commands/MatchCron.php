@@ -54,7 +54,7 @@ class MatchCron extends Command
                         $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
                     }
                     $dataMatch = array();
-                    $dataMatch['typeMatch'] = 0;
+                    $dataMatch['typeMatch'] = '0';
                     $dataMatch['tournamentId'] = $tour_id;
                     $dataMatch['matchId'] = $v['matchId'];
                     $dataMatch['rowNo'] = $v['rowNo'];
@@ -94,7 +94,7 @@ class MatchCron extends Command
                 $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
             }
             $dataMatch = array();
-            $dataMatch['typeMatch'] = 6;
+            $dataMatch['typeMatch'] = '6';
             $dataMatch['tournamentId'] = $tour_id;
             $dataMatch['matchId'] = $v['matchId'];
             $dataMatch['rowNo'] = $v['rowNo'];
@@ -133,7 +133,7 @@ class MatchCron extends Command
                     $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
                 }
                 $dataMatch = array();
-                $dataMatch['typeMatch'] = 6;
+                $dataMatch['typeMatch'] = '7';
                 $dataMatch['tournamentId'] = $tour_id;
                 $dataMatch['matchId'] = $v['matchId'];
                 $dataMatch['rowNo'] = $v['rowNo'];
@@ -160,6 +160,132 @@ class MatchCron extends Command
                 DB::table('matchs')->insertOrIgnore($dataMatch);
             }
         }
+
+        // Ty so type = 2
+        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getBifenList');
+        $data = $response->json();
+        foreach ($data as $key => $value) {
+            if($key == 'rows'){
+                foreach ($value as $k => $v) {
+                    $tour = DB::table('tournaments')->where('tour_name', '=', $v['typeName'])->first();
+                    if (!empty($tour)) {
+                        $tour_id = $tour->id;
+                    } else {
+                        $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
+                    }
+                    $dataMatch = array();
+                    $dataMatch['typeMatch'] = '2';
+                    $dataMatch['tournamentId'] = $tour_id;
+                    $dataMatch['matchId'] = $v['matchId'];
+                    $dataMatch['rowNo'] = $v['rowNo'];
+                    $dataMatch['week'] = $v['week'];
+                    $dataMatch['typeName'] = $v['typeName'];
+                    $dataMatch['matchDate'] = $v['matchDate'];
+                    $dataMatch['matchTime'] = $v['matchTime'];
+                    $dataMatch['matchResult'] = $v['matchResult'];
+                    $dataMatch['recPercent'] = $v['recPercent'];
+                    $dataMatch['betRate'] = $v['betRate'];
+                    $dataMatch['homeTeam'] = $v['homeTeam'];
+                    $dataMatch['visitTeam'] = $v['visitTeam'];
+                    $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
+                    $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
+                    $dataMatch['homeLogo'] = $v['homeLogo'];
+                    $dataMatch['visitLogo'] = $v['visitLogo'];
+                    $dataMatch['result1'] = $v['result1'];
+                    $dataMatch['result2'] = $v['result2'];
+                    $dataMatch['isOk'] = $v['isOk'];
+                    $dataMatch['matchLong'] = $v['matchLong'];
+                    $dataMatch['isCode'] = $v['isCode'];
+                    $dataMatch['matchDesc'] = $v['matchDesc'];
+                    $dataMatch['fixedNam'] = $v['fixedNam'];
+                    DB::table('matchs')->insertOrIgnore($dataMatch);
+                }
+            }
+        }
+
+
+        // Hiep 1 type = 3
+        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getBgcList');
+        $data = $response->json();
+        foreach ($data['rows'] as $index => $item) {
+            foreach ($item['matchList'] as $k => $v) {
+                $tour = DB::table('tournaments')->where('tour_name', '=', $v['typeName'])->first();
+                if (!empty($tour)) {
+                    $tour_id = $tour->id;
+                } else {
+                    $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
+                }
+                $dataMatch = array();
+                $dataMatch['typeMatch'] = '3';
+                $dataMatch['tournamentId'] = $tour_id;
+                $dataMatch['matchId'] = $v['matchId'];
+                $dataMatch['rowNo'] = $v['rowNo'];
+                $dataMatch['week'] = $v['week'];
+                $dataMatch['typeName'] = $v['typeName'];
+                $dataMatch['matchDate'] = $v['matchDate'];
+                $dataMatch['matchTime'] = $v['matchTime'];
+                $dataMatch['matchResult'] = $v['matchResult'];
+                $dataMatch['recPercent'] = $v['recPercent'];
+                $dataMatch['betRate'] = $v['betRate'];
+                $dataMatch['homeTeam'] = $v['homeTeam'];
+                $dataMatch['visitTeam'] = $v['visitTeam'];
+                $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
+                $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
+                $dataMatch['homeLogo'] = $v['homeLogo'];
+                $dataMatch['visitLogo'] = $v['visitLogo'];
+                $dataMatch['result1'] = $v['result1'];
+                $dataMatch['result2'] = $v['result2'];
+                $dataMatch['isOk'] = $v['isOk'];
+                $dataMatch['matchLong'] = $v['matchLong'];
+                $dataMatch['isCode'] = $v['isCode'];
+                $dataMatch['matchDesc'] = $v['matchDesc'];
+                $dataMatch['fixedNam'] = $v['fixedNam'];
+                DB::table('matchs')->insertOrIgnore($dataMatch);
+            }
+        }
+
+
+        // Ty so type = 4
+        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getSaikuangList');
+        $data = $response->json();
+        foreach ($data as $key => $value) {
+            if($key == 'rows'){
+                foreach ($value as $k => $v) {
+                    $tour = DB::table('tournaments')->where('tour_name', '=', $v['typeName'])->first();
+                    if (!empty($tour)) {
+                        $tour_id = $tour->id;
+                    } else {
+                        $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
+                    }
+                    $dataMatch = array();
+                    $dataMatch['typeMatch'] = '4';
+                    $dataMatch['tournamentId'] = $tour_id;
+                    $dataMatch['matchId'] = $v['matchId'];
+                    $dataMatch['rowNo'] = $v['rowNo'];
+                    $dataMatch['week'] = $v['week'];
+                    $dataMatch['typeName'] = $v['typeName'];
+                    $dataMatch['matchDate'] = $v['matchDate'];
+                    $dataMatch['matchTime'] = $v['matchTime'];
+                    $dataMatch['matchResult'] = $v['matchResult'];
+                    $dataMatch['recPercent'] = $v['recPercent'];
+                    $dataMatch['betRate'] = $v['betRate'];
+                    $dataMatch['homeTeam'] = $v['homeTeam'];
+                    $dataMatch['visitTeam'] = $v['visitTeam'];
+                    $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
+                    $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
+                    $dataMatch['homeLogo'] = $v['homeLogo'];
+                    $dataMatch['visitLogo'] = $v['visitLogo'];
+                    $dataMatch['result1'] = $v['result1'];
+                    $dataMatch['result2'] = $v['result2'];
+                    $dataMatch['isOk'] = $v['isOk'];
+                    $dataMatch['matchLong'] = $v['matchLong'];
+                    $dataMatch['isCode'] = $v['isCode'];
+                    $dataMatch['matchDesc'] = $v['matchDesc'];
+                    $dataMatch['fixedNam'] = $v['fixedNam'];
+                    DB::table('matchs')->insertOrIgnore($dataMatch);
+                }
+            }
+        }        
        
         return 0;
     }
