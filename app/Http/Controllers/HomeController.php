@@ -731,28 +731,6 @@ class HomeController extends Controller
         $item = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('matchId', $id)->first();
         $logo_team_home = $item->homeLogo;
         $logo_team_visit = $item->visitLogo;
-        if(empty($item->homeLogo) || empty($item->visitLogo)){
-            $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$id;
-            $html = file_get_contents($url);
-
-            $doc = new \DOMDocument();
-            @$doc->loadHTML($html);
-            $tags = $doc->getElementsByTagName('img');
-            $logo_team_home = '';
-            $logo_team_visit = '';
-            foreach ($tags as $tag) {
-                $imgSrc = $tag->getAttribute('src');
-                if (str_contains($imgSrc, 'woxiangwan.com')) {
-                    if(empty($logo_team_home)){
-                        $logo_team_home = $imgSrc;
-                    }else{
-                        $logo_team_visit = $imgSrc;
-                    }
-                }
-            }
-            DB::table('matchs')->where('matchId', $id)->update(['homeLogo' => $logo_team_home, 'visitLogo' => $logo_team_visit]);
-
-        }
 
         return view('detail' , compact('id', 'item', 'logo_team_home', 'logo_team_visit'));
     }

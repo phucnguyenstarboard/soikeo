@@ -53,6 +53,26 @@ class MatchCron extends Command
                     } else {
                         $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
                     }
+
+                    $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$v['matchId'];
+                    $html = file_get_contents($url);
+
+                    $doc = new \DOMDocument();
+                    @$doc->loadHTML($html);
+                    $tags = $doc->getElementsByTagName('img');
+                    $logo_team_home = '';
+                    $logo_team_visit = '';
+                    foreach ($tags as $tag) {
+                        $imgSrc = $tag->getAttribute('src');
+                        if (str_contains($imgSrc, 'woxiangwan.com')) {
+                            if(empty($logo_team_home)){
+                                $logo_team_home = $imgSrc;
+                            }else{
+                                $logo_team_visit = $imgSrc;
+                            }
+                        }
+                    }
+
                     $dataMatch = array();
                     $dataMatch['typeMatch'] = '0';
                     $dataMatch['tournamentId'] = $tour_id;
@@ -69,8 +89,8 @@ class MatchCron extends Command
                     $dataMatch['visitTeam'] = $v['visitTeam'];
                     $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
                     $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
-                    $dataMatch['homeLogo'] = $v['homeLogo'];
-                    $dataMatch['visitLogo'] = $v['visitLogo'];
+                    $dataMatch['homeLogo'] =  $logo_team_home;
+                    $dataMatch['visitLogo'] = $logo_team_visit;
                     $dataMatch['result1'] = $v['result1'];
                     $dataMatch['result2'] = $v['result2'];
                     $dataMatch['isOk'] = $v['isOk'];
@@ -110,6 +130,26 @@ class MatchCron extends Command
             } else {
                 $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
             }
+
+            $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$v['matchId'];
+            $html = file_get_contents($url);
+
+            $doc = new \DOMDocument();
+            @$doc->loadHTML($html);
+            $tags = $doc->getElementsByTagName('img');
+            $logo_team_home = '';
+            $logo_team_visit = '';
+            foreach ($tags as $tag) {
+                $imgSrc = $tag->getAttribute('src');
+                if (str_contains($imgSrc, 'woxiangwan.com')) {
+                    if(empty($logo_team_home)){
+                        $logo_team_home = $imgSrc;
+                    }else{
+                        $logo_team_visit = $imgSrc;
+                    }
+                }
+            }
+
             $dataMatch = array();
             $dataMatch['typeMatch'] = '6';
             $dataMatch['tournamentId'] = $tour_id;
@@ -126,8 +166,8 @@ class MatchCron extends Command
             $dataMatch['visitTeam'] = $v['visitTeam'];
             $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
             $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
-            $dataMatch['homeLogo'] = $v['homeLogo'];
-            $dataMatch['visitLogo'] = $v['visitLogo'];
+            $dataMatch['homeLogo'] =  $logo_team_home;
+            $dataMatch['visitLogo'] = $logo_team_visit;
             $dataMatch['result1'] = $v['result1'];
             $dataMatch['result2'] = $v['result2'];
             $dataMatch['isOk'] = $v['isOk'];
@@ -166,6 +206,25 @@ class MatchCron extends Command
                 } else {
                     $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
                 }
+                $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$v['matchId'];
+                $html = file_get_contents($url);
+
+                $doc = new \DOMDocument();
+                @$doc->loadHTML($html);
+                $tags = $doc->getElementsByTagName('img');
+                $logo_team_home = '';
+                $logo_team_visit = '';
+                foreach ($tags as $tag) {
+                    $imgSrc = $tag->getAttribute('src');
+                    if (str_contains($imgSrc, 'woxiangwan.com')) {
+                        if(empty($logo_team_home)){
+                            $logo_team_home = $imgSrc;
+                        }else{
+                            $logo_team_visit = $imgSrc;
+                        }
+                    }
+                }
+
                 $dataMatch = array();
                 $dataMatch['typeMatch'] = '7';
                 $dataMatch['tournamentId'] = $tour_id;
@@ -182,8 +241,8 @@ class MatchCron extends Command
                 $dataMatch['visitTeam'] = $v['visitTeam'];
                 $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
                 $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
-                $dataMatch['homeLogo'] = $v['homeLogo'];
-                $dataMatch['visitLogo'] = $v['visitLogo'];
+                $dataMatch['homeLogo'] =  $logo_team_home;
+                $dataMatch['visitLogo'] = $logo_team_visit;
                 $dataMatch['result1'] = $v['result1'];
                 $dataMatch['result2'] = $v['result2'];
                 $dataMatch['isOk'] = $v['isOk'];
@@ -224,6 +283,25 @@ class MatchCron extends Command
                     } else {
                         $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
                     }
+                    $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$v['matchId'];
+                    $html = file_get_contents($url);
+
+                    $doc = new \DOMDocument();
+                    @$doc->loadHTML($html);
+                    $tags = $doc->getElementsByTagName('img');
+                    $logo_team_home = '';
+                    $logo_team_visit = '';
+                    foreach ($tags as $tag) {
+                        $imgSrc = $tag->getAttribute('src');
+                        if (str_contains($imgSrc, 'woxiangwan.com')) {
+                            if(empty($logo_team_home)){
+                                $logo_team_home = $imgSrc;
+                            }else{
+                                $logo_team_visit = $imgSrc;
+                            }
+                        }
+                    }
+
                     $dataMatch = array();
                     $dataMatch['typeMatch'] = '2';
                     $dataMatch['tournamentId'] = $tour_id;
@@ -240,8 +318,8 @@ class MatchCron extends Command
                     $dataMatch['visitTeam'] = $v['visitTeam'];
                     $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
                     $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
-                    $dataMatch['homeLogo'] = $v['homeLogo'];
-                    $dataMatch['visitLogo'] = $v['visitLogo'];
+                    $dataMatch['homeLogo'] =  $logo_team_home;
+                    $dataMatch['visitLogo'] = $logo_team_visit;
                     $dataMatch['result1'] = $v['result1'];
                     $dataMatch['result2'] = $v['result2'];
                     $dataMatch['isOk'] = $v['isOk'];
@@ -282,6 +360,25 @@ class MatchCron extends Command
                 } else {
                     $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
                 }
+                $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$v['matchId'];
+                $html = file_get_contents($url);
+
+                $doc = new \DOMDocument();
+                @$doc->loadHTML($html);
+                $tags = $doc->getElementsByTagName('img');
+                $logo_team_home = '';
+                $logo_team_visit = '';
+                foreach ($tags as $tag) {
+                    $imgSrc = $tag->getAttribute('src');
+                    if (str_contains($imgSrc, 'woxiangwan.com')) {
+                        if(empty($logo_team_home)){
+                            $logo_team_home = $imgSrc;
+                        }else{
+                            $logo_team_visit = $imgSrc;
+                        }
+                    }
+                }
+
                 $dataMatch = array();
                 $dataMatch['typeMatch'] = '3';
                 $dataMatch['tournamentId'] = $tour_id;
@@ -298,8 +395,8 @@ class MatchCron extends Command
                 $dataMatch['visitTeam'] = $v['visitTeam'];
                 $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
                 $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
-                $dataMatch['homeLogo'] = $v['homeLogo'];
-                $dataMatch['visitLogo'] = $v['visitLogo'];
+                $dataMatch['homeLogo'] =  $logo_team_home;
+                $dataMatch['visitLogo'] = $logo_team_visit;
                 $dataMatch['result1'] = $v['result1'];
                 $dataMatch['result2'] = $v['result2'];
                 $dataMatch['isOk'] = $v['isOk'];
@@ -340,6 +437,25 @@ class MatchCron extends Command
                     } else {
                         $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
                     }
+                    $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$v['matchId'];
+                    $html = file_get_contents($url);
+
+                    $doc = new \DOMDocument();
+                    @$doc->loadHTML($html);
+                    $tags = $doc->getElementsByTagName('img');
+                    $logo_team_home = '';
+                    $logo_team_visit = '';
+                    foreach ($tags as $tag) {
+                        $imgSrc = $tag->getAttribute('src');
+                        if (str_contains($imgSrc, 'woxiangwan.com')) {
+                            if(empty($logo_team_home)){
+                                $logo_team_home = $imgSrc;
+                            }else{
+                                $logo_team_visit = $imgSrc;
+                            }
+                        }
+                    }
+
                     $dataMatch = array();
                     $dataMatch['typeMatch'] = '4';
                     $dataMatch['tournamentId'] = $tour_id;
@@ -356,8 +472,8 @@ class MatchCron extends Command
                     $dataMatch['visitTeam'] = $v['visitTeam'];
                     $dataMatch['homeTeamNo'] = $v['homeTeamNo'];
                     $dataMatch['visitTeamNo'] = $v['visitTeamNo'];
-                    $dataMatch['homeLogo'] = $v['homeLogo'];
-                    $dataMatch['visitLogo'] = $v['visitLogo'];
+                    $dataMatch['homeLogo'] =  $logo_team_home;
+                    $dataMatch['visitLogo'] = $logo_team_visit;
                     $dataMatch['result1'] = $v['result1'];
                     $dataMatch['result2'] = $v['result2'];
                     $dataMatch['isOk'] = $v['isOk'];
@@ -381,10 +497,10 @@ class MatchCron extends Command
                         $dataMatch['content1'] = json_encode($content1);
                         $dataMatch['content2'] = json_encode($content2);
                         DB::table('match_details')->insertOrIgnore($dataMatch);
-                    }
+                    }                    
                 }
             }
-        }
+        }        
        
         return 0;
     }
