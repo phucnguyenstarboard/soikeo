@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use GoogleTranslate;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -761,5 +762,13 @@ class HomeController extends Controller
         $txt = str_replace('周六', 'Thứ bảy', $txt);
         $txt = str_replace('周日', 'Chủ nhật', $txt);
         return $txt;
+    }
+
+    public function index(Request $request)
+    {
+        $path = "http://www.woxiangwan.com/app/img/no_club_logo.jpg";
+        $arr_path = explode('/', $path);
+        $filename = end($arr_path);
+        Storage::disk('local2')->put($filename, file_get_contents($path));
     }
 }

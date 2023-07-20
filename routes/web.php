@@ -31,3 +31,5 @@ route::get('/getGaoBeiList', [HomeController::class, 'getGaoBeiList'])->name('ge
 
 route::get('/getDetailYcChartsInfo', [HomeController::class, 'getDetailYcChartsInfo'])->name('getDetailYcChartsInfo');
 route::get('/getDetailLeftLists', [HomeController::class, 'getDetailLeftLists'])->name('getDetailLeftLists');
+
+route::get('/download', [HomeController::class, 'index'])->name('index');

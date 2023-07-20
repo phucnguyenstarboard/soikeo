@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use DB; 
+use Illuminate\Support\Facades\Storage;
 
 class MatchCron extends Command
 {
@@ -67,12 +68,19 @@ class MatchCron extends Command
                         if (str_contains($imgSrc, 'woxiangwan.com')) {
                             if(empty($logo_team_home)){
                                 $logo_team_home = $imgSrc;
+                                // $path = $logo_team_home;
+                                // $arr_path = explode('/', $path);
+                                // $filename = end($arr_path);
+                                // Storage::disk('local2')->put($filename, file_get_contents($path));                                
                             }else{
                                 $logo_team_visit = $imgSrc;
+                                // $path = $logo_team_visit;
+                                // $arr_path = explode('/', $path);
+                                // $filename = end($arr_path);
+                                // Storage::disk('local2')->put($filename, file_get_contents($path));
                             }
                         }
                     }
-
                     $dataMatch = array();
                     $dataMatch['typeMatch'] = '0';
                     $dataMatch['tournamentId'] = $tour_id;
@@ -497,10 +505,10 @@ class MatchCron extends Command
                         $dataMatch['content1'] = json_encode($content1);
                         $dataMatch['content2'] = json_encode($content2);
                         DB::table('match_details')->insertOrIgnore($dataMatch);
-                    }                    
+                    }
                 }
             }
-        }        
+        }
        
         return 0;
     }

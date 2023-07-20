@@ -17,8 +17,8 @@ class CreateMatchsTable extends Migration
         Schema::create('matchs', function (Blueprint $table) {
             $table->id();
             $table->integer('tournamentId')->nullable();
-            $table->integer('typeMatch')->default(0);
-            $table->string('matchId')->unique();
+            $table->string('typeMatch');
+            $table->integer('matchId');
             $table->string('rowNo')->nullable();
             $table->string('week')->nullable();
             $table->string('typeName')->nullable();
@@ -42,6 +42,7 @@ class CreateMatchsTable extends Migration
             $table->string('fixedNam')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->unique(['matchId', 'typeMatch']);
         });
     }
 
