@@ -731,7 +731,9 @@ class HomeController extends Controller
         $item = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('matchId', $id)->first();
         $logo_team_home = $item->homeLogo;
         $logo_team_visit = $item->visitLogo;
-
+        $item->rowNo = $this->__rowNo($item->rowNo);
+        $item->homeTeam = $this->__translateText($item->homeTeam, 'en');
+        $item->visitTeam = $this->__translateText($item->visitTeam, 'en');
         return view('detail' , compact('id', 'item', 'logo_team_home', 'logo_team_visit'));
     }
 
