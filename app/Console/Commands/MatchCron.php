@@ -130,16 +130,16 @@ class MatchCron extends Command
                 if (str_contains($imgSrc, 'woxiangwan.com')) {
                     if(empty($logo_team_home)){
                         $logo_team_home = $imgSrc;
-                        // $path = $logo_team_home;
-                        // $arr_path = explode('/', $path);
-                        // $filename = end($arr_path);
-                        // Storage::disk('local2')->put($filename, file_get_contents($path));
+                        $path = $logo_team_home;
+                        $arr_path = explode('/', $path);
+                        $logo_team_home = end($arr_path);
+                        Storage::disk('local2')->put($logo_team_home, file_get_contents($path));
                     }else{
                         $logo_team_visit = $imgSrc;
-                        // $path = $logo_team_visit;
-                        // $arr_path = explode('/', $path);
-                        // $filename = end($arr_path);
-                        // Storage::disk('local2')->put($filename, file_get_contents($path));
+                        $path = $logo_team_visit;
+                        $arr_path = explode('/', $path);
+                        $logo_team_visit = end($arr_path);
+                        Storage::disk('local2')->put($logo_team_visit, file_get_contents($path));
                     }
                 }
             }
