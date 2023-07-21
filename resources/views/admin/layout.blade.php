@@ -55,12 +55,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 @guest
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}"><b>Đăng nhập</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}"><b>Đăng ký</b></a>
-                    </li>
+                    </li> -->
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('tour') }}"><b>Giải đấu</b></a>
