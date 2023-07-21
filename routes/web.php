@@ -27,10 +27,14 @@ Route::post('tournaments/{id}', [AuthController::class, 'postTourEdit'])->name('
 Route::get('match/{id}', [AuthController::class, 'matchEdit'])->name('match_edit')->middleware('auth');
 Route::post('match/{id}', [AuthController::class, 'postMatchEdit'])->name('match_edit.post')->middleware('auth');
 
+Route::get('info', [AuthController::class, 'info'])->name('info')->middleware('auth');
+Route::post('info', [AuthController::class, 'postInfo'])->name('info.post')->middleware('auth');
+
 
 
 Route::get('/', function () {
-    return view('home');
+    $user = \DB::table('users')->where('id', 1)->first();
+    return view('home', compact('user'));
 });
 
 route::get('/detail', [HomeController::class, 'detail'])->name('detail');

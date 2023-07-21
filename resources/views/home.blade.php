@@ -14,18 +14,18 @@
                                           <div class="phone-vr">
                                             <div class="phone-vr-circle-fill"></div>
                                             <div class="phone-vr-img-circle">
-                                              <a href="https://zalo.me/0378304587" target="_blank" rel="noopener">
+                                              <a href="{{ $user->link_zalo }}" target="_blank" rel="noopener">
                                               <img src="{{ asset('assets/images/zalo.png') }}">
                                                </a>
                                             </div>
                                           </div>
                                         </div>
                                         <div style="padding-top: 25px">
-                                            <a class="text-animation" target="_blank" href="https://zalo.me/0378304587">
+                                            <a class="text-animation" target="_blank" href="{{ $user->link_zalo }}">
                                     Chuyên gia cho kèo</a>
                                         </div>
                                    </li>
-                                    <li style="margin: 0;text-align: center;margin-left: -10px;padding-top: 0px;margin-bottom: 10px;"><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">
+                                    <li style="margin: 0;text-align: center;margin-left: -10px;padding-top: 0px;margin-bottom: 10px;"><a class="text-animation" target="_blank"  href="{{ $user->link_km }}">
                                         Đăng ký VIP
                                     </a></li>
                                 </ul>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="panel panel-default onlySP" style="margin-top:0px;padding:0px;">
                         <div class="panel-body" style="background-color:#146a16;padding:0px;font-size:8pt;">
-                            <a href="https://onbet3.com/?inviteCode=8oncom" target="_blank"> 
+                            <a href="{{ $user->link_km }}" target="_blank"> 
                                <img style="width: 100%" src="{{ asset('assets/images/banner_adv.png') }}">
                             </a>
                         </div>
@@ -93,8 +93,12 @@
 
                     <div class="panel panel-default" style="padding-top:1px;margin-bottom: 0px;">
                         <div class="panel-body" style="background-color:#146a16;padding:20px;">
+                            @php
+                                $arr = explode("/", $user->link_tele);
+                                $a = end($arr);
+                            @endphp
                             <div style="text-align: center;font-size: 20px;">
-                                Kèo chỉ mang tính chất tham khảo <br/>Để tư vấn chuyên sâu vui lòng liên hệ chuyên gia qua  telegram : @khuyenmai24h7 <br/><a href="https://t.me/khuyenmai24h7" target="_blank">(https://t.me/khuyenmai24h7)</a>
+                                Kèo chỉ mang tính chất tham khảo <br/>Để tư vấn chuyên sâu vui lòng liên hệ chuyên gia qua  telegram : {{ '@'.$a }} <br/><a href="{{ $user->link_tele }}" target="_blank">({{ $user->link_tele }})</a>
                             </div>
                         
                         </div>
@@ -108,10 +112,10 @@
                                 <ul>
                                     <li style="margin: 0; margin-left: 50px;padding-top: 10px;margin-bottom: 10px;">
                                         
-                                            <a class="text-animation" target="_blank" href="https://zalo.me/0378304587">
+                                            <a class="text-animation" target="_blank" href="{{ $user->link_zalo }}">
                                     Chuyên gia cho kèo</a>
                                    </li>
-                                    <li style="margin: 0;margin-left: 50px;padding-top: 0px;margin-bottom: 10px;"><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">
+                                    <li style="margin: 0;margin-left: 50px;padding-top: 0px;margin-bottom: 10px;"><a class="text-animation" target="_blank"  href="{{ $user->link_km }}">
                                         Đăng ký VIP
                                     </a></li>
                                 </ul>

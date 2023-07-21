@@ -265,7 +265,8 @@ class HomeController extends Controller
     public function detail (Request $request) {
         $id = $request->input('id');
         $item = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('matchId', $id)->first();
-        return view('detail' , compact('id', 'item'));
+        $user = \DB::table('users')->where('id', 1)->first();
+        return view('detail' , compact('id', 'item', 'user'));
     }
 
     private function __translateText ($text, $lang) {

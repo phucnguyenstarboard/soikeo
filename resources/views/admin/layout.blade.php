@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Trang quản lý</title>
+    <title>ONBET ADMIN</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <link href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon"  rel="shortcut icon"/>
     <style type="text/css">
         @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
   
@@ -83,7 +84,7 @@
     
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="{{ Auth::check() ? 'container-fluid' : 'container' }}">
-        <a class="navbar-brand" href="/" target="_blank" >ONBET</a>
+        <a class="navbar-brand" href="/" target="_blank" >ONBET ADMIN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -103,7 +104,10 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}"><b>Trận đấu</b></a>
-                    </li>                
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('info') }}"><b>Thông tin khác</b></a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}">Đăng xuất</a>
                     </li>

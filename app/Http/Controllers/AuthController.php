@@ -235,5 +235,29 @@ class AuthController extends Controller
         ]);        
 
         return redirect("match/".$id)->withSuccess('Cập nhật trận đấu thành công');
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function info()
+    {
+        $user = DB::table('users')->where('id', 1)->first();
+        return view('admin.info' , compact('user'));
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function postInfo(Request $request)
+    {  
+        
+        $data = $request->all();
+        DB::table('users')->where('id', 1)->update(['link_zalo' => $data['link_zalo'], 'link_tele' => $data['link_tele'], 'link_km' => $data['link_km']]);         
+        return redirect("info")->withSuccess('Cập nhật thông tin thành công');
     }    
 }

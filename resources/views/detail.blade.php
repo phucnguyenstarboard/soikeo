@@ -190,18 +190,18 @@
                                           <div class="phone-vr">
                                             <div class="phone-vr-circle-fill"></div>
                                             <div class="phone-vr-img-circle">
-                                              <a href="https://zalo.me/0378304587" target="_blank" rel="noopener">
+                                              <a href="{{ $user->link_zalo }}" target="_blank" rel="noopener">
                                                   <img src="{{ asset('assets/images/zalo.png') }}">
                                               </a>
                                             </div>
                                           </div>
                                         </div>
                                         <div style="padding-top: 25px">
-                                            <a class="text-animation" target="_blank" href="https://zalo.me/0378304587">
+                                            <a class="text-animation" target="_blank" href="{{ $user->link_zalo }}">
                                     Chuyên gia cho kèo</a>
                                         </div>
                                    </li>
-                                    <li style="margin: 0;text-align: center;margin-left: 5px;padding-top: 0px;margin-bottom: 10px;"><a class="text-animation" target="_blank"  href="https://onbet3.com/?inviteCode=8oncom">
+                                    <li style="margin: 0;text-align: center;margin-left: 5px;padding-top: 0px;margin-bottom: 10px;"><a class="text-animation" target="_blank"  href="{{ $user->link_km }}">
                                         Đăng ký VIP
                                     </a></li>
                                 </ul> 
