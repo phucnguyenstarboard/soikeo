@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,20 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('tournaments', [AuthController::class, 'tour'])->name('tour')->middleware('auth');
+Route::get('tournaments/{id}', [AuthController::class, 'tourEdit'])->name('tour_edit')->middleware('auth');
+Route::post('tournaments/{id}', [AuthController::class, 'postTourEdit'])->name('edit_tour.post')->middleware('auth');
+Route::get('match/{id}', [AuthController::class, 'matchEdit'])->name('match_edit')->middleware('auth');
+Route::post('match/{id}', [AuthController::class, 'postMatchEdit'])->name('match_edit.post')->middleware('auth');
+
+
 
 Route::get('/', function () {
     return view('home');
@@ -33,3 +48,4 @@ route::get('/getDetailYcChartsInfo', [HomeController::class, 'getDetailYcChartsI
 route::get('/getDetailLeftLists', [HomeController::class, 'getDetailLeftLists'])->name('getDetailLeftLists');
 
 route::get('/download', [HomeController::class, 'index'])->name('index');
+

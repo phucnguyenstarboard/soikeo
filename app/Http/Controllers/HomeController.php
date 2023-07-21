@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Storage;
 class HomeController extends Controller
 {
     public function getSdtjList (Request $request) {
-        $rs = DB::table('matchs')->where('typeMatch', '7')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '7')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
             $v['matchId'] = $item->matchId;
             $v['rowNo'] = $item->rowNo;
             $v['week'] = $item->week;
-            $v['typeName'] = $item->typeName;
+            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;
             $v['matchDate'] = $item->matchDate;
             $v['matchTime'] = $item->matchTime;
             $v['matchResult'] = $item->matchResult;
@@ -62,14 +62,14 @@ class HomeController extends Controller
     }
 
     public function getWdList (Request $request) {
-        $rs = DB::table('matchs')->where('typeMatch', '6')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '6')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
             $v['matchId'] = $item->matchId;
             $v['rowNo'] = $item->rowNo;
             $v['week'] = $item->week;
-            $v['typeName'] = $item->typeName;
+            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;
             $v['matchDate'] = $item->matchDate;
             $v['matchTime'] = $item->matchTime;
             $v['matchResult'] = $item->matchResult;
@@ -95,14 +95,14 @@ class HomeController extends Controller
     }
 
     public function getAllMatchList (Request $request) {
-        $rs = DB::table('matchs')->where('typeMatch', '0')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '0')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
             $v['matchId'] = $item->matchId;
             $v['rowNo'] = $item->rowNo;
             $v['week'] = $item->week;
-            $v['typeName'] = $item->typeName;
+            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;;
             $v['matchDate'] = $item->matchDate;
             $v['matchTime'] = $item->matchTime;
             $v['matchResult'] = $item->matchResult;
@@ -128,14 +128,14 @@ class HomeController extends Controller
     }
 
     public function getBgcList (Request $request) {
-        $rs = DB::table('matchs')->where('typeMatch', '3')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '3')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
             $v['matchId'] = $item->matchId;
             $v['rowNo'] = $item->rowNo;
             $v['week'] = $item->week;
-            $v['typeName'] = $item->typeName;
+            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;;
             $v['matchDate'] = $item->matchDate;
             $v['matchTime'] = $item->matchTime;
             $v['matchResult'] = $item->matchResult;
@@ -161,14 +161,14 @@ class HomeController extends Controller
     }
 
     public function getBifenList (Request $request) {
-        $rs = DB::table('matchs')->where('typeMatch', '2')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '2')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
             $v['matchId'] = $item->matchId;
             $v['rowNo'] = $item->rowNo;
             $v['week'] = $item->week;
-            $v['typeName'] = $item->typeName;
+            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;;
             $v['matchDate'] = $item->matchDate;
             $v['matchTime'] = $item->matchTime;
             $v['matchResult'] = $item->matchResult;
@@ -199,7 +199,7 @@ class HomeController extends Controller
     }
 
     public function getSaikuangList (Request $request) {
-        $rs = DB::table('matchs')->where('typeMatch', '4')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '4')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();

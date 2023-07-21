@@ -317,14 +317,6 @@
 @push('js')
         <script type="text/javascript" src="{{ asset('assets/js/perfect-scrollbar.with-mousewheel.min.js')}} "></script>
         <script type="text/javascript">
-
-        	const rsData = [];
-			rsData['胜']= "Thắng";
-			rsData['负']= "Thua";
-			rsData['胜胜']= "Thắng";
-			rsData['平负、平胜']= "Thắng 1/2";
-			rsData['负']= "Thua";
-
             $(document).ready(function() {
             
                    /*获取实单推荐List*/
@@ -486,9 +478,9 @@
                  						if(parseInt(rs.rows[m].matchList[i].isOk) == 1){
                  							
                  							if("未" == rs.rows[m].matchList[i].matchLong){
-                 								oneItem +='<div class="col-xs-2 item"><span >'+rsData[rs.rows[m].matchList[i].matchResult] +'</span></div>';
+                 								oneItem +='<div class="col-xs-2 item"><span >'+rs.rows[m].matchList[i].matchResult +'</span></div>';
                  							}else{
-                 								oneItem +='<div class="col-xs-2"><span style="color:red">'+rsData[rs.rows[m].matchList[i].matchResult] +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
+                 								oneItem +='<div class="col-xs-2"><span style="color:red">'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
                	      					}
                  							
                  							//oneItem +='<div class="col-xs-3"><span style="color:red">'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].recPercent +'</span></div>';
@@ -496,9 +488,9 @@
                  						}else{
                  							
                  							if("未" == rs.rows[m].matchList[i].matchLong){
-                 								oneItem +='<div class="col-xs-2 item"><span >'+rsData[rs.rows[m].matchList[i].matchResult] +'</span></div>';
+                 								oneItem +='<div class="col-xs-2 item"><span >'+rs.rows[m].matchList[i].matchResult +'</span></div>';
                  							}else{
-                 								oneItem +='<div class="col-xs-2"><span >'+rsData[rs.rows[m].matchList[i].matchResult] +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
+                 								oneItem +='<div class="col-xs-2"><span >'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
                  							}
                  							oneItem +='<div><span style="line-height:30px;margin-right:10px;">Chưa có</span></div>';
                  							//oneItem +='<div class="col-xs-3"><span >'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].recPercent +'</span></div>';
@@ -600,9 +592,9 @@
                     						oneItem +='<div class="col-xs-3"><span>'+rs.rows[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[i].visitTeam +'</span></div>';
                     						//是否预测中
                     						if(parseInt(rs.rows[i].isOk) == 1){
-                    							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rsData[rs.rows[i].matchResult]+'</span>&nbsp;&nbsp;<span>√</span></div>';
+                    							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rs.rows[i].matchResult+'</span>&nbsp;&nbsp;<span>√</span></div>';
                     						}else{
-                    							oneItem +='<div class="col-xs-2"><span>'+rsData[rs.rows[i].matchResult]+'</span></div>';
+                    							oneItem +='<div class="col-xs-2"><span>'+rs.rows[i].matchResult+'</span></div>';
                     						}
                     						
                     						if("未" == rs.rows[i].matchLong){
@@ -662,9 +654,9 @@
                         					oneItem +='<div class="col-xs-3"><span>'+rs.rows[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[i].visitTeam +'</span></div>';
                      						//是否预测中
                      						if(parseInt(rs.rows[i].isOk) == 1){
-                     							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rsData[rs.rows[i].matchResult]+'</span>&nbsp;&nbsp;<span>√</span></div>';
+                     							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rs.rows[i].matchResult+'</span>&nbsp;&nbsp;<span>√</span></div>';
                      						}else{
-                     							oneItem +='<div class="col-xs-2"><span>'+rsData[rs.rows[i].matchResult]+'</span></div>';
+                     							oneItem +='<div class="col-xs-2"><span>'+rs.rows[i].matchResult+'</span></div>';
                      						}
                      						
                      						oneItem +='<div class="col-xs-1"><span>Chưa có</span></div>';
@@ -682,9 +674,9 @@
                         					oneItem +='<div class="col-xs-3"><span>'+rs.rows[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[i].visitTeam +'</span></div>';
                      						//是否预测中
                      						if(parseInt(rs.rows[i].isOk) == 1){
-                     							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rsData[rs.rows[i].matchResult]+'</span>&nbsp;&nbsp;<span>√</span></div>';
+                     							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rs.rows[i].matchResult+'</span>&nbsp;&nbsp;<span>√</span></div>';
                      						}else{
-                     							oneItem +='<div class="col-xs-2" style="color:#969799;"><span>'+rsData[rs.rows[i].matchResult]+'</span></div>';
+                     							oneItem +='<div class="col-xs-2" style="color:#969799;"><span>'+rs.rows[i].matchResult+'</span></div>';
                      						}
                      						
                      						oneItem +='<div class="col-xs-1"><span>'+rs.rows[i].result1 +'</span></div>';
@@ -701,9 +693,9 @@
                         					oneItem +='<div class="col-xs-3"><span>'+rs.rows[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[i].visitTeam +'</span></div>';
                      						//是否预测中
                      						if(parseInt(rs.rows[i].isOk) == 1){
-                     							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rsData[rs.rows[i].matchResult]+'</span>&nbsp;&nbsp;<span>√</span></div>';
+                     							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rs.rows[i].matchResult+'</span>&nbsp;&nbsp;<span>√</span></div>';
                      						}else{
-                     							oneItem +='<div class="col-xs-2"><span>'+rsData[rs.rows[i].matchResult]+'</span></div>';
+                     							oneItem +='<div class="col-xs-2"><span>'+rs.rows[i].matchResult+'</span></div>';
                      						}
                      						oneItem +='<div class="col-xs-1"><div style="margin-top:12px;line-height:10px;color:#69AF00;">'+rs.rows[i].matchLong +'</div><div style="margin-top:5px;line-height:10px;">'+rs.rows[i].result1 +'</div></div>';
                      						oneItem +='<div class="col-xs-2"><span>'+rs.rows[i].recPercent +'%</span></div>';
@@ -959,9 +951,9 @@
                     						oneItem +='<div class="col-xs-3"><span>'+rs.rows[m].matchList[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[m].matchList[i].visitTeam +'</span></div>';
                     						//是否预测中
                     						if(parseInt(rs.rows[m].matchList[i].isOk) == 1){
-                    							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rsData[rs.rows[m].matchList[i].matchResult]+'</span>&nbsp;&nbsp;<span>√</span></div>';
+                    							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rs.rows[m].matchList[i].matchResult+'</span>&nbsp;&nbsp;<span>√</span></div>';
                     						}else{
-                    							oneItem +='<div class="col-xs-2"><span>'+rsData[rs.rows[m].matchList[i].matchResult]+'</span></div>';
+                    							oneItem +='<div class="col-xs-2"><span>'+rs.rows[m].matchList[i].matchResult+'</span></div>';
                     						}
                     						if("未" == rs.rows[m].matchList[i].matchLong){
                     							oneItem +='<div class="col-xs-1"><span>Chưa có</span></div>';

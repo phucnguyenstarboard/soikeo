@@ -107,14 +107,21 @@ class MatchCron extends Command
     }
 
     private function __processData($v, $typeMatch) {
+        $rsData = array();
+        $rsData['胜']= "Thắng";
+        $rsData['负']= "Thua";
+        $rsData['胜胜']= "Thắng";
+        $rsData['平负、平胜']= "Thắng 1/2";
+        $rsData['负']= "Thua";
         $matchId = $v['matchId'];
         $match = DB::table('matchs')->where('matchId', '=', $matchId)->where('typeMatch', '=', $typeMatch)->first();
         if (empty($match)) {
-            $tour = DB::table('tournaments')->where('tour_name', '=', $v['typeName'])->first();
+            $typeName = $this->__translateText($v['typeName'], 'vi');
+            $tour = DB::table('tournaments')->where('tour_name', '=', $typeName)->first();
             if (!empty($tour)) {
                 $tour_id = $tour->id;
             } else {
-                $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $v['typeName']] ); 
+                $tour_id = DB::table('tournaments')->insertGetId( ['tour_name' => $typeName] );
             }
 
             $url="http://www.zucaijia.cn/zcj/jincai/detail?flag=0&rowNo=".$matchId;
@@ -151,6 +158,8 @@ class MatchCron extends Command
             $matchResult = $v['matchResult'];
             if ($typeMatch == '3') {
                 $matchResult = $this->__translateText($v['matchResult'], 'vi');
+            }else{  
+                $matchResult = isset($rsData[$matchResult]) ?  $rsData[$matchResult] : $matchResultl;
             }
 
             $betRate = $v['betRate'];
@@ -166,7 +175,7 @@ class MatchCron extends Command
             $dataMatch['matchId'] = $matchId;
             $dataMatch['rowNo'] = $this->__rowNo($v['rowNo']);
             $dataMatch['week'] = $v['week'];
-            $dataMatch['typeName'] = $this->__translateText($v['typeName'], 'vi');
+            $dataMatch['typeName'] = $typeName;
             $dataMatch['matchDate'] = $v['matchDate'];
             $dataMatch['matchTime'] = $v['matchTime'];
             $dataMatch['matchResult'] = $matchResult;
