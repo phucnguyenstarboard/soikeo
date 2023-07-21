@@ -31,7 +31,7 @@
                           </div>
   
                           <div class="col-md-6 offset-md-4">
-                               <button type="submit" class="btn btn-primary">
+                               <button type="submit" class="btn btn-primary btn-submit">
                                   Cập nhật
                                </button>
                                <a class="btn btn-secondary ml-4" href="{{ route('tour') }}" role="button">Về trang danh sách</a>
@@ -44,6 +44,12 @@
     </div>
 </div>
 <script type="text/javascript">
-    
+      $(document).ready(function() {
+          $('body').on('click','.btn-submit', function() {
+              $('body').loadingOverlay(true, {
+                  backgroundColor: 'rgba(0,0,0,0.65)',
+              });
+          });
+      });
 </script>
 @endsection

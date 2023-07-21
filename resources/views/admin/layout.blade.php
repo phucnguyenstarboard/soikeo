@@ -39,15 +39,51 @@
             padding-top: 1.5rem;
             padding-bottom: 1.5rem;
         }
+
+        .loading {
+            position: relative;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .loading .loading__overlay {
+            content: '';
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: wait;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999999;
+        }
+        .loading .loading__icon {
+            content: '';
+            width: 5%;
+            height: 5%;
+            min-width: 50px;
+            min-height: 50px;
+            background-image: url('../assets/images/loading-icon.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 0;
+            transform: translateY(-50%);
+        }        
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/loading-overlay.js"></script>
 </head>
 <body>
     
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="{{ Auth::check() ? 'container-fluid' : 'container' }}">
-        <a class="navbar-brand" href="#">Logo</a>
+        <a class="navbar-brand" href="/" target="_blank" >ONBET</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

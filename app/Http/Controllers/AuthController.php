@@ -172,7 +172,10 @@ class AuthController extends Controller
     {
         $item = DB::table('matchs')->where('matchId', $id)->first();
         $tours = DB::table('tournaments')->get();
-        return view('admin.match_edit' , compact('item', 'tours'));
+        $rs = DB::table('match_details')->where('matchId', $id)->first();
+        $detail = json_decode($rs->content2, true);
+        $detail2 = json_decode($rs->content1, true);
+        return view('admin.match_edit' , compact('item', 'tours', 'detail', 'detail2'));
     }
 
     /**
@@ -195,6 +198,42 @@ class AuthController extends Controller
             ,'recPercent' => $data['recPercent']
             ,'isOk' => isset($data['isOk']) ? '1' : '0'
         ]);
+
+        $rs = DB::table('match_details')->where('matchId', $id)->first();
+        $content2 = json_decode($rs->content2, true);
+        $content2['peilvRow']['victCount'] = $data['victCount2'];
+        $content2['peilvRow']['tieCount'] = $data['tieCount2'];
+        $content2['peilvRow']['failCount'] = $data['failCount2'];
+
+        $content2['zhanjiRow']['type'] = $data['type'];
+        $content2['zhanjiRow']['matchCount'] = $data['matchCount'];
+        $content2['zhanjiRow']['victCount'] = $data['victCount'];
+        $content2['zhanjiRow']['tieCount'] = $data['tieCount'];
+        $content2['zhanjiRow']['failCount'] = $data['failCount'];
+
+
+        $content1 = json_decode($rs->content1, true);
+
+        $content1['bilvList'][0]['desc'] = $data['bilvList1'];
+        $content1['bilvList'][1]['desc'] = $data['bilvList2'];
+        $content1['bilvList'][2]['desc'] = $data['bilvList3'];
+
+        $content1['analyInfo']['winner'] = $data['winner'];
+        $content1['analyInfo']['halfWholeResult'] = $data['halfWholeResult'];
+        $content1['analyInfo']['scoreResult'] = $data['scoreResult'];
+        $content1['analyInfo']['winReason'] = $data['winReason'];
+        $content1['analyInfo']['drawReason'] = $data['drawReason'];
+        $content1['analyInfo']['loseReason'] = $data['loseReason'];
+        $content1['analyInfo']['winPossibility'] = is_numeric($data['bilvList1']) ? number_format($data['bilvList1'], 2) : 0;
+        $content1['analyInfo']['drawPossibility'] = is_numeric($data['bilvList2']) ? number_format($data['bilvList2'], 2) : 0;
+        $content1['analyInfo']['losePossibility'] = is_numeric($data['bilvList3']) ? number_format($data['bilvList3'], 2) : 0;
+        $content1['analyInfo']['keyNote'] = $data['keyNote'];
+
+        DB::table('match_details')->where('matchId', $id)->update([
+            'content2' => json_encode($content2)
+            ,'content1' => json_encode($content1)
+        ]);        
+
         return redirect("match/".$id)->withSuccess('Cập nhật trận đấu thành công');
     }    
 }
