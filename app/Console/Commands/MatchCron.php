@@ -477,7 +477,7 @@ class MatchCron extends Command
 
             $matchResult = $v['matchResult'];
             if ($typeMatch == '3') {
-                $matchResult = $this->__translateText($v['matchResult'], 'vi');
+                // $matchResult = $this->__translateText($v['matchResult'], 'vi');
             }else{  
                 $matchResult = isset($rsData[$matchResult]) ?  $rsData[$matchResult] : $matchResult;
             }
@@ -491,7 +491,7 @@ class MatchCron extends Command
             $dataMatch = array();
             $dataMatch['matchDate'] = $v['matchDate'];
             // $dataMatch['matchTime'] = $v['matchTime'];
-            $dataMatch['matchResult'] = $matchResult;
+            // $dataMatch['matchResult'] = $matchResult;
             $dataMatch['recPercent'] = str_replace('%', '', $v['recPercent']);
             $dataMatch['betRate'] = $betRate;
             $dataMatch['result1'] = $v['result1'];
