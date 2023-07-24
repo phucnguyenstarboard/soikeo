@@ -11,36 +11,42 @@ use Illuminate\Support\Facades\Storage;
 class HomeController extends Controller
 {
     public function getSdtjList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '7')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '7')->orWhere('isTheo', '1')->groupBy('matchs.matchId')->orderBy('matchLong', 'DESC')->get();
         $arrData = array();
         foreach ($rs as $item) {
-            $v = array();
-            $v['matchId'] = $item->matchId;
-            $v['rowNo'] = $item->rowNo;
-            $v['week'] = $item->week;
-            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;
-            $v['matchDate'] = $item->matchDate;
-            $v['matchTime'] = $item->matchTime;
-            $v['matchResult'] = $item->matchResult;
-            $v['recPercent'] = $item->recPercent;
-            $v['betRate'] = $item->betRate;
-            $v['homeTeam'] = $item->homeTeam;
-            $v['visitTeam'] = $item->visitTeam;
-            $v['homeTeamNo'] = $item->homeTeamNo;
-            $v['visitTeamNo'] = $item->visitTeamNo;
-            $v['homeLogo'] = $item->homeLogo;
-            $v['visitLogo'] = $item->visitLogo;
-            $v['result1'] = $item->result1;
-            $v['result2'] = $item->result2;
-            $v['isOk'] = $item->isOk;
-            $v['matchLong'] = $item->matchLong;
-            $v['isCode'] = $item->isCode;
-            $v['matchDesc'] = $item->matchDesc;
-            $v['fixedNam'] = $item->fixedNam;
-            $arrData[] = $v;
+            if($item->isShow){
+                $v = array();
+                $v['matchId'] = $item->matchId;
+                $v['rowNo'] = $item->rowNo;
+                $v['week'] = $item->week;
+                $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;
+                $v['matchDate'] = $item->matchDate;
+                $v['matchTime'] = $item->matchTime;
+                $v['matchResult'] = $item->matchResult;
+                $v['recPercent'] = $item->recPercent;
+                $v['betRate'] = $item->betRate;
+                $v['homeTeam'] = $item->homeTeam;
+                $v['visitTeam'] = $item->visitTeam;
+                $v['homeTeamNo'] = $item->homeTeamNo;
+                $v['visitTeamNo'] = $item->visitTeamNo;
+                $v['homeLogo'] = $item->homeLogo;
+                $v['visitLogo'] = $item->visitLogo;
+                $v['result1'] = $item->result1;
+                $v['result2'] = $item->result2;
+                $v['isOk'] = $item->isOk;
+                $v['matchLong'] = $item->matchLong;
+                $v['isCode'] = $item->isCode;
+                $v['matchDesc'] = $item->matchDesc;
+                $v['fixedNam'] = $item->fixedNam;
+                $arrData[] = $v;
+            }            
         }
-        $data['rows'] = $arrData;
-        if(isset($data['rows'])){
+        $data['rows'] = array();
+        if(!empty($arrData)){
+           $data['rows'][0]['matchList'] = $arrData;
+        }
+        
+        if(!empty($data['rows'])){
             foreach ($data['rows'] as $i => $itemA) { 
                 $t = isset($data['rows'][$i]['mode']) ? $data['rows'][$i]['mode'] : '';
                 $t = substr($t, 0, strpos( $t, '串', 0));
@@ -62,7 +68,7 @@ class HomeController extends Controller
     }
 
     public function getWdList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '6')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '6')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
@@ -95,7 +101,7 @@ class HomeController extends Controller
     }
 
     public function getAllMatchList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '0')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '0')->where("isShow", '1')->orderBy('matchLong', 'DESC')->orderBy('colOrder', 'ASC')->orderBy('rowNo', 'ASC')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
@@ -128,7 +134,7 @@ class HomeController extends Controller
     }
 
     public function getBgcList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '3')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '3')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
@@ -161,7 +167,7 @@ class HomeController extends Controller
     }
 
     public function getBifenList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '2')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '2')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();
@@ -199,7 +205,7 @@ class HomeController extends Controller
     }
 
     public function getSaikuangList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '4')->get();
+        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '4')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
         $arrData = array();
         foreach ($rs as $item) {
             $v = array();

@@ -354,44 +354,44 @@
                        		if(rs.rows.length > 0){
                        			var oneOrder ="";
                        			for(var m = 0; m < rs.rows.length && m < 2 ; m++){
-                        			oneOrder += '<div class="listTitle" style="font-size:10pt;height:48px; line-height:40px;"> ';
-                        			oneOrder += '<div class="row" style="margin-top:5px;">';
-                        			oneOrder +='<div class="col-xs-2" style="padding:0px;">';
-                        			oneOrder += '<font color="#FF910C">Thứ tự '+rs.rows[m].orderNo + ':</font>';
-                        			oneOrder += '</div>';
-                        			oneOrder += '<div class="col-xs-10">';
+                        			//oneOrder += '<div class="listTitle" style="font-size:10pt;height:48px; line-height:40px;"> ';
+                        			//oneOrder += '<div class="row" style="margin-top:5px;">';
+                        			//oneOrder +='<div class="col-xs-2" style="padding:0px;">';
+                        			//oneOrder += '<font color="#FF910C">Thứ tự '+rs.rows[m].orderNo + ':</font>';
+                        			//oneOrder += '</div>';
+                        			oneOrder += '<div class="col-xs-12">';
                         			
-            					oneOrder += '<div class="row" style="height:20px; line-height:20px;">';
+            					oneOrder += '<div class="row" style="height:20px; line-height:20px;min-height:110px">';
             					//是否是VIP
                         			if(rs.rows[m].orderDesc != 'NM' ){
-                        				oneOrder += '<p class="pull-left"><font color="#FF910C">'+ rs.rows[m].orderDesc+'&nbsp;&nbsp;&nbsp;</font></p>';
+                        				//oneOrder += '<p class="pull-left"><font color="#FF910C">'+ rs.rows[m].orderDesc+'&nbsp;&nbsp;&nbsp;</font></p>';
                         			}
-                        			oneOrder += '<p class="pull-left"><font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
+                        			//oneOrder += '<p class="pull-left"><font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
                         			if(parseInt(rs.rows[m].statusType) == 0 ){
-                        				oneOrder += '<p class="pull-right">'+rs.rows[m].matchStatus+'&nbsp;&nbsp;</p>';
+                        				//oneOrder += '<p class="pull-right">'+rs.rows[m].matchStatus+'&nbsp;&nbsp;</p>';
                         			}else if(parseFloat(rs.rows[m].statusType) == 1 ){
-                        				oneOrder += '<p class="pull-right"><font color="#6B9E29" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;</font></p>';
+                        				//oneOrder += '<p class="pull-right"><font color="#6B9E29" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;</font></p>';
                         			}else{
-                        				oneOrder += '<p class="pull-right"><font color="red" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;</font></p>';
+                        				//oneOrder += '<p class="pull-right"><font color="red" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;</font></p>';
                         			}
-                        			oneOrder += '</div>';
+                        			//oneOrder += '</div>';
                         			
-            					oneOrder += '<div class="row" style="height:20px; line-height:20px;">';
-            					oneOrder += '<p class="pull-left">Cược '+rs.rows[m].money+' thắng '　+　rs.rows[m].maxWinMoney　+　'</p>';
-            					oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;lần&nbsp;&nbsp;</p>';
-                        			oneOrder += '</div>';
+            					//oneOrder += '<div class="row" style="height:20px; line-height:20px;">';
+            					//oneOrder += '<p class="pull-left">Cược '+rs.rows[m].money+' thắng '　+　rs.rows[m].maxWinMoney　+　'</p>';
+            					//oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;lần&nbsp;&nbsp;</p>';
+                        			//oneOrder += '</div>';
                         			
-                        			oneOrder += '</div>';
+                        			//oneOrder += '</div>';
                         			
-                        			oneOrder += '</div>';
-                        			oneOrder += '</div>';
+                        			//oneOrder += '</div>';
+                        			//oneOrder += '</div>';
               					
                         			var matchList ='<div class="subList" id=""  style="font-size:8pt;">';
                         			for(var i = 0; i < rs.rows[m].matchList.length; i++){
                         				
                         				var oneItem ="";
                         				if("完" == rs.rows[m].matchList[i].matchLong){
-                        					oneItem +='<div class="subItem" style="height:50px;color:#969799;">';
+                        					oneItem +='<div class="subItem" style="height:50px;color:#969799 !important;">';
                         				}else{
                         					oneItem +='<div class="subItem" style="height:50px;">';
                         				}
@@ -405,7 +405,7 @@
                  								oneItem +='<div class="col-xs-3"><span style="color:red">'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
                	      					}
                  							//是否是胆
-                  						if(rs.rows[m].matchList[i].fixedNam != ""){
+                  						if( rs.rows[m].matchList[i].fixedNam != null && rs.rows[m].matchList[i].fixedNam != ""){
                   							oneItem +='<div><span style="line-height:40px;color:red;margin-right:10px;">√&nbsp;<font style="color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</font>&nbsp;</span></div>';
                   						}else{
                   							oneItem +='<div><span style="line-height:40px;color:red;margin-right:12px;">√</span></div>';
@@ -418,7 +418,7 @@
                  								oneItem +='<div class="col-xs-2"><span >'+rs.rows[m].matchList[i].matchResult +'</span><br/><span>'+rs.rows[m].matchList[i].result1 +'</span></div>';
                  							}
                  							//是否是胆
-                  						if(rs.rows[m].matchList[i].fixedNam != ""){
+                  						if(rs.rows[m].matchList[i].fixedNam != null && rs.rows[m].matchList[i].fixedNam != ""){
                   							oneItem +='<div><span style="line-height:40px;color:#7ECF0D;margin-right:10px;">'+rs.rows[m].matchList[i].fixedNam +'</span></div>';
                   						}else{
                   							oneItem +='<div><span style="line-height:30px;margin-right:10px;">Chưa có&nbsp;</span></div>';
@@ -469,7 +469,7 @@
                         			for(var i = 0; i < rs.rows[m].matchList.length && i < 5; i++){
                           				var oneItem ="";
                           				if("完" == rs.rows[m].matchList[i].matchLong){
-                        					oneItem +='<div class="subItem" style="height:50px;color:#969799;">';
+                        					oneItem +='<div class="subItem" style="height:50px;color:#969799 !important;">';
                         				}else{
                         					oneItem +='<div class="subItem" style="height:50px;">';
                         				}
@@ -535,7 +535,7 @@
                         				for(var i = 0; i < rs.rows[m].matchList.length; i++){
                          				var oneItem ="";
                          				if("完" == rs.rows[m].matchList[i].matchLong){
-                         					oneItem +='<div class="subItem" style="color:#969799;">';
+                         					oneItem +='<div class="subItem" style="color:#969799 !important;">';
                          				}else{
                          					oneItem +='<div class="subItem">';
                          				}
@@ -588,7 +588,7 @@
                         			for(var i = 0; i < rs.rows.length; i++){
                         				var oneItem ="";
                         				if("完" == rs.rows[i].matchLong){
-                        					oneItem +='<div class="subItem" style="color:#969799;">';
+                        					oneItem +='<div class="subItem" style="color:#969799 !important;">';
                         				}else{
                         					oneItem +='<div class="subItem">';
                         				}
@@ -672,7 +672,7 @@
                         					
                         				}else if("完" == rs.rows[i].matchLong){
                         					
-                         				oneItem +='<div class="subItem" style="background-color:#3d4147;color:#969799;">';
+                         				oneItem +='<div class="subItem" style="background-color:#3d4147;color:#969799 !important;">';
                         					oneItem +='<div class="col-xs-2"></span>&nbsp;&nbsp;<span>'+replaceText(rs.rows[i].rowNo) +'</span></div>';
                         					oneItem +='<div class="col-xs-1"><span>'+rs.rows[i].matchTime +'</span></div>';
                         					oneItem +='<div class="col-xs-3"><span>'+rs.rows[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[i].visitTeam +'</span></div>';
@@ -680,7 +680,7 @@
                      						if(parseInt(rs.rows[i].isOk) == 1){
                      							oneItem +='<div class="col-xs-2" style="color:red;"><span>'+rs.rows[i].matchResult+'</span>&nbsp;&nbsp;<span>√</span></div>';
                      						}else{
-                     							oneItem +='<div class="col-xs-2" style="color:#969799;"><span>'+rs.rows[i].matchResult+'</span></div>';
+                     							oneItem +='<div class="col-xs-2" style="color:#969799 !important;;"><span>'+rs.rows[i].matchResult+'</span></div>';
                      						}
                      						
                      						oneItem +='<div class="col-xs-1"><span>'+rs.rows[i].result1 +'</span></div>';
@@ -737,7 +737,7 @@
                         			for(var i = 0; i < rs.rows.length; i++){
                         				var oneItem ="";
                         				if("完" == rs.rows[i].matchLong){
-                        					oneItem +='<div class="subItem" style="color:#969799;">';
+                        					oneItem +='<div class="subItem" style="color:#969799 !important;">';
                         				}else{
                         					oneItem +='<div class="subItem">';
                         				}
@@ -847,30 +847,30 @@
                        			for(var m = 0; m < rs.rows.length; m++){
                        				
                        				if(m==0){
-                       					oneOrder += '<div>';
+                       					//oneOrder += '<div>';
                            				
                        				}else{
-                       					oneOrder += '<div style="margin-top:10px;">';	
+                       					//oneOrder += '<div style="margin-top:10px;">';	
                        				}
                        				
                        				
-                        			oneOrder += '<div class="listTitle" style="background-color:#070813;">';
-                        			oneOrder += '<p class="pull-left">Thứ tự '+rs.rows[m].orderNo + '：<font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
-                        			oneOrder += '<p class="pull-left">Cược '+rs.rows[m].money+' thắng '　+　rs.rows[m].maxWinMoney　+　'</p>';
+                        			//oneOrder += '<div class="listTitle" style="background-color:#070813;">';
+                        			//oneOrder += '<p class="pull-left">Thứ tự '+rs.rows[m].orderNo + '：<font color="#7ECF0D">' + rs.rows[m].mode+'</font></p>';
+                        			//oneOrder += '<p class="pull-left">Cược '+rs.rows[m].money+' thắng '　+　rs.rows[m].maxWinMoney　+　'</p>';
                         			//是否是VIP
                         			if(rs.rows[m].orderDesc != 'NM' ){
-                        				oneOrder += '<p class="pull-left"><font color="#FF910C">&nbsp;&nbsp;&nbsp;'+ rs.rows[m].orderDesc+'</font></p>';
+                        				//oneOrder += '<p class="pull-left"><font color="#FF910C">&nbsp;&nbsp;&nbsp;'+ rs.rows[m].orderDesc+'</font></p>';
                         			}
-                        			oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;lần&nbsp;&nbsp;</p>';
+                        			//oneOrder += '<p class="pull-right"><font color="red">'+rs.rows[m].maxWinTimes+'</font>&nbsp;lần&nbsp;&nbsp;</p>';
                         			//是否中状态
                         			if(parseFloat(rs.rows[m].statusType) == 0 ){
-                        				oneOrder += '<p class="pull-right">'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</p>';
+                        				//oneOrder += '<p class="pull-right">'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</p>';
                         			}else if(parseFloat(rs.rows[m].statusType) == 1 ){
-                        				oneOrder += '<p class="pull-right"><font color="#6B9E29" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</font></p>';
+                        				//oneOrder += '<p class="pull-right"><font color="#6B9E29" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</font></p>';
                         			}else{
-                        				oneOrder += '<p class="pull-right"><font color="red" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</font></p>';
+                        				//oneOrder += '<p class="pull-right"><font color="red" >'+rs.rows[m].matchStatus+'&nbsp;&nbsp;&nbsp;&nbsp;</font></p>';
                         			}
-                        			oneOrder += '</div>';
+                        			//oneOrder += '</div>';
               					
                         			var matchList ='<div class="subList" id="">';
                         			for(var i = 0; i < rs.rows[m].matchList.length; i++){
@@ -878,31 +878,35 @@
                         				
                         				
                         				if("完" == rs.rows[m].matchList[i].matchLong){
-                        					oneItem +='<div class="subItem" style="height:50px; line-height:50px;color:#969799;">';
+                        					oneItem +='<div class="subItem" style="height:50px; line-height:50px;color:#969799 !important;;">';
                         				}else{
                         					oneItem +='<div class="subItem" style="height:50px; line-height:50px;">';
                         				}
                         				
                         				oneItem +='<div class="detail pull-left">';
-                    					oneItem +='<div class="col-xs-1"><span>'+ replaceText(rs.rows[m].matchList[i].rowNo) +'</span></div>';
+                    					oneItem +='<div class="col-xs-2"><span>'+ replaceText(rs.rows[m].matchList[i].rowNo) +'</span></div>';
                     					oneItem +='<div class="col-xs-2"><span>'+rs.rows[m].matchList[i].typeName +'</span></div>';
                     					oneItem +='<div class="col-xs-3"><span>'+rs.rows[m].matchList[i].homeTeam +'</span>&nbsp;&nbsp;<span>VS</span>&nbsp;&nbsp;<span>'+rs.rows[m].matchList[i].visitTeam +'</span></div>';
-                							if(parseFloat(rs.rows[m].matchList[i].isOk) == 1){
+                						if(parseFloat(rs.rows[m].matchList[i].isOk) == 1){
                  							oneItem +='<div class="col-xs-2"><span style="color:red">'+rs.rows[m].matchList[i].matchResult +'</span></div>';
                  		      			}else{
                  							oneItem +='<div class="col-xs-2"><span>'+rs.rows[m].matchList[i].matchResult +'</span></div>';
                  		      			}
-                							oneItem +='<div class="col-xs-1"><span>'+rs.rows[m].matchList[i].recPercent +'%</span></div>';
-                							if("未" == rs.rows[m].matchList[i].matchLong){
-                								oneItem +='<div class="col-xs-2"><span >Chưa có</span></div>';
-                							}else{
-                								oneItem +='<div class="col-xs-2"><span >'+rs.rows[m].matchList[i].result1 +'</span></div>';
-                							}
+            							oneItem +='<div class="col-xs-1"><span>'+rs.rows[m].matchList[i].recPercent +'%</span></div>';
+            							if("未" == rs.rows[m].matchList[i].matchLong){
+            								oneItem +='<div class="col-xs-1"><span >Chưa có</span></div>';
+            							}else{
+            								oneItem +='<div class="col-xs-1"><span >'+rs.rows[m].matchList[i].result1 +'</span></div>';
+            							}
+
+                                        if(rs.rows[m].matchList[i].fixedNam == null){
+                                            rs.rows[m].matchList[i].fixedNam = '';
+                                        }    
                 							
                  						if(parseFloat(rs.rows[m].matchList[i].isOk) == 1){
                  							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;color:red">√</span></div>';
                  						}else{
-                 							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height:35px;">Chưa có</span></div>';
+                 							oneItem +='<div class="col-xs-1"><span style="line-height:35px;color:#7ECF0D">'+rs.rows[m].matchList[i].fixedNam +'</span>&nbsp;&nbsp;&nbsp;&nbsp;</div>';
                  						}
                  						
                  						oneItem +='</div>';
@@ -946,7 +950,7 @@
                        				for(var i = 0; i < rs.rows[m].matchList.length; i++){
                            				var oneItem ="";
                            				if("完" == rs.rows[m].matchList[i].matchLong){
-                           					oneItem +='<div class="subItem" style="color:#969799;">';
+                           					oneItem +='<div class="subItem" style="color:#969799 !important;">';
                            				}else{
                            					oneItem +='<div class="subItem">';
                            				}
@@ -998,7 +1002,7 @@
                        			for(var i = 0; i < rs.rows.length; i++){
                        				var oneItem ="";
                        				if("完" == rs.rows[i].matchLong){
-                       					oneItem +='<div class="subItem" style="color:#969799;">';
+                       					oneItem +='<div class="subItem" style="color:#969799 !important;">';
                        				}else{
                        					oneItem +='<div class="subItem">';
                        				}

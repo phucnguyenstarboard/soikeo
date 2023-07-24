@@ -265,6 +265,9 @@
                 
                     //预测
                     var winstr = rs.analyInfo.winner;
+                    if (winstr === null || winstr === ''){
+                        winstr = "";
+                    }
                     var winary = winstr.split("、");
                     var newwinstr = "";
                     for(i=0;i< winary.length; i++){
@@ -285,6 +288,9 @@
                     $("#qcYuceText").html(newwinstr);
                     
                     var halfstr = rs.analyInfo.halfWholeResult;
+                    if (halfstr === null || halfstr === ''){
+                        halfstr = "";
+                    }
                     var halfary = halfstr.split("、");
                     var newhalfstr = "";
                     for(i=0;i< halfary.length; i++){
@@ -305,6 +311,9 @@
                     $("#bqcYuceText").html(newhalfstr);
                     
                     var scorestr = rs.analyInfo.scoreResult;
+                    if (scorestr === null || scorestr === ''){
+                        scorestr = "";
+                    }
                     var scoreary = scorestr.split("、");
                     var newscorestr = "";
                     for(i=0;i< scoreary.length; i++){

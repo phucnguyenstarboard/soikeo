@@ -30,6 +30,12 @@ Route::post('match/{id}', [AuthController::class, 'postMatchEdit'])->name('match
 Route::get('info', [AuthController::class, 'info'])->name('info')->middleware('auth');
 Route::post('info', [AuthController::class, 'postInfo'])->name('info.post')->middleware('auth');
 
+Route::get('tournaments-add', [AuthController::class, 'tourAdd'])->name('tour_add')->middleware('auth');
+Route::post('tournaments-add', [AuthController::class, 'postTourAdd'])->name('tour_add.post')->middleware('auth');
+
+Route::get('match-add', [AuthController::class, 'matchAdd'])->name('match_add')->middleware('auth');
+Route::post('match-add', [AuthController::class, 'postMatchAdd'])->name('match_add.post')->middleware('auth');
+
 
 
 Route::get('/', function () {

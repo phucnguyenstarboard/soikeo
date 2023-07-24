@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><h5>{{ __('Trận đấu') }}</h5></div>
+                <div class="card-header">
+                    <div class="row">
+                      <div class="col-md-6"><h5>{{ __('Trận đấu') }}</h5></div>
+                      <div class="col-md-6 text-right"><a class="btn btn-primary ml-4" href="{{ route('match_add') }}" role="button">Thêm trận đấu</a></div>
+                    </div
+                </div>
   
                 <div class="card-body">
                     @if (session('success'))

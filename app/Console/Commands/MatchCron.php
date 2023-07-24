@@ -112,7 +112,6 @@ class MatchCron extends Command
         $rsData['负']= "Thua";
         $rsData['胜胜']= "Thắng";
         $rsData['平负、平胜']= "Thắng 1/2";
-        $rsData['负']= "Thua";
         $matchId = $v['matchId'];
         $match = DB::table('matchs')->where('matchId', '=', $matchId)->where('typeMatch', '=', $typeMatch)->first();
         if (empty($match)) {
@@ -155,11 +154,101 @@ class MatchCron extends Command
                 $matchLong = $this->__translateText($v['matchLong'], 'vi');
             }
 
+            $rowNo = $this->__rowNo($v['rowNo']);
+            $colOrder = 0;
+            if ($matchLong == '完'){
+                if (str_contains($rowNo, 'Chủ nhật')){
+                   $colOrder = 7;
+                }
+                elseif (str_contains($rowNo, 'Thứ hai')){
+                   $colOrder = 1;
+                }
+                elseif (str_contains($rowNo, 'Thứ ba')){
+                   $colOrder = 2;
+                }
+                elseif (str_contains($rowNo, 'Thứ tư')){
+                   $colOrder = 3;
+                }
+                elseif (str_contains($rowNo, 'Thứ năm')){
+                   $colOrder = 4;
+                }
+                elseif (str_contains($rowNo, 'Thứ sáu')){
+                   $colOrder = 5;
+                }
+                elseif (str_contains($rowNo, 'Thứ bảy')){
+                   $colOrder = 6;
+                }
+            }elseif ($matchLong == '未'){
+                if(date("D") == 'Sun'){
+                    if (str_contains($rowNo, 'Chủ nhật')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 7;
+                    }
+                }
+
+                if(date("D") == 'Mon'){
+                    if (str_contains($rowNo, 'Thứ hai')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 1;
+                    }
+                }
+
+                if(date("D") == 'Tue'){
+                    if (str_contains($rowNo, 'Thứ ba')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 2;
+                    }
+                } 
+
+                if(date("D") == 'Wed'){
+                    if (str_contains($rowNo, 'Thứ tư')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 3;
+                    }
+                } 
+
+                if(date("D") == 'Thu'){
+                    if (str_contains($rowNo, 'Thứ năm')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 4;
+                    }
+                }
+
+                if(date("D") == 'Fri'){
+                    if (str_contains($rowNo, 'Thứ sáu')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 5;
+                    }
+                }
+
+                if(date("D") == 'Sat'){
+                    if (str_contains($rowNo, 'Thứ bảy')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 6;
+                    }
+                }
+                
+            }
+
             $matchResult = $v['matchResult'];
             if ($typeMatch == '3') {
                 $matchResult = $this->__translateText($v['matchResult'], 'vi');
             }else{  
-                $matchResult = isset($rsData[$matchResult]) ?  $rsData[$matchResult] : $matchResultl;
+                $matchResult = isset($rsData[$matchResult]) ?  $rsData[$matchResult] : $matchResult;
             }
 
             $betRate = $v['betRate'];
@@ -167,19 +256,19 @@ class MatchCron extends Command
             if ($typeMatch == '4') {
                 $betRate = $this->__translateText($v['betRate'], 'vi');
                 $matchDesc = $this->__translateText($v['matchDesc'], 'vi');
-            }            
+            }
 
             $dataMatch = array();
             $dataMatch['typeMatch'] = $typeMatch;
             $dataMatch['tournamentId'] = $tour_id;
             $dataMatch['matchId'] = $matchId;
-            $dataMatch['rowNo'] = $this->__rowNo($v['rowNo']);
+            $dataMatch['rowNo'] = $rowNo;
             $dataMatch['week'] = $v['week'];
             $dataMatch['typeName'] = $typeName;
             $dataMatch['matchDate'] = $v['matchDate'];
             $dataMatch['matchTime'] = $v['matchTime'];
             $dataMatch['matchResult'] = $matchResult;
-            $dataMatch['recPercent'] = $v['recPercent'];
+            $dataMatch['recPercent'] = str_replace('%', '', $v['recPercent']);
             $dataMatch['betRate'] = $betRate;
             $dataMatch['homeTeam'] = $this->__translateText($v['homeTeam'], 'en');
             $dataMatch['visitTeam'] = $this->__translateText($v['visitTeam'], 'en');
@@ -194,6 +283,7 @@ class MatchCron extends Command
             $dataMatch['isCode'] = $v['isCode'];
             $dataMatch['matchDesc'] = $matchDesc;
             $dataMatch['fixedNam'] = $v['fixedNam'];
+            $dataMatch['colOrder'] = $colOrder;
             DB::table('matchs')->insertOrIgnore($dataMatch);
 
 
@@ -286,6 +376,133 @@ class MatchCron extends Command
                 $dataMatch['content2'] = json_encode($content2);
                 DB::table('match_details')->insertOrIgnore($dataMatch);
             }
+        }else{
+
+            $matchLong = $v['matchLong'];
+            if (!empty($v['matchLong']) && $v['matchLong'] != '未' && $v['matchLong'] != '完') {
+                $matchLong = $this->__translateText($v['matchLong'], 'vi');
+            }
+
+            $rowNo =$match->rowNo;
+            $colOrder = 0;
+            if ($matchLong == '完'){
+                if (str_contains($rowNo, 'Chủ nhật')){
+                   $colOrder = 7;
+                }
+                elseif (str_contains($rowNo, 'Thứ hai')){
+                   $colOrder = 1;
+                }
+                elseif (str_contains($rowNo, 'Thứ ba')){
+                   $colOrder = 2;
+                }
+                elseif (str_contains($rowNo, 'Thứ tư')){
+                   $colOrder = 3;
+                }
+                elseif (str_contains($rowNo, 'Thứ năm')){
+                   $colOrder = 4;
+                }
+                elseif (str_contains($rowNo, 'Thứ sáu')){
+                   $colOrder = 5;
+                }
+                elseif (str_contains($rowNo, 'Thứ bảy')){
+                   $colOrder = 6;
+                }
+            }elseif ($matchLong == '未'){
+                if(date("D") == 'Sun'){
+                    if (str_contains($rowNo, 'Chủ nhật')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 7;
+                    }
+                }
+
+                if(date("D") == 'Mon'){
+                    if (str_contains($rowNo, 'Thứ hai')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 1;
+                    }
+                }
+
+                if(date("D") == 'Tue'){
+                    if (str_contains($rowNo, 'Thứ ba')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 2;
+                    }
+                } 
+
+                if(date("D") == 'Wed'){
+                    if (str_contains($rowNo, 'Thứ tư')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 3;
+                    }
+                } 
+
+                if(date("D") == 'Thu'){
+                    if (str_contains($rowNo, 'Thứ năm')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 4;
+                    }
+                }
+
+                if(date("D") == 'Fri'){
+                    if (str_contains($rowNo, 'Thứ sáu')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 5;
+                    }
+                }
+
+                if(date("D") == 'Sat'){
+                    if (str_contains($rowNo, 'Thứ bảy')) {
+                       $colOrder = 0;
+                    }
+                    else{
+                        $colOrder = 6;
+                    }
+                }
+                
+            }
+
+
+
+            $matchResult = $v['matchResult'];
+            if ($typeMatch == '3') {
+                $matchResult = $this->__translateText($v['matchResult'], 'vi');
+            }else{  
+                $matchResult = isset($rsData[$matchResult]) ?  $rsData[$matchResult] : $matchResult;
+            }
+
+            $betRate = $v['betRate'];
+            // $matchDesc = $v['matchDesc'];
+            // if ($typeMatch == '4') {
+            //     $betRate = $this->__translateText($v['betRate'], 'vi');
+            //     $matchDesc = $this->__translateText($v['matchDesc'], 'vi');
+            // }
+            $dataMatch = array();
+            $dataMatch['matchDate'] = $v['matchDate'];
+            // $dataMatch['matchTime'] = $v['matchTime'];
+            $dataMatch['matchResult'] = $matchResult;
+            $dataMatch['recPercent'] = str_replace('%', '', $v['recPercent']);
+            $dataMatch['betRate'] = $betRate;
+            $dataMatch['result1'] = $v['result1'];
+            $dataMatch['result2'] = $v['result2'];
+            $dataMatch['isOk'] = $v['isOk'];
+            $dataMatch['matchLong'] = $matchLong;
+            $dataMatch['isCode'] = $v['isCode'];
+            // $dataMatch['matchDesc'] = $matchDesc;
+            $dataMatch['fixedNam'] = $v['fixedNam'];
+            $dataMatch['colOrder'] = $colOrder;
+            DB::table('matchs')->where('matchId', $matchId)->update($dataMatch);
         }
     }
 

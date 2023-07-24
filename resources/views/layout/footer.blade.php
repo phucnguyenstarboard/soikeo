@@ -18,7 +18,7 @@
               <div class="phone-vr">
                 <div class="phone-vr-circle-fill"></div>
                 <div class="phone-vr-img-circle">
-                  <a href="https://zalo.me/0378304587" target="_blank" rel="noopener">
+                  <a href="{{ $user->link_zalo }}" target="_blank" rel="noopener">
                       <img src="{{ asset('assets/images/zalo.png') }}">
                   </a>
               </div>
@@ -31,7 +31,7 @@
               <div class="phone-vr">
                 <div class="phone-vr-circle-fill"></div>
                 <div class="phone-vr-img-circle">
-                  <a href="https://t.me/onbet1102" target="_blank" rel="noopener">
+                  <a href="{{ $user->link_tele }}" target="_blank" rel="noopener">
                       <img src="{{ asset('assets/images/telegram_icon.png') }}">
                   </a>
               </div>

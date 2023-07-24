@@ -43,6 +43,16 @@
                                     <input type="text" id="rowNo" class="form-control" name="rowNo" value="{{ $item->rowNo }}">
                                 </div>
                               </div>
+
+                              <div class="form-rgoup row mb-4">
+                                <label for="matchDate" class="col-md-4 col-form-label text-md-right">Ngày giờ</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="matchDate" class="form-control" name="matchDate" value=" {{ $item->matchDate }} ">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" id="matchTime" class="form-control" name="matchTime" value="{{ $item->matchTime }}">
+                                </div>
+                              </div>
     
                               <div class="form-group row">
                                 <label for="homeTeam" class="col-md-4 col-form-label text-md-right">Tên đội nhà</label>
@@ -75,7 +85,7 @@
                               <div class="form-group row">
                                 <label for="recPercent" class="col-md-4 col-form-label text-md-right">Xác suất thắng (%)</label>
                                 <div class="col-md-6">
-                                    <input type="number" id="recPercent" class="form-control" name="recPercent" value="{{ $item->recPercent }}">
+                                    <input type="text" id="recPercent" class="form-control" name="recPercent" value="{{ $item->recPercent }}">
                                 </div>
                               </div>
 
@@ -83,9 +93,19 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="isOk" {{ $item->isOk ? 'checked="checked"' : '' }}" > Trận đấu đã kết thúc
+                                            <input type="checkbox" name="isOk" {{ $item->isOk ? 'checked="checked"' : '' }} /> Trận đấu đã kết thúc
                                         </label>
                                     </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="isTheo" {{ $item->isTheo ? 'checked="checked"' : '' }}/> Trận nên theo
+                                        </label>
+                                    </div>
+                                   <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="isShow" {{ $item->isShow ? 'checked="checked"' : '' }}/> Hiển thị lên web
+                                        </label>
+                                    </div>                                    
                                 </div>
                               </div>                             
                          </div>
