@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('match_edit.post', $item->matchId) }}" method="POST">
+                    <form action="{{ route('match_edit.post', $item->matchId) }}" method="POST" enctype="multipart/form-data">
                           @csrf
                     <div class="row">
                        <div class="col-md-12 text-center mb-3">
@@ -23,7 +23,7 @@
                              </button>
                           <a class="btn btn-secondary ml-4" href="{{ route('dashboard') }}" role="button">Về trang danh sách</a>
                        </div>
-                    </div>                          
+                    </div>
                       <div class="row">
                           <div class="col-md-6">
                               <h6>Thông tin cơ bản</h6>
@@ -62,11 +62,25 @@
                               </div>
 
                               <div class="form-group row">
+                                <label for="homeTeam" class="col-md-4 col-form-label text-md-right">Logo đội nhà</label>
+                                <div class="col-md-6">
+                                    <input type="file" name="homeLogo" accept="image/*" class="form-control" id="homeLogo">
+                                </div>
+                              </div>                              
+
+                              <div class="form-group row">
                                 <label for="visitTeam" class="col-md-4 col-form-label text-md-right">Tên đội khách</label>
                                 <div class="col-md-6">
                                     <input type="text" id="visitTeam" class="form-control" name="visitTeam" value="{{ $item->visitTeam }}">
                                 </div>
                               </div>
+
+                               <div class="form-group row">
+                                <label for="homeTeam" class="col-md-4 col-form-label text-md-right">Logo đội khách</label>
+                                <div class="col-md-6">
+                                    <input type="file" name="visitLogo"  accept="image/*" class="form-control" id="visitLogo">
+                                </div>
+                               </div>                              
 
                               <div class="form-group row">
                                 <label for="matchResult" class="col-md-4 col-form-label text-md-right">Dự  đoán</label>

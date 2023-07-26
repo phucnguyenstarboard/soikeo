@@ -209,6 +209,25 @@ class AuthController extends Controller
     public function postMatchEdit($id ,Request $request)
     {          
         $data = $request->all();
+
+        $item = DB::table('matchs')->where('matchId', $id)->first();
+
+        $data['homeLogo'] = $item->homeLogo;
+        if ($image = $request->file('homeLogo')) {
+            $destinationPath = public_path('/assets/images/logo/');
+            $homeLogo = date('YmdHis') . "." .$image->getClientOriginalExtension();
+            $image->move($destinationPath, $homeLogo);
+            $data['homeLogo'] = "$homeLogo";
+        }
+
+        $data['visitLogo'] = $item->visitLogo;
+        if ($image = $request->file('visitLogo')) {
+            $destinationPath = public_path('/assets/images/logo/');
+            $visitLogo = date('YmdHis') . "." .$image->getClientOriginalExtension();
+            $image->move($destinationPath, $visitLogo);
+            $data['visitLogo'] = "$visitLogo";
+        }
+
         $tour = DB::table('tournaments')->where('id', $data['tournamentId'])->first();
         DB::table('matchs')->where('matchId', $id)->update([
             'tournamentId' => $data['tournamentId']
@@ -224,6 +243,8 @@ class AuthController extends Controller
             ,'isShow' =>  isset($data['isShow']) ? '1' : '0'
             ,'matchDate' => $data['matchDate']
             ,'matchTime' => $data['matchTime']
+            ,'homeLogo' => $data['homeLogo']
+            ,'visitLogo' => $data['visitLogo']
         ]);
 
         $rs = DB::table('match_details')->where('matchId', $id)->first();
@@ -324,7 +345,7 @@ class AuthController extends Controller
             $visitLogo = date('YmdHis') . "." .$image->getClientOriginalExtension();
             $image->move($destinationPath, $visitLogo);
             $data['visitLogo'] = "$visitLogo";
-        }        
+        }
 
         $tour = DB::table('tournaments')->where('id', $data['tournamentId'])->first();
         $id = rand(1,999999999);
