@@ -36,6 +36,8 @@ Route::post('tournaments-add', [AuthController::class, 'postTourAdd'])->name('to
 Route::get('match-add', [AuthController::class, 'matchAdd'])->name('match_add')->middleware('auth');
 Route::post('match-add', [AuthController::class, 'postMatchAdd'])->name('match_add.post')->middleware('auth');
 
+Route::post('del-match', [AuthController::class, 'postMatchDel'])->name('match_delete.post')->middleware('auth');
+
 
 
 Route::get('/', function () {

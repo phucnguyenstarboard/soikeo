@@ -51,6 +51,7 @@
                                 <td>{{ $item->recPercent }} %</td>
                                 <td class="text-center">
                                     <a class="btn btn-primary" href="{{ route('match_edit', $item->matchId) }}" role="button">Cập nhật</a>
+                                    <button data-id="{{ $item->matchId }}" class="btn btn-danger ml-2 btn-delete" role="button">Xoá</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -60,6 +61,10 @@
             </div>
         </div>
     </div>
+    <form id="frmDelete" action="{{ route('match_delete.post') }}" method="POST">
+    @csrf
+       <input type="hidden" name="matchId" id="hdMatchId">
+    </form>
 </div>
 <script type="text/javascript">
     (function(window, document, $) {
@@ -87,6 +92,14 @@
     })(window, document, jQuery);    
     $(document).ready(function() {
         $('#example').DataTable();
+
+        $('body').on('click','.btn-delete', function() {
+              $('body').loadingOverlay(true, {
+                  backgroundColor: 'rgba(0,0,0,0.65)',
+              });
+              $("#hdMatchId").val($(this).attr("data-id"));
+              $("#frmDelete").submit();
+        });       
     } );
 </script>
 @endsection

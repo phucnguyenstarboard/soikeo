@@ -194,6 +194,9 @@ class AuthController extends Controller
     public function matchEdit($id)
     {
         $item = DB::table('matchs')->where('matchId', $id)->first();
+        if(empty($item)){
+            return redirect("dashboard");
+        }        
         $tours = DB::table('tournaments')->get();
         $rs = DB::table('match_details')->where('matchId', $id)->first();
         $detail = json_decode($rs->content2, true);
@@ -211,6 +214,10 @@ class AuthController extends Controller
         $data = $request->all();
 
         $item = DB::table('matchs')->where('matchId', $id)->first();
+
+        if(empty($item)){
+            return redirect("dashboard");
+        }
 
         $data['homeLogo'] = $item->homeLogo;
         if ($image = $request->file('homeLogo')) {
@@ -407,4 +414,17 @@ class AuthController extends Controller
         ]);
         return redirect("dashboard")->withSuccess('Tạo trận đấu thành công');
     }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function postMatchDel(Request $request)
+    {          
+        $data = $request->all();
+        DB::table('matchs')->where('matchId', $data['matchId'])->delete();
+        DB::table('match_details')->where('matchId', $data['matchId'])->delete();
+        return redirect("dashboard")->withSuccess('Xoá trận đấu thành công');
+    }    
 }
