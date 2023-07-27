@@ -248,6 +248,7 @@ class AuthController extends Controller
             ,'isOk' => isset($data['isOk']) ? '1' : '0'
             ,'isTheo' =>  isset($data['isTheo']) ? '1' : '0'
             ,'isShow' =>  isset($data['isShow']) ? '1' : '0'
+            ,'matchLong' => isset($data['isOk']) ? '完' : '未'
             ,'matchDate' => $data['matchDate']
             ,'matchTime' => $data['matchTime']
             ,'homeLogo' => $data['homeLogo']
@@ -370,7 +371,7 @@ class AuthController extends Controller
             ,'typeMatch' => 0
             ,'homeLogo' => $data['homeLogo']
             ,'visitLogo' => $data['visitLogo']
-            ,'matchLong' => '未'
+            ,'matchLong' => isset($data['isOk']) ? '完' : '未'
             ,'isTheo' =>  isset($data['isTheo']) ? '1' : '0'
             ,'isShow' =>  isset($data['isShow']) ? '1' : '0'
             ,'matchDate' => $data['matchDate']
