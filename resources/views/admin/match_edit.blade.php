@@ -205,7 +205,17 @@
                              <div class="col-md-3">
                                 <input type="number" id="kiem_soat_bong_visit" class="form-control" name="kiem_soat_bong_visit" value="{{ isset($detail['tecStacLeftList'][4]) ? $detail['tecStacLeftList'][4]['custCount'] : 0 }}">
                             </div>
-                          </div>                                                                                                        
+                          </div>
+
+                            <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Phạt góc</label>
+                            <div class="col-md-3">
+                                <input type="number" id="phat_goc_home" class="form-control" name="phat_goc_home" value="{{ isset($detail['tecStacLeftList'][5]) ? $detail['tecStacLeftList'][5]['homeCount'] : 0 }}">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="phat_goc_visit" class="form-control" name="phat_goc_visit" value="{{ isset($detail['tecStacLeftList'][5]) ? $detail['tecStacLeftList'][5]['homeCount'] : 0 }}">
+                            </div>
+                          </div>
 
 
                           <h6>Tỷ lệ cược trực tiếp</h6>

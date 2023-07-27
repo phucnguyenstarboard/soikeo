@@ -273,18 +273,21 @@ class AuthController extends Controller
         $content2['tecStacLeftList'][2]['type'] = 'Số lần sút';
         $content2['tecStacLeftList'][3]['type'] = 'Sút trúng mục tiêu';
         $content2['tecStacLeftList'][4]['type'] = 'Kiểm soát bóng';
+		$content2['tecStacLeftList'][5]['type'] = 'Phạt góc';
 
         $content2['tecStacLeftList'][0]['homeCount'] = $data['attack_home_1'];
         $content2['tecStacLeftList'][1]['homeCount'] = $data['attack_home_2'];
         $content2['tecStacLeftList'][2]['homeCount'] = $data['shot_home_1'];
         $content2['tecStacLeftList'][3]['homeCount'] = $data['shot_home_2'];
         $content2['tecStacLeftList'][4]['homeCount'] = $data['kiem_soat_bong_home'];
+		$content2['tecStacLeftList'][5]['homeCount'] = $data['phat_goc_home'];
 
         $content2['tecStacLeftList'][0]['custCount'] = $data['attack_visit_1'];
         $content2['tecStacLeftList'][1]['custCount'] = $data['attack_visit_2'];
         $content2['tecStacLeftList'][2]['custCount'] = $data['shot_visit_1'];
         $content2['tecStacLeftList'][3]['custCount'] = $data['shot_visit_2'];
         $content2['tecStacLeftList'][4]['custCount'] = $data['kiem_soat_bong_visit'];
+		$content2['tecStacLeftList'][5]['custCount'] = $data['phat_goc_visit'];
 
 
         $content1 = json_decode($rs->content1, true);
@@ -415,18 +418,21 @@ class AuthController extends Controller
         $content2['tecStacLeftList'][2]['type'] = 'Số lần sút';
         $content2['tecStacLeftList'][3]['type'] = 'Sút trúng mục tiêu';
         $content2['tecStacLeftList'][4]['type'] = 'Kiểm soát bóng';
+		$content2['tecStacLeftList'][5]['type'] = 'Phạt góc';
 
         $content2['tecStacLeftList'][0]['homeCount'] = $data['attack_home_1'];
         $content2['tecStacLeftList'][1]['homeCount'] = $data['attack_home_2'];
         $content2['tecStacLeftList'][2]['homeCount'] = $data['shot_home_1'];
         $content2['tecStacLeftList'][3]['homeCount'] = $data['shot_home_2'];
         $content2['tecStacLeftList'][4]['homeCount'] = $data['kiem_soat_bong_home'];
+		$content2['tecStacLeftList'][5]['homeCount'] = $data['phat_goc_home'];
 
         $content2['tecStacLeftList'][0]['custCount'] = $data['attack_visit_1'];
         $content2['tecStacLeftList'][1]['custCount'] = $data['attack_visit_2'];
         $content2['tecStacLeftList'][2]['custCount'] = $data['shot_visit_1'];
         $content2['tecStacLeftList'][3]['custCount'] = $data['shot_visit_2'];
-        $content2['tecStacLeftList'][4]['custCount'] = $data['kiem_soat_bong_visit'];        
+        $content2['tecStacLeftList'][4]['custCount'] = $data['kiem_soat_bong_visit'];
+        $content2['tecStacLeftList'][5]['custCount'] = $data['phat_goc_visit'];
 
 
         $content1 = json_decode($rs->content1, true);
