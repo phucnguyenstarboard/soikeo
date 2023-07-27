@@ -264,7 +264,11 @@ class HomeController extends Controller
     public function getDetailLeftLists (Request $request) {
         $matchNo = $request->input('rowNo');
         $rs = DB::table('match_details')->where('matchId', $matchNo)->first();
+        $item = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('matchId', $matchNo)->first();
         $data = json_decode($rs->content2, true);
+        if($item->isOk != '1'){
+            $data['tecStacLeftList'] = array();
+        }
         return $data;
     }    
 

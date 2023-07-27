@@ -155,6 +155,59 @@
                                 <input type="text" id="failCount" class="form-control" name="failCount" value="{{ $detail['zhanjiRow']['failCount'] }}">
                             </div>
                           </div>
+
+                          <h6>Thống kê</h6>
+                          <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Tấn công</label>
+                            <div class="col-md-3">
+                                <input type="number" id="attack_home_1" class="form-control" name="attack_home_1" value="{{ isset($detail['tecStacLeftList'][0]) ? $detail['tecStacLeftList'][0]['homeCount'] : 0 }}">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="attack_visit_1" class="form-control" name="attack_visit_1" value="{{ isset($detail['tecStacLeftList'][0]) ? $detail['tecStacLeftList'][0]['custCount'] : 0 }}">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Tấn công nguy hiểm</label>
+                            <div class="col-md-3">
+                                <input type="number" id="attack_home_2" class="form-control" name="attack_home_2" value="{{ isset($detail['tecStacLeftList'][1]) ? $detail['tecStacLeftList'][1]['homeCount'] : 0 }}">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="attack_visit_2" class="form-control" name="attack_visit_2" value="{{ isset($detail['tecStacLeftList'][1]) ? $detail['tecStacLeftList'][1]['custCount'] : 0 }}">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Số lần sút</label>
+                            <div class="col-md-3">
+                                <input type="number" id="shot_home_1" class="form-control" name="shot_home_1" value="{{ isset($detail['tecStacLeftList'][2]) ? $detail['tecStacLeftList'][2]['homeCount'] : 0 }}">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="shot_visit_1" class="form-control" name="shot_visit_1" value="{{ isset($detail['tecStacLeftList'][2]) ? $detail['tecStacLeftList'][2]['custCount'] : 0 }}">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Sút trúng mục tiêu</label>
+                            <div class="col-md-3">
+                                <input type="number" id="shot_home_2" class="form-control" name="shot_home_2" value="{{ isset($detail['tecStacLeftList'][3]) ? $detail['tecStacLeftList'][3]['homeCount'] : 0 }}">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="shot_visit_2" class="form-control" name="shot_visit_2" value="{{ isset($detail['tecStacLeftList'][3]) ? $detail['tecStacLeftList'][3]['custCount'] : 0 }}">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Kiểm soát bóng</label>
+                            <div class="col-md-3">
+                                <input type="number" id="kiem_soat_bong_home" class="form-control" name="kiem_soat_bong_home" value="{{ isset($detail['tecStacLeftList'][4]) ? $detail['tecStacLeftList'][4]['homeCount'] : 0 }}">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="kiem_soat_bong_visit" class="form-control" name="kiem_soat_bong_visit" value="{{ isset($detail['tecStacLeftList'][4]) ? $detail['tecStacLeftList'][4]['custCount'] : 0 }}">
+                            </div>
+                          </div>                                                                                                        
+
+
                           <h6>Tỷ lệ cược trực tiếp</h6>
                           <div class="form-group row">
                             <label for="victCount2" class="col-md-4 col-form-label text-md-right">Thắng</label>

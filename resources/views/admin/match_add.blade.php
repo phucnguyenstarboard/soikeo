@@ -154,6 +154,58 @@
                                 <input type="text" id="failCount" class="form-control" name="failCount" value="">
                             </div>
                           </div>
+
+                          <h6>Thống kê</h6>
+                          <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Tấn công</label>
+                            <div class="col-md-3">
+                                <input type="number" id="attack_home_1" class="form-control" name="attack_home_1" value="0">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="attack_visit_1" class="form-control" name="attack_visit_1" value="0">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Tấn công nguy hiểm</label>
+                            <div class="col-md-3">
+                                <input type="number" id="attack_home_2" class="form-control" name="attack_home_2" value="0">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="attack_visit_2" class="form-control" name="attack_visit_2" value="0">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Số lần sút</label>
+                            <div class="col-md-3">
+                                <input type="number" id="shot_home_1" class="form-control" name="shot_home_1" value="0">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="shot_visit_1" class="form-control" name="shot_visit_1" value="0">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Sút trúng mục tiêu</label>
+                            <div class="col-md-3">
+                                <input type="number" id="shot_home_2" class="form-control" name="shot_home_2" value="0">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="shot_visit_2" class="form-control" name="shot_visit_2" value="0">
+                            </div>
+                          </div>
+
+                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">Kiểm soát bóng</label>
+                            <div class="col-md-3">
+                                <input type="number" id="kiem_soat_bong_home" class="form-control" name="kiem_soat_bong_home" value="0">
+                            </div>
+                             <div class="col-md-3">
+                                <input type="number" id="kiem_soat_bong_visit" class="form-control" name="kiem_soat_bong_visit" value="0">
+                            </div>
+                          </div>
+
                           <h6>Tỷ lệ cược trực tiếp</h6>
                           <div class="form-group row">
                             <label for="victCount2" class="col-md-4 col-form-label text-md-right">Thắng</label>
