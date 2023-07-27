@@ -125,17 +125,17 @@
                         </div>
             
                         <!-- 近期战绩 -->
-                        <div class="panel-item" id="zjDiv">
+                        <div class="panel-item" id="zjDiv" style="height:200px">
                             <div class="title">
                                 <span class="pull-left"><img src="{{ asset('assets/images/zuqiu.png') }}" >&nbsp;&nbsp;Thành tích gần đây</span>
                             </div>
-                            <div class="cont2">
+                            <div class="cont2" style="min-height:165px">
                                     <div class="subList">
                                         <div class="col-xs-12">
                                             <span>Lịch sử đối đầu：</span><span id="hisZj" style="color:#ADFB3c"></span>
                                          </div>
                                      </div>
-                                    <div class="subList">
+                                    <div class="subList" style="height:100px">
                                         <div class="col-xs-6">
                                             <span>Đội nhà：</span><span id="homeZj"></span>
                                          </div>
