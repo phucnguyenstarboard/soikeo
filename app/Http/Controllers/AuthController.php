@@ -244,7 +244,7 @@ class AuthController extends Controller
             ,'visitTeam' => $data['visitTeam']
             ,'matchResult' => empty($data['matchResult']) ? ""  : $data['matchResult']
             ,'result1' => empty($data['result1']) ? "" : $data['result1']
-            ,'recPercent' => empty($data['recPercent']) ? $data['recPercent'] : 0
+            ,'recPercent' => !empty($data['recPercent']) ? $data['recPercent'] : 0
             ,'isOk' => isset($data['isOk']) ? '1' : '0'
             ,'isTheo' =>  isset($data['isTheo']) ? '1' : '0'
             ,'isShow' =>  isset($data['isShow']) ? '1' : '0'
@@ -387,7 +387,7 @@ class AuthController extends Controller
             ,'visitTeam' => $data['visitTeam']
             ,'matchResult' => empty($data['matchResult']) ? ""  : $data['matchResult']
             ,'result1' => empty($data['result1']) ? "" : $data['result1']
-            ,'recPercent' => empty($data['recPercent']) ? $data['recPercent'] : 0
+            ,'recPercent' => !empty($data['recPercent']) ? $data['recPercent'] : 0
             ,'isOk' => isset($data['isOk']) ? '1' : '0'
             ,'matchId' => $id
             ,'typeMatch' => 0
