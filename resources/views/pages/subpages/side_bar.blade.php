@@ -40,6 +40,12 @@
         </a>
     </li>
 
+    <li class="nav-item {{ $index == 8 ? 'active' : '' }}">
+        <a class="nav-link {{ $index == 8 ? 'active' : '' }}" href="{{ route('admin_category') }}">
+            <i class="fa fa-tag"></i>商品列表
+        </a>
+    </li>
+
 
     <li class="nav-item mr-2 mt-1 mb-1 d-md-none d-flex">
         <a style="margin-left: 5px;" class="btn btn-danger" href="{{route('logout')}}"><i class="feather icon-power"></i> 登出</a>
