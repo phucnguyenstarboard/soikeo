@@ -42,14 +42,7 @@
 
     <li class="nav-item {{ $index == 8 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 8 ? 'active' : '' }}" href="{{ route('admin_category') }}">
-            <i class="fa fa-tag"></i>商品列表
-        </a>
-    </li>
-
-     <li class="nav-item {{ $index == 9 ? 'active' : '' }}">
-        <a class="nav-link {{ $index == 9 ? 'active' : '' }}" href="{{ route('admin_banks') }}">
-            <i class="fa fa-tag"></i>银行列表
-
+            <i class="fa fa-gamepad"></i>产品管理
         </a>
     </li>
 
