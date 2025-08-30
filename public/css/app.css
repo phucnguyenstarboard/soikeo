@@ -217,7 +217,21 @@ table.dataTable.table-striped tbody tr:nth-of-type(2n+1).DTFC_NoData {
 }
 
 
+
+
+@media (max-width: 1400px) {
+    .img-home{
+        width: 70%;
+    }
+}
+
+
 @media (max-width: 768px) {
+
+    .img-home{
+        width: 100%;
+    }
+
     .btn-gao{
         width: 110px;
         margin-bottom: 2px;

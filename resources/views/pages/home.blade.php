@@ -69,7 +69,7 @@
                         <div class="col-12 text-center mx-auto">
                            <div class="card" style="width: 48rem; margin: auto;">
                               <div class="row mt-1">
-                                 <div class="col-12 col-md-12"><img class="card-img-top" src="{{ asset('images/join.jpg') }}" alt="Card image cap"></div>
+                                 <div class="col-12 col-md-12"><img class="card-img-top img-home" src="{{ asset('images/join.jpg') }}" alt="Card image cap"></div>
                                 
                               </div>
                               <div class="card-body mb-2">
