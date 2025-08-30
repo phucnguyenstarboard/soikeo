@@ -1,0 +1,15 @@
+
+.calc_cost .calc_cost-content .calc_cost-table-content {
+    cursor : pointer;
+    padding : 0.5rem;
+    font-weight : 500;
+}.calc_cost .calc_cost-content .calc_cost-table-content.active {
+    background: rgba(0, 0, 0, 0) linear-gradient(118deg, rgb(40, 199, 111), rgba(40, 199, 111, 0.7)) repeat scroll 0% 0%;
+    box-shadow: rgba(40, 199, 111, 0.7) 0px 0px 10px 1px;
+    color: #FFF;
+    border-radius: 4px;
+}
+.calc_cost .calc_cost-content .calc_cost-table-content i {
+    margin-right : 0.5rem;
+}
+

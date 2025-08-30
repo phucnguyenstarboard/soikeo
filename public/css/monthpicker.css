@@ -1,0 +1,37 @@
+.month-picker-previous .ui-button.ui-widget,
+.month-picker-next .ui-button.ui-widget{
+    padding: 0.1em 0;
+    transform: rotate(180deg);
+}
+.month-picker-previous .ui-button.ui-widget{
+    float: left !important;
+}
+.month-picker-next .ui-button.ui-widget{
+    float: right !important;
+}
+.month-picker-title  .ui-button.ui-widget{
+    line-height: 1em;
+}
+.month-picker-month-table .ui-button.ui-widget{
+    padding: 5px;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active, .ui-button:active,
+.ui-button.ui-state-active:hover{
+    border: 1px solid rgb(0, 133, 252);
+    background: rgb(0, 133, 252);
+    color: white !important;
+}
+.ui-button.ui-widget.ui-state-disabled{
+    pointer-events: none;
+    background: #f6f6f6;
+}
+.ui-button.ui-widget.ui-state-disabled .ui-icon {
+    background-image: url(/images/ui-icons_777777_256x240.png?853909d9945e29dd80d5c7d42f9b711e);
+}
+.ui-button.ui-widget.ui-state-disabled:hover .ui-icon{
+    background-image: url(/images/ui-icons_444444_256x240.png?a4a8691ca395136aee475a56913b3456);
+}
+
