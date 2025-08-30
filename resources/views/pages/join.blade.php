@@ -142,7 +142,7 @@
                                                                                 <div class="col-7 col-md-9 col-lg-9 col-xl-9">
                                                                                     <h3>{{ $value->title }}</h3>
                                                                                     <p class="mb-0">{{ $value->description }}</p>
-                                                                                    <p class="mb-0">{{ $value->price }}đ</p>
+                                                                                    <p class="mb-0">R$ {{ $value->price }}</p>
                                                                                     <div class="row mt-1">
                                                                                         <div class="col-12 col-md-12">
                                                                                             <button type="button" class="btn-export btn btn-gao glow">EXPORTAR</button>
