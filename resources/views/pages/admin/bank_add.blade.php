@@ -41,7 +41,7 @@
         </div>
     </div>
     
-    <form id="form_back" action="{{ route('admin_banks') }}" method="GET" style="display: none;"></form>
+    <form id="form_back" action="{{ route('admin_banks_add') }}" method="GET" style="display: none;"></form>
 
 @endsection
 @push('scripts')

@@ -32,7 +32,7 @@ class BankController extends Controller
         $user = Auth::user();
 
         $data_list = DB::table('banks')
-            ->select('banks.*')->orderBy('banks.bank_name', 'desc')->get();
+            ->select('banks.*')->orderBy('banks.bank_name', 'asc')->get();
         return view('pages.admin.bank', compact('user', 'data_list'));
     }
 
