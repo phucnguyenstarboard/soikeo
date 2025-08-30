@@ -137,12 +137,12 @@
                                                                         <div class="card-body">
                                                                             <div class="row">
                                                                                 <div class="col-5 col-md-3 col-lg-3 col-xl-3 text-center">
-                                                                                    <img class="fluid-img" src="{{ asset('images/gao_'.($key + 1).'.png') }}" alt="">
+                                                                                    <img class="fluid-img" src="https://admin.sclmvip.club/uploads/category/{{ $value->image }}" alt="">
                                                                                 </div>
                                                                                 <div class="col-7 col-md-9 col-lg-9 col-xl-9">
-                                                                                    <h3>{{ $value['name'] }}</h3>
-                                                                                    <p class="mb-0">Khối lượng: {{ $value['weight'] }}</p>
-                                                                                    <p class="mb-0">{{ $value['price'] }}đ</p>
+                                                                                    <h3>{{ $value->title }}</h3>
+                                                                                    <p class="mb-0">{{ $value->description }}</p>
+                                                                                    <p class="mb-0">{{ $value->price }}đ</p>
                                                                                     <div class="row mt-1">
                                                                                         <div class="col-12 col-md-12">
                                                                                             <button type="button" class="btn-export btn btn-gao glow">EXPORTAR</button>
