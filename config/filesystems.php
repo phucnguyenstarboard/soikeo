@@ -55,11 +55,6 @@ return [
             'visibility' => 'public',
         ],
 
-        'local2' => [
-            'driver' => 'local',
-            'root' => public_path('assets/images/logo'),
-        ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

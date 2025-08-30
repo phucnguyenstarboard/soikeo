@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,49 +17,43 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
-Route::get('tournaments', [AuthController::class, 'tour'])->name('tour')->middleware('auth');
-Route::get('tournaments/{id}', [AuthController::class, 'tourEdit'])->name('tour_edit')->middleware('auth');
-Route::post('tournaments/{id}', [AuthController::class, 'postTourEdit'])->name('edit_tour.post')->middleware('auth');
-Route::get('match/{id}', [AuthController::class, 'matchEdit'])->name('match_edit')->middleware('auth');
-Route::post('match/{id}', [AuthController::class, 'postMatchEdit'])->name('match_edit.post')->middleware('auth');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('info', [AuthController::class, 'info'])->name('info')->middleware('auth');
-Route::post('info', [AuthController::class, 'postInfo'])->name('info.post')->middleware('auth');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/join', [HomeController::class, 'join'])->name('join');
+Route::get('/login', [LoginController::class, 'getLogin'])->name('login');
+Route::post('/login', [LoginController::class, 'postLogin'])->name('post_login');
+Route::get('/register', [LoginController::class, 'getRegister'])->name('get_register');
+Route::post('/register', [LoginController::class, 'postRegister'])->name('post_register');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/last-session', [HomeController::class, 'lastSession'])->name('last_session');
+Route::post('/form-bet', [HomeController::class, 'postBet'])->name('form_bet');
 
-Route::get('tournaments-add', [AuthController::class, 'tourAdd'])->name('tour_add')->middleware('auth');
-Route::post('tournaments-add', [AuthController::class, 'postTourAdd'])->name('tour_add.post')->middleware('auth');
+Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+Route::get('/deposit', [ProfileController::class, 'deposit'])->name('deposit');
+Route::get('/withdraw', [ProfileController::class, 'withdraw'])->name('withdraw');
+Route::get('/history-bet', [ProfileController::class, 'historyBet'])->name('history_bet');
+Route::get('/history-transaction', [ProfileController::class, 'historyTransaction'])->name('history_transaction');
+Route::get('/bank', [ProfileController::class, 'bank'])->name('bank');
+Route::get('/password-fund', [ProfileController::class, 'passwordFund'])->name('password_fund');
 
-Route::get('match-add', [AuthController::class, 'matchAdd'])->name('match_add')->middleware('auth');
-Route::post('match-add', [AuthController::class, 'postMatchAdd'])->name('match_add.post')->middleware('auth');
+Route::get('/notifications', [ProfileController::class, 'notifications'])->name('notify');
 
-Route::post('del-match', [AuthController::class, 'postMatchDel'])->name('match_delete.post')->middleware('auth');
+Route::post('/profile', [ProfileController::class, 'postProfile'])->name('post_profile');
+Route::post('/deposit', [ProfileController::class, 'postDeposit'])->name('post_deposit');
+Route::post('/withdraw', [ProfileController::class, 'postWithdraw'])->name('post_withdraw');
+Route::post('/history-bet', [ProfileController::class, 'postHistoryBet'])->name('post_history_bet');
+Route::post('/history-transaction', [ProfileController::class, 'postHistoryTransaction'])->name('post_history_transaction');
+Route::post('/bank', [ProfileController::class, 'postBank'])->name('post_bank');
+Route::post('/password-fund', [ProfileController::class, 'postPasswordFund'])->name('post_password_fund');
 
+Route::post('/form-notice', [HomeController::class, 'postNotice'])->name('form_notice');
 
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/chat', [ContactController::class, 'chat'])->name('chat');
+Route::post('/chat', [ContactController::class, 'postChat'])->name('post_chat');
 
-Route::get('/', function () {
-    $user = \DB::table('users')->where('id', 1)->first();
-    return view('home', compact('user'));
-});
-
-route::get('/detail', [HomeController::class, 'detail'])->name('detail');
-
-route::get('/getSdtjList', [HomeController::class, 'getSdtjList'])->name('getSdtjList');
-route::get('/getWdList', [HomeController::class, 'getWdList'])->name('getWdList');
-route::get('/getAllMatchList', [HomeController::class, 'getAllMatchList'])->name('getAllMatchList');
-route::get('/getBgcList', [HomeController::class, 'getBgcList'])->name('getBgcList');
-route::get('/getBifenList', [HomeController::class, 'getBifenList'])->name('getBifenList');
-route::get('/getQcList', [HomeController::class, 'getQcList'])->name('getQcList');
-route::get('/getSaikuangList', [HomeController::class, 'getSaikuangList'])->name('getSaikuangList');
-route::get('/getGaoBeiList', [HomeController::class, 'getGaoBeiList'])->name('getGaoBeiList');
-
-route::get('/getDetailYcChartsInfo', [HomeController::class, 'getDetailYcChartsInfo'])->name('getDetailYcChartsInfo');
-route::get('/getDetailLeftLists', [HomeController::class, 'getDetailLeftLists'])->name('getDetailLeftLists');
-
-route::get('/download', [HomeController::class, 'index'])->name('index');
-
+Route::get('/history-chat', [ContactController::class, 'historyChat'])->name('history_chat');
+Route::post('/history-chat', [ContactController::class, 'postHistoryChat'])->name('post_history_chat');

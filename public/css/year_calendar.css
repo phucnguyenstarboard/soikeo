@@ -1,0 +1,87 @@
+.day {
+  width: 2em;
+  height: 1.5em;
+}
+
+.Sun {
+    color: red;
+}
+.Sat {
+    color: blue;
+}
+.holiday {
+    color: red;
+}
+
+.month {
+  width: 16rem;
+  padding: 0.5em 1em;
+  /* cursor: pointer; */
+}
+
+.calendar h4 {
+  font-size: 1em;
+}
+
+h1.year {
+  font-size: 2em;
+  height: 29px;
+  font-weight: normal;
+  padding: 0em 1em .5em 1em;
+  margin-bottom: .5em;
+}
+
+
+/* FLEXBOX styles*/
+
+.calendar,
+.calendar * {
+  display: flex;
+  justify-content: center;
+}
+
+.calendar h4 {
+  justify-content: center;
+  flex: 1 0 100%;
+}
+
+.calendar h1 {
+  justify-content: center;
+  align-self: stretch;
+}
+
+.calendar,
+.month {
+  flex-wrap: wrap;
+}
+
+section {
+  flex-direction: column;
+  align-self: center;
+}
+
+.month {
+  align-items: flex-start;
+}
+
+.day {
+  align-items: center;
+  justify-content: center;
+}
+
+.number_days {
+    margin-left: auto;
+    color: rgb(187, 184, 184);
+}
+
+.red {
+    color: red;
+}
+
+.caption {
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+

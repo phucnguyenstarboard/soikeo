@@ -1,0 +1,63 @@
+[26-Oct-2024 17:40:54 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:41:25 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:42:40 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:46:13 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:46:58 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:47:01 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:47:05 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:47:22 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78
+[26-Oct-2024 17:47:24 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/../symfony/polyfill-php80/bootstrap.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php(61): composerRequire4299edcb31ec824215f087565be1af64()
+#1 /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/autoload.php(7): ComposerAutoloaderInit4299edcb31ec824215f087565be1af64::getLoader()
+#2 /home/mviawjlo/gao-admin.starboardasiavn.com/public/index.php(34): require('/home/mviawjlo/...')
+#3 {main}
+  thrown in /home/mviawjlo/gao-admin.starboardasiavn.com/vendor/composer/autoload_real.php on line 78

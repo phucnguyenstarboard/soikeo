@@ -1,0 +1,245 @@
+.main-menu-content ul.menu-content-lg > li.has-sub,
+.main-menu-content ul.menu-content.master > li.has-sub
+{
+    font-weight: bolder;
+}
+.main-menu-content ul.menu-content-lg > li.has-sub > ul.menu-content > li.nav-item,
+.main-menu-content ul.menu-content.master > li.has-sub > ul.menu-content > li.nav-item {
+    margin-left: 10px;
+    font-size: 1.0rem;
+    font-weight: normal;
+}
+
+body.vertical-layout.vertical-menu-modern .main-menu .navigation .menu-content > li > a > i {
+    margin-right: 10px;
+}
+
+form label.required:after,
+span.required:after
+{
+    color: red;
+    content: " *";
+}
+
+.ui-datepicker{
+    z-index: 10000 !important;
+    position: absolute !important;
+}
+
+.brw-1 {
+    border-right-width: 1px !important;
+}
+
+.counter-value {
+    font-size: 0.8rem;
+}
+
+.counter-txtarea {
+    position: relative;
+    left: 50%;
+}
+
+.mt-05 {
+    margin-top: 0.5rem;
+}
+.list-unit {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+.vs-radio-con .list-check {
+    margin-left: auto;
+    margin-right: auto;
+}
+.vs-checkbox-con .list-check {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+    content: '...';
+}
+
+.custom-file-input:lang(ja) ~ .custom-file-label::after {
+    content: '...';
+}
+
+.mv-middle {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.application_reason_display {
+    background-color: #F5F5F1;
+    border: 1px solid #D9D9D9;
+    color: #5F5F5F;
+    padding: 0.7rem 0.7rem;
+    font-size: 0.96rem;
+    font-weight: 400;
+    line-height: 1.25;
+    background-clip: padding-box;
+    border-radius: 5px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+table.dataTable.table-striped.DTFC_Cloned tbody,
+table.dataTable.table-striped tbody tr:nth-of-type(2n+1).DTFC_NoData {
+    background-color: transparent;
+}
+
+.swal2-container.swal2-center {
+    z-index: 11000 !important;
+}
+
+.btn-gao{
+    width: 150px;
+    margin-bottom: 2px;
+}
+
+
+.footer-contact-wrapper, .footer-contact-mobile-wrapper {
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-contact-mobile-wrapper {
+    display: flex;
+    justify-content: space-around;
+    background: #333;
+}
+
+.footer-contact-mobile-wrapper, .footer-contact-mobile-wrapper a, .footer-contact-mobile-wrapper a:hover, .footer-contact-mobile-wrapper a:focus, .footer-contact-mobile-wrapper a:visited {
+    color: #FFF;
+}
+
+.footer-contact-mobile-wrapper {
+    background: #1976d2;
+}
+
+.footer-contact-mobile-wrapper {
+    bottom: 0;
+}
+
+.footer-contact-mobile-content {
+    padding: 5px 0;
+    text-align: center;
+}
+
+.footer-contact-mobile-wrapper p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 12px;
+}
+
+.tel .icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/home-icon.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.messenger .icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/lock-icon.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+ .withdraw .icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/money-icon.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.zalo .icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/usd-icon.png) no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom {
+  animation: zoomInOut 2s infinite; 
+}
+
+.contact .card .card-header{
+   padding: 1.5rem;
+   display: unset;
+}
+
+.contact label{
+    font-size: 1rem;
+}
+
+.btn-join{
+    width: 300px !important;
+    color: #fff !important;
+}
+
+.dk-pc{
+    display: inline-block;
+}
+
+.dk-sp{
+    display: none;
+}
+
+#sidebarMenu .nav-link, button {
+    text-transform: uppercase;
+}
+
+
+@media (max-width: 768px) {
+    .btn-gao{
+        width: 110px;
+        margin-bottom: 2px;
+    }
+
+    .btn-join{
+        width: 180px !important;
+    }
+    .s-home .card, .s-contact .card{
+       width: 95% !important;
+    }
+
+    .s-contact .card .card-img-top{
+       width:  60%;
+       margin: auto;
+    }
+
+    .dk-pc{
+        display: none;
+    }
+
+    .dk-sp{
+        display: block;
+    }
+}

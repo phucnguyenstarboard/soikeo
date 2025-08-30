@@ -3,302 +3,173 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use GoogleTranslate;
+use Illuminate\Support\Facades\Auth;
 use DB;
-use Illuminate\Support\Facades\Storage;
+use DateTime;
+use DateTimeZone;
+use Session;
 
 class HomeController extends Controller
 {
-    public function getSdtjList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '7')->orWhere('isTheo', '1')->groupBy('matchs.matchId')->orderBy('matchLong', 'DESC')->get();
-        $arrData = array();
-        foreach ($rs as $item) {
-            if($item->isShow){
-                $v = array();
-                $v['matchId'] = $item->matchId;
-                $v['rowNo'] = $item->rowNo;
-                $v['week'] = $item->week;
-                $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;
-                $v['matchDate'] = $item->matchDate;
-                $v['matchTime'] = $item->matchTime;
-                $v['matchResult'] = $item->matchResult;
-                $v['recPercent'] = $item->recPercent;
-                $v['betRate'] = $item->betRate;
-                $v['homeTeam'] = $item->homeTeam;
-                $v['visitTeam'] = $item->visitTeam;
-                $v['homeTeamNo'] = $item->homeTeamNo;
-                $v['visitTeamNo'] = $item->visitTeamNo;
-                $v['homeLogo'] = $item->homeLogo;
-                $v['visitLogo'] = $item->visitLogo;
-                $v['result1'] = $item->result1;
-                $v['result2'] = $item->result2;
-                $v['isOk'] = $item->isOk;
-                $v['matchLong'] = $item->matchLong;
-                $v['isCode'] = $item->isCode;
-                $v['matchDesc'] = $item->matchDesc;
-                $v['fixedNam'] = $item->fixedNam;
-                $arrData[] = $v;
-            }            
+    public function __construct() 
+    {
+      $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();
+            $count = DB::table('withdraw_history')
+                ->where('user_id', $user->id)
+                ->whereIn('status', [1,2])
+                ->where('is_view', 0)
+                ->count();
+            session()->put('total_r', $count); 
+
+            return $next($request);
+        });
+    }
+    public function join()
+    {
+        if (Auth::check()) {
+            $seconds = 180;
+            $user = Auth::user();
+            $item = DB::table('session')->orderBy('id', 'desc')->where('timeInt', '<=', strtotime(date('Y-m-d H:i:01')))->first();
+            $item->time_created = $this->convertDateTime($item->time_created);
+            $times =  strtotime($item->time_created) + $seconds - strtotime(date('Y-m-d H:i:s'));
+            $minute = floor($times / 60);
+            $second = $times % 60;
+            $item_last = DB::table('session')->orderBy('id', 'desc')->where('timeInt', '<=', strtotime(date('Y-m-d H:i:01')))->take(5)->get();
+
+            $item_bet = DB::table('bet')
+            ->join('session', 'session.session_id', '=', 'bet.session_id')
+            ->select('session.number', 'session.result', 'bet.status')
+            ->where('bet.user_id', $user->id)
+            ->where('bet.timeInt', '<', $item->timeInt)
+            ->orderBy('bet.id', 'desc')
+            ->take(5)
+            ->get();
+
+            $gao1 = ['name' => 'Gạo Tấm Gò Công 3,5 kg', 'weight' => '3.5kg', 'price' => '117.000'];
+            $gao2 = ['name' => 'Gạo Tấm Sóc Trăng Vinafood1', 'weight' => '3.5kg', 'price' => '108.000'];
+            $gao3 = ['name' => 'Gạo Mười Hương Vinafood1', 'weight' => '3.5kg', 'price' => '140.000'];
+            $gao4 = ['name' => 'Gạo Nam Hương Vinafood1', 'weight' => '3.5kg', 'price' => '93.000'];
+            $list_gao[] = $gao1;
+            $list_gao[] = $gao2;
+            $list_gao[] = $gao3;
+            $list_gao[] = $gao4;
+
+            $item_new = DB::table('session')->orderBy('id', 'desc')->first();
+
+            return view('pages.join', compact('user', 'item', 'times', 'minute', 'second', 'item_last', 'item_bet', 'list_gao', 'item_new'));
         }
-        $data['rows'] = array();
-        if(!empty($arrData)){
-           $data['rows'][0]['matchList'] = $arrData;
+        return view('pages.login');
+    }
+
+    public function home()
+    {
+        if (Auth::check()) {            
+            $user = Auth::user();            
+            return view('pages.home', compact('user'));
+        }
+        return view('pages.login');
+    }
+
+    public function lastSession(Request $request)
+    {
+        // $item = DB::table('session')->orderBy('id', 'desc')->skip(1)->take(1)->first();
+        $item = DB::table('session')->orderBy('id', 'desc')->where('timeInt', '<=', strtotime(date('Y-m-d H:i:01')))->first();
+        $item->time_created = $this->convertDateTime($item->time_created, 'Ymd');
+
+        $time_created = $this->convertDateTime($item->time_created);
+        $seconds = 180;
+        $times =  strtotime($time_created) + $seconds - strtotime(date('Y-m-d H:i:s'));
+        $item->times = $times;
+        return response()->json([$item], 200);
+    }
+
+    public function postBet(Request $request)
+    {
+        $user = Auth::user();
+        $balance = (float)$user->balance;
+        $item = DB::table('session')->orderBy('id', 'desc')->first();
+        $data = $request->all();
+
+        if(empty($data['txt-money'])){
+            return response()->json([
+                'message' => [
+                    'title' => '',
+                    'text'  => 'Valor informado inválido, tente novamente.',
+                    'type'  => 'warning',
+                ]
+            ], 422);
         }
         
-        if(!empty($data['rows'])){
-            foreach ($data['rows'] as $i => $itemA) { 
-                $t = isset($data['rows'][$i]['mode']) ? $data['rows'][$i]['mode'] : '';
-                $t = substr($t, 0, strpos( $t, '串', 0));
-                $data['rows'][$i]['mode'] = str_replace('全场','Toàn trận xiên ', $t);;
-
-                $bbb = isset($data['rows'][$i]['matchStatus']) ? $data['rows'][$i]['matchStatus'] : '';
-                $bbb = str_replace('已中奖','Đã thắng',$bbb);
-                $bbb = str_replace('小时后截止购买',' cược đã kết thúc',$bbb);
-                $data['rows'][$i]['matchStatus'] = str_replace('未中奖','Đã thua',$bbb);
-
-                foreach ($data['rows'][$i]['matchList'] as $k => $v) {
-                    $bbb = $data['rows'][$i]['matchList'][$k]['matchResult'];
-                    $bbb = str_replace('胜','Thắng',$bbb);
-                    $data['rows'][$i]['matchList'][$k]['matchResult'] = str_replace('负','Thua',$bbb);
-                }
-            }
+        
+        $bet_temp = str_replace('.', '', $data['txt-money']);
+        $bet_temp = str_replace(',', '', $bet_temp);
+        
+        
+        $bet = (float)$bet_temp;
+        if($balance < $bet){
+            return response()->json([
+                'message' => [
+                    'title' => '',
+                    'text'  => 'Saldo insuficiente.',
+                    'type'  => 'warning',
+                ]
+            ], 422);
         }
-        return $data;
+        $balance = $balance - $bet;
+        DB::table('user')->where('id', $user->id)
+        ->update(['balance' => $balance]);
+
+        DB::table('bet')->insert([
+            'user_id' => $user->id,
+            'session_id' => $item->session_id,
+            'betMoney' => $bet,
+            'bet' => $data['type'],
+            'time_created' => gmdate('D M d Y H:i:s TO'),
+            'timeInt' => strtotime(date('Y-m-d H:i:s'))
+        ]);
+
+        return response()->json([
+            'message' => [
+                'title' => '',
+                'text'  => 'Confirmação bem-sucedida',
+                'type'  => 'success',
+            ],
+            'balance'  => number_format($balance),
+        ], 200);
     }
-
-    public function getWdList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '6')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
-        $arrData = array();
-        foreach ($rs as $item) {
-            $v = array();
-            $v['matchId'] = $item->matchId;
-            $v['rowNo'] = $item->rowNo;
-            $v['week'] = $item->week;
-            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;
-            $v['matchDate'] = $item->matchDate;
-            $v['matchTime'] = $item->matchTime;
-            $v['matchResult'] = $item->matchResult;
-            $v['recPercent'] = $item->recPercent;
-            $v['betRate'] = $item->betRate;
-            $v['homeTeam'] = $item->homeTeam;
-            $v['visitTeam'] = $item->visitTeam;
-            $v['homeTeamNo'] = $item->homeTeamNo;
-            $v['visitTeamNo'] = $item->visitTeamNo;
-            $v['homeLogo'] = $item->homeLogo;
-            $v['visitLogo'] = $item->visitLogo;
-            $v['result1'] = $item->result1;
-            $v['result2'] = $item->result2;
-            $v['isOk'] = $item->isOk;
-            $v['matchLong'] = $item->matchLong;
-            $v['isCode'] = $item->isCode;
-            $v['matchDesc'] = $item->matchDesc;
-            $v['fixedNam'] = $item->fixedNam;
-            $arrData[] = $v;
-        }
-        $data['rows'][0]['matchList'] = $arrData;
-        return $data;
-    }
-
-    public function getAllMatchList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '0')->where("isShow", '1')->orderBy('matchLong', 'DESC')->orderBy('colOrder', 'ASC')->orderBy('rowNo', 'ASC')->get();
-        $arrData = array();
-        foreach ($rs as $item) {
-            $v = array();
-            $v['matchId'] = $item->matchId;
-            $v['rowNo'] = $item->rowNo;
-            $v['week'] = $item->week;
-            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;;
-            $v['matchDate'] = $item->matchDate;
-            $v['matchTime'] = $item->matchTime;
-            $v['matchResult'] = $item->matchResult;
-            $v['recPercent'] = $item->recPercent;
-            $v['betRate'] = $item->betRate;
-            $v['homeTeam'] = $item->homeTeam;
-            $v['visitTeam'] = $item->visitTeam;
-            $v['homeTeamNo'] = $item->homeTeamNo;
-            $v['visitTeamNo'] = $item->visitTeamNo;
-            $v['homeLogo'] = $item->homeLogo;
-            $v['visitLogo'] = $item->visitLogo;
-            $v['result1'] = $item->result1;
-            $v['result2'] = $item->result2;
-            $v['isOk'] = $item->isOk;
-            $v['matchLong'] = $item->matchLong;
-            $v['isCode'] = $item->isCode;
-            $v['matchDesc'] = $item->matchDesc;
-            $v['fixedNam'] = $item->fixedNam;
-            $arrData[] = $v;
-        }
-        $data['rows'] = $arrData;
-        return $data;
-    }
-
-    public function getBgcList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '3')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
-        $arrData = array();
-        foreach ($rs as $item) {
-            $v = array();
-            $v['matchId'] = $item->matchId;
-            $v['rowNo'] = $item->rowNo;
-            $v['week'] = $item->week;
-            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;;
-            $v['matchDate'] = $item->matchDate;
-            $v['matchTime'] = $item->matchTime;
-            $v['matchResult'] = $item->matchResult;
-            $v['recPercent'] = $item->recPercent;
-            $v['betRate'] = $item->betRate;
-            $v['homeTeam'] = $item->homeTeam;
-            $v['visitTeam'] = $item->visitTeam;
-            $v['homeTeamNo'] = $item->homeTeamNo;
-            $v['visitTeamNo'] = $item->visitTeamNo;
-            $v['homeLogo'] = $item->homeLogo;
-            $v['visitLogo'] = $item->visitLogo;
-            $v['result1'] = $item->result1;
-            $v['result2'] = $item->result2;
-            $v['isOk'] = $item->isOk;
-            $v['matchLong'] = $item->matchLong;
-            $v['isCode'] = $item->isCode;
-            $v['matchDesc'] = $item->matchDesc;
-            $v['fixedNam'] = $item->fixedNam;
-            $arrData[] = $v;
-        }
-        $data['rows'][0]['matchList'] = $arrData;
-        return $data;
-    }
-
-    public function getBifenList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '2')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
-        $arrData = array();
-        foreach ($rs as $item) {
-            $v = array();
-            $v['matchId'] = $item->matchId;
-            $v['rowNo'] = $item->rowNo;
-            $v['week'] = $item->week;
-            $v['typeName'] = !empty($item->tour_name_edit) ? $item->tour_name_edit : $item->typeName;;
-            $v['matchDate'] = $item->matchDate;
-            $v['matchTime'] = $item->matchTime;
-            $v['matchResult'] = $item->matchResult;
-            $v['recPercent'] = $item->recPercent;
-            $v['betRate'] = $item->betRate;
-            $v['homeTeam'] = $item->homeTeam;
-            $v['visitTeam'] = $item->visitTeam;
-            $v['homeTeamNo'] = $item->homeTeamNo;
-            $v['visitTeamNo'] = $item->visitTeamNo;
-            $v['homeLogo'] = $item->homeLogo;
-            $v['visitLogo'] = $item->visitLogo;
-            $v['result1'] = $item->result1;
-            $v['result2'] = $item->result2;
-            $v['isOk'] = $item->isOk;
-            $v['matchLong'] = $item->matchLong;
-            $v['isCode'] = $item->isCode;
-            $v['matchDesc'] = $item->matchDesc;
-            $v['fixedNam'] = $item->fixedNam;
-            $arrData[] = $v;
-        }
-        $data['rows'] = $arrData;
-        return $data;
-    }
-
-    public function getQcList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getQcList');
-        return $response->json();
-    }
-
-    public function getSaikuangList (Request $request) {
-        $rs = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('typeMatch', '4')->where("isShow", '1')->orderBy('matchLong', 'DESC')->get();
-        $arrData = array();
-        foreach ($rs as $item) {
-            $v = array();
-            $v['matchId'] = $item->matchId;
-            $v['rowNo'] = $item->rowNo;
-            $v['week'] = $item->week;
-            $v['typeName'] = $item->typeName;
-            $v['matchDate'] = $item->matchDate;
-            $v['matchTime'] = $item->matchTime;
-            $v['matchResult'] = $item->matchResult;
-            $v['recPercent'] = $item->recPercent;
-            $v['betRate'] = $item->betRate;
-            $v['homeTeam'] = $item->homeTeam;
-            $v['visitTeam'] = $item->visitTeam;
-            $v['homeTeamNo'] = $item->homeTeamNo;
-            $v['visitTeamNo'] = $item->visitTeamNo;
-            $v['homeLogo'] = $item->homeLogo;
-            $v['visitLogo'] = $item->visitLogo;
-            $v['result1'] = $item->result1;
-            $v['result2'] = $item->result2;
-            $v['isOk'] = $item->isOk;
-            $v['matchLong'] = $item->matchLong;
-            $v['isCode'] = $item->isCode;
-            $v['matchDesc'] = $item->matchDesc;
-            $v['fixedNam'] = $item->fixedNam;
-            $arrData[] = $v;
-        }
-        $data['rows'] = $arrData;
-        $i = 0;
-        foreach ($data as $key => $value) {
-            if($key == 'rows'){
-                foreach ($value as $k => $v) {
-                    $txt = $data[$key][$k]['matchResult'];
-                    $txt = str_replace('胜', 'Thắng', $txt);
-                    $txt = str_replace('平', 'Hoà', $txt);
-                    $txt = str_replace('负', 'Thua', $txt);
-                    $data[$key][$k]['matchResult']= $txt;
-                }
-            }
-        }
-        return $data;
-    }
-
-    public function getGaoBeiList (Request $request) {
-        $response = Http::get('http://www.zucaijia.cn/zcj/jincai/getGaoBeiList');
-        return $response->json();
-    }
-
-    public function getDetailYcChartsInfo (Request $request) {
-        $matchNo = $request->input('rowNo');
-        $rs = DB::table('match_details')->where('matchId', $matchNo)->first();
-        $data = json_decode($rs->content1, true);
-        return $data;
-    }
-
-    public function getDetailLeftLists (Request $request) {
-        $matchNo = $request->input('rowNo');
-        $rs = DB::table('match_details')->where('matchId', $matchNo)->first();
-        $item = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('matchId', $matchNo)->first();
-        $data = json_decode($rs->content2, true);
-        if($item->isOk != '1'){
-            $data['tecStacLeftList'] = array();
-        }
-        return $data;
-    }    
-
-    public function detail (Request $request) {
-        $id = $request->input('id');
-        $item = DB::table('matchs')->join('tournaments', 'matchs.tournamentId', '=', 'tournaments.id')->where('matchId', $id)->first();
-        $user = \DB::table('users')->where('id', 1)->first();
-        return view('detail' , compact('id', 'item', 'user'));
-    }
-
-    private function __translateText ($text, $lang) {
-      $text   = mb_convert_encoding($text, "UTF-8", "ASCII,JIS,UTF-8,EUC-JP,SJIS");
-      return ucfirst(GoogleTranslate::trans($text, $lang ));
-    }
-
-    private function __getListTextTranslateDB(){
-        $texts = DB::table('translate_texts')->get();
-        $data = array();
-        foreach ($texts as $key => $value) {
-            $data[$value->text_original] = $value->text_translate;
-        }
-
-        return $data;
-    }
-
-    public function index(Request $request)
+    
+    public function postNotice(Request $request)
     {
-        $path = "http://www.woxiangwan.com/app/img/no_club_logo.jpg";
-        $arr_path = explode('/', $path);
-        $filename = end($arr_path);
-        Storage::disk('local2')->put($filename, file_get_contents($path));
+        $user = Auth::user();
+        
+        $data = $request->all();
+        if(!empty($data['close'])){
+            DB::table('user')->where('id', $user->id)->update([
+                'is_notice' => 0
+            ]);
+        }
+
+        return response()->json([
+            'message' => [
+                'title' => '',
+                'text'  => 'Tắt thông báo thành công',
+                'type'  => 'success',
+            ],
+        ], 200);
+    }
+    
+    
+
+    public function convertDateTime($date, $format = 'Y-m-d H:i:s')
+    {
+        $tz1 = 'UTC';
+        $tz2 = 'Asia/Ho_Chi_Minh'; // UTC +7
+
+        $d = new DateTime($date, new DateTimeZone($tz1));
+        $d->setTimeZone(new DateTimeZone($tz2));
+
+        return $d->format($format);
     }
 }
