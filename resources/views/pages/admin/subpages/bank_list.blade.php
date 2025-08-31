@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card overflow-hidden">
             <div class="card-content">
-                <div class="card-body">
+                <div class="card-body" style="padding-top: 0rem !important;">
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered t2-datatable" style="width: 100%;">
                             <thead>

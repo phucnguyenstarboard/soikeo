@@ -32,7 +32,7 @@ class CategoryController extends Controller
         $user = Auth::user();
 
         $data_list = DB::table('category')
-            ->select('category.*')->orderBy('category.updated_time', 'desc')->get();
+            ->select('category.*')->orderBy('category.id', 'asc')->get();
         return view('pages.admin.category', compact('user', 'data_list'));
     }
 

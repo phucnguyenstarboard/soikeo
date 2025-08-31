@@ -59,12 +59,12 @@
         function initDataTable() {
             dt_index_1 = $('.t2-datatable').DataTable({
                 "oLanguage": {
-                   "sSearch": "Tên danh mục"
+                   "sSearch": "银行名称"
                 },
                 lengthChange: false,
                 displayLength: 20,
                 ordering: false,
-                searching: false,
+                searching: true,
                 paginate: true,
                 info: false,
                 scrollX: true,

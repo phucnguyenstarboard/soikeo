@@ -19,7 +19,7 @@
                         
                         <div class="row">
                              <div class="col-12 col-sm-12 col-lg-12">
-                                <label for="s-ordered_date_s">商品名称</label>
+                                <label for="s-ordered_date_s">银行名称</label>
                                 <fieldset class="form-group">
                                     <input type="text" class="form-control" required value="{{ $product->bank_name }}" name="bank_name">
                                     <div class="help-block"></div>
