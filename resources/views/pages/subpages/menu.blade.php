@@ -29,7 +29,7 @@
                          <a href="{{ route('profile') }}" style="color:#fff"><i class="feather icon-user"></i> {{ $user->account }} </a>
                      </li>
                      <li class="nav-item mr-2">
-                         <i class="fa fa-money"></i> Saldo Total : R$<span class="text-balance"> {{ number_format($user->balance) }}</span>
+                         <i class="fa fa-money"></i> Saldo Total : R$<span style="margin-left: 5px" class="text-balance">{{ number_format($user->balance) }}</span>
                      </li>
                      <li class="nav-item mr-2 mt-1 mb-1">
                          <a class="btn btn-primary" href="{{ route('deposit') }}"><i class="fa fa-plus-square"></i> Depositar</a>
