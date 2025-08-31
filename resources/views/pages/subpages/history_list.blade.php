@@ -29,7 +29,7 @@
                                     <td class="text-center">{{ $item->bet == 1 ? 'Export' : 'Import' }}</td>
                                     <td class="text-center">{{ $item->status == 1 ? 'Win' : ($item->status == 2 ? 'Lose' : 'Pendding') }}</td>
                                     <td class="text-center">
-                                        <div class="col-12 col-md-12 text-center number">
+                                        <div class="text-center number">
                                             <span class="txt-num-1">{{ substr($item->result,0,1) }}</span>
                                             <span class="txt-num-2">{{ substr($item->result,1,1) }}</span>
                                             <span class="txt-num-3">{{ substr($item->result,2,1) }}</span>

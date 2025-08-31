@@ -35,7 +35,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ date('YmdHis') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -329,7 +329,7 @@
                 columnDefs: [
                     {
                         targets: 0,
-                        width: 60
+                        width: 90
                     },
                     {
                         targets: 1,
@@ -341,15 +341,15 @@
                     },
                     {
                         targets: 3,
-                        width: 80
+                        width: 70
                     },
                     {
                         targets: 4,
-                        width: 80
+                        width: 70
                     },
                     {
                         targets: 5,
-                        width: 210
+                        width: 260
                     },
                     {
                         targets: 6,
@@ -357,11 +357,11 @@
                     },
                     {
                         targets: 7,
-                        width: 150
+                        width: 130
                     },
                     {
                         targets: 8,
-                        width: 100
+                        width: 90
                     },
                 ],
             });
