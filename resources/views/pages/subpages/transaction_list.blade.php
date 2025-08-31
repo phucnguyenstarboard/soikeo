@@ -8,7 +8,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">Thời gian giao dịch</th>
-                                    <th class="text-center">Mã tiền giao dịch</th>
+                                    <th class="text-center">Mã giao dịch</th>
                                     <th class="text-center">Loại xổ số</th>
                                     <th class="text-center">Số dư trước</th>
                                     <th class="text-center">Loại giao dịch</th>

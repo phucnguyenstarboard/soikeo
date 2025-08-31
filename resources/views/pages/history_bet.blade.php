@@ -35,7 +35,8 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ date('YmdHis')}}">
+    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -240,7 +241,7 @@
                     },
                     {
                         targets: 1,
-                        width: 120
+                        width: 140
                     },
                     {
                         targets: 2,
@@ -252,7 +253,7 @@
                     },
                     {
                         targets: 4,
-                        width: 140
+                        width: 130
                     },
                     {
                         targets: 5,

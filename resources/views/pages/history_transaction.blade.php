@@ -35,7 +35,8 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ date('YmdHis')}}">
+    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -239,7 +240,7 @@
                 scrollX: true,
                 columnDefs: [{
                         targets: 0,
-                        width: 150
+                        width: 180
                     },
                     {
                         targets: 1,
@@ -255,15 +256,15 @@
                     },
                     {
                         targets: 4,
-                        width: 140
-                    },
-                    {
-                        targets: 5,
                         width: 120
                     },
                     {
+                        targets: 5,
+                        width: 110
+                    },
+                    {
                         targets: 6,
-                        width: 190
+                        width: 150
                     },
                 ],
             });

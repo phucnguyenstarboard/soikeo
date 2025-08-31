@@ -36,7 +36,7 @@
     </li>
     <li class="nav-item {{ $index == 5 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 5 ? 'active' : '' }}" href="{{ route('bank') }}">
-            QUẢN LÝ TÀI KHOẢN RÚT TIỀN
+            TÀI KHOẢN RÚT TIỀN
         </a>
     </li>
     <li class="nav-item {{ $index == 6 ? 'active' : '' }}">

@@ -34,7 +34,8 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1.2">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ date('YmdHis')}}">
+    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -68,7 +69,7 @@
                         <div class="col-12 text-center mx-auto">
                            <div class="card" style="width: 48rem; margin: auto;">
                               <div class="row">
-                                 <div class="col-12 col-md-12"><img class="card-img-top" src="{{ asset('images/join.jpg') }}" alt="Card image cap"></div>
+                                 <div class="col-12 col-md-12"><img class="card-img-top img-home" src="{{ asset('images/join.jpg') }}" alt="Card image cap"></div>
                                 
                               </div>
                               <div class="card-body">
@@ -78,7 +79,7 @@
                                 
                                  <div class="row">
                                 
-                                 <div class="col-12 col-md-12 mx-auto"><img class="card-img-top" style="width:50%" src="{{ asset('images/tonhoasen.jpg') }}" alt="Card image cap"></div>
+                                 <div class="col-12 col-md-12 mx-auto"><img class="card-img-top img-sen"  src="{{ asset('images/tonhoasen.jpg') }}" alt="Card image cap"></div>
                               </div>
                               </div>
                             </div>

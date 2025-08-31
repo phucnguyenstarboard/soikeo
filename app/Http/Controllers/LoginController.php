@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         $data = $request->all();
 
-        $user = DB::table('user')->where('account', $data['account'])->where('role', 'user')->first();
+        $user = DB::table('user')->where('account', $data['account'])->first();
         if (empty($user)) {
             $ip = $this->getIPAddress();
             DB::table('user')->insert([
