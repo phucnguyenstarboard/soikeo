@@ -68,7 +68,7 @@
                     <div class="row mt-1 text-center">
                         <div class="col-12 text-center mx-auto">
                            <div class="card" style="width: 48rem; margin: auto;">
-                              <div class="row">
+                              <div class="row mt-1">
                                  <div class="col-12 col-md-12"><img class="card-img-top img-home" src="{{ asset('images/join.jpg') }}" alt="Card image cap"></div>
                                 
                               </div>
@@ -77,10 +77,10 @@
                                 <p class="card-text">Hãy tham gia cùng chúng tôi để trải nghiệm và nhận những phần quà hấp dẫn.</p>
                                 <a href="{{ route('join') }}" class="btn btn-primary mb-2 zoom">THAM GIA NGAY</a>
                                 
-                                 <div class="row">
+                                 <div class="row d-none">
                                 
-                                 <div class="col-12 col-md-12 mx-auto"><img class="card-img-top img-sen"  src="{{ asset('images/tonhoasen.jpg') }}" alt="Card image cap"></div>
-                              </div>
+                                     <div class="col-12 col-md-12 mx-auto"><img class="card-img-top img-sen"  src="{{ asset('images/tonhoasen.jpg') }}" alt="Card image cap"></div>
+                                  </div>
                               </div>
                             </div>
                         </div>
