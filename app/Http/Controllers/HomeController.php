@@ -47,16 +47,14 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
-            // $gao1 = ['name' => 'Gạo Tấm Gò Công 3,5 kg', 'weight' => '3.5kg', 'price' => '117.000'];
-            // $gao2 = ['name' => 'Gạo Tấm Sóc Trăng Vinafood1', 'weight' => '3.5kg', 'price' => '108.000'];
-            // $gao3 = ['name' => 'Gạo Mười Hương Vinafood1', 'weight' => '3.5kg', 'price' => '140.000'];
-            // $gao4 = ['name' => 'Gạo Nam Hương Vinafood1', 'weight' => '3.5kg', 'price' => '93.000'];
-            // $list_gao[] = $gao1;
-            // $list_gao[] = $gao2;
-            // $list_gao[] = $gao3;
-            // $list_gao[] = $gao4;
-
-            $list_gao = DB::table('category')->where('is_delete', 0)->orderBy('id', 'asc')->get();
+            $gao1 = ['name' => 'Gạo Tấm Gò Công 3,5 kg', 'weight' => '3.5kg', 'price' => '117.000'];
+            $gao2 = ['name' => 'Gạo Tấm Sóc Trăng Vinafood1', 'weight' => '3.5kg', 'price' => '108.000'];
+            $gao3 = ['name' => 'Gạo Mười Hương Vinafood1', 'weight' => '3.5kg', 'price' => '140.000'];
+            $gao4 = ['name' => 'Gạo Nam Hương Vinafood1', 'weight' => '3.5kg', 'price' => '93.000'];
+            $list_gao[] = $gao1;
+            $list_gao[] = $gao2;
+            $list_gao[] = $gao3;
+            $list_gao[] = $gao4;
 
             $item_new = DB::table('session')->orderBy('id', 'desc')->first();
 
@@ -98,7 +96,7 @@ class HomeController extends Controller
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Valor informado inválido, tente novamente.',
+                    'text'  => 'Số tiền đặt cược không hợp lệ, vui lòng thử lại.',
                     'type'  => 'warning',
                 ]
             ], 422);
@@ -114,7 +112,7 @@ class HomeController extends Controller
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Saldo insuficiente.',
+                    'text'  => 'Số dư của bạn nhỏ hơn số tiền đặt cược, vui lòng nạp thêm tiền hoặc chỉnh sửa số tiền cược phù hợp.',
                     'type'  => 'warning',
                 ]
             ], 422);
@@ -135,7 +133,7 @@ class HomeController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'Confirmação bem-sucedida',
+                'text'  => 'Xác nhận thành công',
                 'type'  => 'success',
             ],
             'balance'  => number_format($balance),

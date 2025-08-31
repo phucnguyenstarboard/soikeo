@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Conta de saque</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Quản lý tài khoản rút tiền</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -35,7 +34,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -88,10 +87,10 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-6">
                                     <div class="card">
                                         <div class="card-body" style="margin-bottom: 0.45rem;">
-                                            <h1><i class="fa fa-bank"></i> Atualizar conta de saque</h1>
+                                            <h1><i class="fa fa-bank"></i> Cập nhật tài khoản rút tiền</h1>
                                             <div class="form-group row mb-0 mt-2">
                                                 <div class="col-12 col-sm-12">
-                                                    <button type="button" class="btn btn-danger btn-show-modal"> <i class="fa fa-bank"></i> ATUALIZAR CONTA</button>
+                                                    <button type="button" class="btn btn-danger btn-show-modal"> <i class="fa fa-bank"></i> CẬP NHẬT TÀI KHOẢN</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -101,9 +100,9 @@
                                     <div class="card">
                                         <div class="card-body">
                                             @if(!empty($user->bank_name))
-                                            <h3 style="color:#007bff;text-transform: uppercase;">{{ $user->bank_name }}</h3>
+                                            <h3 style="color:#007bff">{{ $user->bank_name }}</h3>
                                             <h1>{{ $user->account_number }}</h1>
-                                            <h4>Nome: {{ $user->account_name }}</h4>
+                                            <h4>Tên: {{ $user->account_name }}</h4>
                                             @endif
                                         </div>
                                     </div>
@@ -114,13 +113,13 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h2 class="warning"><i class="fa fa-warning warning"></i> Nota</h2>
+                                            <h2 class="warning"><i class="fa fa-warning warning"></i> Lưu ý</h2>
                                             <ol class="list-note">
-                                                <li>Depois que a conta de retirada for adicionada com sucesso, sua conta de retirada reembolsada não aparecerá em nenhuma área da plataforma.</li>
-                                                <li>Cada conta de membro pode adicionar até 2 Contas de Saque.</li>
-                                                <li>Cada conta de membro só pode ser adicionada à Conta de Saque com o mesmo nome e sobrenome.</li>
-                                                <li>Antes de adicionar uma conta de saque, você deve primeiro definir uma Senha de FUNDO.</li>
-                                                <li>Depois de adicionar uma conta de saque, você pode solicitar o saque.</li>
+                                                <li>Sau khi tài khoản rút tiền được thêm thành công, Tài khoản rút tiền hoàn chính của bạn sẽ không xuất hiện trong bất kỳ khu vực nào của nền tảng này.</li>
+                                                <li>Mỗi tài khoản thành viên có thể thêm tối đa 2 Tài khoản rút tiền.</li>
+                                                <li>Mỗi tài khoản thành viên chỉ được phép thêm vào Tài khoản rút tiền cùng họ và tên.</li>
+                                                <li>Trước khi thêm tài khoản rút tiền, trước tiên bạn phải cài đặt Mật khẩu QUỸ.</li>
+                                                <li>Sau khi thêm tài khoản rút tiền, bạn có thể đăng ký rút tiền.</li>
                                             </ol>
                                         </div>
                                     </div>
@@ -143,32 +142,32 @@
         <div class="modal-dialog modal-dialog-centered modal-lg create-project-id-modal" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="projectModal">Atualizar conta de saque</h4>
+                    <h4 class="modal-title" id="projectModal">Cập nhật tài khoản rút tiền</h4>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('post_bank') }}" id="form-profile" method="POST" novalidate>
                         @csrf
 
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-4 col-sm-4 col-form-label">Tipo de conta</label>
-                            <div class="col-8 col-sm-8">
+                            <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Loại tài khoản</label>
+                            <div class="col-8 col-sm-9">
 
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="customRadioInline1" checked="checked" class="custom-control-input">
-                                    <label class="custom-control-label col-form-label" style="padding: 0rem;margin-top:1rem" for="customRadioInline1">Cartão bancário</label>
+                                    <label class="custom-control-label col-form-label" style="padding: 0rem;margin-top:1rem" for="customRadioInline1">Thẻ ngân hàng</label>
                                 </div>
 
                             </div>
                         </div>
 
                         <div class="form-group row mb-1">
-                            <label for="staticEmail" class="col-4 col-sm-4 col-form-label">Nome do banco</label>
-                            <div class="col-8 col-sm-8">
+                            <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Tên ngân hàng</label>
+                            <div class="col-8 col-sm-9">
                                 <select required
-                                    data-validation-required-message="Isso é necessário" class="form-control" id="cbxBank" name="bank_name">
-                                    <option value="">Selecione o banco</option>
+                                    data-validation-required-message="Vui lòng chọn ngân hàng" class="form-control" id="cbxBank" name="bank_name">
+                                    <option value="">Chọn ngân hàng</option>
                                     @foreach ($banks as $key => $value)
-                                    <option {{ $value->bank_name == $user->bank_name ? 'selected' : '' }} value="{{ $value->bank_name }}">{{ $value->bank_name }}</option>
+                                    <option {{ $key == $user->bank_name ? 'selected' : '' }} value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                                 <div class="help-block"></div>
@@ -177,30 +176,30 @@
                         </div>
 
                         <div class="form-group row mb-1">
-                            <label for="staticEmail" class="col-4 col-sm-4 col-form-label">Agência bancária</label>
-                            <div class="col-8 col-sm-8">
+                            <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Chi nhánh</label>
+                            <div class="col-8 col-sm-9">
                                 <input required
-                                    data-validation-required-message="Isso é necessário" type="text" name="branch" maxlength="255" class="form-control" value="{{ $user->branch }}">
+                                    data-validation-required-message="Vui lòng nhập chi nhánh" type="text" name="branch" maxlength="255" class="form-control" value="{{ $user->branch }}">
                                 <div class="help-block"></div>
 
                             </div>
                         </div>
 
                         <div class="form-group row mb-1">
-                            <label for="staticEmail" class="col-4 col-sm-4 col-form-label">Nome da conta bancária</label>
-                            <div class="col-8 col-sm-8">
+                            <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Tên tài khoản</label>
+                            <div class="col-8 col-sm-9">
                                 <input required
-                                    data-validation-required-message="Isso é necessário" type="text" name="account_name" maxlength="255" class="form-control" value="{{ $user->account_name }}">
+                                    data-validation-required-message="Vui lòng nhập tên tài khoản" type="text" name="account_name" maxlength="255" class="form-control" value="{{ $user->account_name }}">
                                 <div class="help-block"></div>
 
                             </div>
                         </div>
 
                         <div class="form-group row mb-2">
-                            <label for="staticEmail" class="col-4 col-sm-4 col-form-label">Número de conta</label>
-                            <div class="col-8 col-sm-8">
+                            <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Số tài khoản</label>
+                            <div class="col-8 col-sm-9">
                                 <input required
-                                    data-validation-required-message="Isso é necessário" type="text" name="account_number" maxlength="255" class="form-control" value="{{ $user->account_number }}">
+                                    data-validation-required-message="Vui lòng nhập số tài khoản" type="text" name="account_number" maxlength="255" class="form-control" value="{{ $user->account_number }}">
                                 <div class="help-block"></div>
 
                             </div>
@@ -208,8 +207,8 @@
 
                         <div class="row mt-3 mb-1">
                             <div class="col-12 col-sm-12 text-right">
-                                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-outline-primary mr-2">CANCELAR</button>
-                                <button type="submit" id="btn-confirm" class="btn btn-primary">SALVAR</button>
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-outline-primary mr-2">HUỶ</button>
+                                <button type="submit" id="btn-confirm" class="btn btn-primary">XÁC NHẬN</button>
                             </div>
                         </div>
                     </form>

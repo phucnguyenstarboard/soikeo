@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Saque</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Rút tiền</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -35,7 +34,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -88,26 +87,26 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h1><i class="feather icon-edit"></i> Solicitar Saque</h1>
+                                            <h1><i class="feather icon-edit"></i> Vui lòng điền các mục sau</h1>
                                             <form action="{{ route('post_withdraw') }}" id="form-profile" method="POST" novalidate>
                                                 @csrf
                                                 <div class="form-group row mb-1 mt-2">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Valor do Saque</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Số tiền rút</label>
                                                     <div class="col-8 col-sm-9">
                                                         <input required
-                                                            data-validation-required-message="Isso é necessário" type="number" name="amount" class="form-control" value="">
-                                                        <small id="emailHelp" class="form-text text-muted">Mínimo: R$ 100,  Máximo: R$ {{ number_format($user->balance) }}</small>
+                                                            data-validation-required-message="Vui lòng nhập số tiền: 50.000 ~ 999.999.999.999" min="50000" max="999999999999" type="number" name="amount" class="form-control" value="">
+                                                        <small id="emailHelp" class="form-text text-muted">Khoảng giới hạn:: 50.000 ~ 999.999.999.999 (Tỉ lệ rút là 1:1)</small>
                                                         <div class="help-block"></div>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row mb-1">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Senha do fundo</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Mật khẩu quỹ</label>
                                                     <div class="col-8 col-sm-9">
                                                         <div class="input-group" id="show_hide_password">
                                                             <input required
-                                                                data-validation-required-message="Isso é necessário" type="password" name="password_fund" maxlength="255" class="form-control" value="">
+                                                                data-validation-required-message="Vui lòng nhập mật khẩu quỹ" type="password" name="password_fund" maxlength="255" class="form-control" value="">
                                                             <div class="input-group-append">
                                                                 <button class="btn btn-outline-secondary" type="button"><i class="fa fa-eye-slash dark"></i></button>
                                                             </div>
@@ -118,11 +117,11 @@
                                                 </div>
 
                                                 <div class="form-group row mb-2">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Nome do banco</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Ngân hàng rút</label>
                                                     <div class="col-8 col-sm-9">
                                                         <select required
-                                                            data-validation-required-message="Isso é necessário" class="form-control" id="cbxBank" name="bank">
-                                                            <option value="">Selecione o banco</option>
+                                                            data-validation-required-message="Vui lòng chọn ngân hàng rút" class="form-control" id="cbxBank" name="bank">
+                                                            <option value="">Chọn ngân hàng</option>
                                                             @if(!empty($user->bank_name))
                                                             <option selected value="1">{{ $user->account_name }} - {{ $user->bank_name }} - {{ $user->account_number }}</option>
                                                             @endif
@@ -132,7 +131,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="text-center"><button type="submit" class="btn btn-primary">Confirmar Saque</button></div>
+                                                <div class="text-center"><button type="submit" class="btn btn-primary">XÁC NHẬN RÚT TIỀN</button></div>
                                             </form>
                                         </div>
                                     </div>
@@ -143,13 +142,13 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h2 class="danger"><i class="fa fa-warning danger"></i> Informações Importantes</h2>
+                                            <h2 class="danger"><i class="fa fa-warning danger"></i> Lưu ý rút tiền</h2>
                                             <ol class="list-note">
-                                                <li>Tempo de saque : 24/24.</li>
-                                                <li>Com a mesma conta bancária, o limite de saque diário é de 20 vezes.</li>
-                                                <li>A condição para saque é apostar o valor total do depósito; se o valor apostado não for suficiente, o saque não será possível. Por exemplo, para um depósito de R$ 100, é necessário apostar R$ 100 o suficiente para que o pedido de saque seja aprovado.</li>
-                                                <li>O cartão bancário deve corresponder ao nome do titular do cartão registrado e usar um nome real para sacar dinheiro.</li>
-                                                <li>Assim que a solicitação de retirada for concluída, o dinheiro chegará à conta do membro em até 1 minuto.</li>
+                                                <li>Thời gian dịch vụ rút tiền hoạt động: 24/24.</li>
+                                                <li>Cùng một tài khoản ngân hàng, hạn mức rút tiền mỗi ngày là 20 lần.</li>
+                                                <li>Điều kiện để rút tiền cần đặt cược đủ số tiền đã nạp, nếu không đủ lượng đặt cược sẽ không thể rút tiền. Ví dụ, nạp 100.000, cần đặt cược đủ 100.000 yêu cầu rút tiền sẽ thông qua.</li>
+                                                <li>Thẻ ngân hàng bắt buộc trùng với tên chủ thẻ đã đăng ký và sử dụng tên thật để rút tiền.</li>
+                                                <li>Sau khi yêu cầu rút tiền hoàn thành, tiền sẽ đến tài khoản của hội viên trong vòng 1 phút.</li>
                                             </ol>
                                         </div>
                                     </div>

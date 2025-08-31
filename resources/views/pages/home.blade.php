@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Início</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Trang chủ</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -35,7 +34,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1.2">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -68,14 +67,19 @@
                     <div class="row mt-1 text-center">
                         <div class="col-12 text-center mx-auto">
                            <div class="card" style="width: 48rem; margin: auto;">
-                              <div class="row mt-1">
-                                 <div class="col-12 col-md-12"><img class="card-img-top img-home" src="{{ asset('images/join.jpg') }}" alt="Card image cap"></div>
+                              <div class="row">
+                                 <div class="col-12 col-md-12"><img class="card-img-top" src="{{ asset('images/join.jpg') }}" alt="Card image cap"></div>
                                 
                               </div>
-                              <div class="card-body mb-2">
-                                <h3 class="card-title">BEM-VINDO AO VIP</h3>
-                                <p class="card-text">Junte-se a nós para experimentar e receber presentes atraentes.</p>
-                                <a href="{{ route('join') }}" class="btn btn-primary mb-2 zoom">INSCREVA-SE AGORA</a>
+                              <div class="card-body">
+                                <h3 class="card-title">CHÀO MỪNG ĐẾN VỚI THE RICE</h3>
+                                <p class="card-text">Hãy tham gia cùng chúng tôi để trải nghiệm và nhận những phần quà hấp dẫn.</p>
+                                <a href="{{ route('join') }}" class="btn btn-primary mb-2 zoom">THAM GIA NGAY</a>
+                                
+                                 <div class="row">
+                                
+                                 <div class="col-12 col-md-12 mx-auto"><img class="card-img-top" style="width:50%" src="{{ asset('images/tonhoasen.jpg') }}" alt="Card image cap"></div>
+                              </div>
                               </div>
                             </div>
                         </div>

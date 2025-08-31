@@ -4,7 +4,7 @@
      session()->forget('total_r');
   @endphp
   <nav class="navbar navbar-expand-md  fixed-top navbar-dark fixed-top bg-dark bgheader">
-        <a class="navbar-brand" href="{{ route('home') }}">THE VIP</a>
+        <a class="navbar-brand" href="{{ route('home') }}">THE RICE</a>
         <a href="{{ route('notify') }}" class="dk-sp" style="color:#fff;font-size: 1.5rem;position: relative;">
             <i class="fa fa-bell mr-1"></i>
             @if($total_r > 0 && !Route::is('notify') )
@@ -29,19 +29,19 @@
                          <a href="{{ route('profile') }}" style="color:#fff"><i class="feather icon-user"></i> {{ $user->account }} </a>
                      </li>
                      <li class="nav-item mr-2">
-                         <i class="fa fa-money"></i> Saldo Total : R$<span style="margin-left: 5px" class="text-balance">{{ number_format($user->balance) }}</span>
+                         <i class="fa fa-money"></i> Số dư : <span class="text-balance">{{ number_format($user->balance) }}</span>
                      </li>
                      <li class="nav-item mr-2 mt-1 mb-1">
-                         <a class="btn btn-primary" href="{{ route('deposit') }}"><i class="fa fa-plus-square"></i> Depositar</a>
+                         <a class="btn btn-primary" href="{{ route('deposit') }}"><i class="fa fa-plus-square"></i> NẠP</a>
                      </li>
                      <li class="nav-item mr-2 mt-1 mb-1">
-                         <a class="btn btn-warning" href="{{ route('withdraw') }}"><i class="fa fa-minus-square"></i> Saque</a>
+                         <a class="btn btn-warning" href="{{ route('withdraw') }}"><i class="fa fa-minus-square"></i> RÚT</a>
                      </li>
                      <li class="nav-item mr-2 mt-1 mb-1">
-                         <a class="btn btn-dark" href="{{ route('password_fund') }}"><i class="feather icon-lock"></i> Senha do fundo</a>
+                         <a class="btn btn-dark" href="{{ route('password_fund') }}"><i class="feather icon-lock"></i> MẬT KHẨU QUỸ</a>
                      </li>
                      <li class="nav-item mr-2 mt-1 mb-1">
-                         <a class="btn btn-danger" href="{{route('logout')}}"><i class="feather icon-power"></i> Sair da Conta</a>
+                         <a class="btn btn-danger" href="{{route('logout')}}"><i class="feather icon-power"></i> ĐĂNG XUẤT</a>
                      </li>
                  </ul>
             </div>

@@ -8,11 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="author" content="iFor">
     <meta name="robots" content="noindex">
-    <meta name="robots" content="nofollow">    
+    <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Conecte-se</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Đăng nhập</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -34,7 +33,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -56,7 +55,7 @@
                                     <div class="card rounded-0 pb-1 mb-0 px-2">
                                         <div class="card-header pb-1">
                                             <div class="card-title text-center">
-                                                <h2 class="mb-0">Conecte-se</h2>
+                                                <h2 class="mb-0">Đăng nhập</h2>
                                             </div>
                                         </div>
                                         <div class="card-content">
@@ -65,37 +64,37 @@
                                                     @csrf
                                                     <div class="form-label-group form-group position-relative has-icon-left">
                                                         <div class="controls">
-                                                            <input type="text" class="form-control" id="account" name="account" placeholder="Nome da conta" required
-                                                                data-validation-required-message="Por favor, insira o nome da conta" maxlength="255"
+                                                            <input type="text" class="form-control" id="account" name="account" placeholder="Tên tài khoản" required
+                                                                data-validation-required-message="Vui lòng nhập tên tài khoản" maxlength="255"
                                                                 value="">
                                                             <div class="help-block"></div>
                                                         </div>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
-                                                        <label for="account">Nome da conta</label>
+                                                        <label for="account">Tên tài khoản</label>
                                                     </div>
 
                                                     <div class="form-label-group form-group position-relative has-icon-left">
                                                         <div class="controls">
-                                                            <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required
-                                                                data-validation-required-message="Por favor, digite a senha" maxlength="255"
+                                                            <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu" required
+                                                                data-validation-required-message="Vui lòng nhập mật khẩu" maxlength="255"
                                                                 value="">
                                                             <div class="help-block"></div>
                                                         </div>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
                                                         </div>
-                                                        <label for="password">Digite sua senha</label>
+                                                        <label for="password">Mật khẩu</label>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <button style="width:100%" type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Entrar</button>
+                                                            <button style="width:100%" type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Đăng nhập</button>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-12 mt-2 mb-1">
-                                                            <a style="width:100%" href="{{ route('get_register') }}" class="btn btn-outline-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Cadastrar</a>
+                                                            <a style="width:100%" href="{{ route('get_register') }}" class="btn btn-outline-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">Đăng ký</a>
                                                         </div>
                                                     </div>
                                                 </form>

@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Informações do perfil</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Thông tin người dùng</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -35,7 +34,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -88,30 +87,30 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-10">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h1>Informações do perfil</h1>
+                                            <h1>Thông tin cá nhân</h1>
                                             <form action="{{ route('post_profile') }}" id="form-profile" method="POST" novalidate>
                                                 @csrf
                                                 <div class="form-group row mb-0 mt-1">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Nome completo</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Tên người dùng</label>
                                                     <div class="col-8 col-sm-9">
                                                         <input required
-                                                            data-validation-required-message="Isso é necessário" maxlength="255" type="text" name="username" class="form-control" value="{{ $user->username }}">
+                                                            data-validation-required-message="Vui lòng nhập tên người dùng" maxlength="255" type="text" name="username" class="form-control" value="{{ $user->username }}">
                                                         <div class="help-block"></div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row mb-0">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Nome da conta</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Tài khoản</label>
                                                     <div class="col-8 col-sm-9">
                                                         <input type="text" readonly class="form-control-plaintext" value="{{ $user->account }}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Saldo Total</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Số dư</label>
                                                     <div class="col-8 col-sm-9">
-                                                        <input type="text" readonly class="form-control-plaintext" value="R$ {{ number_format($user->balance) }}">
+                                                        <input type="text" readonly class="form-control-plaintext" value="{{ number_format($user->balance) }}">
                                                     </div>
                                                 </div>
-                                                <div class="text-center"><button type="submit" class="btn btn-primary">SALVAR</button></div>
+                                                <div class="text-center"><button type="submit" class="btn btn-primary">CẬP NHẬT</button></div>
                                             </form>
                                         </div>
                                     </div>

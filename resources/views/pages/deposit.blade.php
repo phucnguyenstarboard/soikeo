@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Depositar</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Nạp tiền</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -35,7 +34,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -88,54 +87,54 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h1><img class="fluid-img bank-img" src="{{ asset('images/bank.png') }}" alt=""> Depositar</h1>
+                                            <h1><img class="fluid-img bank-img" src="{{ asset('images/bank.png') }}" alt=""> Hình thức nạp tiền</h1>
                                             <form action="{{ route('post_deposit') }}" id="form-profile" method="POST" novalidate>
                                                 @csrf
-                                                <div class="form-group row mb-1 mt-2 d-none">
+                                                <div class="form-group row mb-1 mt-2">
                                                     <div class="col-12 col-sm-12">
-                                                        <button type="submit" class="btn btn-danger">Depositar ONLINE</button>
+                                                        <button type="submit" class="btn btn-danger">NẠP TIỀN ONLINE</button>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row mb-1 mt-1">
                                                     <div class="col-12 col-sm-12">
-                                                        Nota: para transferência rápida de dinheiro, preencha o nome completo do remetente para evitar interrupções ou falhas.
+                                                        Lưu ý: Để quá trình chuyển khoản nhanh chóng, vui lòng điền đúng họ tên thật người nạp để tránh quá trình bị gián đoạn hoặc thất bại.
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row mb-1">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Valor do depósito</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Số tiền</label>
                                                     <div class="col-8 col-sm-9">
                                                         <input required
-                                                            data-validation-required-message="Por favor, insira o valor: 20 ~ 5000" min="20" max="5000" type="number" name="amount" class="form-control" value="">
-                                                        <small id="emailHelp" class="form-text text-muted">Mínimo: R$ 20 , Máximo: R$ 5.000</small>
+                                                            data-validation-required-message="Vui lòng nhập số tiền: 100.000 ~ 100.000.000.000.000" min="100000" max="100000000000" type="number" name="amount" class="form-control" value="">
+                                                        <small id="emailHelp" class="form-text text-muted">Khoảng giới hạn: 100.000 ~ 100.000.000.000</small>
                                                         <div class="help-block"></div>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row mb-1">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Nome do depositante</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Tên người nạp</label>
                                                     <div class="col-8 col-sm-9">
                                                         <input required
-                                                            data-validation-required-message="Isso é necessário" type="text" name="name" maxlength="255" class="form-control" value="">
-                                                        <small id="emailHelp" class="form-text text-muted">Nome completo do depositante</small>
+                                                            data-validation-required-message="Vui lòng nhập tên người nạp" type="text" name="name" maxlength="255" class="form-control" value="">
+                                                        <small id="emailHelp" class="form-text text-muted">Điền họ tên người nạp</small>
                                                         <div class="help-block"></div>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row mb-2">
-                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Nota</label>
+                                                    <label for="staticEmail" class="col-4 col-sm-3 col-form-label">Ghi chú</label>
                                                     <div class="col-8 col-sm-9">
                                                         <input required
-                                                            data-validation-required-message="Isso é necessário" type="text" name="note" maxlength="255" class="form-control" value="">
-                                                        <small id="emailHelp" class="form-text text-muted">Informações de transferência</small>
+                                                            data-validation-required-message="Vui lòng nhập thông tin chuyển khoản" type="text" name="note" maxlength="255" class="form-control" value="">
+                                                        <small id="emailHelp" class="form-text text-muted">Thông tin chuyển khoản</small>
                                                         <div class="help-block"></div>
 
                                                     </div>
                                                 </div>
 
-                                                <div class="text-center"><button type="submit" class="btn btn-primary">Fazer Depósito</button></div>
+                                                <div class="text-center"><button type="submit" class="btn btn-primary">NẠP TIỀN</button></div>
                                             </form>
                                         </div>
                                     </div>
@@ -146,13 +145,13 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h2 class="danger"><i class="fa fa-warning danger"></i> Informações Importantes</h2>
+                                            <h2 class="danger"><i class="fa fa-warning danger"></i> LỜI NHẮC NẠP TIỀN</h2>
                                             <ol class="list-note">
-                                                <li>Insira o valor na proporção de 1:1. Por exemplo, se você deseja depositar R$ 100, insira 100 no valor a ser depositado.</li>
-                                                <li>O tempo de atendimento ao cliente para depósito é 24/24.</li>
-                                                <li>Após o depósito bem-sucedido, verifique sua carteira</li>
-                                                <li>Caso haja algum problema, entre em contato com o atendimento ao cliente.</li>
-                                                <li>Se houver algum problema no carregamento ou se o site não for exibido, recarregue ou altere seu navegador e tente novamente.</li>
+                                                <li>Vui lòng điền số tiền theo tỉ lệ 1:1. Ví dụ bạn muốn nạp 1,000,000đ vui lòng nhập 1000000 vào số tiền cần nạp.</li>
+                                                <li>Thời gian CSKH phục vụ nạp tiền là 24/24.</li>
+                                                <li>Sau khi nạp tiền thành công vui lòng kiểm tra ví tiền của bạn.</li>
+                                                <li>Nếu có vấn đề vui lòng liên hệ CSKH.</li>
+                                                <li>Nếu trong quá trình nạp gặp vấn đề hoặc không hiển thị vui lòng tải lại hoặc thay đổi trình duyệt rồi thử lại.</li>
                                             </ol>
                                         </div>
                                     </div>

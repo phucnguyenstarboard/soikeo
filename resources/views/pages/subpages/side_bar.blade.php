@@ -11,37 +11,42 @@
     </li>
     <li class="nav-item {{ $index == 0 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 0 ? 'active' : '' }}" href="{{ route('profile') }}">
-            Informações do perfil
+            THÔNG TIN NGƯỜI DÙNG
         </a>
     </li>
     <li class="nav-item {{ $index == 1 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 1 ? 'active' : '' }}" href="{{ route('deposit') }}">
-            DEPOSITAR
+            NẠP
         </a>
     </li>
     <li class="nav-item {{ $index == 2 ? 'active' : '' }}">
-        <a class="nav-link {{ $index == 2 ? 'active' : '' }}" href="{{ route('withdraw') }}">            
-            SOLICITAR SAQUE
+        <a class="nav-link {{ $index == 2 ? 'active' : '' }}" href="{{ route('withdraw') }}">
+            RÚT
         </a>
     </li>
     <li class="nav-item {{ $index == 3 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 3 ? 'active' : '' }}" href="{{ route('history_bet') }}">
-            HISTÓRICO DE PARTICIPAÇÃO
+            LỊCH SỬ THAM GIA
         </a>
     </li>
     <li class="nav-item {{ $index == 4 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 4 ? 'active' : '' }}" href="{{ route('history_transaction') }}">
-            HISTÓRICO DE TRANSAÇÕES
+            LỊCH SỬ GIAO DỊCH
         </a>
     </li>
     <li class="nav-item {{ $index == 5 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 5 ? 'active' : '' }}" href="{{ route('bank') }}">
-            CONTA DE SAQUE
+            QUẢN LÝ TÀI KHOẢN RÚT TIỀN
         </a>
     </li>
     <li class="nav-item {{ $index == 6 ? 'active' : '' }}">
         <a class="nav-link {{ $index == 6 ? 'active' : '' }}" href="{{ route('password_fund') }}">
-            SENHA DO FUNDO
+            MẬT KHẨU QUỸ
+        </a>
+    </li>
+    <li style="display: none;" class="nav-item {{ $index == 7 ? 'active' : '' }}">
+        <a class="nav-link {{ $index == 7 ? 'active' : '' }}" href="{{ route('history_chat') }}">
+            LỊCH SỬ LIÊN HỆ
         </a>
     </li>
 </ul>

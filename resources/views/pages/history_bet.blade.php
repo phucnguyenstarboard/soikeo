@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Histórico de participação</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Lịch sử tham gia</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -36,7 +35,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -90,7 +89,7 @@
                                     <h4 class="card-title">
                                         <div class="heading-elements visible mb-1">
                                             <ul class="list-inline mb-0">
-                                                <li class="align-middle"><a data-action="collapse">Filtrar <i class="feather icon-chevrons-up"></i></a></li>
+                                                <li class="align-middle"><a data-action="collapse">Tìm kiếm <i class="feather icon-chevrons-up"></i></a></li>
                                             </ul>
                                         </div>
                                     </h4>
@@ -102,33 +101,33 @@
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-12 col-sm-4 col-lg-3">
-                                                        <label for="s-ordered_date_s">Data de início</label>
+                                                        <label for="s-ordered_date_s">Từ ngày</label>
                                                         <fieldset class="form-group">
                                                             <input type="text" class="form-control datepicker" value="{{ date('d/m/Y') }}" placeholder="dd/mm/yyyy" name="s-fromdate">
                                                             <div class="help-block"></div>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-12 col-sm-4 col-lg-3">
-                                                        <label for="s-ordered_date_s">Data de término</label>
+                                                        <label for="s-ordered_date_s">Đến ngày</label>
                                                         <fieldset class="form-group">
                                                             <input type="text" class="form-control datepicker" value="{{ date('d/m/Y') }}" placeholder="dd/mm/yyyy" name="s-todate">
                                                             <div class="help-block"></div>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-12 col-sm-4 col-lg-3">
-                                                        <label for="s-m_user_id">Status</label>
+                                                        <label for="s-m_user_id">Trạng thái</label>
                                                         <fieldset class="">
                                                             <select class="form-control" id="" name="s-status">
-                                                                <option value="0">Todos</option>
-                                                                <option value="1">Ganhar</option>
-                                                                <option value="2">Perder</option>
+                                                                <option value="0">Tất cả trạng thái</option>
+                                                                <option value="1">Thắng cược</option>
+                                                                <option value="2">Thua cược</option>
                                                             </select>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-12 col-sm-4 col-lg-3">
                                                         <div class="d-flex flex-sm-row flex-column justify-content-start mt-2">
-                                                            <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1 waves-effect waves-light">Filtrar</button>
-                                                            <button type="reset" class="btn btn-outline-warning mb-1 mb-sm-0 mr-0 mr-sm-1 reset waves-effect waves-light">Limpar</button>
+                                                            <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1 waves-effect waves-light">Tìm kiếm</button>
+                                                            <button type="reset" class="btn btn-outline-warning mb-1 mb-sm-0 mr-0 mr-sm-1 reset waves-effect waves-light">Nhập lại</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -180,7 +179,7 @@
     <script src="{{ asset('vuexy5.4/app-assets/js/core/app-menu.js') }}"></script>
     <script src="{{ asset('vuexy5.4/app-assets/js/core/app.js') }}"></script>
     <script src="{{ asset('vuexy5.4/app-assets/js/scripts/components.js') }}"></script>
-    <script src="{{ asset('js/datatable.js') }}?v=2"></script>
+    <script src="{{ asset('js/datatable.js') }}"></script>
     <!-- END: Theme JS-->
 
 
@@ -245,15 +244,15 @@
                     },
                     {
                         targets: 2,
-                        width: 180
+                        width: 150
                     },
                     {
                         targets: 3,
-                        width: 120
+                        width: 140
                     },
                     {
                         targets: 4,
-                        width: 120
+                        width: 140
                     },
                     {
                         targets: 5,

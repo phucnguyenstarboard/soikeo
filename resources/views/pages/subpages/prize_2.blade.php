@@ -1,9 +1,9 @@
     <table class="table table-secondary table-bordered table-history-bet">
         <thead>
             <tr>
-                <th class="text-center" scope="col">Número</th>
-                <th class="text-center">Status</th>
-                <th class="text-center">Resultados da loteria</th>
+                <th class="text-center" scope="col">Number</th>
+                <th class="text-center">Kết quả cược</th>
+                <th class="text-center">Kết quả mở thưởng</th>
             </tr>
         </thead>
         <tbody>
@@ -11,7 +11,7 @@
             <tr>
                 <td class="text-center">{{ $value->number }}</td>
                 <td class="text-center">
-                    {{ $value->status == 1 ? 'Ganhar' : ($value->status == 2 ? 'Perder' : 'Pendente') }}
+                    {{ $value->status == 1 ? 'Thắng' : ($value->status == 2 ? 'Thua' : 'Đang xử lý') }}
                 </td>
                 <td class="text-center">
                     <div class="number-2">

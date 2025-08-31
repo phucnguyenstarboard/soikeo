@@ -3,7 +3,7 @@
                     <a href="{{ route('home') }}">
                         <p class="icon"></p>
                         
-                        <p>Início</p>
+                        <p>Trang chủ</p>
                     </a>
                 </div>
             
@@ -11,7 +11,7 @@
                     <a href="{{ route('password_fund') }}">
                         <p class="icon"></p>
                         
-                        <p>Senha do fundo</p>
+                        <p>Mật khẩu quỹ</p>
                     </a>
                 </div>
 
@@ -19,7 +19,7 @@
                     <a href="{{ route('withdraw') }}">
                         <p class="icon"></p>
                         
-                        <p>Saque</p>
+                        <p>Rút tiền</p>
                     </a>
                 </div> 
             
@@ -27,7 +27,7 @@
                     <a href="{{ route('deposit') }}">
                         <p class="icon"></p>
                         
-                        <p>Depositar</p>
+                        <p>Nạp tiền</p>
                     </a>
                 </div>                    
             </div>

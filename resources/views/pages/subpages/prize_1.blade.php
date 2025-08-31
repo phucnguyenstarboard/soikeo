@@ -1,8 +1,8 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th class="text-center" scope="col">Número</th>
-            <th class="text-center">Resultados da loteria</th>
+            <th class="text-center" scope="col">Number</th>
+            <th class="text-center">Kết quả mở thưởng</th>
         </tr>
     </thead>
     <tbody>

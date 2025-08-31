@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Inscreva-se agora</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Tham gia</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -34,8 +33,8 @@
 
     <!-- BEGIN: Custom CSS-->
 
-    <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}?v=1">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1.2">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -72,10 +71,10 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-4 col-md-6">ID : <span class="session_id">{{ $item->session_id }}</span></div>
-                                            <div class="col-8 col-md-6 text-right">ID Ciclos : <span class="so_ky">{{ date('Ymd', strtotime($item_new->time_created)) }} - {{ $item_new->session_id }}</span></div>
+                                            <div class="col-8 col-md-6 text-right">Số kỳ : <span class="so_ky">{{ date('Ymd', strtotime($item_new->time_created)) }} - {{ $item_new->session_id }}</span></div>
                                         </div>
                                         <div class="row mt-1">
-                                            <div class="col-6 col-md-6 d-md-none d-flex">Saldo Total : R$<span style="margin-left: 5px" class="text-balance">{{ number_format($user->balance) }}</span></div>
+                                            <div class="col-6 col-md-6 d-md-none d-flex">Số dư : <span class="text-balance">{{ number_format($user->balance) }}</span></div>
                                             <div class="col-6 col-md-12 text-right timer">
                                                 <span class="txt-hour">00</span>
                                                 <span class="txt-minute">{{ $minute < 10 ? '0'.$minute : $minute }}</span>
@@ -83,7 +82,7 @@
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                            <div class="col-12 col-md-6 d-md-flex d-none">Número : <span class="number_id">{{ $item->number }}</span></div>
+                                            <div class="col-12 col-md-6 d-md-flex d-none">Number : <span class="number_id">{{ $item->number }}</span></div>
                                             <div class="col-12 col-md-6 text-right number">
                                                 <span class="txt-num-1">{{ substr($item->result,0,1) }}</span>
                                                 <span class="txt-num-2">{{ substr($item->result,1,1) }}</span>
@@ -108,114 +107,26 @@
                                                 <div class="col-12 col-md-12 block-room">
                                                     <ul class="nav nav-tabs row" role="tablist">
                                                         <li class="nav-item col-6 col-md-6 text-center">
-                                                            <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tabc-1" aria-controls="tabc-1" role="tab" aria-selected="false"><span>SALA 1</span></a>
+                                                            <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tabc-1" aria-controls="tabc-1" role="tab" aria-selected="true"><span>HẸN HÒ</span></a>
                                                         </li>
                                                         <li class="nav-item col-6 col-md-6 text-center">
-                                                            
-                                                            <a class="nav-link" id="tab-2" data-toggle="tab" href="#tabc-2" aria-controls="tabc-2" role="tab" aria-selected="true"><span>NAMORO</span></a>
+                                                            <a class="nav-link" id="tab-2" data-toggle="tab" href="#tabc-2" aria-controls="tabc-2" role="tab" aria-selected="false"><span>PHÒNG 1</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="tab-content">
-                                                <div class="tab-pane active" id="tabc-1" aria-labelledby="tab-1" role="tabpanel">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-12 col-xl-6 list_gao">
-                                                            
-                                                            <div class="row mb-1">
-                                                                <div class="col-6 col-sm-6">
-                                                                    <h3 style="margin-top: 5px;">Lista de produtos</h3>
-                                                                </div>
-                                                               <div class="col-6 col-sm-6 text-right">
-                                                                <a href="{{ route('history_bet') }}" class="btn btn-gao btn-join glow mb-0 mb-sm-0 mr-0">HISTÓRICO DE PARTICIPAÇÃO</a>
-                                                               </div>
-                                                            </div>
-                                                            @foreach ($list_gao as $key => $value)
-                                                            <div class="row">
-                                                                <div class="col-12 col-md-12">
-                                                                    <div class="card">
-                                                                        <div class="card-body">
-                                                                            <div class="row">
-                                                                                <div class="col-5 col-md-3 col-lg-3 col-xl-3 text-center">
-                                                                                    <img style="width: 131px" class="fluid-img" src="https://admin.sclmvip.club/uploads/category/{{ $value->image }}" alt="">
-                                                                                </div>
-                                                                                <div class="col-7 col-md-9 col-lg-9 col-xl-9">
-                                                                                    <h3>{{ $value->title }}</h3>
-                                                                                    <p class="mb-0">{{ $value->description }}</p>
-                                                                                    <p class="mb-0">R$ {{ number_format($value->price) }}</p>
-                                                                                    <div class="row mt-1">
-                                                                                        <div class="col-12 col-md-12">
-                                                                                            <button type="button" class="btn-export btn btn-gao glow">EXPORTAR</button>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-12" style="margin-top: 5px">
-                                                                                            <button type="button" class="btn-import btn btn-gao glow">IMPORTAR</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="col-12 col-md-12 col-xl-6">
-                                                            <div class="row prize">
-                                                                <div class="col-12 col-md-12">
-                                                                    <ul class="nav nav-tabs" role="tablist">
-                                                                        <li class="nav-item col-6 col-md-6 text-center">
-                                                                            <a class="nav-link active" id="tab-11" data-toggle="tab" href="#tabc-11" aria-controls="tabc-11" role="tab" aria-selected="true">ÚLTIMOS RESULTADOS</a>
-                                                                        </li>
-                                                                        <li class="nav-item col-6 col-md-6 text-center">
-                                                                            <a class="nav-link" id="tab-12" data-toggle="tab" href="#tabc-12" aria-controls="tabc-12" role="tab" aria-selected="false">ÚLTIMA CONFIRMAÇÃO</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tab-content">
-                                                                <div class="tab-pane active" id="tabc-11" aria-labelledby="tab-11" role="tabpanel">
-                                                                    <div class="row">
-                                                                        <div class="col-12 col-md-12 block-prize-1">
-                                                                            @include(
-                                                                            'pages.subpages.prize_1',
-                                                                            [
-                                                                            '$item_last' => $item_last ?? [],
-                                                                            ]
-                                                                            )
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- /tab-pane -->
-                                                                <div class="tab-pane" id="tabc-12" aria-labelledby="tab-12" role="tabpanel">
-                                                                    <div class="row">
-                                                                        <div class="col-12 col-md-12 block-prize-2">
-                                                                            @include(
-                                                                            'pages.subpages.prize_2',
-                                                                            [
-                                                                            '$item_bet' => $item_bet ?? [],
-                                                                            ]
-                                                                            )
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- /tab-pane -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mt-3">
-                                                        <img style="width:100%" class="img-fluid" src="{{ asset('images/make.jpg') }}" alt="">
-                                                    </div>
-                                                </div><!-- /tab-pane -->
-											    <div class="tab-pane" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
+											     <div class="tab-pane active" id="tabc-1" aria-labelledby="tab-1" role="tabpanel">
                                                     
                                                     <div class="row">
                                                         
                                                           <div class="col-12 col-sm-6 mx-auto">
                                                               <div class="row">
                                                                 <div class="col-6 col-md-6 text-center">
-                                                                    <button type="button" class="btn-export btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">O DESEJO A</button>
+                                                                    <button type="button" class="btn-export btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC A</button>
                                                                 </div>
                                                                 <div class="col-6 col-md-6 text-center">
-                                                                    <button type="button" class="btn-import btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">O DESEJO B</button>
+                                                                    <button type="button" class="btn-import btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC B</button>
                                                                 </div>
                                                             </div>
                                                           </div>
@@ -235,7 +146,7 @@
                                                     </div>   
                                                     <div class="row mt-2">
                                                           <div class="col-12 col-sm-12 text-center">
-                                                            <a href="{{ route('history_bet') }}" class="btn btn-primary btn-join glow mb-0 mb-sm-0 mr-0">HISTÓRICO DE PARTICIPAÇÃO</a>
+                                                            <a href="{{ route('history_bet') }}" class="btn btn-primary btn-join glow mb-0 mb-sm-0 mr-0">LỊCH SỬ THAM GIA</a>
                                                           </div>
                                                     </div>      
                                                     <div class="row mt-2 pb-5">
@@ -274,8 +185,94 @@
                                                               
                                                           </div>
                                                     </div>
-                                                </div>
-                                                <!-- /tab-pane -->
+                                                </div><!-- /tab-pane -->
+                                                <div class="tab-pane" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-12 col-xl-6 list_gao">
+                                                            
+                                                            <div class="row mb-1">
+                                                                <div class="col-6 col-sm-6">
+                                                                    <h3 style="margin-top: 5px;">Gạo ngon Việt Nam</h3>
+                                                                </div>
+                                                               <div class="col-6 col-sm-6 text-right">
+                                                                <a href="{{ route('history_bet') }}" class="btn btn-gao btn-join glow mb-0 mb-sm-0 mr-0">LỊCH SỬ THAM GIA</a>
+                                                               </div>
+                                                            </div>
+                                                            @foreach ($list_gao as $key => $value)
+                                                            <div class="row">
+                                                                <div class="col-12 col-md-12">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-5 col-md-3 col-lg-3 col-xl-3 text-center">
+                                                                                    <img class="fluid-img" src="{{ asset('images/gao_'.($key + 1).'.png') }}" alt="">
+                                                                                </div>
+                                                                                <div class="col-7 col-md-9 col-lg-9 col-xl-9">
+                                                                                    <h3>{{ $value['name'] }}</h3>
+                                                                                    <p class="mb-0">Khối lượng: {{ $value['weight'] }}</p>
+                                                                                    <p class="mb-0">{{ $value['price'] }}đ</p>
+                                                                                    <div class="row mt-1">
+                                                                                        <div class="col-12 col-md-12">
+                                                                                            <button type="button" class="btn-export btn btn-gao glow">XUẤT</button>
+                                                                                        </div>
+                                                                                        <div class="col-12 col-md-12">
+                                                                                            <button type="button" class="btn-import btn btn-gao glow">NHẬP</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="col-12 col-md-12 col-xl-6">
+                                                            <div class="row prize">
+                                                                <div class="col-12 col-md-12">
+                                                                    <ul class="nav nav-tabs" role="tablist">
+                                                                        <li class="nav-item col-6 col-md-6 text-center">
+                                                                            <a class="nav-link active" id="tab-11" data-toggle="tab" href="#tabc-11" aria-controls="tabc-11" role="tab" aria-selected="true">MỞ THƯỞNG GẦN NHẤT</a>
+                                                                        </li>
+                                                                        <li class="nav-item col-6 col-md-6 text-center">
+                                                                            <a class="nav-link" id="tab-12" data-toggle="tab" href="#tabc-12" aria-controls="tabc-12" role="tab" aria-selected="false">XÁC NHẬN GẦN NHẤT</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane active" id="tabc-11" aria-labelledby="tab-11" role="tabpanel">
+                                                                    <div class="row">
+                                                                        <div class="col-12 col-md-12 block-prize-1">
+                                                                            @include(
+                                                                            'pages.subpages.prize_1',
+                                                                            [
+                                                                            '$item_last' => $item_last ?? [],
+                                                                            ]
+                                                                            )
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /tab-pane -->
+                                                                <div class="tab-pane" id="tabc-12" aria-labelledby="tab-12" role="tabpanel">
+                                                                    <div class="row">
+                                                                        <div class="col-12 col-md-12 block-prize-2">
+                                                                            @include(
+                                                                            'pages.subpages.prize_2',
+                                                                            [
+                                                                            '$item_bet' => $item_bet ?? [],
+                                                                            ]
+                                                                            )
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /tab-pane -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-3">
+                                                        <img style="width:100%" class="img-fluid" src="{{ asset('images/make.jpg') }}" alt="">
+                                                    </div>
+                                                </div><!-- /tab-pane -->
  
                                             </div>
                                         </div>
@@ -299,7 +296,7 @@
         <div class="modal-dialog modal-dialog-centered modal-md create-project-id-modal" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="projectModal">IMPORTAR</h4>
+                    <h4 class="modal-title" id="projectModal">Số Lượng Đơn Xuất</h4>
                 </div>
                 <div class="modal-body">
                     <form id="form-bet" action="{{ route('form_bet') }}" method="POST">
@@ -322,34 +319,34 @@
                         <div class="row mb-2">
                             <div class="col-12 col-sm-12">
                                 <div class="row">
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="20" class="btn-value btn btn-outline-primary">R$ 20</button></div>
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="30" class="btn-value btn btn-outline-primary">R$ 30</button></div>
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="50" class="btn-value btn btn-outline-primary">R$ 50</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="20.000" class="btn-value btn btn-outline-primary">20.000</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="30.000" class="btn-value btn btn-outline-primary">30.000</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="50.000" class="btn-value btn btn-outline-primary">50.000</button></div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-12 col-sm-12">
                                 <div class="row">
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="200" class="btn-value btn btn-outline-primary">R$ 200</button></div>
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="300" class="btn-value btn btn-outline-primary">R$ 300</button></div>
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="500" class="btn-value btn btn-outline-primary">R$ 500</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="200.000" class="btn-value btn btn-outline-primary">200.000</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="300.000" class="btn-value btn btn-outline-primary">300.000</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="500.000" class="btn-value btn btn-outline-primary">500.000</button></div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-12 col-sm-12">
                                 <div class="row">
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="2.000" class="btn-value btn btn-outline-primary">R$ 2.000</button></div>
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="3.000" class="btn-value btn btn-outline-primary">R$ 3.000</button></div>
-                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="5.000" class="btn-value btn btn-outline-primary">R$ 5.000</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="2.000.000" class="btn-value btn btn-outline-primary">2.000.000</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="3.000.000" class="btn-value btn btn-outline-primary">3.000.000</button></div>
+                                    <div class="col-4 col-sm-4 text-center"><button type="button" data-value="5.000.000" class="btn-value btn btn-outline-primary">5.000.000</button></div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-3 mb-1">
                             <div class="col-12 col-sm-12 text-right">
-                                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-outline-primary mr-2">CANCELAR</button>
-                                <button type="button" id="btn-confirm" class="btn btn-primary">CONFIRMAR</button>
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-outline-primary mr-2">HUỶ</button>
+                                <button type="button" id="btn-confirm" class="btn btn-primary">XÁC NHẬN</button>
                             </div>
                         </div>
                     </form>
@@ -368,13 +365,13 @@
                           <div class="card-body p-1">
                               <div class="row">
                                   <div class="col-12 col-sm-4"><img class="card-img-top" src="{{ asset('images/thantai.webp') }}" alt=""></div>
-                                  <div class="col-12 col-sm-8"><h5 class="card-title mt-2" style="color:#E42728">Parabéns por receber um envelope de dinheiro da sorte no valor de R$ {{ number_format($user->prize_amount) }}</h5></div>
+                                  <div class="col-12 col-sm-8"><h5 class="card-title mt-2" style="color:#E42728">Chúc mừng bạn đã nhận được lì xì trị giá {{ number_format($user->prize_amount) }} VNĐ</h5></div>
                               </div>
                              <div class="row mt-2">
                             <div class="col-12 col-sm-12">
                              <div class="form-check">
                                 <input type="checkbox" style="margin-top: 7px;" name="close" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Desativar a exibição de notificações</label>
+                                <label class="form-check-label" for="exampleCheck1">Tắt hiển thị thông báo</label>
                               </div>
                               </div>
                               </div>
@@ -443,7 +440,7 @@
                     // times = 180;
                     Swal.fire({
                         title: '',
-                        html: 'Iniciar nova sessão',
+                        html: 'Bắt đầu phiên mới',
                         type: 'warning',
                         showCancelButton: false,
                         // showConfirmButton: true,
@@ -488,13 +485,13 @@
 
             $(document).on('click', '.btn-export', function() {
                 $('#hdType').val(1);
-                $("#projectModal").html('EXPORTAR');
+                $("#projectModal").html('Số Lượng Đơn Xuất');
                 $('#create-project-id-modal').modal('show');
                 $('#txt-money').val('');
             });
             $(document).on('click', '.btn-import', function() {
                 $('#hdType').val(2);
-                $("#projectModal").html('IMPORTAR');
+                $("#projectModal").html('Số Lượng Đơn Nhập');
                 $('#create-project-id-modal').modal('show');
                 $('#txt-money').val('');
             });

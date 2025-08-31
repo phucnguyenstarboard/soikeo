@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         $data = $request->all();
 
-        $user = DB::table('user')->where('account', $data['account'])->first();
+        $user = DB::table('user')->where('account', $data['account'])->where('role', 'user')->first();
         if (empty($user)) {
             $ip = $this->getIPAddress();
             DB::table('user')->insert([
@@ -50,7 +50,7 @@ class LoginController extends Controller
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Registro bem-sucedido',
+                    'text'  => 'Đăng ký thành công',
                     'type'  => 'success',
                 ]
             ], 200);
@@ -59,7 +59,7 @@ class LoginController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'O nome da conta já existe',
+                'text'  => 'Tên tài khoản đã tồn tại',
                 'type'  => 'warning',
             ]
         ], 422);
@@ -106,7 +106,7 @@ class LoginController extends Controller
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Login realizado com sucesso!',
+                    'text'  => 'Đăng nhập thành công',
                     'type'  => 'success',
                 ]
             ], 200);
@@ -115,7 +115,7 @@ class LoginController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'Credenciais inválidas. Verifique seus dados e tente novamente.',
+                'text'  => 'Tên tài khoản hoặc mật khẩu không đúng',
                 'type'  => 'warning',
             ]
         ], 422);

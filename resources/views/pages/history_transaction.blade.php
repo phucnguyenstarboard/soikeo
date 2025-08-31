@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Histórico de transações</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Lịch sử giao dịch</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -36,7 +35,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -90,7 +89,7 @@
                                     <h4 class="card-title">
                                         <div class="heading-elements visible mb-1">
                                             <ul class="list-inline mb-0">
-                                                <li class="align-middle"><a data-action="collapse">Filtrar <i class="feather icon-chevrons-up"></i></a></li>
+                                                <li class="align-middle"><a data-action="collapse">Tìm kiếm <i class="feather icon-chevrons-up"></i></a></li>
                                             </ul>
                                         </div>
                                     </h4>
@@ -102,17 +101,34 @@
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-12 col-sm-4 col-lg-3">
-                                                        <label for="s-ordered_date_s">Dia</label>
+                                                        <label for="s-ordered_date_s">Ngày</label>
                                                         <fieldset class="form-group">
                                                             <input type="text" class="form-control datepicker" value="{{ date('d/m/Y') }}" placeholder="dd/mm/yyyy" name="s-fromdate">
                                                             <div class="help-block"></div>
                                                         </fieldset>
                                                     </div>
-                                                   
+                                                    <!-- <div class="col-12 col-sm-4 col-lg-3">
+                                                        <label for="s-ordered_date_s">Đến ngày</label>
+                                                        <fieldset class="form-group">
+                                                            <input type="text" class="form-control datepicker" value="{{ date('d/m/Y') }}" placeholder="dd/mm/yyyy" name="s-todate">
+                                                            <div class="help-block"></div>
+                                                        </fieldset>
+                                                    </div> -->
+                                                    <div class="col-12 col-sm-4 col-lg-3">
+                                                        <label for="s-m_user_id">Mã giao dịch</label>
+                                                        <fieldset class="">
+                                                            <input type="text" class="form-control" value="" name="s-code">
+                                                            <!-- <select class="form-control" id="" name="s-status">
+                                                                <option value="0">Tất cả trạng thái</option>
+                                                                <option value="1">Thắng cược</option>
+                                                                <option value="2">Thua cược</option>
+                                                            </select> -->
+                                                        </fieldset>
+                                                    </div>
                                                     <div class="col-12 col-sm-4 col-lg-3">
                                                         <div class="d-flex flex-sm-row flex-column justify-content-start mt-2">
-                                                            <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1 waves-effect waves-light">Filtrar</button>
-                                                            <button type="reset" class="btn btn-outline-warning mb-1 mb-sm-0 mr-0 mr-sm-1 reset waves-effect waves-light">Limpar</button>
+                                                            <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1 waves-effect waves-light">Tìm kiếm</button>
+                                                            <button type="reset" class="btn btn-outline-warning mb-1 mb-sm-0 mr-0 mr-sm-1 reset waves-effect waves-light">Nhập lại</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -223,11 +239,11 @@
                 scrollX: true,
                 columnDefs: [{
                         targets: 0,
-                        width: 120
+                        width: 150
                     },
                     {
                         targets: 1,
-                        width: 150
+                        width: 120
                     },
                     {
                         targets: 2,
@@ -236,7 +252,19 @@
                     {
                         targets: 3,
                         width: 140
-                    }                  
+                    },
+                    {
+                        targets: 4,
+                        width: 140
+                    },
+                    {
+                        targets: 5,
+                        width: 120
+                    },
+                    {
+                        targets: 6,
+                        width: 190
+                    },
                 ],
             });
         }

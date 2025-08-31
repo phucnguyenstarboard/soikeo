@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Notificação</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Thông báo</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -35,7 +34,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -88,7 +87,7 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h1>Notificação</h1>
+                                            <h1>Thông báo</h1>
                                             @php
                                               $is_data = false;
                                             @endphp
@@ -116,9 +115,9 @@
                                                         <div class="media-body">
                                                             <p class="mb-0 text-truncate-2">
                                                                 @if((int)$item->status === 2)
-                                                                <span style="color: #ff0000;font-weight: 700;">Pedido de saque rejeitado</span>
+                                                                <span style="color: #ff0000;font-weight: 700;">Lệnh rút tiền bị từ chối</span>
                                                                 @else
-                                                                <span style="color: #1e8c4f;font-weight: 700;">Saques aprovada</span>
+                                                                <span style="color: #1e8c4f;font-weight: 700;">Lệnh rút tiền được duyệt</span>
                                                                 @endif
                                                                  {{ !empty($item->note) ? ': '.$item->note : '' }}
                                                             </p>
@@ -135,7 +134,7 @@
                                                 @endforeach
 
                                                 @if(!$is_data)
-                                                 <p style="text-align: center;">Nenhuma notificação</p>
+                                                 <p style="text-align: center;">Không có thông báo</p>
                                                 @endif
 
                                             </ul>

@@ -11,8 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE VIP - Atualizar senha</title>
-    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+    <title>THE RICE - Trang chủ</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
@@ -35,7 +34,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -88,16 +87,16 @@
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h1><i class="feather icon-edit"></i> Atualizar senha</h1>
+                                            <h1><i class="feather icon-edit"></i> CÀI ĐẶT MẬT KHẨU QUỸ</h1>
                                             <form action="{{ route('post_password_fund') }}" id="form-profile" method="POST" novalidate>
                                                 @csrf
                                                 @if(!empty($user->fund_password))
                                                 <div class="form-group row mb-1 mt-2">
-                                                    <label for="staticEmail" class="col-5 col-sm-5 col-xl-4 col-form-label">Senha atual</label>
+                                                    <label for="staticEmail" class="col-5 col-sm-5 col-xl-4 col-form-label">Mật khẩu cũ</label>
                                                     <div class="col-7 col-sm-7 col-xl-8">
                                                         <div class="input-group" id="show_hide_password_3">
                                                             <input required
-                                                                data-validation-required-message="Isso é necessário" placeholder="Digite sua senha atual" type="password" name="fund_password_old" maxlength="255" class="form-control" value="">
+                                                                data-validation-required-message="Vui lòng nhập mật khẩu cũ" type="password" name="fund_password_old" maxlength="255" class="form-control" value="">
                                                             <div class="input-group-append">
                                                                 <button class="btn btn-outline-secondary" type="button"><i class="fa fa-eye-slash dark"></i></button>
                                                             </div>
@@ -108,11 +107,11 @@
                                                 </div>
                                                 @endif
                                                 <div class="form-group row mb-1 mt-2">
-                                                    <label for="staticEmail" class="col-5 col-sm-5 col-xl-4 col-form-label">Nova Senha</label>
+                                                    <label for="staticEmail" class="col-5 col-sm-5 col-xl-4 col-form-label">Mật khẩu mới</label>
                                                     <div class="col-7 col-sm-7 col-xl-8">
                                                         <div class="input-group" id="show_hide_password">
                                                             <input required
-                                                                data-validation-required-message="Isso é necessário" placeholder="Digite sua nova senha" type="password" name="fund_password" maxlength="255" class="form-control" value="">
+                                                                data-validation-required-message="Vui lòng nhập mật khẩu" type="password" name="fund_password" maxlength="255" class="form-control" value="">
                                                             <div class="input-group-append">
                                                                 <button class="btn btn-outline-secondary" type="button"><i class="fa fa-eye-slash dark"></i></button>
                                                             </div>
@@ -122,11 +121,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row mb-2 mt-1">
-                                                    <label for="staticEmail" class="col-5 col-sm-5 col-xl-4 col-form-label">Confirme sua senha</label>
+                                                    <label for="staticEmail" class="col-5 col-sm-5 col-xl-4 col-form-label">Xác nhận mật khẩu</label>
                                                     <div class="col-7 col-sm-7 col-xl-8">
                                                         <div class="input-group" id="show_hide_password_2">
                                                             <input required
-                                                                data-validation-required-message="Isso é necessário" placeholder="Confirme sua nova senha" type="password" name="fund_password_confirm" maxlength="255" class="form-control" value="">
+                                                                data-validation-required-message="Vui lòng nhập xác nhận mật khẩu" type="password" name="fund_password_confirm" maxlength="255" class="form-control" value="">
                                                             <div class="input-group-append">
                                                                 <button class="btn btn-outline-secondary" type="button"><i class="fa fa-eye-slash dark"></i></button>
                                                             </div>
@@ -136,7 +135,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="text-center"><button type="submit" class="btn btn-primary">Salvar senha</button></div>
+                                                <div class="text-center"><button type="submit" class="btn btn-primary">XÁC NHẬN</button></div>
                                             </form>
                                         </div>
                                     </div>

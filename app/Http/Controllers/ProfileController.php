@@ -45,7 +45,7 @@ class ProfileController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'Informações atualizadas com sucesso',
+                'text'  => 'Cập nhật thông tin thành công',
                 'type'  => 'success',
             ],
         ], 200);
@@ -65,32 +65,11 @@ class ProfileController extends Controller
             'note' => 'required',
         ]);
         $data = $request->all();
-        $amount = (float)$data['amount'];
-        if($amount < 20){
-            return response()->json([
-                'message' => [
-                    'title' => '',
-                    'text'  => 'Valor do depósito é inválido. Mínimo: R$ 20',
-                    'type'  => 'warning',
-                ],
-            ], 422);
-        }
-
-        if($amount > 5000){
-            return response()->json([
-                'message' => [
-                    'title' => '',
-                    'text'  => 'Valor do depósito é inválido. Máximo: R$ 5000',
-                    'type'  => 'warning',
-                ],
-            ], 422);
-        }
-
         $user = Auth::user();
         $ip = $this->getIPAddress();
         DB::table('deposit_history')->insert([
             'user_id' => $user->id,
-            'amount' => $amount,
+            'amount' => $data['amount'],
             'name' => $data['name'],
             'note' => $data['note'],
             'ip' => $ip,
@@ -101,7 +80,7 @@ class ProfileController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'Solicitação de depósito enviada com sucesso.',
+                'text'  => 'Đã yêu cầu nạp tiền thành công.',
                 'type'  => 'success',
             ],
         ], 200);
@@ -126,34 +105,21 @@ class ProfileController extends Controller
         $balance = (float)$user->balance;
         $amount = (float)$data['amount'];
 
-
-
-        if($amount < 100){
+        if ($balance < $amount) {
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Valor de Saque é inválido. Mínimo: R$ 100',
+                    'text'  => 'Số dư không đủ rút tiền.',
                     'type'  => 'warning',
-                ],
+                ]
             ], 422);
-        }        
-
-        if($amount > $balance){
-            return response()->json([
-                'message' => [
-                    'title' => '',
-                    'text'  => 'Valor de Saque é inválido. Máximo: R$ '.number_format($user->balance, 0, ',', ''),
-                    'type'  => 'warning',
-                ],
-           ], 422);
-
         }
 
         if (empty($user->fund_password)) {
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Você não definiu uma senha do fundo.',
+                    'text'  => 'Bạn chưa cài đặt mật khẩu quỹ.',
                     'type'  => 'warning',
                 ],
             ], 200);
@@ -164,7 +130,7 @@ class ProfileController extends Controller
                 return response()->json([
                     'message' => [
                         'title' => '',
-                        'text'  => 'Senha de fundo incorreta',
+                        'text'  => 'Mật khẩu quỹ không đúng',
                         'type'  => 'warning',
                     ],
                 ], 200);
@@ -175,7 +141,7 @@ class ProfileController extends Controller
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Você não configurou uma conta de saque.',
+                    'text'  => 'Bạn chưa cài đặt tài khoản rút tiền.',
                     'type'  => 'warning',
                 ],
             ], 200);
@@ -190,7 +156,7 @@ class ProfileController extends Controller
         $ip = $this->getIPAddress();
         DB::table('withdraw_history')->insert([
             'user_id' => $user->id,
-            'amount' => $amount,
+            'amount' => $data['amount'],
             'account_name' => $user->account_name,
             'account_number' => $user->account_number,
             'bank_name' => $user->bank_name,
@@ -202,7 +168,7 @@ class ProfileController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'A solicitação de saque está sendo processada. Aguarde um momento. Caso tenha alguma dúvida, entre em contato com o atendimento ao cliente para obter suporte.',
+                'text'  => 'Yêu cầu rút tiền đang được xử lý, Quý khách vui lòng chờ đợi trong giây lát. Nếu có thắc mắc xin liên hệ chăm sóc khách hàng để được hỗ trợ.',
                 'type'  => 'success',
             ],
         ], 200);
@@ -264,16 +230,14 @@ class ProfileController extends Controller
         $to = date('Y-m-d 23:59:59');
         $deposit = DB::table('deposit_history')
         ->select(
-            "deposit_history.id",
-            DB::raw("'1' AS type"),
+             DB::raw("'Nạp tiền' AS type"),
             "deposit_history.amount",
             "deposit_history.status",
             "deposit_history.time_created"
         )->where('deposit_history.user_id', $user->id);
         $item_bet = DB::table('withdraw_history')
         ->select(
-             "withdraw_history.id",
-            DB::raw("'0' AS type"),
+            DB::raw("'Rút tiền' AS type"),
             "withdraw_history.amount",
             "withdraw_history.status",
             "withdraw_history.time_created"
@@ -300,16 +264,14 @@ class ProfileController extends Controller
 
         $deposit = DB::table('deposit_history')
         ->select(
-            "deposit_history.id",
-            DB::raw("'1' AS type"),
+            DB::raw("'Nạp tiền' AS type"),
             "deposit_history.amount",
             "deposit_history.status",
             "deposit_history.time_created"
         )->where('deposit_history.user_id', $user->id);
         $data_list = DB::table('withdraw_history')
         ->select(
-            "withdraw_history.id",
-            DB::raw("'0' AS type"),
+            DB::raw("'Rút tiền' AS type"),
             "withdraw_history.amount",
             "withdraw_history.status",
             "withdraw_history.time_created"
@@ -324,7 +286,56 @@ class ProfileController extends Controller
     public function bank()
     {
         $user = Auth::user();
-        $banks = DB::table('banks')->orderBy('bank_name', 'asc')->get();
+        $banks = [
+            'ABBANK' => 'ABBANK',
+            'ACBBANK' => 'ACBBANK',
+            'AGRIBANK' => 'AGRIBANK',
+            'ANZBANK' => 'ANZBANK',
+            'BACABANK' => 'BACABANK',
+            'BAOVIETBANK' => 'BAOVIETBANK',
+            'BANGKOKBANK' => 'BANGKOKBANK',
+            'BIDV' => 'BIDV',
+            'BFCE' => 'BFCE',
+            'BIDC' => 'BIDC',
+            'BNK' => 'BNK',
+            'CBBANK' => 'CBBANK',
+            'CCB' => 'CCB',
+            'CIMB' => 'CIMB',
+            'CITIBANK' => 'CITIBANK',
+            'CTBC' => 'CTBC',
+            'COOPBANK' => 'CO-OPBANK',
+            'DONGABANK' => 'DONGABANK',
+            'EXIMBANK' => 'EXIMBANK',
+            'HDBANK' => 'HDBANK',
+            'HONGLEONGBANK' => 'HONGLEONGBANK',
+            'LIENVIETPOSTBANK' => 'LIENVIETPOSTBANK',
+            'LBBANK' => 'LBBANK',
+            'KIENLONGBANK' => 'KIENLONGBANK',
+            'MBBANK' => 'MBBANK',
+            'MSBBANK' => 'MSBBANK',
+            'NAMABANK' => 'NAMABANK',
+            'NCB BANK' => 'NCB BANK',
+            'OCB BANK' => 'OCB BANK',
+            'OCEANBANK' => 'OCEANBANK',
+            'PVBANK' => 'PVBANK',
+            'SACOMBANK' => 'SACOMBANK',
+            'SAIGONBANK' => 'SAIGONBANK',
+            'SCBBANK' => 'SCBBANK',
+            'SEABANK' => 'SEABANK',
+            'SHBBANK' => 'SHBBANK',
+            'SHIHANBANK' => 'SHIHANBANK',
+            'TECHCOMBANK' => 'TECHCOMBANK',
+            'TPBANK' => 'TPBANK',
+            'VIBBANK' => 'VIBBANK',
+            'VIETABANK' => 'VIETABANK',
+            'VIETBANK' => 'VIETBANK',
+            'VIETCAPITALBANK' => 'VIETCAPITALBANK',
+            'VIETCOMBANK' => 'VIETCOMBANK',
+            'VIETINBANK' => 'VIETINBANK',
+            'VIKKIBANK' => 'VIKKIBANK',
+            'VPBANK' => 'VPBANK',
+            'WOORIBANK' => 'WOORIBANK',
+        ];
         return view('pages.bank', compact('user', 'banks'));
     }
 
@@ -352,7 +363,7 @@ class ProfileController extends Controller
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'Você não definiu uma senha do fundo.',
+                    'text'  => 'Bạn chưa cài đặt mật khẩu quỹ.',
                     'type'  => 'warning',
                 ],
             ], 200);
@@ -369,7 +380,7 @@ class ProfileController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'Atualização de conta de saque bem-sucedida.',
+                'text'  => 'Cập nhật tài khoản rút tiền thành công.',
                 'type'  => 'success',
             ],
         ], 200);
@@ -396,7 +407,7 @@ class ProfileController extends Controller
                 return response()->json([
                     'message' => [
                         'title' => '',
-                        'text'  => 'A senha atual está incorreta.',
+                        'text'  => 'Mật khẩu cũ không chính xác.',
                         'type'  => 'warning',
                     ],
                 ], 200);
@@ -407,7 +418,7 @@ class ProfileController extends Controller
             return response()->json([
                 'message' => [
                     'title' => '',
-                    'text'  => 'A senha de confirmação está incorreta.',
+                    'text'  => 'Mật khẩu xác nhận không đúng.',
                     'type'  => 'warning',
                 ],
             ], 200);
@@ -418,7 +429,7 @@ class ProfileController extends Controller
         return response()->json([
             'message' => [
                 'title' => '',
-                'text'  => 'Senha atualizada com sucesso.',
+                'text'  => 'Cập nhật mật khẩu quỹ thành công.',
                 'type'  => 'success',
             ],
         ], 200);

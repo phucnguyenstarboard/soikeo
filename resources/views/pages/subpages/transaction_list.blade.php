@@ -7,10 +7,13 @@
                         <table class="table table-striped table-bordered t1-datatable">
                             <thead>
                                 <tr>
-                                    <th class="text-center">Tempo de transação</th>                                    
-                                    <th class="text-center">Tipo de transação</th>
-                                    <th class="text-center">Status</th>
-                                    <th class="text-center">Valor da transação</th>
+                                    <th class="text-center">Thời gian giao dịch</th>
+                                    <th class="text-center">Mã tiền giao dịch</th>
+                                    <th class="text-center">Loại xổ số</th>
+                                    <th class="text-center">Số dư trước</th>
+                                    <th class="text-center">Loại giao dịch</th>
+                                    <th class="text-center">Trạng thái</th>
+                                    <th class="text-center">Số tiền giao dịch</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,11 +38,14 @@
 
                                 @endphp
                                 @if(strtotime($from) < strtotime($d_update) && strtotime($to)> strtotime($d_update))
-                                    <tr>                                        
-                                        <td class="text-center">{{ $d_update }}</td>                                        
-                                        <td class="text-center">{{ (int)$item->type === 0 ? 'Saque' : 'Depósito' }}</td>
-                                        <td class="text-center">{{ $item->status == 1 ? 'Aprovado' : ($item->status == 2 ? 'Recusar' : 'Pendente') }}</td>
-                                        <td class="text-center">R$ {{ number_format($item->amount) }}</td>
+                                    <tr>
+                                        <td class="text-center">{{ $d_update }}</td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center">{{ $item->type }}</td>
+                                        <td class="text-center">{{ $item->status == 1 ? 'Đã duyệt' : ($item->status == 2 ? 'Đã từ chối' : 'Chờ duyệt') }}</td>
+                                        <td class="text-center">{{ number_format($item->amount) }} VND</td>
                                     </tr>
                                     @endif
                                     @endforeach
