@@ -47,14 +47,7 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
-            $gao1 = ['name' => 'Gạo Tấm Gò Công 3,5 kg', 'weight' => '3.5kg', 'price' => '117.000'];
-            $gao2 = ['name' => 'Gạo Tấm Sóc Trăng Vinafood1', 'weight' => '3.5kg', 'price' => '108.000'];
-            $gao3 = ['name' => 'Gạo Mười Hương Vinafood1', 'weight' => '3.5kg', 'price' => '140.000'];
-            $gao4 = ['name' => 'Gạo Nam Hương Vinafood1', 'weight' => '3.5kg', 'price' => '93.000'];
-            $list_gao[] = $gao1;
-            $list_gao[] = $gao2;
-            $list_gao[] = $gao3;
-            $list_gao[] = $gao4;
+            $list_gao = DB::table('category_vn')->where('is_delete', 0)->orderBy('id', 'asc')->get();
 
             $item_new = DB::table('session')->orderBy('id', 'desc')->first();
 
