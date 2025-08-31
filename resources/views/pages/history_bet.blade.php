@@ -329,7 +329,7 @@
                 columnDefs: [
                     {
                         targets: 0,
-                        width: 80
+                        width: 60
                     },
                     {
                         targets: 1,
@@ -341,15 +341,15 @@
                     },
                     {
                         targets: 3,
-                        width: 75
+                        width: 80
                     },
                     {
                         targets: 4,
-                        width: 65
+                        width: 80
                     },
                     {
                         targets: 5,
-                        width: 270
+                        width: 210
                     },
                     {
                         targets: 6,
@@ -361,7 +361,7 @@
                     },
                     {
                         targets: 8,
-                        width: 55
+                        width: 100
                     },
                 ],
             });

@@ -8,7 +8,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">No.</th>
-                                    <th class="text-center">手术</th>
+                                    <th class="text-center">操作</th>
                                     <th class="text-center">帐户名称</th>
                                     <th class="text-center">平衡</th>
                                     <th class="text-center">报名期限</th>

@@ -7,8 +7,8 @@
                         <table class="table table-striped table-bordered t2-datatable">
                             <thead>
                                 <tr>
-                                    <th class="text-center">No.</th>
-                                    <th class="text-center">手术</th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">操作</th>
                                     <th class="text-center">帐户名称</th>
                                     <th class="text-center">银行名称</th>
                                     <th class="text-center">银行分行</th>

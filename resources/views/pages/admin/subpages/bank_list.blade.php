@@ -7,7 +7,7 @@
                         <table class="table table-striped table-bordered t2-datatable" style="width: 100%;">
                             <thead>
                                 <tr>                                    
-                                    <th class="text-center">商品ID</th>
+                                    <th class="text-center">ID</th>
                                     <th class="text-center">操作</th>
                                     <th class="text-center">银行名称</th>
                                     <th class="text-center">已移除？</th>

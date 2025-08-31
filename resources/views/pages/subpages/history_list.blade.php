@@ -7,7 +7,7 @@
                         <table class="table table-striped table-bordered t1-datatable">
                             <thead>
                                 <tr>
-                                    <th class="text-center">手术</th>
+                                    <th class="text-center">操作</th>
                                     <th class="text-center">帐户名称</th>
                                     <th class="text-center">用户名</th>
                                     <th class="text-center">投注结果</th>
