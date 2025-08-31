@@ -75,7 +75,7 @@
                                             <div class="col-8 col-md-6 text-right">Número de ciclos : <span class="so_ky">{{ date('Ymd', strtotime($item_new->time_created)) }} - {{ $item_new->session_id }}</span></div>
                                         </div>
                                         <div class="row mt-1">
-                                            <div class="col-6 col-md-6 d-md-none d-flex">Saldo Total : <span class="text-balance"> R$ {{ number_format($user->balance) }}</span></div>
+                                            <div class="col-6 col-md-6 d-md-none d-flex">Saldo Total : R$ <span class="text-balance"> {{ number_format($user->balance) }}</span></div>
                                             <div class="col-6 col-md-12 text-right timer">
                                                 <span class="txt-hour">00</span>
                                                 <span class="txt-minute">{{ $minute < 10 ? '0'.$minute : $minute }}</span>
