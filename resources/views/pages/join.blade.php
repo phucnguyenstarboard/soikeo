@@ -72,7 +72,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-4 col-md-6">ID : <span class="session_id">{{ $item->session_id }}</span></div>
-                                            <div class="col-8 col-md-6 text-right">Número de ciclos : <span class="so_ky">{{ date('Ymd', strtotime($item_new->time_created)) }} - {{ $item_new->session_id }}</span></div>
+                                            <div class="col-8 col-md-6 text-right">ID Ciclos : <span class="so_ky">{{ date('Ymd', strtotime($item_new->time_created)) }} - {{ $item_new->session_id }}</span></div>
                                         </div>
                                         <div class="row mt-1">
                                             <div class="col-6 col-md-6 d-md-none d-flex">Saldo Total : R$<span style="margin-left: 5px" class="text-balance">{{ number_format($user->balance) }}</span></div>
@@ -137,7 +137,7 @@
                                                                         <div class="card-body">
                                                                             <div class="row">
                                                                                 <div class="col-5 col-md-3 col-lg-3 col-xl-3 text-center">
-                                                                                    <img class="fluid-img" src="https://admin.sclmvip.club/uploads/category/{{ $value->image }}" alt="">
+                                                                                    <img style="width: 131px" class="fluid-img" src="https://admin.sclmvip.club/uploads/category/{{ $value->image }}" alt="">
                                                                                 </div>
                                                                                 <div class="col-7 col-md-9 col-lg-9 col-xl-9">
                                                                                     <h3>{{ $value->title }}</h3>
