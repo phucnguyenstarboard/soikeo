@@ -108,86 +108,16 @@
                                                 <div class="col-12 col-md-12 block-room">
                                                     <ul class="nav nav-tabs row" role="tablist">
                                                         <li class="nav-item col-6 col-md-6 text-center">
-                                                            <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tabc-1" aria-controls="tabc-1" role="tab" aria-selected="true"><span>HẸN HÒ</span></a>
+                                                            <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tabc-1" aria-controls="tabc-1" role="tab" aria-selected="true"><span>PHÒNG 1</span></a>
                                                         </li>
                                                         <li class="nav-item col-6 col-md-6 text-center">
-                                                            <a class="nav-link" id="tab-2" data-toggle="tab" href="#tabc-2" aria-controls="tabc-2" role="tab" aria-selected="false"><span>PHÒNG 1</span></a>
+                                                            <a class="nav-link" id="tab-2" data-toggle="tab" href="#tabc-2" aria-controls="tabc-2" role="tab" aria-selected="false"><span>HẸN HÒ</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="tab-content">
-											     <div class="tab-pane active" id="tabc-1" aria-labelledby="tab-1" role="tabpanel">
-                                                    
-                                                    <div class="row">
-                                                        
-                                                          <div class="col-12 col-sm-6 mx-auto">
-                                                              <div class="row">
-                                                                <div class="col-6 col-md-6 text-center">
-                                                                    <button type="button" class="btn-export btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC A</button>
-                                                                </div>
-                                                                <div class="col-6 col-md-6 text-center">
-                                                                    <button type="button" class="btn-import btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC B</button>
-                                                                </div>
-                                                            </div>
-                                                          </div>
-                                                    </div>    
-                                                    <div style="display:none" class="row mt-1">
-                                                        
-                                                          <div class="col-12 col-sm-6 mx-auto">
-                                                              <div class="row">
-                                                                <div class="col-6 col-md-6 text-center">
-                                                                    <button type="button" class="btn-export btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC C</button>
-                                                                </div>
-                                                                <div class="col-6 col-md-6 text-center">
-                                                                    <button type="button" class="btn-import btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC D</button>
-                                                                </div>
-                                                            </div>
-                                                          </div>
-                                                    </div>   
-                                                    <div class="row mt-2">
-                                                          <div class="col-12 col-sm-12 text-center">
-                                                            <a href="{{ route('history_bet') }}" class="btn btn-primary btn-join glow mb-0 mb-sm-0 mr-0">LỊCH SỬ THAM GIA</a>
-                                                          </div>
-                                                    </div>      
-                                                    <div class="row mt-2 pb-5">
-                                                        
-                                                          <div class="col-12 col-sm-6 mx-auto">
-                                                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                                                  <div class="carousel-inner">
-                                                                    <div class="carousel-item active">
-                                                                      <img class="d-block w-100" src="{{ asset('images/photo_1.jpg') }}" alt="First slide">
-                                                                    </div>
-                                                                    <div class="carousel-item">
-                                                                      <img class="d-block w-100" src="{{ asset('images/photo_2.jpg') }}" alt="Second slide">
-                                                                    </div>
-                                                                    <div class="carousel-item">
-                                                                      <img class="d-block w-100" src="{{ asset('images/photo_3.jpg') }}" alt="Third slide">
-                                                                    </div>
-                                                                    <div class="carousel-item">
-                                                                      <img class="d-block w-100" src="{{ asset('images/photo_4.jpg') }}" alt="Third slide">
-                                                                    </div>
-                                                                     <div class="carousel-item">
-                                                                      <img class="d-block w-100" src="{{ asset('images/photo_5.jpg') }}" alt="Third slide">
-                                                                    </div>
-                                                                     <div class="carousel-item">
-                                                                      <img class="d-block w-100" src="{{ asset('images/photo_6.jpg') }}" alt="Third slide">
-                                                                    </div>
-                                                                  </div>
-                                                                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                                    <span class="sr-only">Previous</span>
-                                                                  </a>
-                                                                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                                    <span class="sr-only">Next</span>
-                                                                  </a>
-                                                                </div>
-                                                              
-                                                          </div>
-                                                    </div>
-                                                </div><!-- /tab-pane -->
-                                                <div class="tab-pane" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
+                                                  <div class="tab-pane active" id="tabc-1" aria-labelledby="tab-1" role="tabpanel">
                                                     <div class="row">
                                                         <div class="col-12 col-md-12 col-xl-6 list_gao">
                                                             
@@ -274,6 +204,77 @@
                                                         <img style="width:100%" class="img-fluid" src="{{ asset('images/make.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- /tab-pane -->
+											    <div class="tab-pane" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
+                                                    
+                                                    <div class="row">
+                                                        
+                                                          <div class="col-12 col-sm-6 mx-auto">
+                                                              <div class="row">
+                                                                <div class="col-6 col-md-6 text-center">
+                                                                    <button type="button" class="btn-export btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC A</button>
+                                                                </div>
+                                                                <div class="col-6 col-md-6 text-center">
+                                                                    <button type="button" class="btn-import btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC B</button>
+                                                                </div>
+                                                            </div>
+                                                          </div>
+                                                    </div>    
+                                                    <div style="display:none" class="row mt-1">
+                                                        
+                                                          <div class="col-12 col-sm-6 mx-auto">
+                                                              <div class="row">
+                                                                <div class="col-6 col-md-6 text-center">
+                                                                    <button type="button" class="btn-export btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC C</button>
+                                                                </div>
+                                                                <div class="col-6 col-md-6 text-center">
+                                                                    <button type="button" class="btn-import btn btn-gao glow mb-0 mb-sm-0 mr-0 mr-sm-1">ĐIỀU ƯỚC D</button>
+                                                                </div>
+                                                            </div>
+                                                          </div>
+                                                    </div>   
+                                                    <div class="row mt-2">
+                                                          <div class="col-12 col-sm-12 text-center">
+                                                            <a href="{{ route('history_bet') }}" class="btn btn-primary btn-join glow mb-0 mb-sm-0 mr-0">LỊCH SỬ THAM GIA</a>
+                                                          </div>
+                                                    </div>      
+                                                    <div class="row mt-2 pb-5">
+                                                        
+                                                          <div class="col-12 col-sm-6 mx-auto">
+                                                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                                                  <div class="carousel-inner">
+                                                                    <div class="carousel-item active">
+                                                                      <img class="d-block w-100" src="{{ asset('images/photo_1.jpg') }}" alt="First slide">
+                                                                    </div>
+                                                                    <div class="carousel-item">
+                                                                      <img class="d-block w-100" src="{{ asset('images/photo_2.jpg') }}" alt="Second slide">
+                                                                    </div>
+                                                                    <div class="carousel-item">
+                                                                      <img class="d-block w-100" src="{{ asset('images/photo_3.jpg') }}" alt="Third slide">
+                                                                    </div>
+                                                                    <div class="carousel-item">
+                                                                      <img class="d-block w-100" src="{{ asset('images/photo_4.jpg') }}" alt="Third slide">
+                                                                    </div>
+                                                                     <div class="carousel-item">
+                                                                      <img class="d-block w-100" src="{{ asset('images/photo_5.jpg') }}" alt="Third slide">
+                                                                    </div>
+                                                                     <div class="carousel-item">
+                                                                      <img class="d-block w-100" src="{{ asset('images/photo_6.jpg') }}" alt="Third slide">
+                                                                    </div>
+                                                                  </div>
+                                                                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                                    <span class="sr-only">Previous</span>
+                                                                  </a>
+                                                                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                                    <span class="sr-only">Next</span>
+                                                                  </a>
+                                                                </div>
+                                                              
+                                                          </div>
+                                                    </div>
+                                                </div><!-- /tab-pane -->
+                                              
  
                                             </div>
                                         </div>
