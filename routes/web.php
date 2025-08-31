@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\BankController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +72,17 @@ Route::post('/user-change-fun-pass', [UserController::class, 'changeFunPass'])->
 Route::post('/user-balance', [UserController::class, 'updateBalance'])->name('user_balance');
 Route::post('/user-delete', [UserController::class, 'delete'])->name('user_delete');
 Route::post('/user-prize', [UserController::class, 'prize'])->name('user_prize');
+
+Route::get('/product', [CategoryController::class, 'index'])->name('admin_category');
+Route::get('/product/add', [CategoryController::class, 'add'])->name('admin_category_add');
+Route::post('/insert-product', [CategoryController::class, 'insert'])->name('admin_insert_category');
+Route::get('/product/edit/{id}', [CategoryController::class, 'edit'])->name('admin_category_edit');
+Route::post('/product/edit/{id}', [CategoryController::class, 'update'])->name('admin_category_update');
+Route::post('/product/delete', [CategoryController::class, 'delete'])->name('admin_category_delete');
+
+Route::get('/banks', [BankController::class, 'index'])->name('admin_banks');
+Route::get('/banks/add', [BankController::class, 'add'])->name('admin_banks_add');
+Route::post('/insert-banks', [BankController::class, 'insert'])->name('admin_insert_banks');
+Route::get('/banks/edit/{id}', [BankController::class, 'edit'])->name('admin_banks_edit');
+Route::post('/banks/edit/{id}', [BankController::class, 'update'])->name('admin_banks_update');
+Route::post('/banks/delete', [BankController::class, 'delete'])->name('admin_banks_delete');

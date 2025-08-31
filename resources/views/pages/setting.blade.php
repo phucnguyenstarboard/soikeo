@@ -159,7 +159,7 @@
                                     data-validation-required-message="Vui lòng chọn ngân hàng" class="form-control" id="cbxBank" name="bank_name">
                                     <option value="">Chọn ngân hàng</option>
                                     @foreach ($banks as $key => $value)
-                                    <option {{ $key == $item->bank_name ? 'selected' : '' }} value="{{ $key }}">{{ $value }}</option>
+                                    <option {{ $value->bank_name  == $item->bank_name ? 'selected' : '' }} value="{{ $value->bank_name }}">{{ $value->bank_name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="help-block"></div>

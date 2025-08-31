@@ -188,8 +188,8 @@
                                 <select required
                                     data-validation-required-message="Vui lòng chọn ngân hàng" class="form-control" id="cbxBank" name="bank_name">
                                     <option value="">Chọn ngân hàng</option>
-                                    @foreach ($banks as $key => $value)
-                                    <option value="{{ $key }}">{{ $value }}</option>
+                                     @foreach ($banks as $key => $value)
+                                    <option value="{{ $value->bank_name }}">{{ $value->bank_name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="help-block"></div>
