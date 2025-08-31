@@ -65,11 +65,32 @@ class ProfileController extends Controller
             'note' => 'required',
         ]);
         $data = $request->all();
+        $amount = (float)$data['amount'];
+        if($amount < 20){
+            return response()->json([
+                'message' => [
+                    'title' => '',
+                    'text'  => 'Valor do depósito é inválido. Mínimo: R$ 20',
+                    'type'  => 'warning',
+                ],
+            ], 422);
+        }
+
+        if($amount > 5000){
+            return response()->json([
+                'message' => [
+                    'title' => '',
+                    'text'  => 'Valor do depósito é inválido. Máximo: R$ 5000',
+                    'type'  => 'warning',
+                ],
+            ], 422);
+        }
+
         $user = Auth::user();
         $ip = $this->getIPAddress();
         DB::table('deposit_history')->insert([
             'user_id' => $user->id,
-            'amount' => $data['amount'],
+            'amount' => $amount,
             'name' => $data['name'],
             'note' => $data['note'],
             'ip' => $ip,
@@ -107,7 +128,7 @@ class ProfileController extends Controller
 
 
 
-         if($amount < 100){
+        if($amount < 100){
             return response()->json([
                 'message' => [
                     'title' => '',
@@ -115,7 +136,7 @@ class ProfileController extends Controller
                     'type'  => 'warning',
                 ],
             ], 422);
-        }
+        }        
 
         if($amount > $balance){
             return response()->json([
@@ -303,56 +324,7 @@ class ProfileController extends Controller
     public function bank()
     {
         $user = Auth::user();
-        $banks = [
-            'ABBANK' => 'ABBANK',
-            'ACBBANK' => 'ACBBANK',
-            'AGRIBANK' => 'AGRIBANK',
-            'ANZBANK' => 'ANZBANK',
-            'BACABANK' => 'BACABANK',
-            'BAOVIETBANK' => 'BAOVIETBANK',
-            'BANGKOKBANK' => 'BANGKOKBANK',
-            'BIDV' => 'BIDV',
-            'BFCE' => 'BFCE',
-            'BIDC' => 'BIDC',
-            'BNK' => 'BNK',
-            'CBBANK' => 'CBBANK',
-            'CCB' => 'CCB',
-            'CIMB' => 'CIMB',
-            'CITIBANK' => 'CITIBANK',
-            'CTBC' => 'CTBC',
-            'COOPBANK' => 'CO-OPBANK',
-            'DONGABANK' => 'DONGABANK',
-            'EXIMBANK' => 'EXIMBANK',
-            'HDBANK' => 'HDBANK',
-            'HONGLEONGBANK' => 'HONGLEONGBANK',
-            'LIENVIETPOSTBANK' => 'LIENVIETPOSTBANK',
-            'LBBANK' => 'LBBANK',
-            'KIENLONGBANK' => 'KIENLONGBANK',
-            'MBBANK' => 'MBBANK',
-            'MSBBANK' => 'MSBBANK',
-            'NAMABANK' => 'NAMABANK',
-            'NCB BANK' => 'NCB BANK',
-            'OCB BANK' => 'OCB BANK',
-            'OCEANBANK' => 'OCEANBANK',
-            'PVBANK' => 'PVBANK',
-            'SACOMBANK' => 'SACOMBANK',
-            'SAIGONBANK' => 'SAIGONBANK',
-            'SCBBANK' => 'SCBBANK',
-            'SEABANK' => 'SEABANK',
-            'SHBBANK' => 'SHBBANK',
-            'SHIHANBANK' => 'SHIHANBANK',
-            'TECHCOMBANK' => 'TECHCOMBANK',
-            'TPBANK' => 'TPBANK',
-            'VIBBANK' => 'VIBBANK',
-            'VIETABANK' => 'VIETABANK',
-            'VIETBANK' => 'VIETBANK',
-            'VIETCAPITALBANK' => 'VIETCAPITALBANK',
-            'VIETCOMBANK' => 'VIETCOMBANK',
-            'VIETINBANK' => 'VIETINBANK',
-            'VIKKIBANK' => 'VIKKIBANK',
-            'VPBANK' => 'VPBANK',
-            'WOORIBANK' => 'WOORIBANK',
-        ];
+        $banks = DB::table('banks')->orderBy('bank_name', 'asc')->get();
         return view('pages.bank', compact('user', 'banks'));
     }
 

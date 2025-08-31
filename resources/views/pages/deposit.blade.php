@@ -35,7 +35,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->

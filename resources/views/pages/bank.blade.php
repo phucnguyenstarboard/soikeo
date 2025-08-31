@@ -11,7 +11,7 @@
     <meta name="robots" content="nofollow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>THE RICE - Conta de saque</title>
+    <title>THE VIP - Conta de saque</title>
     <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
@@ -35,7 +35,7 @@
     <!-- BEGIN: Custom CSS-->
 
     <link rel="stylesheet" href="{{ asset('vuexy5.4/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{date('YmdHis')}}">
     <!-- END: Custom CSS-->
 </head>
 <!-- BEGIN: Body-->
@@ -168,7 +168,7 @@
                                     data-validation-required-message="Isso é necessário" class="form-control" id="cbxBank" name="bank_name">
                                     <option value="">Selecione o banco</option>
                                     @foreach ($banks as $key => $value)
-                                    <option {{ $key == $user->bank_name ? 'selected' : '' }} value="{{ $key }}">{{ $value }}</option>
+                                    <option {{ $value->bank_name == $user->bank_name ? 'selected' : '' }} value="{{ $value->bank_name }}">{{ $value->bank_name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="help-block"></div>

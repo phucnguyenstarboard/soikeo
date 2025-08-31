@@ -223,6 +223,10 @@ table.dataTable.table-striped tbody tr:nth-of-type(2n+1).DTFC_NoData {
     .img-home{
         width: 70%;
     }
+
+    #sidebarMenu .nav-link {
+        text-transform: uppercase;
+    }
 }
 
 
