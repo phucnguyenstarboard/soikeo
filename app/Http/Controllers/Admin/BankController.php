@@ -115,7 +115,7 @@ class BankController extends Controller
             'is_delete' => 1,
         ];
         
-        DB::table('category')->where('id', $data['cat_id'])->update($dataUpdate);
+        DB::table('banks')->where('id', $data['cat_id'])->update($dataUpdate);
 
         return response()->json([
             'message' => [
