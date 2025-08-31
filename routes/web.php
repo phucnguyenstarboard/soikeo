@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,49 +17,56 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
-Route::get('tournaments', [AuthController::class, 'tour'])->name('tour')->middleware('auth');
-Route::get('tournaments/{id}', [AuthController::class, 'tourEdit'])->name('tour_edit')->middleware('auth');
-Route::post('tournaments/{id}', [AuthController::class, 'postTourEdit'])->name('edit_tour.post')->middleware('auth');
-Route::get('match/{id}', [AuthController::class, 'matchEdit'])->name('match_edit')->middleware('auth');
-Route::post('match/{id}', [AuthController::class, 'postMatchEdit'])->name('match_edit.post')->middleware('auth');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('info', [AuthController::class, 'info'])->name('info')->middleware('auth');
-Route::post('info', [AuthController::class, 'postInfo'])->name('info.post')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/login', [LoginController::class, 'getLogin'])->name('login');
+Route::get('/login', [LoginController::class, 'getLogin'])->name('login');
+Route::post('/login', [LoginController::class, 'postLogin'])->name('post_login');
+Route::get('/register', [LoginController::class, 'getRegister'])->name('get_register');
+Route::post('/register', [LoginController::class, 'postRegister'])->name('post_register');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/last-session', [HomeController::class, 'lastSession'])->name('last_session');
+Route::post('/form-bet', [HomeController::class, 'postBet'])->name('form_bet');
 
-Route::get('tournaments-add', [AuthController::class, 'tourAdd'])->name('tour_add')->middleware('auth');
-Route::post('tournaments-add', [AuthController::class, 'postTourAdd'])->name('tour_add.post')->middleware('auth');
+Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
+Route::get('/lottery', [AdminController::class, 'lottery'])->name('lottery');
+Route::get('/transaction', [AdminController::class, 'transaction'])->name('transaction');
 
-Route::get('match-add', [AuthController::class, 'matchAdd'])->name('match_add')->middleware('auth');
-Route::post('match-add', [AuthController::class, 'postMatchAdd'])->name('match_add.post')->middleware('auth');
+Route::get('/setting', [AdminController::class, 'setting'])->name('setting');
+Route::get('/bank', [AdminController::class, 'bank'])->name('bank');
+Route::get('/bet', [AdminController::class, 'historyBet'])->name('bet');
+Route::get('/deposit', [AdminController::class, 'deposit'])->name('deposit');
+Route::get('/withdraw', [AdminController::class, 'withdraw'])->name('withdraw');
 
-Route::post('del-match', [AuthController::class, 'postMatchDel'])->name('match_delete.post')->middleware('auth');
+Route::post('/lottery', [AdminController::class, 'postLottery'])->name('post_lottery');
+Route::post('/profile', [AdminController::class, 'postProfile'])->name('post_profile');
 
 
+Route::post('/deposit', [AdminController::class, 'postDeposit'])->name('post_deposit');
+Route::post('/confirm-deposit', [AdminController::class, 'postConfirmDeposit'])->name('confirm_deposit');
 
-Route::get('/', function () {
-    $user = \DB::table('users')->where('id', 1)->first();
-    return view('home', compact('user'));
-});
+Route::post('/withdraw', [AdminController::class, 'postWithdraw'])->name('post_withdraw');
+Route::post('/confirm-withdraw', [AdminController::class, 'postConfirmWithdraw'])->name('confirm_withdraw');
 
-route::get('/detail', [HomeController::class, 'detail'])->name('detail');
 
-route::get('/getSdtjList', [HomeController::class, 'getSdtjList'])->name('getSdtjList');
-route::get('/getWdList', [HomeController::class, 'getWdList'])->name('getWdList');
-route::get('/getAllMatchList', [HomeController::class, 'getAllMatchList'])->name('getAllMatchList');
-route::get('/getBgcList', [HomeController::class, 'getBgcList'])->name('getBgcList');
-route::get('/getBifenList', [HomeController::class, 'getBifenList'])->name('getBifenList');
-route::get('/getQcList', [HomeController::class, 'getQcList'])->name('getQcList');
-route::get('/getSaikuangList', [HomeController::class, 'getSaikuangList'])->name('getSaikuangList');
-route::get('/getGaoBeiList', [HomeController::class, 'getGaoBeiList'])->name('getGaoBeiList');
+Route::post('/setting', [AdminController::class, 'postSetting'])->name('post_setting');
 
-route::get('/getDetailYcChartsInfo', [HomeController::class, 'getDetailYcChartsInfo'])->name('getDetailYcChartsInfo');
-route::get('/getDetailLeftLists', [HomeController::class, 'getDetailLeftLists'])->name('getDetailLeftLists');
+Route::post('/bet', [AdminController::class, 'postHistoryBet'])->name('post_history_bet');
+Route::post('/bet-status', [AdminController::class, 'postStatusBet'])->name('update_status_bet');
 
-route::get('/download', [HomeController::class, 'index'])->name('index');
+Route::post('/history-transaction', [AdminController::class, 'postHistoryTransaction'])->name('post_history_transaction');
+Route::post('/bank', [AdminController::class, 'postBank'])->name('post_bank');
+Route::post('/update-bank', [AdminController::class, 'updateBank'])->name('update_bank');
+Route::post('/password-fund', [AdminController::class, 'postPasswordFund'])->name('post_password_fund');
 
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::post('/user-search', [UserController::class, 'search'])->name('user_search');
+Route::post('/user-profile', [UserController::class, 'profile'])->name('user_profile');
+Route::post('/user-change-pass', [UserController::class, 'changePass'])->name('user_password');
+Route::post('/user-change-fun-pass', [UserController::class, 'changeFunPass'])->name('user_fun_pass');
+Route::post('/user-balance', [UserController::class, 'updateBalance'])->name('user_balance');
+Route::post('/user-delete', [UserController::class, 'delete'])->name('user_delete');
+Route::post('/user-prize', [UserController::class, 'prize'])->name('user_prize');
