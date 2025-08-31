@@ -98,3 +98,12 @@ table.dataTable.table-striped tbody tr:nth-of-type(2n+1).DTFC_NoData {
 .pagination{
     float: right;
 }
+
+@media (max-width: 1400px) {
+    .number span:nth-child(n + 1) {
+        margin-left: 0px;
+    }
+    .number span {
+        padding: 2px 6px;
+    }
+}
