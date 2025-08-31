@@ -1,0 +1,58 @@
+.navbar-header .navbar-brand {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 0;
+}
+.navbar-header .navbar-brand .brand-text {
+    color: rgb(40, 199, 111);
+}
+.horizontal-menu .header-navbar.navbar-brand-center .navbar-header {
+    left: 45%;
+}
+.horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-text {
+    color: rgb(40, 199, 111);
+}
+
+.navbar-header .navbar-brand-version {
+    position: absolute;
+    left: 100px;
+    bottom: 5px;
+    width: 100%;
+}
+.horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand-version {
+    position: absolute;
+    left: 100px;
+    bottom: -5px;
+}
+
+.horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation > li.active > a,
+.horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation > li > .dropdown-menu .active > a {
+	background: rgba(0, 0, 0, 0) linear-gradient(118deg, rgb(40, 199, 111), rgba(40, 199, 111, 0.7)) repeat scroll 0% 0%;
+	box-shadow: rgba(40, 199, 111, 0.7) 0px 0px 10px 1px;
+}
+
+.horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation > li > a {
+    color: #565656;
+}
+
+.menuicon {
+    font-size: 2rem;
+}
+.badge.badge-up.menubadge {
+    top: 3px;
+    right: 40%;
+}
+.menu-button1 {
+    min-width: 212px;
+}
+@media (max-width: 1201px) {
+    .horizontal-layout .header-navbar .navbar-container {
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,109 @@
+.main-menu-content ul.menu-content-lg > li.has-sub,
+.main-menu-content ul.menu-content.master > li.has-sub
+{
+    font-weight: bolder;
+}
+.main-menu-content ul.menu-content-lg > li.has-sub > ul.menu-content > li.nav-item,
+.main-menu-content ul.menu-content.master > li.has-sub > ul.menu-content > li.nav-item {
+    margin-left: 10px;
+    font-size: 1.0rem;
+    font-weight: normal;
+}
+
+body.vertical-layout.vertical-menu-modern .main-menu .navigation .menu-content > li > a > i {
+    margin-right: 10px;
+}
+
+form label.required:after,
+span.required:after
+{
+    color: red;
+    content: " *";
+}
+
+.ui-datepicker{
+    z-index: 10000 !important;
+    position: absolute !important;
+}
+
+.brw-1 {
+    border-right-width: 1px !important;
+}
+
+.counter-value {
+    font-size: 0.8rem;
+}
+
+.counter-txtarea {
+    position: relative;
+    left: 50%;
+}
+
+.mt-05 {
+    margin-top: 0.5rem;
+}
+.list-unit {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+.vs-radio-con .list-check {
+    margin-left: auto;
+    margin-right: auto;
+}
+.vs-checkbox-con .list-check {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+    content: '選択';
+}
+
+.custom-file-input:lang(ja) ~ .custom-file-label::after {
+    content: '選択';
+}
+
+.mv-middle {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.application_reason_display {
+    background-color: #F5F5F1;
+    border: 1px solid #D9D9D9;
+    color: #5F5F5F;
+    padding: 0.7rem 0.7rem;
+    font-size: 0.96rem;
+    font-weight: 400;
+    line-height: 1.25;
+    background-clip: padding-box;
+    border-radius: 5px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+table.dataTable.table-striped.DTFC_Cloned tbody,
+table.dataTable.table-striped tbody tr:nth-of-type(2n+1).DTFC_NoData {
+    background-color: transparent;
+}
+
+.swal2-container.swal2-center {
+    z-index: 11000 !important;
+}
+
+.pagination{
+    float: right;
+}
+
+@media (max-width: 1400px) {
+    .number span:nth-child(n + 1) {
+        margin-left: 0px;
+    }
+    .number span {
+        padding: 2px 7px;
+    }
+
+    .block-search .btn {
+        padding: 0.9rem 1rem !important;
+    }
+}

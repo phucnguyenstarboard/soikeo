@@ -1,0 +1,123 @@
+.circle {
+    height: 50px;
+    width: 50px;
+    border: 1px solid;
+    margin-left: 40%;
+
+}
+.gantt1  {
+    border: 2px solid #ddd;
+}
+.gantt .fn-gantt .leftPanel {
+    width: 500px;
+}
+
+.gantt .fn-gantt .leftPanel .name .fn-label {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.gantt .fn-gantt .leftPanel .desc .fn-label {
+    text-align: left;
+}
+
+.gantt .fn-gantt .leftPanel .desc2 .fn-label {
+    padding-left: 40px;
+    text-align: center;
+}
+.gantt .fn-gantt .leftPanel .desc3 .fn-label {
+    padding-left: 13px;
+}
+
+.gantt1 .fn-gantt .leftPanel {
+    width: 745px;
+}
+
+
+.header .desc3 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.header .desc4 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.fn-gantt .leftPanel .name,
+.fn-gantt .leftPanel .desc,
+.fn-gantt .leftPanel .desc3 {
+    float: left;
+    height: 48px;
+    width: 20%;
+    background-color: #f6f6f6;
+}
+
+.fn-gantt .leftPanel .desc3 .fn-label {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header .desc4 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.fn-gantt .leftPanel .name,
+.fn-gantt .leftPanel .desc,
+.fn-gantt .leftPanel .desc4 {
+    float: left;
+    height: 48px;
+    width: 20%;
+    background-color: #f6f6f6;
+}
+
+.gantt1 .fn-gantt .leftPanel .desc1 .fn-label {
+    text-align: left;
+}
+
+.gantt1 .fn-gantt .leftPanel .name1 .fn-label {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.gantt1 .fn-gantt .leftPanel .desc4 .fn-label {
+    text-align: center;
+}
+
+.gantt1 .fn-gantt .leftPanel .name1,
+.gantt1 .fn-gantt .leftPanel .desc1,
+.gantt1 .fn-gantt .leftPanel .desc4 {
+    float: left;
+    height: 48px;
+    width: 18%;
+    background-color: #f6f6f6;
+}
+
+.gantt .fn-gantt .leftPanel .desc3 {
+    width: 26.5%;
+}
+
+.gantt .fn-gantt .leftPanel .name1,
+.gantt .fn-gantt .leftPanel .desc1,
+.gantt .fn-gantt .leftPanel .desc4 {
+    display: none;
+}
+
+.gantt1 .fn-gantt .leftPanel .name,
+.gantt1 .fn-gantt .leftPanel .desc {
+    display: none;
+}
+
+.gantt1 .fn-gantt .leftPanel .desc2 {
+    width: 25%;
+}
+
+.gantt1 .fn-gantt .leftPanel .desc4 {
+    width: 18.5%;
+}
+
+.gantt1 .fn-gantt .leftPanel .name1,
+.gantt1 .fn-gantt .leftPanel .desc1 {
+    text-align: center;
+}
