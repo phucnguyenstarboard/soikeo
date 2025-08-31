@@ -75,7 +75,7 @@
                                             <div class="col-8 col-md-6 text-right">Número de ciclos : <span class="so_ky">{{ date('Ymd', strtotime($item_new->time_created)) }} - {{ $item_new->session_id }}</span></div>
                                         </div>
                                         <div class="row mt-1">
-                                            <div class="col-6 col-md-6 d-md-none d-flex">Saldo Total : <span class="text-balance">{{ number_format($user->balance) }}</span></div>
+                                            <div class="col-6 col-md-6 d-md-none d-flex">Saldo Total : <span class="text-balance"> R$ {{ number_format($user->balance) }}</span></div>
                                             <div class="col-6 col-md-12 text-right timer">
                                                 <span class="txt-hour">00</span>
                                                 <span class="txt-minute">{{ $minute < 10 ? '0'.$minute : $minute }}</span>
@@ -142,7 +142,7 @@
                                                                                 <div class="col-7 col-md-9 col-lg-9 col-xl-9">
                                                                                     <h3>{{ $value->title }}</h3>
                                                                                     <p class="mb-0">{{ $value->description }}</p>
-                                                                                    <p class="mb-0">R$ {{ $value->price }}</p>
+                                                                                    <p class="mb-0">R$ {{ number_format($value->price) }}</p>
                                                                                     <div class="row mt-1">
                                                                                         <div class="col-12 col-md-12">
                                                                                             <button type="button" class="btn-export btn btn-gao glow">EXPORTAR</button>
@@ -205,7 +205,7 @@
                                                         <img style="width:100%" class="img-fluid" src="{{ asset('images/make.jpg') }}" alt="">
                                                     </div>
                                                 </div><!-- /tab-pane -->
-											    <div class="tab-pane active" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
+											    <div class="tab-pane" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
                                                     
                                                     <div class="row">
                                                         
