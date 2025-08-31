@@ -101,7 +101,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             @if(!empty($user->bank_name))
-                                            <h3 style="color:#007bff">{{ $user->bank_name }}</h3>
+                                            <h3 style="color:#007bff;text-transform: uppercase;">{{ $user->bank_name }}</h3>
                                             <h1>{{ $user->account_number }}</h1>
                                             <h4>Nome: {{ $user->account_name }}</h4>
                                             @endif

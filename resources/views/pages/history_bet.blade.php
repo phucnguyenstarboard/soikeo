@@ -245,15 +245,15 @@
                     },
                     {
                         targets: 2,
-                        width: 150
+                        width: 180
                     },
                     {
                         targets: 3,
-                        width: 140
+                        width: 120
                     },
                     {
                         targets: 4,
-                        width: 140
+                        width: 120
                     },
                     {
                         targets: 5,
