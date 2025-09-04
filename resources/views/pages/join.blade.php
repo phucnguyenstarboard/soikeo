@@ -108,103 +108,16 @@
                                                 <div class="col-12 col-md-12 block-room">
                                                     <ul class="nav nav-tabs row" role="tablist">
                                                         <li class="nav-item col-6 col-md-6 text-center">
-                                                            <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tabc-1" aria-controls="tabc-1" role="tab" aria-selected="true"><span>PHÒNG 1</span></a>
+                                                            <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tabc-1" aria-controls="tabc-1" role="tab" aria-selected="true"><span>HẸN HÒ</span></a>
                                                         </li>
                                                         <li class="nav-item col-6 col-md-6 text-center">
-                                                            <a class="nav-link" id="tab-2" data-toggle="tab" href="#tabc-2" aria-controls="tabc-2" role="tab" aria-selected="false"><span>HẸN HÒ</span></a>
+                                                            <a class="nav-link" id="tab-2" data-toggle="tab" href="#tabc-2" aria-controls="tabc-2" role="tab" aria-selected="false"><span>PHÒNG 1</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="tab-content">
-                                                  <div class="tab-pane active" id="tabc-1" aria-labelledby="tab-1" role="tabpanel">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-12 col-xl-6 list_gao">
-                                                            
-                                                            <div class="row mb-1">
-                                                                <div class="col-6 col-sm-6">
-                                                                    <h3 style="margin-top: 5px;">Gạo ngon Việt Nam</h3>
-                                                                </div>
-                                                               <div class="col-6 col-sm-6 text-right">
-                                                                <a href="{{ route('history_bet') }}" class="btn btn-gao btn-join glow mb-0 mb-sm-0 mr-0">LỊCH SỬ THAM GIA</a>
-                                                               </div>
-                                                            </div>
-                                                            @foreach ($list_gao as $key => $value)
-                                                            <div class="row">
-                                                                <div class="col-12 col-md-12">
-                                                                    <div class="card">
-                                                                        <div class="card-body">
-                                                                            <div class="row">
-                                                                                <div class="col-5 col-md-3 col-lg-3 col-xl-3 text-center">
-                                                                                    <img class="fluid-img" src="https://admin.sclmvip.shop/{{ $value->image }}" style="width: 131px" alt="">
-                                                                                </div>
-                                                                                <div class="col-7 col-md-9 col-lg-9 col-xl-9">
-                                                                                    <h3>{{ $value->title }}</h3>
-                                                                                    <p class="mb-0">{{ $value->description }}</p>
-                                                                                    <p class="mb-0">{{ number_format($value->price) }}đ</p>
-                                                                                    <div class="row mt-1">
-                                                                                        <div class="col-12 col-md-12">
-                                                                                            <button type="button" class="btn-export btn btn-gao glow">XUẤT</button>
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-12">
-                                                                                            <button type="button" class="btn-import btn btn-gao glow">NHẬP</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="col-12 col-md-12 col-xl-6">
-                                                            <div class="row prize">
-                                                                <div class="col-12 col-md-12">
-                                                                    <ul class="nav nav-tabs" role="tablist">
-                                                                        <li class="nav-item col-6 col-md-6 text-center">
-                                                                            <a class="nav-link active" id="tab-11" data-toggle="tab" href="#tabc-11" aria-controls="tabc-11" role="tab" aria-selected="true">MỞ THƯỞNG GẦN NHẤT</a>
-                                                                        </li>
-                                                                        <li class="nav-item col-6 col-md-6 text-center">
-                                                                            <a class="nav-link" id="tab-12" data-toggle="tab" href="#tabc-12" aria-controls="tabc-12" role="tab" aria-selected="false">XÁC NHẬN GẦN NHẤT</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tab-content">
-                                                                <div class="tab-pane active" id="tabc-11" aria-labelledby="tab-11" role="tabpanel">
-                                                                    <div class="row">
-                                                                        <div class="col-12 col-md-12 block-prize-1">
-                                                                            @include(
-                                                                            'pages.subpages.prize_1',
-                                                                            [
-                                                                            '$item_last' => $item_last ?? [],
-                                                                            ]
-                                                                            )
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- /tab-pane -->
-                                                                <div class="tab-pane" id="tabc-12" aria-labelledby="tab-12" role="tabpanel">
-                                                                    <div class="row">
-                                                                        <div class="col-12 col-md-12 block-prize-2">
-                                                                            @include(
-                                                                            'pages.subpages.prize_2',
-                                                                            [
-                                                                            '$item_bet' => $item_bet ?? [],
-                                                                            ]
-                                                                            )
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- /tab-pane -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mt-3">
-                                                        <img style="width:100%" class="img-fluid" src="{{ asset('images/make.jpg') }}" alt="">
-                                                    </div>
-                                                </div><!-- /tab-pane -->
-											    <div class="tab-pane" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
+                                                 <div class="tab-pane active" id="tabc-1" aria-labelledby="tab-1" role="tabpanel">
                                                     
                                                     <div class="row">
                                                         
@@ -274,6 +187,93 @@
                                                           </div>
                                                     </div>
                                                 </div><!-- /tab-pane -->
+                                                <div class="tab-pane" id="tabc-2" aria-labelledby="tab-2" role="tabpanel">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-12 col-xl-6 list_gao">
+                                                            
+                                                            <div class="row mb-1">
+                                                                <div class="col-6 col-sm-6">
+                                                                    <h3 style="margin-top: 5px;">Gạo ngon Việt Nam</h3>
+                                                                </div>
+                                                               <div class="col-6 col-sm-6 text-right">
+                                                                <a href="{{ route('history_bet') }}" class="btn btn-gao btn-join glow mb-0 mb-sm-0 mr-0">LỊCH SỬ THAM GIA</a>
+                                                               </div>
+                                                            </div>
+                                                            @foreach ($list_gao as $key => $value)
+                                                            <div class="row">
+                                                                <div class="col-12 col-md-12">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-5 col-md-3 col-lg-3 col-xl-3 text-center">
+                                                                                    <img class="fluid-img" src="https://admin.sclmvip.shop/uploads/category/{{ $value->image }}" style="width: 131px" alt="">
+                                                                                </div>
+                                                                                <div class="col-7 col-md-9 col-lg-9 col-xl-9">
+                                                                                    <h3>{{ $value->title }}</h3>
+                                                                                    <p class="mb-0">{{ $value->description }}</p>
+                                                                                    <p class="mb-0">{{ number_format($value->price) }}đ</p>
+                                                                                    <div class="row mt-1">
+                                                                                        <div class="col-12 col-md-12">
+                                                                                            <button type="button" class="btn-export btn btn-gao glow">XUẤT</button>
+                                                                                        </div>
+                                                                                        <div class="col-12 col-md-12">
+                                                                                            <button type="button" class="btn-import btn btn-gao glow">NHẬP</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="col-12 col-md-12 col-xl-6">
+                                                            <div class="row prize">
+                                                                <div class="col-12 col-md-12">
+                                                                    <ul class="nav nav-tabs" role="tablist">
+                                                                        <li class="nav-item col-6 col-md-6 text-center">
+                                                                            <a class="nav-link active" id="tab-11" data-toggle="tab" href="#tabc-11" aria-controls="tabc-11" role="tab" aria-selected="true">MỞ THƯỞNG GẦN NHẤT</a>
+                                                                        </li>
+                                                                        <li class="nav-item col-6 col-md-6 text-center">
+                                                                            <a class="nav-link" id="tab-12" data-toggle="tab" href="#tabc-12" aria-controls="tabc-12" role="tab" aria-selected="false">XÁC NHẬN GẦN NHẤT</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane active" id="tabc-11" aria-labelledby="tab-11" role="tabpanel">
+                                                                    <div class="row">
+                                                                        <div class="col-12 col-md-12 block-prize-1">
+                                                                            @include(
+                                                                            'pages.subpages.prize_1',
+                                                                            [
+                                                                            '$item_last' => $item_last ?? [],
+                                                                            ]
+                                                                            )
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /tab-pane -->
+                                                                <div class="tab-pane" id="tabc-12" aria-labelledby="tab-12" role="tabpanel">
+                                                                    <div class="row">
+                                                                        <div class="col-12 col-md-12 block-prize-2">
+                                                                            @include(
+                                                                            'pages.subpages.prize_2',
+                                                                            [
+                                                                            '$item_bet' => $item_bet ?? [],
+                                                                            ]
+                                                                            )
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /tab-pane -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-3">
+                                                        <img style="width:100%" class="img-fluid" src="{{ asset('images/make.jpg') }}" alt="">
+                                                    </div>
+                                                </div><!-- /tab-pane -->											   
                                               
  
                                             </div>

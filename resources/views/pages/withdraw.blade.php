@@ -107,7 +107,7 @@
                                                     <div class="col-8 col-sm-9">
                                                         <div class="input-group" id="show_hide_password">
                                                             <input required
-                                                                data-validation-required-message="Vui lòng nhập mật khẩu quỹ" type="password" name="password_fund" maxlength="255" class="form-control" value="">
+                                                                data-validation-required-message="Vui lòng nhập mật khẩu quỹ" type="password" name="password_fund" autocomplete="off" maxlength="255" class="form-control" value="">
                                                             <div class="input-group-append">
                                                                 <button class="btn btn-outline-secondary" type="button"><i class="fa fa-eye-slash dark"></i></button>
                                                             </div>
