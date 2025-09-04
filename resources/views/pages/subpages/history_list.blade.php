@@ -37,7 +37,7 @@
                                             <span class="txt-num-5">{{ substr($item->result,4,1) }}</span>
                                         </div>
                                     </td>
-                                    <td class="text-center">{{ number_format($item->betMoney) }} VNĐ</td>
+                                    <td class="text-center">{{ number_format($item->betMoney) }}</td>
                                     <td class="text-center">{{ date('d/m/Y H:i:s', $item->timeInt) }}</td>
                                     <td class="text-center">{{ $item->session_id }}</td>
                                 </tr>

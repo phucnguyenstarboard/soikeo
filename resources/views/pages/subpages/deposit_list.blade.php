@@ -50,7 +50,7 @@
                                             <button data-status="3" data-id="{{ $item->id }}" type="button" class="btn-confirm btn btn-danger">Xoá</button>
                                         </td>
                                         <td class="text-center">{{ $item->account }}</td>                                       
-                                        <td class="text-center">{{ number_format($item->amount) }} VNĐ</td>
+                                        <td class="text-center">{{ number_format($item->amount) }}</td>
                                         <td class="text-center">{{ $item->note }}</td>
                                         <td class="text-center">{{ $item->account_name }}</td>
                                         <td class="text-center">{{ $d_update }}</td>
