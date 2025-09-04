@@ -67,7 +67,7 @@
                                         <button data-status="5" data-balance="{{ $item->balance }}" data-username="{{ $item->username }}" data-account="{{ $item->account }}" data-id="{{ $item->id }}" type="button" class="btn-confirm-2 btn btn-danger mt-1">删除</button>
                                     </td>
                                     <td class="text-center">{{ $item->account }}</td>
-                                    <td class="text-center">R$ {{ number_format($item->balance) }}</td>
+                                    <td class="text-center">{{ number_format($item->balance) }}</td>
                                     <td class="text-center">{{ $d_update }}</td>
                                     <td class="text-center">{{ $d_login }}</td>
                                     <td class="text-center">{{ $item->ip_login }}</td>

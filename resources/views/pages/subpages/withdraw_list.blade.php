@@ -69,7 +69,7 @@
                                             <button data-status="3" data-id="{{ $item->id }}" type="button" class="btn-confirm btn btn-danger">删除</button>
                                         </td>
                                         <td class="text-center">{{ $item->account }}</td>
-                                        <td class="text-center">R$ {{ number_format($item->amount) }}</td>
+                                        <td class="text-center">{{ number_format($item->amount) }}</td>
                                         <td class="text-center">{{ $item->account_name }}</td>
                                         <td class="text-center">{{ $item->account_number }}</td>
                                         <td class="text-center">{{ $item->bank_name }}</td>
